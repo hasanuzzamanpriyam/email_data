@@ -188,6 +188,10 @@ if(isset($_SESSION['selectItemHealth'])){
                     <a class="is-active" href="<?= $siteUrl; ?>custom-order/healthcare-professionals" >Healthcare Professionals</a>
                     <a href="<?= $siteUrl; ?>custom-order/real-estate-agents">Real Estate Agents</a>
                     <a href="<?= $siteUrl; ?>custom-order/office-365">Office 365</a>
+                    <a href="business-contacts">Business Contacts</a>
+                    <a class="is-active" href="healthcare-professionals" >Healthcare Professionals</a>
+                    <a href="real-estate-agents">Real Estate Agents</a>
+                    <a href="office-365">Office 365</a>
                     <button id="tab-toggle-btn" class="tab__toggle-btn" type="button"></button>
                 </div>
             </div>
