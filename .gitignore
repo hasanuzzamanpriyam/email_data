@@ -1,2 +1,56 @@
-indexing/key.json
-stripe_config.php
+# Sensitive Configuration Files
+**/stripe_config.php
+**/config.php
+**/*.env
+**/.env
+.env.local
+.env.*.local
+
+# Database
+*.sql
+*.sqlite
+*.db
+
+# Logs
+*.log
+error_log
+debug.log
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+# Vendor & Dependencies
+/vendor/
+/node_modules/
+
+# Cache & Temporary Files
+cache/
+tmp/
+temp/
+*.cache
+*.tmp
+
+# Uploads & User Data
+uploads/
+storage/
+*.pem
+*.key
+
+# Backup Files
+*.bak
+*.backup
+*~
+
+# OS Generated Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
