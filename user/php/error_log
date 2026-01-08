@@ -1,0 +1,235 @@
+[16-Jun-2021 03:17:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 10
+[01-Sep-2021 04:22:25 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[01-Sep-2021 06:58:12 America/New_York] PHP Notice:  Undefined index: verified in /home/mailrqyk/public_html/user/php/session.php on line 19
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 9
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 10
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 11
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 12
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 13
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 14
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 15
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 16
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 17
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 18
+[01-Sep-2021 07:15:57 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/session.php on line 19
+[11-Sep-2021 00:46:53 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Sep-2021 02:16:15 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Sep-2021 04:10:13 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 54
+[11-Sep-2021 05:22:01 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 54
+[11-Sep-2021 05:22:11 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 54
+[11-Sep-2021 05:23:27 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[12-Sep-2021 10:18:15 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Sep-2021 01:40:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Sep-2021 01:40:07 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Sep-2021 07:12:45 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Sep-2021 07:12:52 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Sep-2021 07:12:57 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[21-Sep-2021 23:52:05 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[28-Sep-2021 10:58:42 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[13-Oct-2021 13:26:21 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[13-Oct-2021 13:26:43 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 54
+[24-Oct-2021 07:02:53 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Oct-2021 07:06:42 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Oct-2021 07:11:09 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Oct-2021 07:11:28 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[27-Oct-2021 01:55:42 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 01:57:33 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:12:04 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:13:55 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:14:53 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:15:08 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:15:31 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:15:51 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:16:24 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:17:26 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:40:23 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[27-Oct-2021 02:42:37 America/New_York] PHP Notice:  Undefined variable: retopCode in /home/mailrqyk/public_html/user/php/process.php on line 102
+[27-Oct-2021 02:43:40 America/New_York] PHP Notice:  Undefined variable: retopCode in /home/mailrqyk/public_html/user/php/process.php on line 102
+[27-Oct-2021 02:43:44 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/payment.php on line 55
+[27-Oct-2021 02:43:44 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/payment.php on line 56
+[27-Oct-2021 02:43:44 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/payment.php on line 58
+[27-Oct-2021 02:43:44 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/payment.php on line 59
+[27-Oct-2021 02:43:44 America/New_York] PHP Notice:  Trying to access array offset on value of type bool in /home/mailrqyk/public_html/user/php/payment.php on line 60
+[27-Oct-2021 02:43:54 America/New_York] PHP Notice:  Undefined variable: retopCode in /home/mailrqyk/public_html/user/php/process.php on line 102
+[02-Nov-2021 21:59:21 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[08-Nov-2021 14:41:13 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[08-Nov-2021 17:28:13 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[09-Nov-2021 04:31:20 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[09-Nov-2021 04:33:30 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Nov-2021 03:52:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 06:21:22 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Nov-2021 06:23:38 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Nov-2021 06:23:57 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Nov-2021 06:32:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:39:04 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:40:15 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:40:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:40:47 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:40:50 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Nov-2021 07:40:52 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[11-Nov-2021 01:00:50 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 01:01:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 01:59:50 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 02:00:09 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 03:04:14 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 03:04:26 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 07:34:27 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 07:34:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 15:57:55 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Nov-2021 16:23:25 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[12-Nov-2021 03:10:30 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Nov-2021 00:03:55 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[29-Nov-2021 23:24:56 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[30-Nov-2021 09:05:45 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Nov-2021 12:11:51 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[30-Nov-2021 12:12:06 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Nov-2021 12:12:11 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[30-Nov-2021 12:12:18 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[01-Dec-2021 10:00:47 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[21-Dec-2021 10:26:14 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 08:56:51 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[01-Jan-2022 08:58:49 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:31:02 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:31:27 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:31:29 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:31:33 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:31:45 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Jan-2022 10:47:35 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[04-Jan-2022 13:48:06 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[04-Jan-2022 13:48:19 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[04-Jan-2022 13:48:32 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Jan-2022 23:34:22 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Jan-2022 11:40:48 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Jan-2022 13:14:55 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[15-Jan-2022 00:09:40 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Jan-2022 07:11:14 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Jan-2022 03:00:53 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Jan-2022 03:01:40 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Jan-2022 03:01:42 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Jan-2022 07:08:14 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[30-Jan-2022 12:42:46 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[28-Feb-2022 06:17:11 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[28-Feb-2022 06:17:21 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[28-Feb-2022 08:56:35 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[06-Mar-2022 04:11:00 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[14-Mar-2022 03:39:42 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[14-Mar-2022 06:33:49 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[16-Mar-2022 08:32:53 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[17-Mar-2022 12:56:47 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[22-Mar-2022 12:08:28 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[24-Mar-2022 16:05:36 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:05:57 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:06:07 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:06:10 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:06:28 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:07:18 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Mar-2022 16:08:11 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[31-Mar-2022 10:19:40 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[31-Mar-2022 13:15:02 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[01-Apr-2022 13:00:21 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[06-Apr-2022 18:03:01 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[07-Apr-2022 07:58:18 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[07-Apr-2022 09:53:35 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Apr-2022 07:19:19 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Apr-2022 07:21:02 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Apr-2022 11:12:49 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Apr-2022 16:07:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[08-Apr-2022 18:06:46 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-Apr-2022 13:49:14 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-Apr-2022 15:19:26 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-Apr-2022 16:16:24 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-Apr-2022 16:16:28 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-Apr-2022 16:34:33 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Apr-2022 01:33:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Apr-2022 07:48:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Apr-2022 14:19:35 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[12-Apr-2022 14:52:36 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[13-Apr-2022 15:58:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[13-Apr-2022 16:16:59 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[15-Apr-2022 14:13:16 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[16-Apr-2022 11:10:09 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[09-May-2022 11:25:36 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[10-Jun-2022 09:03:30 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Jun-2022 09:03:38 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[10-Jul-2022 23:39:43 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[11-Jul-2022 10:59:01 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Jul-2022 05:31:49 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[16-Jul-2022 05:31:56 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[17-Jul-2022 11:20:05 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[17-Jul-2022 14:52:37 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[17-Jul-2022 15:13:22 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[18-Jul-2022 09:08:33 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[18-Jul-2022 09:52:07 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[18-Jul-2022 18:37:15 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[21-Jul-2022 05:15:18 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[24-Jul-2022 09:02:09 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[31-Jul-2022 00:36:23 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 99
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 113
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 132
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 151
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 165
+[31-Jul-2022 01:38:00 America/New_York] PHP Notice:  Undefined variable: payMethod in /home/mailrqyk/public_html/user/php/payment.php on line 180
+[17-Sep-2022 15:38:51 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[17-Sep-2022 20:41:44 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[16-Nov-2022 15:55:07 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[22-Jan-2023 03:10:59 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[22-Jan-2023 05:55:57 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[22-Jan-2023 05:57:55 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 9
+[20-Feb-2023 13:18:03 America/New_York] PHP Notice:  Undefined variable: cid in /home/mailrqyk/public_html/user/php/process.php on line 66
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetExists($offset) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 44
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetGet($offset) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 57
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetSet($offset, $value) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 34
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetUnset($offset) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 51
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 24
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 29
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Util\Set::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/Set.php on line 40
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetExists($k) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 202
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetGet($k) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 212
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetSet($k, $v) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 197
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetUnset($k) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 207
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 218
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::jsonSerialize() should either be compatible with JsonSerializable::jsonSerialize(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 422
+[03-Aug-2025 18:38:14 UTC] PHP Deprecated:  Return type of Stripe\Collection::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Collection.php on line 119
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetExists($offset) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 44
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetGet($offset) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 57
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetSet($offset, $value) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 34
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetUnset($offset) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 51
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 24
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 29
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Util\Set::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/Set.php on line 40
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetExists($k) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 202
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetGet($k) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 212
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetSet($k, $v) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 197
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetUnset($k) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 207
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 218
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::jsonSerialize() should either be compatible with JsonSerializable::jsonSerialize(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 422
+[03-Aug-2025 18:38:23 UTC] PHP Deprecated:  Return type of Stripe\Collection::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Collection.php on line 119
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetExists($offset) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 44
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetGet($offset) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 57
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetSet($offset, $value) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 34
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::offsetUnset($offset) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 51
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 24
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\CaseInsensitiveArray::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/CaseInsensitiveArray.php on line 29
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Util\Set::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Util/Set.php on line 40
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetExists($k) should either be compatible with ArrayAccess::offsetExists(mixed $offset): bool, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 202
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetGet($k) should either be compatible with ArrayAccess::offsetGet(mixed $offset): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 212
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetSet($k, $v) should either be compatible with ArrayAccess::offsetSet(mixed $offset, mixed $value): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 197
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::offsetUnset($k) should either be compatible with ArrayAccess::offsetUnset(mixed $offset): void, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 207
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::count() should either be compatible with Countable::count(): int, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 218
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\StripeObject::jsonSerialize() should either be compatible with JsonSerializable::jsonSerialize(): mixed, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/StripeObject.php on line 422
+[03-Aug-2025 18:38:32 UTC] PHP Deprecated:  Return type of Stripe\Collection::getIterator() should either be compatible with IteratorAggregate::getIterator(): Traversable, or the #[\ReturnTypeWillChange] attribute should be used to temporarily suppress the notice in /home/bookyourdata/emailbigdata.com/user/php/stripe/stripe-php/lib/Collection.php on line 119
+[25-Aug-2025 10:42:10 UTC] PHP Warning:  Undefined variable $cid in /home/bookyourdata/emailbigdata.com/user/php/process.php on line 9
+[25-Aug-2025 10:42:10 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/bookyourdata/emailbigdata.com/user/php/auth.php:17
+Stack trace:
+#0 /home/bookyourdata/emailbigdata.com/user/php/auth.php(17): PDOStatement->execute()
+#1 /home/bookyourdata/emailbigdata.com/user/php/process.php(10): Auth->get_orders(NULL)
+#2 {main}
+  thrown in /home/bookyourdata/emailbigdata.com/user/php/auth.php on line 17
+[25-Aug-2025 10:42:36 UTC] PHP Warning:  Undefined variable $cid in /home/bookyourdata/emailbigdata.com/user/php/process.php on line 9
+[25-Aug-2025 10:42:36 UTC] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1 in /home/bookyourdata/emailbigdata.com/user/php/auth.php:17
+Stack trace:
+#0 /home/bookyourdata/emailbigdata.com/user/php/auth.php(17): PDOStatement->execute()
+#1 /home/bookyourdata/emailbigdata.com/user/php/process.php(10): Auth->get_orders(NULL)
+#2 {main}
+  thrown in /home/bookyourdata/emailbigdata.com/user/php/auth.php on line 17

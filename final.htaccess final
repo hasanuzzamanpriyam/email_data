@@ -1,0 +1,28 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Map pretty URLs to PHP files
+RewriteRule ^about$ about.php [L]
+RewriteRule ^pricing$ pricing.php [L]
+
+# Ready-made with 1 or 2 parts
+RewriteRule ^ready-made/([0-9a-zA-Z_-]+)$ ready-made.php?title=$1 [NC,L]
+RewriteRule ^ready-made/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ ready-made.php?title=$1&cat=$2 [NC,L]
+RewriteRule ^ready-made/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)/([0-9a-zA-Z_-]+)$ ready-made.php?title=$1&cat=$2&id=$3 [NC,L]
+
+# Blogs data route
+RewriteRule ^blogs/data/([0-9a-zA-Z_-]+)$ data.php?title=$1 [NC,L]
+
+# Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# Remove www (optional)
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1%{REQUEST_URI} [R=301,L]
+
+# Support .php and .html fallback
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L,QSA]

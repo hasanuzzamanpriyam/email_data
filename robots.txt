@@ -1,0 +1,7 @@
+
+Sitemap: https://mailerstation.com/sitemap.xml
+
+User-agent: Mediapartners-Google 
+Disallow:
+User-agent: *
+Disallow: /admin/

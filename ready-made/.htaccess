@@ -1,0 +1,20 @@
+RewriteEngine On
+# RewriteBase /ready-made/
+
+# Serve existing files or directories directly
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Exclude single-product from rewriting
+RewriteCond %{REQUEST_URI} !/ready-made/single-product
+
+# Rewrite .php extensions (optional, to make URLs prettier if needed internally)
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L,QSA]
+
+# Only rewrite other slugs to all.php if they don't map to a file
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php !-f
+RewriteRule ^([^/]+)/?$ all.php?title=$1 [L,QSA]

@@ -1,0 +1,82 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.chat-demo{
+    position: fixed; /* Fixed/sticky position */
+    bottom: 30px; /* Place the button at the bottom of the page */
+    right: 40px; /* Place the button 30px from the right */
+    z-index: 99; /* Make sure it does not overlap */
+    border: none; /* Remove borders */
+    outline: none; /* Remove outline */
+    background-color: #04B600; /* Set a background color */
+    cursor: pointer; /* Add a mouse pointer on hover */
+    border-radius: 50%; /* Rounded corners */
+    width: 90px;
+    height: 90px;
+}
+.chat-btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+   /* background-color: red; */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+.chat-btn > img {
+    width: 50px;
+    border-radius: 50%; 
+    animation-name: chat;
+    animation-duration: 0.5s;
+}
+@keyframes chat {
+    100%   {transform: rotate(360deg);}
+}
+#chat-option{
+    width: 60px;
+    height: auto;
+    margin-left: 15px;
+   /* background-color: greenyellow;*/
+    position: absolute;
+    bottom: 100px;
+}
+#chat-option > a > img {
+    width: 60px;
+    -webkit-filter: drop-shadow(5px 5px 5px #666666);
+    filter: drop-shadow(5px 5px 5px #666666);
+    border-radius: 50%;
+}
+#chat-option > a > img:hover{
+    width: 63px;
+    transition: .5s;
+}
+.chat-live span{
+    position: absolute;
+    bottom: 0px;
+    display: block;
+    min-width: 90px;
+    height: 90px;
+    border: 2px solid #04B600;
+    border-radius: 50%;
+    animation: animate 1s infinite;
+    opacity: 1;
+    filter: blur(4px);
+    animation-delay: calc(var(--i) * 1s);
+}
+@keyframes animate{
+    100%{
+        -ms-transform: scale(2); 
+        -webkit-transform: scale(2); 
+        transform: scale(1.5); 
+        opacity: 0;
+        filter: blur(1px);
+    }
+    
+}
+.iconic-content__icon{
+    color: red;
+}
+.Zontronare{
+    margin-top: -20px;
+}

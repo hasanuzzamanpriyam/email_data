@@ -1,0 +1,189 @@
+[26-Aug-2021 03:34:11 America/New_York] PHP Parse error:  syntax error, unexpected '=' in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 9
+[26-Aug-2021 03:35:11 America/New_York] PHP Notice:  Undefined variable: DESCRIPTION in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 12
+[26-Aug-2021 03:35:11 America/New_York] PHP Notice:  Undefined variable: DESCRIPTION in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 17
+[26-Aug-2021 03:35:12 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_6MbieoGsifsaJo) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:36:48 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_WvQ4eCJeJy2RlR) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:37:21 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_rrD7wPjdeTCbYU) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:47:19 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Us4IVMGqOrZtQf) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:47:47 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_pKBrGGNOhYqYDR) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:48:10 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Osal36YPOsCecp) Invalid integer: 3899.00
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:50:39 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_pcTPbbYtNxSUnV) Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 03:51:00 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_VYJJW67ITZhwZZ) Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 04:55:39 America/New_York] PHP Warning:  include_once(assets/php/header.php): failed to open stream: No such file or directory in /home/eoffxkna/businessleadusa.com/checkout/stripe/success.php on line 1
+[26-Aug-2021 04:55:39 America/New_York] PHP Warning:  include_once(): Failed opening 'assets/php/header.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eoffxkna/businessleadusa.com/checkout/stripe/success.php on line 1
+[26-Aug-2021 04:55:39 America/New_York] PHP Warning:  include_once(assets/php/footer.php): failed to open stream: No such file or directory in /home/eoffxkna/businessleadusa.com/checkout/stripe/success.php on line 42
+[26-Aug-2021 04:55:39 America/New_York] PHP Warning:  include_once(): Failed opening 'assets/php/footer.php' for inclusion (include_path='.:/opt/alt/php72/usr/share/pear') in /home/eoffxkna/businessleadusa.com/checkout/stripe/success.php on line 42
+[26-Aug-2021 05:44:40 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_PlPtDvyWymwKta) Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 05:48:18 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_V6yHpLrTdv88WF) Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 05:50:58 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_A6I2GLYAl6WuQf) Your card was declined. Your request was in test mode, but used a non test (live) card. For a list of valid test cards, visit: https://stripe.com/docs/testing.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 05:51:54 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_LWLIGqaqSQ1rMo) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 05:53:19 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_0pqKiLzaUuUI9y) Your card has expired.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[26-Aug-2021 05:54:16 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_nqZAQK6JuWPQOi) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[30-Aug-2021 01:30:43 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_czDo6xnBedn6U8) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[30-Aug-2021 01:31:26 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_GCLcW1IYNUv6qL) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[31-Aug-2021 06:18:30 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_u32NEyIqEKhmV8) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[31-Aug-2021 06:19:48 America/New_York] PHP Fatal error:  Uncaught (Status 402) (Request req_sqMEt7qJoGNZjA) Your card has insufficient funds.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[31-Aug-2021 06:23:36 America/New_York] PHP Notice:  Undefined variable: stripe_respose in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 30
+[31-Aug-2021 06:23:36 America/New_York] PHP Notice:  Trying to get property 'status' of non-object in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 30
+[31-Aug-2021 06:25:15 America/New_York] PHP Parse error:  syntax error, unexpected '<' in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 30
+[11-Sep-2021 05:50:10 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_qQvUMGUO4y4vUi) No such price: '10000'
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 05:51:10 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_pRFu2QdHLGVLNd) No such price: '1000.00'
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 05:54:02 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_WcrOiOotcaeWhA) Received unknown parameter: line_items[0][amount_total]
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 05:54:34 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_TpVe38A4ius7E8) No such price: '{{PRICE_ID}}'
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 05:57:48 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Fnw4C70XdPtB0r) No such price: '1'
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 05:59:26 America/New_York] PHP Notice:  Undefined variable: checkout_session in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 33
+[11-Sep-2021 05:59:26 America/New_York] PHP Notice:  Trying to get property 'url' of non-object in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 33
+[11-Sep-2021 06:06:20 America/New_York] PHP Notice:  Undefined variable: checkout_session in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 33
+[11-Sep-2021 06:06:20 America/New_York] PHP Notice:  Trying to get property 'url' of non-object in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 33
+[11-Sep-2021 06:09:14 America/New_York] PHP Notice:  Trying to get property 'prices' of non-object in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 14
+[11-Sep-2021 06:09:14 America/New_York] PHP Fatal error:  Uncaught Error: Call to a member function create() on null in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 14
+[11-Sep-2021 06:11:38 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_uDfZah1tn14ODT) No such product: 'prod_K4EJnS6Wg9UFh3'
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 06:13:57 America/New_York] PHP Notice:  Undefined variable: checkout_session in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 48
+[11-Sep-2021 06:13:57 America/New_York] PHP Notice:  Trying to get property 'url' of non-object in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 48
+[11-Sep-2021 06:15:48 America/New_York] PHP Notice:  Undefined variable: YOUR_DOMAIN in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 18
+[11-Sep-2021 06:15:48 America/New_York] PHP Notice:  Undefined variable: YOUR_DOMAIN in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 19
+[11-Sep-2021 06:15:48 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Sa0P7EAJZ6Fgel) Received unknown parameter: amount_total
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 06:16:35 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_tsEKMGDUgPhjwn) Received unknown parameter: amount_total
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 06:17:07 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_JYvZOJBgLpA1aC) The `line_items` parameter is required in payment mode.
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 07:23:58 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_MNaMAEt6PpjQSk) Received unknown parameter: zip-code
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 07:26:04 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_DTj3Va8ebupAw4) Invalid object
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 07:28:02 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_pbWqbIiNKvdBHu) Invalid object
+  thrown in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 07:48:21 America/New_York] PHP Notice:  Undefined index: stripe_description in /home/eoffxkna/businessleadusa.com/checkout/stripe/stripe-submit.php on line 10
+[11-Sep-2021 13:55:06 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_NoAj3SMlLiE2xG) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[11-Sep-2021 14:14:13 America/New_York] PHP Fatal error:  Uncaught (Status 401) Expired API Key provided: sk_live_*********************************************************************************************jli4gz
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 03:14:30 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_qIUr4KM0JKNUos) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 03:14:35 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_5h0XL5oy85EV8Y) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 03:14:39 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_pt4Xh8GOCtrguu) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 03:41:51 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_TbhOp7nRliBfgf) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 03:41:56 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_D5EOpBD2SWI7B9) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 05:42:33 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_KSGYpL4lGhjsFb) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 05:43:01 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_GE7xUiMDbcpQu3) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 05:47:41 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_F2K18wCYY85rL2) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 06:16:16 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_J087Dw79R08KZB) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 06:16:20 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_toqRry2ZvKfLOs) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[13-Sep-2021 06:20:39 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Ls8rSup3QMbIZm) You passed an empty string for 'line_items[0][price_data][product_data][name]'. We assume empty values are an attempt to unset a parameter; however 'line_items[0][price_data][product_data][name]' cannot be unset. You should remove 'line_items[0][price_data][product_data][name]' from your request or supply a non-empty value.
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:45:12 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:45:13 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Eg1g2OioI4cxVK) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:45:34 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:45:35 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_BcZOizLrnIgKsx) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:45:40 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:45:40 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_xfnYFSjXlNn0K1) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:45:52 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:45:52 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_P6WY3lkIqKrYUJ) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:46:00 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:46:00 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_COayCrqZMtly2s) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:46:22 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:46:22 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_4nzZymtJZxevFq) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:47:05 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:47:05 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_lDaKxr0y6yUdz9) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[19-Sep-2021 05:47:10 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[19-Sep-2021 05:47:11 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_wwpUZCyg5EwFQI) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[20-Sep-2021 07:35:58 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[20-Sep-2021 07:35:58 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_1H7KPtQ2BSgXzd) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[22-Sep-2021 00:36:28 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[22-Sep-2021 00:36:29 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_oiL2kO0KkgaDKI) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[23-Sep-2021 00:45:47 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[23-Sep-2021 00:45:47 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_3tNbXqN3ErnEtT) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[23-Sep-2021 00:46:38 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[23-Sep-2021 00:46:38 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_gIbXzmGTsLTfks) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[23-Sep-2021 00:47:05 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[23-Sep-2021 00:47:05 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_wkRKGO5mwD6isM) The Checkout Session's total amount due must add up to at least $0.50 usd
+  thrown in /home/mailrqyk/public_html/checkout/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[23-Sep-2021 01:13:23 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[23-Sep-2021 07:04:16 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[26-Sep-2021 10:52:22 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[26-Sep-2021 11:58:58 America/New_York] PHP Notice:  Undefined index: orderID in /home/mailrqyk/public_html/checkout/stripe/stripe-submit.php on line 7
+[10-Nov-2021 06:32:54 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_MqePsHjAQjIfJ6) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 06:33:02 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_sJ6UAqytIhvkiI) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 06:33:09 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Q88NvfVe1q2AkX) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 06:33:39 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_yFymZE0GjHN7U6) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:39:25 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_3do1uQ8Y2sqmN4) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:39:32 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_1o8vfjoMc5opwX) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:39:51 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_4tBg1YjZ5vlYhC) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:40:03 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_lTnPsLhaOUcKCE) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:40:32 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_eNRNZFdt6Ai57g) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[10-Nov-2021 07:40:41 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_Vv9oEfBKN6ccgR) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[01-Jan-2022 10:31:13 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_PQ165eQDL8Xx9o) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[01-Jan-2022 10:31:19 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_C1UCq6uDyV8NOn) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[01-Jan-2022 10:31:22 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_WYjS04aAgtjjiq) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[04-Jan-2022 13:48:25 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_4CbO6DekE5REn7) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[04-Jan-2022 13:48:30 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_fPbc306w4iXHs4) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[30-Jan-2022 03:00:58 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_1EsqOImGlPHGQA) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[30-Jan-2022 03:01:37 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_4s2Y74pqgtQ4Vj) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38
+[28-Feb-2022 06:17:17 America/New_York] PHP Fatal error:  Uncaught (Status 400) (Request req_HqkrUATE1brK4n) Invalid email address: 
+  thrown in /home/mailrqyk/public_html/user/php/stripe/stripe-php/lib/Exception/ApiErrorException.php on line 38

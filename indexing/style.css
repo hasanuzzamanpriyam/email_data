@@ -1,0 +1,30 @@
+body {
+    background-color: aliceblue;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+textarea {
+    width: 100%;
+}
+
+.site-footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.response-raw {
+    background: #d0dde9;
+}
+
+.response-raw pre {
+    max-height: 300px;
+    font-size: 80%;
+}
