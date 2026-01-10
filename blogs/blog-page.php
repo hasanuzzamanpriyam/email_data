@@ -1,7 +1,7 @@
 <?php
 require_once '../assets/php/auth.php';
+$siteUrl = 'http://localhost/emailbigdata.com/';
 $user = new Auth();
-$siteUrl = 'https://emailbigdata.com/';
 
 // Safe slug function with null fix and fallback
 function slugify($text, string $divider = '-') {

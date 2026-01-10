@@ -1,4 +1,4 @@
-<?php include_once '../assets/php/header.php'; $_SESSION['myPrice'] = 8521;$siteUrl = 'https://emailbigdata.com/';?>
+<?php include_once '../assets/php/header.php'; $_SESSION['myPrice'] = 8521;?>
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
     <div class="container jumbotron--list-detail__container
          table-layout-fixed">

@@ -1,5 +1,4 @@
 <?php
-$siteUrl = 'https://emailbigdata.com/';
 include_once '../assets/php/header.php';
 ?>
 

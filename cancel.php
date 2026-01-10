@@ -2,7 +2,6 @@
 include_once 'assets/php/header.php';
 require_once 'assets/php/auth.php';
 $user = new Auth();
-$siteUrl = 'https://emailbigdata.com/';
 ?>
 <div class="page-title">
     <div class="container page-title__container table-layout-fixed">

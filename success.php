@@ -93,8 +93,8 @@ $order = $user->getLastOrderForUser($userId);
                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                    <a class="o_text-primary" href="https://emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="https://emailbigdata.com/bundles/bydhome/img/emailbigdata-logo.png" width="136" height="36" alt="emailbigdata" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                    <a class="o_text-primary" href="'.$siteUrl.'" style="text-decoration: none;outline: none;color: #126de5;">
+                                        <img src="'.$siteUrl.'bundles/bydhome/img/emailbigdata-logo.png" width="136" height="36" alt="emailbigdata" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
@@ -106,7 +106,7 @@ $order = $user->getLastOrderForUser($userId);
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="https://emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="'.$siteUrl.'user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                           Hello '.$fullName.'
@@ -156,7 +156,7 @@ $order = $user->getLastOrderForUser($userId);
                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                         <tbody>
                                             <tr>
-                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="https://emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Order Details</a></td>
+                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="'.$siteUrl.'user/order" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Order Details</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

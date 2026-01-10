@@ -1,5 +1,5 @@
 <?php
-include_once 'assets/php/header.php';$siteUrl = 'https://emailbigdata.com/';
+include_once 'assets/php/header.php';
 ?>
 <div class="jumbotron jumbotron--about">
     <div class="container jumbotron__container">

@@ -7,6 +7,7 @@ RewriteEngine On
 
 # Rewrite static pages (without .php in URL)
 RewriteRule ^about$ about.php [L]
+RewriteRule ^contact$ contact.php [L]
 RewriteRule ^pricing$ pricing.php [L]
 RewriteRule ^test$ test.php [L]
 RewriteRule ^custom-order/healthcare-professional$ custom-order/healthcare-professionals.php [L]

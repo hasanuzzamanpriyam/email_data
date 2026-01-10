@@ -1,5 +1,4 @@
 <?php
-$siteUrl = 'https://emailbigdata.com/';
 require_once '../assets/php/auth.php';
 $user = new Auth();
 include_once '../assets/php/header.php';
@@ -78,7 +77,7 @@ if (!$firstImage) {
         </div>
     
         <div class="pad-vertical">
-            <a class="button button--secondary" href="https://emailbigdata.com/blogs">← Back to All Blogs</a>
+            <a class="button button--secondary" href="<?= $siteUrl; ?>blogs">← Back to All Blogs</a>
         </div>
    </div>       
 

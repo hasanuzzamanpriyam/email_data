@@ -1,6 +1,7 @@
 <?php
   
     require_once 'stripe_config.php';
+    $siteUrl = 'http://localhost/emailbigdata.com/';
     header('Content-Type: application/json');
     
     if(isset($_POST['payment_amount'])){
@@ -26,8 +27,8 @@
                 'customer_email' => $user_email,
                 'mode' => 'payment',
                 'allow_promotion_codes' => true,
-                'success_url' => 'https://emailbigdata.com/success',
-                'cancel_url' => 'https://emailbigdata.com/cancel',
+                'success_url' => $siteUrl . 'success',
+                'cancel_url' => $siteUrl . 'cancel',
               ]);
               
             // echo '<pre>';

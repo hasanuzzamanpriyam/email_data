@@ -2,6 +2,7 @@
     require_once 'session.php';
 
     require_once 'auth.php';
+    $siteUrl = 'http://localhost/emailbigdata.com/';
     $cuserOrder = new Auth();
     
     if(isset($_POST['action']) && ($_POST['action']=='display-order')){
@@ -35,7 +36,7 @@
                <td>'.$row['status'].'</td>';
                if($row['status'] === 'Completed'){
                     $output .= '<td>
-                  <a href="https://emailbigdata.com/admin/assets/php/'.$row['delivery_file'].'" title="Download File" class="btn btn-success download">Download</a>
+                  <a href="'.$siteUrl.'admin/assets/php/'.$row['delivery_file'].'" title="Download File" class="btn btn-success download">Download</a>
                </td></tr>';
                }else if($row['status'] === 'Processing'){
                     $output .= '<td>
@@ -43,7 +44,7 @@
                </td></tr>';
                }else if($row['status'] === 'Payment Failed'){
                     $output .= '<td>
-                  <a href="https://bookyourdata.io//checkout/step1?reorder='.$row['tracking_id'].'" title="Payment Failed File" class="btn btn-warning">Re-order</a>
+                  <a href="'.$siteUrl.'checkout/step1?reorder='.$row['tracking_id'].'" title="Payment Failed File" class="btn btn-warning">Re-order</a>
                </td></tr>';
                }else if($row['status'] === 'Refund'){
                     $output .= '<td>
@@ -100,7 +101,7 @@
                </td></tr>';
                }else if($row['status'] === 'Failed'){
                     $output .= '<td>
-                  <a href="https://bookyourdata.io/user/php/payment?retopup='.$retopCode.'" title="Top up Failed" class="btn btn-warning">Re-try</a>
+                  <a href="'.$siteUrl.'user/php/payment?retopup='.$retopCode.'" title="Top up Failed" class="btn btn-warning">Re-try</a>
                </td></tr>';
                }else if($row['status'] === 'Cancel'){
                     $output .= '<td>

@@ -5,7 +5,8 @@ $user = new Auth();
 if(isset($_GET['email'])){
     $email = $_GET['email'];
     $user->verify_email_client($email);
-    header('location: https://emailbigdata.com/');
+    $siteUrl = 'http://localhost/emailbigdata.com/';
+    header('location: ' . $siteUrl);
 }
 
 ?>

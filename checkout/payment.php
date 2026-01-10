@@ -3,14 +3,15 @@ session_start();
 require_once '../assets/php/auth.php';
 require_once '../assets/php/session.php';
 require_once 'stripe/stripe_config.php';
+$siteUrl = 'http://localhost/emailbigdata.com/';
 $user = new Auth();
 
 // PayPal settings
 define('PAYPAL_ID', 'payment@mskeydeals.com');
 define('PAYPAL_SANDBOX', FALSE);
-define('PAYPAL_RETURN_URL', 'https://www.mailerstation.com/success');
-define('PAYPAL_CANCEL_URL', 'https://www.mailerstation.com/cancel');
-define('PAYPAL_NOTIFY_URL', 'https://www.mailerstation.com/ipn');
+define('PAYPAL_RETURN_URL', $siteUrl . 'success');
+define('PAYPAL_CANCEL_URL', $siteUrl . 'cancel');
+define('PAYPAL_NOTIFY_URL', $siteUrl . 'ipn');
 define('PAYPAL_CURRENCY', 'USD');
 define('PAYPAL_URL', (PAYPAL_SANDBOX == true) ? "https://www.sandbox.paypal.com/cgi-bin/webscr" : "https://www.paypal.com/cgi-bin/webscr");
 
@@ -81,8 +82,8 @@ if (isset($_POST['selectedPayment'])) {
         <input type="hidden" name="PAYMENT_AMOUNT" value="<?= $_SESSION['price']; ?>">
         <input type="hidden" name="PAYMENT_UNITS" value="USD">
         <input type="hidden" name="STATUS_URL" value="admin@mailerstation.com">
-        <input type="hidden" name="PAYMENT_URL" value="https://www.mailerstation.com/success">
-        <input type="hidden" name="NOPAYMENT_URL" value="https://www.mailerstation.com/cancel">
+        <input type="hidden" name="PAYMENT_URL" value="<?= $siteUrl; ?>success">
+        <input type="hidden" name="NOPAYMENT_URL" value="<?= $siteUrl; ?>cancel">
     </form>
 
 <?php } else if ($payMethod === 'Bitcoin') { 
@@ -193,7 +194,7 @@ $secureKey = base64_encode($aesKeyEncrypted);
       {
            console.log(orderReference.id);
            fastspring.builder.reset();
-           window.location.replace("https://emailbigdata.com/success/?orderId="" + orderReference.id);
+           window.location.replace("<?= $siteUrl; ?>success/?orderId=" + orderReference.id);
       } else {
            console.log("no order ID");
           }
@@ -224,7 +225,7 @@ exit();
     $productPrice = $_SESSION['price'];
     $remainedBalance = $preTopBalance - $productPrice;
     $user->update_topup_client_balance($uid, $remainedBalance);
-    header("Location: https://mailerstation.com/success");
+    header("Location: " . $siteUrl . "success");
     exit();
 } ?>
 <script type="text/javascript">

@@ -1,2 +1,3 @@
 <?php
- header('Location:https://emailbigdata.com/email-list-database/ceo');
+ $siteUrl = 'http://localhost/emailbigdata.com/';
+ header('Location:' . $siteUrl . 'email-list-database/ceo');
