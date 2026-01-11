@@ -362,9 +362,9 @@ require_once 'php/header.php';
 
                 <div class="profile-avatar-container">
                     <?php if (isset($cphoto) && !empty($cphoto)): ?>
-                        <img src="<?= 'https://mailerstation.com/assets/php/' . $cphoto; ?>" alt="Profile Photo">
+                        <img src="<?= (strpos($cphoto, 'http') === 0) ? $cphoto : '../assets/php/' . $cphoto; ?>" alt="Profile Photo">
                     <?php else: ?>
-                        <img src="https://mailerstation.com/user/img/male.png" alt="Default Avatar">
+                        <img src="img/male.png" alt="Default Avatar">
                     <?php endif; ?>
                 </div>
             </div>
@@ -375,14 +375,15 @@ require_once 'php/header.php';
             <div class="edit-profile-layout">
                 <div class="edit-avatar-container">
                     <?php if (isset($cphoto) && !empty($cphoto)): ?>
-                        <img src="<?= 'https://mailerstation.com/assets/php/' . $cphoto; ?>" alt="Profile Photo">
+                        <img src="<?= (strpos($cphoto, 'http') === 0) ? $cphoto : '../assets/php/' . $cphoto; ?>" alt="Profile Photo">
                     <?php else: ?>
-                        <img src="https://mailerstation.com/user/img/male.png" alt="Default Avatar">
+                        <img src="img/male.png" alt="Default Avatar">
                     <?php endif; ?>
                 </div>
 
                 <div class="edit-form-container">
                     <form action="" method="post" enctype="multipart/form-data" id="profile-update-form">
+                        <input type="hidden" name="action" value="update_profile">
                         <input type="hidden" name="oldimage" value="<?= isset($cphoto) ? $cphoto : ''; ?>">
 
                         <div class="form-group">
@@ -472,7 +473,7 @@ require_once 'php/header.php';
                 </div>
 
                 <div class="password-image-container">
-                    <img src="https://mailerstation.com/user/img/pass.png" alt="Security">
+                    <img src="img/pass.png" alt="Security">
                 </div>
             </div>
         </div>
@@ -504,7 +505,7 @@ require_once 'php/footer.php';
             e.preventDefault();
 
             $.ajax({
-                url: 'https://mailerstation.com/assets/php/action',
+                url: '../assets/php/action.php',
                 type: 'post',
                 processData: false,
                 contentType: false,
@@ -528,7 +529,7 @@ require_once 'php/footer.php';
                     $("#changePassBtn").text('Change Password');
                 } else {
                     $.ajax({
-                        url: 'https://mailerstation.com/assets/php/action',
+                        url: '../assets/php/action.php',
                         type: 'post',
                         data: $("#change-pass-form").serialize() + '&action=change_pass',
                         success: function(response) {
@@ -548,7 +549,7 @@ require_once 'php/footer.php';
             $(this).text('Please wait..');
 
             $.ajax({
-                url: 'https://mailerstation.com/assets/php/action',
+                url: '../assets/php/action.php',
                 type: 'post',
                 data: {
                     action: 'verify_email'

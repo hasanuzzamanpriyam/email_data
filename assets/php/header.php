@@ -1,6 +1,7 @@
 <?php
     include_once __DIR__ . '/session.php';
-    include_once __DIR__ . '/auth.php';$siteUrl = 'http://localhost/emailbigdata.com/';
+    include_once __DIR__ . '/auth.php';
+    $siteUrl = 'http://localhost/emailbigdata.com/';
 
     $seo = new Auth();
     if(isset($_GET['cat']) && isset($_GET['id'])){

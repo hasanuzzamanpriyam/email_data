@@ -14,7 +14,7 @@ require_once 'assets/php/header.php';
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="user" >View All</a>
+                    <a href="user">View All</a>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ require_once 'assets/php/header.php';
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="<?= $site_url . '/admin/ready-made-lists/job-levels' ?>">View All</a>
+                    <a href="post">View All</a>
                 </div>
             </div>
         </div>
@@ -180,160 +180,171 @@ require_once 'assets/php/footer.php';
 ?>
 <script type="text/javascript">
     displayTotalUser();
-        function displayTotalUser() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-user-number'
-                },
-                success: function(response) {
-                    $("#totalUser").html(response);
-                }
-            });
-        }
-        displayTotalEmail();
-        function displayTotalEmail() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-email-number'
-                },
-                success: function(response) {
-                    $("#totalEmail").html(response);
-                }
-            });
-        }
-        displayTotalOrder();
-        function displayTotalOrder() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-order-number'
-                },
-                success: function(response) {
-                    $("#totalOrder").html(response);
-                }
-            });
-        }
-        displayTotalFail();
-        function displayTotalFail() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-failed-number'
-                },
-                success: function(response) {
-                    $("#totalFail").html(response);
-                }
-            });
-        }
-        displayTotalCancel();
-        function displayTotalCancel() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-cancel-number'
-                },
-                success: function(response) {
-                    $("#totalCancel").html(response);
-                }
-            });
-        }
-        displayTotalRefund();
-        function displayTotalRefund() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-refund-number'
-                },
-                success: function(response) {
-                    $("#totalRefund").html(response);
-                }
-            });
-        }
-        displayTotalCoupon();
-        function displayTotalCoupon() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-coupon-number'
-                },
-                success: function(response) {
-                    $("#totalCoupon").html(response);
-                }
-            });
-        }
-        displayTotalTopup();
-        function displayTotalTopup() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-topup-number'
-                },
-                success: function(response) {
-                    $("#totalTopup").html(response);
-                }
-            });
-        }
-        displayTotalSales();
-        function displayTotalSales() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-sales-number'
-                },
-                success: function(response) {
-                    $("#totalSales").html(response);
-                }
-            });
-        }
-        displayTotalFeedback();
-        function displayTotalFeedback() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-feedback-number'
-                },
-                success: function(response) {
-                    $("#totalFeedback").html(response);
-                }
-            });
-        }
-        displayTotalSubscription();
-        function displayTotalSubscription() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-subscription-number'
-                },
-                success: function(response) {
-                    $("#totalSubscription").html(response);
-                }
-            });
-        }
-        displayNetIncome();
-        function displayNetIncome() {
-            $.ajax({
-                url: 'assets/php/process',
-                type: 'post',
-                data: {
-                    action: 'total-income-number'
-                },
-                success: function(response) {
-                    $("#totalIncome").html(response);
-                }
-            });
-        }
 
+    function displayTotalUser() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-user-number'
+            },
+            success: function(response) {
+                $("#totalUser").html(response);
+            }
+        });
+    }
+    displayTotalEmail();
+
+    function displayTotalEmail() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-email-number'
+            },
+            success: function(response) {
+                $("#totalEmail").html(response);
+            }
+        });
+    }
+    displayTotalOrder();
+
+    function displayTotalOrder() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-order-number'
+            },
+            success: function(response) {
+                $("#totalOrder").html(response);
+            }
+        });
+    }
+    displayTotalFail();
+
+    function displayTotalFail() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-failed-number'
+            },
+            success: function(response) {
+                $("#totalFail").html(response);
+            }
+        });
+    }
+    displayTotalCancel();
+
+    function displayTotalCancel() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-cancel-number'
+            },
+            success: function(response) {
+                $("#totalCancel").html(response);
+            }
+        });
+    }
+    displayTotalRefund();
+
+    function displayTotalRefund() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-refund-number'
+            },
+            success: function(response) {
+                $("#totalRefund").html(response);
+            }
+        });
+    }
+    displayTotalCoupon();
+
+    function displayTotalCoupon() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-coupon-number'
+            },
+            success: function(response) {
+                $("#totalCoupon").html(response);
+            }
+        });
+    }
+    displayTotalTopup();
+
+    function displayTotalTopup() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-topup-number'
+            },
+            success: function(response) {
+                $("#totalTopup").html(response);
+            }
+        });
+    }
+    displayTotalSales();
+
+    function displayTotalSales() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-sales-number'
+            },
+            success: function(response) {
+                $("#totalSales").html(response);
+            }
+        });
+    }
+    displayTotalFeedback();
+
+    function displayTotalFeedback() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-feedback-number'
+            },
+            success: function(response) {
+                $("#totalFeedback").html(response);
+            }
+        });
+    }
+    displayTotalSubscription();
+
+    function displayTotalSubscription() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-subscription-number'
+            },
+            success: function(response) {
+                $("#totalSubscription").html(response);
+            }
+        });
+    }
+    displayNetIncome();
+
+    function displayNetIncome() {
+        $.ajax({
+            url: 'assets/php/process',
+            type: 'post',
+            data: {
+                action: 'total-income-number'
+            },
+            success: function(response) {
+                $("#totalIncome").html(response);
+            }
+        });
+    }
 </script>
