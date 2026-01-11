@@ -7,11 +7,18 @@ require_once '../../assets/php/session.php';
 $user = new Auth();
 
 
-// Get the product ID from URL
+// Get the product ID from URL or slug
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+$slug = isset($_GET['slug']) ? $_GET['slug'] : '';
 
 // Fetch the product details
-$product = $user->specific_email_list_id($id);
+if ($id > 0) {
+    $product = $user->specific_email_list_id($id);
+} elseif ($slug) {
+    $product = $user->seo_specific_email_list($slug);
+} else {
+    $product = null;
+}
 
 if (!$product) {
     echo "<h2 style='text-align:center;color:red;'>Product not found.</h2>";

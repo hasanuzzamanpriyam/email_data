@@ -21,7 +21,7 @@ $admin_email= $sitesettings['adminemail'];
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" >
     <link rel="stylesheet" href="assets/css/style.css">
 
-    <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | User Management System</title>
+    <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | Email Big Data</title>
 </head>
 <body>
 <input type="checkbox" id="sidebar-toggle">
@@ -29,7 +29,7 @@ $admin_email= $sitesettings['adminemail'];
         <div class="sidebar-header">
             <h3 class="band">
                <!-- <span class="ti-unlink"></span>-->
-                <span>Mailerstation</span>
+                <span>Email Big Data</span>
             </h3>
             <label for="sidebar-toggle" class="ti-menu-alt"></label>
         </div>

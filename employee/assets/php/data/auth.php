@@ -1,7 +1,7 @@
 <?php
     require_once 'config.php';
 
-    class Auth extends Databases{
+    class Auth extends Database{
 
         //Login exiting user
         public function login($email){

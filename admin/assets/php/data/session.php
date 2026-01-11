@@ -4,7 +4,7 @@
     $cuser = new Auth();
 
     if(!isset($_SESSION['admin'])){
-        header('location: dashboard');
+        header('location: ../index.php');
         die;
     }
 

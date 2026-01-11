@@ -643,11 +643,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-job-level')) 
                     </div>
                     <div class="premade-lists__item__col text-right">';
                             if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl.$title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'.$title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl.$title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'.$title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -697,11 +697,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-job-title')) 
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -751,11 +751,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-job-function'
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -806,11 +806,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-industries'))
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -862,11 +862,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-health')) {
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -916,11 +916,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-international
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -971,11 +971,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-real-state'))
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -1025,11 +1025,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-zoom-info')) 
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }
@@ -1079,11 +1079,11 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-office-365'))
                     </div>
                     <div class="premade-lists__item__col text-right">';
                     if($seoUrl != ''){
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }else{
                         $category = slugify($row['category'].'-email list');
-                        $output .= '<a href="'.$siteUrl. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                        $output .= '<a href="'.$siteUrl.'ready-made/'. $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                 </div></div>';
                     }
         }

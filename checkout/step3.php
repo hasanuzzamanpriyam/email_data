@@ -410,6 +410,23 @@ if (isset($_POST['loggedOrderBtn'])) {
     document.getElementById("bankPayCode").value = bankProductCode;
 }
 
+document.querySelectorAll('.payment-demo').forEach(box => {
+    box.addEventListener('click', function(e) {
+        const radio = this.querySelector('input[type="radio"]');
+        
+        if (radio && !radio.disabled) {
+            if (e.target !== radio && !e.target.closest('label')) {
+                radio.checked = true;
+                mySeleted(radio.value);
+            }
+        }
+    });
+    
+    const radio = box.querySelector('input[type="radio"]');
+    if (radio && !radio.disabled) {
+        box.style.cursor = 'pointer';
+    }
+});
 
     function maxLengthCheck(object) {
         if (object.value.length > object.maxLength)

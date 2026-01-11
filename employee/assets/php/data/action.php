@@ -2,6 +2,8 @@
     session_start();
 
     require_once 'auth.php';
+    require_once '../PHPMailer/PHPMailerAutoload.php';
+
     $user = new Auth();
 
    
@@ -72,17 +74,18 @@
             $user->forgot_password($token, $email);
 
             try {
+                $mail = new PHPMailer();
                 $mail->isSMTP();
                 $mail->Host       = 'smtp.gmail.com';
                 $mail->SMTPAuth   = true;
-                $mail->Username   = Databases::USERNAME;
-                $mail->Password   = Databases::PASSWORD;
+                $mail->Username   = Database::USERNAME;
+                $mail->Password   = Database::PASSWORD;
                 $mail->SMTPSecure = 'tls';
                 $mail->Port       = 587;
                 
-                $mail->setFrom(Databases::USERNAME,'User Management System');
+                $mail->setFrom(Database::USERNAME,'User Management System');
                 $mail->addAddress($email);
-                $mail->addReplyTo(Databases::USERNAME);
+                $mail->addReplyTo(Database::USERNAME);
                 
                 $mail->isHTML(true);
                 $mail->Subject = 'Reset Password';

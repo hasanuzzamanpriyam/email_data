@@ -1,7 +1,7 @@
 <?php
-    require_once 'config.php';
+    require_once dirname(dirname(dirname(dirname(__DIR__)))) . '/assets/php/config.php';
 
-    class Auth extends Databases{
+    class Auth extends Database{
 
         //Login exiting user
         public function login($email){

@@ -1,178 +1,506 @@
 <?php
-    require_once 'php/header.php';
+require_once 'php/header.php';
 ?>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-12">
-                <div class="card rounded-0 mt-3 border-primary">
-                    <div class="card-header border-primary">
-                        <ul class="nav nav-tabs card-header-tabs">
-                            <li class="nav-item">
-                                <a href="#profile" class="nav-link active font-weight-bold" data-toggle="tab">Profile</a>
-                            </li>
+<style>
+    .profile-container {
+        max-width: 1200px;
+        margin: 20px auto;
+    }
 
-                            <li class="nav-item">
-                                <a href="#editProfile" class="nav-link font-weight-bold" data-toggle="tab">Edit Profile</a>
-                            </li>
+    .profile-tabs {
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        overflow: hidden;
+        background: white;
+    }
 
-                            <li class="nav-item">
-                                <a href="#changePass" class="nav-link font-weight-bold" data-toggle="tab">Change Password</a>
-                            </li>
-                        </ul>
+    .tab-headers {
+        display: flex;
+        border-bottom: 2px solid #dee2e6;
+        background: #f8f9fa;
+    }
+
+    .tab-headers a {
+        flex: 1;
+        padding: 15px 20px;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 600;
+        color: #6c757d;
+        border-right: 1px solid #dee2e6;
+        transition: all 0.3s;
+    }
+
+    .tab-headers a:last-child {
+        border-right: none;
+    }
+
+    .tab-headers a.active {
+        color: #007bff;
+        background: white;
+        border-bottom: 3px solid #007bff;
+    }
+
+    .tab-headers a:hover:not(.active) {
+        background: #e9ecef;
+    }
+
+    .tab-content-area {
+        display: none;
+        padding: 30px;
+    }
+
+    .tab-content-area.active {
+        display: block;
+    }
+
+    /* Profile Tab Styles */
+    .profile-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .profile-header {
+        grid-column: 1 / -1;
+        background: #007bff;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .profile-info {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .info-field {
+        border: 2px solid #007bff;
+        border-radius: 5px;
+        padding: 12px 15px;
+        background: white;
+        display: flex;
+        align-items: center;
+    }
+
+    .info-field label {
+        font-weight: 600;
+        margin-right: 10px;
+        margin-bottom: 0;
+        color: #333;
+    }
+
+    .info-field span {
+        color: #666;
+    }
+
+    .profile-avatar-container {
+        border: 2px solid #17a2b8;
+        border-radius: 5px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        min-height: 400px;
+    }
+
+    .profile-avatar-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    /* Edit Profile Tab Styles */
+    .edit-profile-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .edit-avatar-container {
+        border: 2px solid #dc3545;
+        border-radius: 5px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+
+    .edit-avatar-container img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+    .edit-form-container {
+        border: 2px solid #dc3545;
+        border-radius: 5px;
+        padding: 25px;
+        background: white;
+    }
+
+    .edit-form-container .form-group {
+        margin-bottom: 15px;
+    }
+
+    .edit-form-container label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .edit-form-container input,
+    .edit-form-container select {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .edit-form-container input:focus,
+    .edit-form-container select:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, .25);
+    }
+
+    .btn-update {
+        width: 100%;
+        padding: 12px;
+        background: #007bff;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-update:hover {
+        background: #0056b3;
+    }
+
+    /* Change Password Tab Styles */
+    .change-password-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    .password-form-container {
+        border: 2px solid #28a745;
+        border-radius: 5px;
+        overflow: hidden;
+        background: white;
+    }
+
+    .password-header {
+        background: #dc3545;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .password-form {
+        padding: 25px;
+    }
+
+    .password-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .password-form label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 5px;
+        font-size: 14px;
+    }
+
+    .password-form input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 4px;
+        font-size: 14px;
+    }
+
+    .password-form input:focus {
+        outline: none;
+        border-color: #28a745;
+        box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, .25);
+    }
+
+    .btn-change-password {
+        width: 100%;
+        padding: 12px;
+        background: #28a745;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .btn-change-password:hover {
+        background: #218838;
+    }
+
+    .password-image-container {
+        border: 2px solid #28a745;
+        border-radius: 5px;
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+    }
+
+    .password-image-container img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .error-text {
+        color: #dc3545;
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .verify-link {
+        color: #007bff;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    .verify-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+
+        .profile-layout,
+        .edit-profile-layout,
+        .change-password-layout {
+            grid-template-columns: 1fr;
+        }
+
+        .profile-header {
+            grid-column: 1;
+        }
+    }
+</style>
+
+<div class="profile-container">
+    <div class="profile-tabs">
+        <!-- Tab Headers -->
+        <div class="tab-headers">
+            <a href="#" class="tab-link active" data-tab="profile">Profile</a>
+            <a href="#" class="tab-link" data-tab="edit-profile">Edit Profile</a>
+            <a href="#" class="tab-link" data-tab="change-password">Change Password</a>
+        </div>
+
+        <!-- Profile Tab Content -->
+        <div class="tab-content-area active" id="profile-tab">
+            <div id="verifyEmailAlert"></div>
+            <div class="profile-layout">
+                <div class="profile-header">
+                    User ID : <?= isset($cid) ? $cid : ''; ?>
+                </div>
+
+                <div class="profile-info">
+                    <div class="info-field">
+                        <label>Name :</label>
+                        <span><?= isset($cfull) ? $cfull : ''; ?></span>
                     </div>
-                    <div class="card-body">
-                        <div class="tab-content">
 
-                        <!-- Profile Tab Content Start -->
-                            <div class="tab-pane container active" id="profile">
-                                <div id="verifyEmailAlert"></div>
-                                <div class="card-deck">
-                                    <div class="card border-primary">
-                                        <div class="card-header bg-primary text-light text-center lead">
-                                            User ID : <?= $cid;?>
-                                        </div>
-                                        <div class="card-body">
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>Name : </b><?= $cfull;?></p>
+                    <div class="info-field">
+                        <label>Gender :</label>
+                        <span><?= isset($cgender) ? $cgender : ''; ?></span>
+                    </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>E-mail : </b><?= $cemail;?></p>
+                    <div class="info-field">
+                        <label>E-mail :</label>
+                        <span><?= isset($cemail) ? $cemail : ''; ?></span>
+                    </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>Gender : </b><?= $cgender;?></p>
+                    <div class="info-field">
+                        <label>Phone :</label>
+                        <span><?= isset($cphone) ? $cphone : ''; ?></span>
+                    </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>Date Of Birth : </b><?= $cdob;?></p>
+                    <div class="info-field">
+                        <label>Date Of Birth :</label>
+                        <span><?= isset($cdob) ? $cdob : ''; ?></span>
+                    </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>Phone : </b><?= $cphone;?></p>
+                    <div class="info-field">
+                        <label>Registered On :</label>
+                        <span><?= isset($reg_on) ? $reg_on : ''; ?></span>
+                    </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>Registered On : </b><?= $reg_on;?></p>
+                    <div class="info-field">
+                        <label>E-mail Verified :</label>
+                        <span><?= isset($verified) ? $verified : ''; ?>
+                            <?php if (isset($verified) && $verified == 'Not Verified!'): ?>
+                                <a href="#" class="verify-link" id="verify-email">Verify Now</a>
+                            <?php endif; ?>
+                        </span>
+                    </div>
+                </div>
 
-                                            <p class="card-text p-2 m-1 rounded"style="border: 1px solid #0275d8;"><b>E-mail Verified : </b><?= $verified;?>
-                                            <?php if($verified == 'Not Verified!'): ?>
-                                            <a href="#" class="float-right" id="verify-email">Verify Now</a>
-                                            <?php endif;?>
-                                            </p>
-                                            <div class="clearfix"></div>
-                                        </div>
-                                    </div>
-                                    <div class="card border-primary align-self-center">
-                                        <?php if(!$cphoto):?>
-                                        <img src="https://mailerstation.com/user/img/male.png" alt="" class="img-thumbnail img-fluid align-self-center" width="408px">
-                                        <?php else:?>
-                                            <img src="<?= 'https://mailerstation.com/assets/php/'.$cphoto; ?>" alt="" class="img-thumbnail img-fluid align-self-center" width="408px" >
-                                        <?php endif;?>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Profile Tab Content End -->
-                            <!-- Edit Profile Tab Content Start -->
-                            <div class="tab-pane container fade" id="editProfile">
-                                <div class="card-deck">
-                                    <div class="card border-danger align-self-center">
-                                        <?php if(!$cphoto):?>
-                                        <img src="https://mailerstation.com/user/img/male.png" alt="" class="img-thumbnail img-fluid align-self-center" width="408px">
-                                        <?php else:?>
-                                            <img src="<?= 'https://mailerstation.com/assets/php/'.$cphoto; ?>" alt="" class="img-thumbnail img-fluid align-self-center" width="408px" >
-                                        <?php endif;?>
-                                    </div>
-                                    <div class="card border-danger">
-                                        <form action="" method="post" class="px-3 mt-2" enctype="multipart/form-data" id="profile-update-form">
-                                            <input type="hidden" name="oldimage" value="<?= $cphoto; ?>">
-                                            <div class="form-group m-0">
-                                                <label for="profilePhoto" class="m-1">Upload Profile Image</label>
-                                                <input type="file" name="image" id="profilePhoto">
-                                            </div>
+                <div class="profile-avatar-container">
+                    <?php if (isset($cphoto) && !empty($cphoto)): ?>
+                        <img src="<?= 'https://mailerstation.com/assets/php/' . $cphoto; ?>" alt="Profile Photo">
+                    <?php else: ?>
+                        <img src="https://mailerstation.com/user/img/male.png" alt="Default Avatar">
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
 
-                                            <div class="form-group m-0">
-                                                <label for="name" class="m-1">Full Name</label>
-                                                <input type="text" name="name" id="name" class="form-control" value="<?= $cfull; ?>" readonly>
-                                            </div>
-                                            <div class="form-group m-0">
-                                                <label for="name" class="m-1">First Name</label>
-                                                <input type="text" name="fname" id="fname" class="form-control" value="<?= $firstname; ?>">
-                                            </div>
-                                            <div class="form-group m-0">
-                                                <label for="name" class="m-1">Last Name</label>
-                                                <input type="text" name="lname" id="lname" class="form-control" value="<?= $cname; ?>">
-                                            </div>
+        <!-- Edit Profile Tab Content -->
+        <div class="tab-content-area" id="edit-profile-tab">
+            <div class="edit-profile-layout">
+                <div class="edit-avatar-container">
+                    <?php if (isset($cphoto) && !empty($cphoto)): ?>
+                        <img src="<?= 'https://mailerstation.com/assets/php/' . $cphoto; ?>" alt="Profile Photo">
+                    <?php else: ?>
+                        <img src="https://mailerstation.com/user/img/male.png" alt="Default Avatar">
+                    <?php endif; ?>
+                </div>
 
-                                            <div class="form-group m-0">
-                                                <label for="gender" class="m-1">Genger</label>
-                                                <select name="gender" id="gender" class="form-control">
-                                                <option value="" disabled <?php if($cgender == null){echo 'selected';}?>>Select</option>
-                                                <option value="Male"  <?php if($cgender == 'Male'){echo 'selected';}?>>Male</option>
-                                                <option value="Female"  <?php if($cgender == 'Female'){echo 'selected';}?>>Female</option>
-                                                <option value="Other"  <?php if($cgender == 'Other'){echo 'selected';}?>>Other</option>
-                                                </select>
-                                            </div>
+                <div class="edit-form-container">
+                    <form action="" method="post" enctype="multipart/form-data" id="profile-update-form">
+                        <input type="hidden" name="oldimage" value="<?= isset($cphoto) ? $cphoto : ''; ?>">
 
-                                            <div class="form-group">
-                                                <label for="dob" class="m-1">Date of Birth</label>
-                                                <input type="date" class="form-control" id="dob" name="dob" value="<?= $cdob; ?>">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="phone" class="m-1">Phone</label>
-                                                <input type="tel" class="form-control" id="phone" name="phone" value="<?= $cphone; ?>" placeholder ="Enter Phone Number">
-                                            </div>
-
-                                            <div class="form-group mt-2">
-                                                <input type="hidden" name="profileId" value="<?= $cid;?>" >
-                                                <input type="submit" class="btn btn-primary btn-block" id="profileUpateBtn" name="profile_update" value="Update Profile">
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Edit Profile Tab Content End -->
-                            <!-- Change Password Profile Tab Content Start --> 
-                            <div class="tab-pane container fade" id="changePass">
-                                <div id="changepassAlert"></div>
-                                <div class="card-deck">
-                                    <div class="card border-success">
-                                        <div class="card-header bg-danger text-white text-center lead">Change Your Password</div>
-                                        <form action="#" method="post" class="px-3 mt-2" id="change-pass-form">
-                                            <div class="form-group">
-                                                <label for="curpass">Enter Your Current Password</label>
-                                                <input type="password" name="curpass" id="curpass" class="form-control form-control-lg" placeholder="Current Password" required minlength="5">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="curpass">Enter Your New Password</label>
-                                                <input type="password" name="newpass" id="newpass" class="form-control form-control-lg" placeholder="New Password" required minlength="5">
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label for="curpass">Confirm New Password</label>
-                                                <input type="password" name="cnewpass" id="cnewpass" class="form-control form-control-lg" placeholder="Confirm New Password" required minlength="5">
-                                            </div>
-                                            <div class="form-group">
-                                            <p id="changepassError" class="text-danger text-center"></p>
-                                            </div>
-                                            <div class="form-group">
-                                            <input type="hidden" name="profileId" value="<?= $cid;?>" >
-                                            <input type="submit" name="changepass" value="Change Password" class="btn btn-success btn-block btn-lg" id="changePassBtn">
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <div class="card border-success align-self-center">
-                                    <img src="https://mailerstation.com/user/img/pass.png" alt="" class="img-thumbnail img-fluid align-self-center" width="408px">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Change Password Profile Tab Content End -->
+                        <div class="form-group">
+                            <label for="profilePhoto">Upload Profile Image</label>
+                            <input type="file" name="image" id="profilePhoto" class="form-control-file">
                         </div>
+
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" name="name" id="name" value="<?= isset($cfull) ? $cfull : ''; ?>" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fname">First Name</label>
+                            <input type="text" name="fname" id="fname" value="<?= isset($firstname) ? $firstname : ''; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lname">Last Name</label>
+                            <input type="text" name="lname" id="lname" value="<?= isset($cname) ? $cname : ''; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select name="gender" id="gender">
+                                <option value="" disabled <?php if (!isset($cgender) || $cgender == null) {
+                                                                echo 'selected';
+                                                            } ?>>Select</option>
+                                <option value="Male" <?php if (isset($cgender) && $cgender == 'Male') {
+                                                            echo 'selected';
+                                                        } ?>>Male</option>
+                                <option value="Female" <?php if (isset($cgender) && $cgender == 'Female') {
+                                                            echo 'selected';
+                                                        } ?>>Female</option>
+                                <option value="Other" <?php if (isset($cgender) && $cgender == 'Other') {
+                                                            echo 'selected';
+                                                        } ?>>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dob">Date of Birth</label>
+                            <input type="date" id="dob" name="dob" value="<?= isset($cdob) ? $cdob : ''; ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone" value="<?= isset($cphone) ? $cphone : ''; ?>" placeholder="Enter Phone Number">
+                        </div>
+
+                        <input type="hidden" name="profileId" value="<?= isset($cid) ? $cid : ''; ?>">
+                        <button type="submit" class="btn-update" id="profileUpateBtn" name="profile_update">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Change Password Tab Content -->
+        <div class="tab-content-area" id="change-password-tab">
+            <div id="changepassAlert"></div>
+            <div class="change-password-layout">
+                <div class="password-form-container">
+                    <div class="password-header">Change Your Password</div>
+                    <div class="password-form">
+                        <form action="#" method="post" id="change-pass-form">
+                            <div class="form-group">
+                                <label for="curpass">Enter Your Current Password</label>
+                                <input type="password" name="curpass" id="curpass" placeholder="Current Password" required minlength="5">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="newpass">Enter Your New Password</label>
+                                <input type="password" name="newpass" id="newpass" placeholder="New Password" required minlength="5">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cnewpass">Confirm New Password</label>
+                                <input type="password" name="cnewpass" id="cnewpass" placeholder="Confirm New Password" required minlength="5">
+                            </div>
+
+                            <p id="changepassError" class="error-text"></p>
+
+                            <input type="hidden" name="profileId" value="<?= isset($cid) ? $cid : ''; ?>">
+                            <button type="submit" name="changepass" class="btn-change-password" id="changePassBtn">Change Password</button>
+                        </form>
                     </div>
+                </div>
+
+                <div class="password-image-container">
+                    <img src="https://mailerstation.com/user/img/pass.png" alt="Security">
                 </div>
             </div>
         </div>
     </div>
+</div>
+
 <?php
-    require_once 'php/footer.php';
+require_once 'php/footer.php';
 ?>
 
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
+        // Tab switching functionality
+        $('.tab-link').click(function(e) {
+            e.preventDefault();
+
+            // Remove active class from all tabs
+            $('.tab-link').removeClass('active');
+            $('.tab-content-area').removeClass('active');
+
+            // Add active class to clicked tab
+            $(this).addClass('active');
+            var tabId = $(this).data('tab') + '-tab';
+            $('#' + tabId).addClass('active');
+        });
 
         //Profile update ajax request
-        $("#profile-update-form").submit(function(e){
+        $("#profile-update-form").submit(function(e) {
             e.preventDefault();
 
             $.ajax({
@@ -182,29 +510,30 @@
                 contentType: false,
                 cache: false,
                 data: new FormData(this),
-                success: function(response){
+                success: function(response) {
                     location.reload();
                 }
             });
         });
+
         //Change password ajax request
-        $("#changePassBtn").click(function(e){
-            if($("#change-pass-form")[0].checkValidity()){
+        $("#changePassBtn").click(function(e) {
+            if ($("#change-pass-form")[0].checkValidity()) {
                 e.preventDefault();
 
-                $("#changePassBtn").val('Please wait...');
+                $("#changePassBtn").text('Please wait...');
 
-                if($("#newpass").val() != $("#cnewpass").val()){
+                if ($("#newpass").val() != $("#cnewpass").val()) {
                     $("#changepassError").text('* Password did not matched!');
-                    $("#changePassBtn").val('Change Password');
-                }else{
+                    $("#changePassBtn").text('Change Password');
+                } else {
                     $.ajax({
                         url: 'https://mailerstation.com/assets/php/action',
                         type: 'post',
-                        data: $("#change-pass-form").serialize()+'&action=change_pass',
-                        success: function(response){
+                        data: $("#change-pass-form").serialize() + '&action=change_pass',
+                        success: function(response) {
                             $("#changepassAlert").html(response);
-                            $("#changePassBtn").val('Change Password');
+                            $("#changePassBtn").text('Change Password');
                             $("#changepassError").text('');
                             $("#change-pass-form")[0].reset();
                         }
@@ -212,30 +541,36 @@
                 }
             }
         });
+
         //Verify Your E-mail of an user Ajax request
-        $("#verify-email").click(function(e){
+        $("#verify-email").click(function(e) {
             e.preventDefault();
             $(this).text('Please wait..');
 
             $.ajax({
                 url: 'https://mailerstation.com/assets/php/action',
                 type: 'post',
-                data: { action: 'verify_email'},
-                success: function(response){
+                data: {
+                    action: 'verify_email'
+                },
+                success: function(response) {
                     $("#verifyEmailAlert").html(response);
                     $("#verify-email").text('Verify Now');
                 }
             });
         });
+
         //Check Notification of an user
         checkNotification();
 
-        function checkNotification(){
+        function checkNotification() {
             $.ajax({
                 url: 'assets/php/process.php',
                 type: 'post',
-                data: { action: 'checkNotification' },
-                success: function(response){
+                data: {
+                    action: 'checkNotification'
+                },
+                success: function(response) {
                     $("#checkNotification").html(response);
                 }
             });

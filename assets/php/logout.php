@@ -1,11 +1,10 @@
 <?php
     session_start();
-    if($_SESSION['adminUser'] === 'Admin'){
-        unset($_SESSION['user']);
-        unset($_SESSION['adminUser']);
-        header('location: https://mailerstation.com/admin/user');
-    }else{
-        unset($_SESSION['user']);
-        header('location: https://mailerstation.com/');
-    }
+    
+    session_unset();
+    session_destroy();
+
+    // Redirect to the project home page (two levels up from assets/php/)
+    header("Location: ../../");
+    exit();
 ?>

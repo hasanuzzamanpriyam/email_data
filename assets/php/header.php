@@ -196,10 +196,10 @@ if(isset($_GET['id'])){
     {
       "@context": "https://schema.org/",
       "@type": "website",
-      "name": "Bookyourdata",
+      "name": "Email Big Data",
       "author": {
         "@type": "Person",
-        "name": "Bookyourdata"
+        "name": "Email Big Data"
       },
       "datePublished": "2021-03-10",
       "description": "Buy email lists from mailer station at a cheaper rate",
@@ -486,7 +486,7 @@ if($name ==='index'){
                 <a href="'.$siteUrl.'" class="logo-link">
                     <img class="logo" width="170" height="100"
                          src="'.$siteUrl.'bundles/bydhome/img/bookyourdata-logo.svg"
-                         alt="Mailerstaiton Email List Logo" />
+                         alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">
@@ -699,7 +699,7 @@ if($name ==='index'){
                 <a href="'.$siteUrl.'" class="logo-link">
                     <img class="logo" width="170" height="100"
                          src="'.$siteUrl.'bundles/bydhome/img/bookyourdata-logo.svg"
-                         alt="Bookyour data Logo Email List" />
+                         alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">
@@ -899,7 +899,7 @@ if($name ==='index'){
                 <div class="header__iconic-box iconic-box">
                     <i class="iconic-box__icon icon icon-user"></i>
                     <div class="iconic-box__content">
-                        <a href="'.$siteUrl.'login" class="iconic-box__content__title
+                        <a href="'.$siteUrl.'login?redirect='.urlencode($link).'" class="iconic-box__content__title
                            iconic-box__content__title--link">User Login</a><br>
                         <a href="'.$siteUrl.'signup"
                            class="iconic-box__content__subtitle

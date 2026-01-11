@@ -10,6 +10,7 @@
                         <a class="jumbotron--login__member-link link-primary" href="signup">Not a member? Sign up</a>
                     </div>
                     <form action="#" method="post" class="form form--soft gap-bottom" id="login-form">
+                        <input type="hidden" id="redirectUrl" value="<?php echo isset($_GET['redirect']) ? htmlspecialchars($_GET['redirect']) : './'; ?>">
                         <div class="alert alert-danger" id="loginAlert" style="color: orange; margin-bottom: 10px;"></div>
                         <div>
                             <input type="email" class="form__control" placeholder="Email" name="username" required>
@@ -68,7 +69,7 @@ include_once 'assets/php/footer.php';
                         
                         $("#login-btn").val('Sign In');
                         if (response === 'login') {
-                            window.location = '/';
+                            window.location = $("#redirectUrl").val();
                         } else {
                             $("#loginAlert").html(response);
                         }

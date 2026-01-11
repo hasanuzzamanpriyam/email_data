@@ -6,12 +6,21 @@ RewriteCond %{REQUEST_FILENAME} -f [OR]
 RewriteCond %{REQUEST_FILENAME} -d
 RewriteRule ^ - [L]
 
-# Exclude single-product from rewriting
-RewriteCond %{REQUEST_URI} !/ready-made/single-product
-
 # Rewrite .php extensions (optional, to make URLs prettier if needed internally)
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php [L,QSA]
+
+# Handle SEO URLs like: job-level/seo-url
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php !-f
+RewriteRule ^([^/]+)/([^/]+)/?$ single-product/index.php?slug=$2 [L,QSA]
+
+# Handle ID URLs like: job-level/category/id
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php !-f
+RewriteRule ^([^/]+)/([^/]+)/([^/]+)/?$ single-product/index.php?id=$3 [L,QSA]
 
 # Only rewrite other slugs to all.php if they don't map to a file
 RewriteCond %{REQUEST_FILENAME} !-f

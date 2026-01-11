@@ -260,7 +260,7 @@
                 <a href="'.$siteUrl.'" class="logo-link">
                     <img class="logo" width="170" height="95"
                          src="'.$siteUrl.'bundles/bydhome/img/bookyourdata-logo.svg"
-                         alt="Mailerstaiton Email List Logo" />
+                         alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">
@@ -472,7 +472,7 @@
                 <a href="'.$siteUrl.'" class="logo-link">
                     <img class="logo" width="170" height="95"
                          src="'.$siteUrl.'bundles/bydhome/img/bookyourdata-logo.svg"
-                         alt="Mailerstaiton Email List Logo" />
+                         alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">

@@ -106,7 +106,7 @@ if($name ==='index'){
                         </div>
                       <div class="col-md-3 gap-bottom-tld">
                           <div class="text-uppercase">Bookyourdata</div>
-                          <a href="/contact">Send Message</a>
+                          <a href="<?php echo $seoUrl; ?>contact">Send Message</a>
                           <address>
                           <p><strong>Washington:</strong> 1348 Florida Ave. NW, Washington, DC, 20009, US</p>
                           <p><strong>New York:</strong> 2 Wall Street, New York, NY, 10005</p>

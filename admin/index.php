@@ -1,5 +1,5 @@
 <?php
-include_once 'assets/php/data/config.php';
+include_once dirname(__DIR__) . '/assets/php/config.php';
 ?>
 
 <!DOCTYPE html>
