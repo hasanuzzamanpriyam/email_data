@@ -179,7 +179,7 @@ if(isset($_GET['id'])){
         <meta name="heleket" content="79c34649"/>
 
               
-        <link rel="icon" type="image/x-icon" href="<?= $siteUrl; ?>favicon.ico" />
+        <link rel="icon" type="image/x-icon" href="<?= $siteUrl; ?>web-logo.ico" />
         <link rel=stylesheet href="<?= $siteUrl; ?>bundles/bydhome/css/main.min3860.css">
         <!-- <link rel="stylesheet" href="<?= $siteUrl; ?>bundles/bydhome/css/style.css" -->
         

@@ -2,6 +2,8 @@
 require_once 'assets/php/header.php';
 require_once dirname(__DIR__) . '/assets/php/config.php';
 
+$database = new Database();
+$pdo = $database->conn;
 
 if(isset($_POST['insertEmail'])){
     $title = $_POST['title'];
@@ -11,9 +13,8 @@ if(isset($_POST['insertEmail'])){
     $desc = $_POST['editor1'];
     $price = $_POST['price'];
 
-    $sql = "INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`) VALUES ('$title','$category','$totalemail','$shortdec','$desc','$price')";
-
-    mysqli_query($conn, $sql);
+    $stmt = $pdo->prepare("INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price]);
 
 }
 if(isset($_POST['updateEmail'])){
@@ -29,17 +30,14 @@ if(isset($_POST['updateEmail'])){
     $seoKey = $_POST['seoUpdateKeyword'];
     $seoDes = $_POST['seoUpdateDescription'];
 
-    $sql2 = "UPDATE `email_short_info` SET `category`='$category',`total_email`='$totalemail',`short_description`='$shortdec',`description`='$desc',`price`='$price', `seo_title`='$seoTitle', `seo_url`='$seoUrl', `seo_keyword`='$seoKey', `seo_desc`='$seoDes' WHERE id= $updateId";
-    
-    
-     if (mysqli_query($conn, $sql2)) {
+    $stmt = $pdo->prepare("UPDATE `email_short_info` SET `category`=?,`total_email`=?,`short_description`=?,`description`=?,`price`=?, `seo_title`=?, `seo_url`=?, `seo_keyword`=?, `seo_desc`=? WHERE id=?");
+
+     if ($stmt->execute([$category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes, $updateId])) {
         echo "<script>alert('Data Updated successfully')</script>";
         echo "<meta http-equiv='refresh' content='0'>";
       } else {
-        echo "Error: " . $sql2 . "<br>" . mysqli_error($conn);
+        echo "Error: " . implode(", ", $stmt->errorInfo());
       }
-      
-      mysqli_close($conn); 
      
 }
     

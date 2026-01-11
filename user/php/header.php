@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../bundles/bydhome/css/main.min3860.css">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
-    <link rel="icon" type="image/x-icon" href="./../favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="./../web-logo.ico" />
     <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | User's of Email Big Data</title>
 
     <style type="text/css">

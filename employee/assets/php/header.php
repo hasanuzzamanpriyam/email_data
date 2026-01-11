@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | User Management System</title>
+    <link rel="icon" type="image/x-icon" href="../../web-logo.ico" />
 </head>
 <body>
 <input type="checkbox" id="sidebar-toggle">

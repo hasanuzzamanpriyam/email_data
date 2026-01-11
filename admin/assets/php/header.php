@@ -22,6 +22,7 @@ $admin_email= $sitesettings['adminemail'];
     <link rel="stylesheet" href="assets/css/style.css">
 
     <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | Email Big Data</title>
+    <link rel="icon" type="image/x-icon" href="../web-logo.ico" />
 </head>
 <body>
 <input type="checkbox" id="sidebar-toggle">

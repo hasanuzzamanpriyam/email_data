@@ -32,9 +32,9 @@ if(isset($_POST['action']) && ($_POST['action']=='display-emails')){
             <td>'.$sno++.'</td>
             <td>' . $row['title'] . '</td>
             <td>' . $row['category'] . '</td>
-            <td>' . substr($row['seo_title'], 0, 30) . '-</td>
-            <td>' . substr($row['seo_url'], 0, 30) . '-</td>
-            <td>' . substr($row['seo_desc'], 0, 30) . '-</td>
+            <td>' . substr($row['seo_title'] ?? '', 0, 30) . '-</td>
+            <td>' . substr($row['seo_url'] ?? '', 0, 30) . '-</td>
+            <td>' . substr($row['seo_desc'] ?? '', 0, 30) . '-</td>
             <td>' . substr($row['short_description'], 0, 30) . '..</td>
             <td>'.$row['total_email'].'</td>
             <td>'.$row['price'].'</td>

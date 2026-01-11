@@ -29,7 +29,7 @@ IN SECONDS</h1>
                    website, revenue, etc.,. <br/>
                        Our B2B and B2C leads are Opt-in and 
                         consent basis. We don't sell rubbish leads because it wastes 
-                        your money and time. EmailBigData.io Database guarantees 
+                        your money and time. EmailBigData.com Database guarantees 
                         100% client satisfaction. <br/>That's the reason why we are the 
                         most effective Lead supplier company in the entire world. 
                         You can purchase a mailing list out of here without any issue.
@@ -363,7 +363,7 @@ IN SECONDS</h1>
                     <h4 class="secondary-title text-white">Closing New
                         Deals Is Tough, Right?</h4>
                     <p>
-                        EmailBigData.io gives you the information you
+                        EmailBigData.com gives you the information you
                         need to reach decision-makers in your target
                         market,
                         so you can connect directly with the right
