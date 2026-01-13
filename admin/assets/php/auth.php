@@ -1,9 +1,11 @@
 <?php
 require_once dirname(dirname(dirname(__DIR__))) . '/assets/php/config.php';
 
-class Auth extends Database {
+class Auth extends Database
+{
 
-    public function inert_email($title, $category, $total_email, $short_description, $description, $price) {
+    public function inert_email($title, $category, $total_email, $short_description, $description, $price)
+    {
         $sql = "INSERT INTO email_short_info (title, category, total_email, short_description, description, price) VALUES(:title, :category, :total_email, :short_description, :description, :price)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
@@ -17,28 +19,40 @@ class Auth extends Database {
         return true;
     }
 
-    public function get_emails() {
+    public function get_emails()
+    {
         $sql = "SELECT * FROM email_short_info ORDER BY category ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-        public function get_topup() {
-            $sql = "SELECT * FROM topup";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function get_topup()
+    {
+        $sql = "SELECT * FROM topup";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
-        }
-    public function get_page() {
+        return $result;
+    }
+    public function get_page()
+    {
         $sql = "SELECT DISTINCT page FROM seo ORDER BY page ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes) {
+    public function delete_feedback($id)
+    {
+        $sql = "DELETE FROM feedback WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return true;
+    }
+
+    public function inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes)
+    {
         try {
             $sql = "INSERT INTO seo (page, title, url, key_word, description) 
                     VALUES(:page, :title, :url, :key_word, :description)
@@ -47,7 +61,7 @@ class Auth extends Database {
                         url = VALUES(url),
                         key_word = VALUES(key_word),
                         description = VALUES(description)";
-            
+
             $stmt = $this->conn->prepare($sql);
             $result = $stmt->execute([
                 'page' => $page,
@@ -56,9 +70,9 @@ class Auth extends Database {
                 'key_word' => $seoKey,
                 'description' => $seoDes
             ]);
-            
+
             $rowCount = $stmt->rowCount();
-            
+
             if ($rowCount == 1) {
                 return 'inserted';
             } else if ($rowCount == 2) {
@@ -66,137 +80,154 @@ class Auth extends Database {
             } else if ($rowCount == 0) {
                 return 'no-changes';
             }
-            
+
             return 'error';
-            
         } catch (PDOException $e) {
             return 'database-error: ' . $e->getMessage();
         }
     }
 
-    public function inert_coupon($postName, $couponTitle, $trackingID, $limitation, $couponType, $amount) {
+    public function inert_coupon($postName, $couponTitle, $trackingID, $limitation, $couponType, $amount)
+    {
         $sql = "INSERT INTO `coupon`(`post_title`, `coupon_title`, `tacking_id`, `limitation`, `coupon_type`, `amount`) VALUES ('$postName','$couponTitle','$trackingID','$limitation','$couponType','$amount')";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return true;
     }
 
-    public function get_coupon() {
+    public function get_coupon()
+    {
         $sql = "SELECT DISTINCT * FROM coupon ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_seo_page() {
+    public function get_seo_page()
+    {
         $sql = "SELECT DISTINCT * FROM seo ORDER BY page ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_all_user() {
+    public function get_all_user()
+    {
         $sql = "SELECT DISTINCT * FROM clients_info WHERE band != 'Band' OR band IS NULL ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_all_band_user() {
+    public function get_all_band_user()
+    {
         $sql = "SELECT DISTINCT * FROM clients_info WHERE band = 'Band' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-   public function get_blogs(){
-            $sql = "SELECT * FROM blogs ORDER by created_at DESC";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
-        }
-        public function edit_blog($id){
-            $sql = "SELECT * FROM blogs WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute(['id'=> $id]);
-            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    public function get_blogs()
+    {
+        $sql = "SELECT * FROM blogs ORDER by created_at DESC";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-            return $result;
-        }
-        public function delete_blog($id){
-            $sql = "DELETE FROM blogs WHERE id = :id";
-            $stmt = $this->conn->prepare($sql);
-            $stmt->execute(['id'=>$id]);
-            return true;
-        }
+        return $result;
+    }
+    public function edit_blog($id)
+    {
+        $sql = "SELECT * FROM blogs WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    public function get_orders() {
+        return $result;
+    }
+    public function delete_blog($id)
+    {
+        $sql = "DELETE FROM blogs WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return true;
+    }
+
+    public function get_orders()
+    {
         $sql = "SELECT * FROM order_info WHERE status = 'Processing' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
 
-    public function get_failed_orders() {
+
+    public function get_failed_orders()
+    {
         $sql = "SELECT * FROM order_info WHERE status = 'Payment Failed' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_cancel_orders() {
+    public function get_cancel_orders()
+    {
         $sql = "SELECT * FROM order_info WHERE status = 'Cancel' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_refund_orders() {
+    public function get_refund_orders()
+    {
         $sql = "SELECT * FROM order_info WHERE status = 'Refund' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_sales() {
+    public function get_sales()
+    {
         $sql = "SELECT * FROM order_info WHERE status = 'Completed' ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_subscription() {
+    public function get_subscription()
+    {
         $sql = "SELECT * FROM email_collection ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function get_feedback() {
+    public function get_feedback()
+    {
         $sql = "SELECT * FROM feedback ORDER BY created_at DESC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function edit_order($id) {
+    public function edit_order($id)
+    {
         $sql = "SELECT * FROM order_info WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function delete_order($id) {
+    public function delete_order($id)
+    {
         $sql = "DELETE FROM order_info WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['id' => $id]);
         return true;
     }
 
-    public function update_order($deliveryId, $status, $deliveryData) {
+    public function update_order($deliveryId, $status, $deliveryData)
+    {
         $sql = "UPDATE order_info SET status= :status, delivery_file= :delivery_file WHERE id= :id";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([
@@ -250,50 +281,55 @@ class Auth extends Database {
 
         return true;
     }
-    
-    public function edit_email($id){
+
+    public function edit_email($id)
+    {
         $sql = "SELECT * FROM email_short_info WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id'=> $id]);
+        $stmt->execute(['id' => $id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return $result;
     }
 
-    public function delete_email($id){
+    public function delete_email($id)
+    {
         $sql = "DELETE FROM email_short_info WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id'=>$id]);
+        $stmt->execute(['id' => $id]);
         return true;
     }
 
-    public function edit_seo($id){
+    public function edit_seo($id)
+    {
         $sql = "SELECT * FROM seo WHERE id = :id";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['id'=> $id]);
+        $stmt->execute(['id' => $id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
     }
 
-    public function delete_seo($id){
+    public function delete_seo($id)
+    {
         try {
             $sql = "DELETE FROM seo WHERE id = :id";
             $stmt = $this->conn->prepare($sql);
-            $result = $stmt->execute(['id'=>$id]);
-            
+            $result = $stmt->execute(['id' => $id]);
+
             if ($result && $stmt->rowCount() > 0) {
                 return 'success';
             } else if ($stmt->rowCount() == 0) {
                 return 'not-found';
             }
-            
+
             return 'error';
         } catch (PDOException $e) {
             return 'database-error: ' . $e->getMessage();
         }
     }
 
-    public function update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes){
+    public function update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes)
+    {
         try {
             $sql = "UPDATE seo 
                      SET title = :title, 
@@ -301,7 +337,7 @@ class Auth extends Database {
                          key_word = :key_word, 
                          description = :description 
                      WHERE id = :id";
-            
+
             $stmt = $this->conn->prepare($sql);
             $result = $stmt->execute([
                 'title' => $seoTitle,
@@ -310,19 +346,16 @@ class Auth extends Database {
                 'description' => $seoDes,
                 'id' => $id
             ]);
-            
+
             if ($result && $stmt->rowCount() > 0) {
                 return 'success';
             } else if ($stmt->rowCount() == 0) {
                 return 'no-changes';
             }
-            
+
             return 'error';
-            
         } catch (PDOException $e) {
             return 'database-error: ' . $e->getMessage();
         }
     }
-
 }
-?>
