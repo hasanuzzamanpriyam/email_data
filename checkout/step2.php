@@ -1,4 +1,23 @@
-<?php include_once 'header.php'; ?>
+<?php
+include_once 'header.php';
+
+// Capture data from step1
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['price'])) {
+        $_SESSION['price'] = $_POST['price'];
+    }
+    if (isset($_POST['cupId'])) {
+        $_SESSION['cupId'] = $_POST['cupId'];
+    }
+    // Ideally capture other fields too in case user modified them or for security consistency
+    if (isset($_POST['ordercode'])) $_SESSION['ordercode'] = $_POST['ordercode'];
+    if (isset($_POST['emailType'])) $_SESSION['emailType'] = $_POST['emailType'];
+    if (isset($_POST['emailCategory'])) $_SESSION['emailCategory'] = $_POST['emailCategory'];
+    if (isset($_POST['selectItem'])) $_SESSION['selectItem'] = $_POST['selectItem'];
+    if (isset($_POST['totalemail'])) $_SESSION['totalemail'] = $_POST['totalemail'];
+    if (isset($_POST['deliveryDays'])) $_SESSION['deliveryDays'] = $_POST['deliveryDays'];
+}
+?>
 
 <div class="page-title">
     <div class="container page-title__container table-layout-fixed">
@@ -30,52 +49,52 @@
         <div class="col-md-8">
             <h3 class="primary-title clear-gap-vertical">Returning Customers</h3>
             <p>Welcome back! Please provide your email and password information to sign in.</p>
-            
+
             <div class="gap-bottom" style="color: red;"></div>
             <div class="row">
-                
-            <?php if (isset($_SESSION['user'])) { ?>
-                <form action="step3" method="POST" id="continue-log-form-order">
-                    <div class="col-sm-6">
-                        <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['user']); ?>">
 
-                        <input type="hidden" name="cupId" value="<?= htmlspecialchars(isset($_POST['cupId']) ? $_POST['cupId'] : ''); ?>">
+                <?php if (isset($_SESSION['user'])) { ?>
+                    <form action="step3" method="POST" id="continue-log-form-order">
+                        <div class="col-sm-6">
+                            <input type="hidden" name="email" value="<?= htmlspecialchars($_SESSION['user']); ?>">
 
-                        <input type="hidden" name="ordercode" value="<?= htmlspecialchars($_SESSION['ordercode'] ?? ''); ?>">
-                        <input type="hidden" name="emailType" value="<?= htmlspecialchars($_SESSION['emailType'] ?? ''); ?>">
-                        <input type="hidden" name="emailCategory" value="<?= htmlspecialchars($_SESSION['emailCategory'] ?? ''); ?>">
-                        <input type="hidden" name="selectItem" value="<?= htmlspecialchars($_SESSION['selectItem'] ?? ''); ?>">
-                        <input type="hidden" name="totalemail" value="<?= htmlspecialchars($_SESSION['totalemail'] ?? 0); ?>">
-                        <input type="hidden" name="price" value="<?= htmlspecialchars($_SESSION['price'] ?? 0); ?>">
-                        <input type="hidden" name="deliveryDays" value="<?= htmlspecialchars($_SESSION['deliveryDays'] ?? ''); ?>">
-                        <input type="submit" class="button button--primary full-width" name="loggedOrderBtn" value="Continue To Checkout">
-                    </div>
-                </form>
-            <?php } else { ?>
-                <form action="#" method="POST" id="continue-log-form">
-                    <div class="alert-danger" id="loginAlert"></div>
-                    <div class="col-sm-6 gap-bottom">
-                        <input type="email" class="form__control" placeholder="Email" name="username" required>
-                    </div>
-                    <div class="col-sm-6 gap-bottom">
-                        <input type="password" class="form__control" placeholder="Password" name="password" required>
-                    </div>
-                    <div class="col-sm-6 inline-align-fix">
-                        <a href="forgot-password.php" class="link-secondary font-xsmall link-underline">Password Recovery</a>
-                    </div>
-                    <div class="col-sm-6">
-                        <input type="hidden" name="cupId" value="<?= htmlspecialchars(isset($_POST['cupId']) ? $_POST['cupId'] : ''); ?>">
-                        <input type="hidden" name="ordercode" value="<?= htmlspecialchars($_SESSION['ordercode'] ?? ''); ?>">
-                        <input type="hidden" name="emailType" value="<?= htmlspecialchars($_SESSION['emailType'] ?? ''); ?>">
-                        <input type="hidden" name="emailCategory" value="<?= htmlspecialchars($_SESSION['emailCategory'] ?? ''); ?>">
-                        <input type="hidden" name="selectItem" value="<?= htmlspecialchars($_SESSION['selectItem'] ?? ''); ?>">
-                        <input type="hidden" name="totalemail" value="<?= htmlspecialchars($_SESSION['totalemail'] ?? 0); ?>">
-                        <input type="hidden" name="price" value="<?= htmlspecialchars($_SESSION['price'] ?? 0); ?>">
-                        <input type="hidden" name="deliveryDays" value="<?= htmlspecialchars($_SESSION['deliveryDays'] ?? ''); ?>">
-                        <input type="submit" class="button button--primary full-width continueBtn" id="continueBtn" value="Continue To Checkout">
-                    </div>
-                </form>
-            <?php } ?>
+                            <input type="hidden" name="cupId" value="<?= htmlspecialchars(isset($_POST['cupId']) ? $_POST['cupId'] : ''); ?>">
+
+                            <input type="hidden" name="ordercode" value="<?= htmlspecialchars($_SESSION['ordercode'] ?? ''); ?>">
+                            <input type="hidden" name="emailType" value="<?= htmlspecialchars($_SESSION['emailType'] ?? ''); ?>">
+                            <input type="hidden" name="emailCategory" value="<?= htmlspecialchars($_SESSION['emailCategory'] ?? ''); ?>">
+                            <input type="hidden" name="selectItem" value="<?= htmlspecialchars($_SESSION['selectItem'] ?? ''); ?>">
+                            <input type="hidden" name="totalemail" value="<?= htmlspecialchars($_SESSION['totalemail'] ?? 0); ?>">
+                            <input type="hidden" name="price" value="<?= htmlspecialchars($_SESSION['price'] ?? 0); ?>">
+                            <input type="hidden" name="deliveryDays" value="<?= htmlspecialchars($_SESSION['deliveryDays'] ?? ''); ?>">
+                            <input type="submit" class="button button--primary full-width" name="loggedOrderBtn" value="Continue To Checkout">
+                        </div>
+                    </form>
+                <?php } else { ?>
+                    <form action="#" method="POST" id="continue-log-form">
+                        <div class="alert-danger" id="loginAlert"></div>
+                        <div class="col-sm-6 gap-bottom">
+                            <input type="email" class="form__control" placeholder="Email" name="username" required>
+                        </div>
+                        <div class="col-sm-6 gap-bottom">
+                            <input type="password" class="form__control" placeholder="Password" name="password" required>
+                        </div>
+                        <div class="col-sm-6 inline-align-fix">
+                            <a href="forgot-password.php" class="link-secondary font-xsmall link-underline">Password Recovery</a>
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="hidden" name="cupId" value="<?= htmlspecialchars(isset($_POST['cupId']) ? $_POST['cupId'] : ''); ?>">
+                            <input type="hidden" name="ordercode" value="<?= htmlspecialchars($_SESSION['ordercode'] ?? ''); ?>">
+                            <input type="hidden" name="emailType" value="<?= htmlspecialchars($_SESSION['emailType'] ?? ''); ?>">
+                            <input type="hidden" name="emailCategory" value="<?= htmlspecialchars($_SESSION['emailCategory'] ?? ''); ?>">
+                            <input type="hidden" name="selectItem" value="<?= htmlspecialchars($_SESSION['selectItem'] ?? ''); ?>">
+                            <input type="hidden" name="totalemail" value="<?= htmlspecialchars($_SESSION['totalemail'] ?? 0); ?>">
+                            <input type="hidden" name="price" value="<?= htmlspecialchars($_SESSION['price'] ?? 0); ?>">
+                            <input type="hidden" name="deliveryDays" value="<?= htmlspecialchars($_SESSION['deliveryDays'] ?? ''); ?>">
+                            <input type="submit" class="button button--primary full-width continueBtn" id="continueBtn" value="Continue To Checkout">
+                        </div>
+                    </form>
+                <?php } ?>
             </div>
         </div>
 
@@ -147,8 +166,8 @@
 <?php include_once 'footer.php'; ?>
 
 <script>
-    $(document).ready(function () {
-        $(".continueBtn").click(function (e) {
+    $(document).ready(function() {
+        $(".continueBtn").click(function(e) {
             if ($("#continue-log-form")[0].checkValidity()) {
                 e.preventDefault();
                 $(".continueBtn").val('Please wait...');
@@ -156,7 +175,7 @@
                     url: '../assets/php/action',
                     type: 'post',
                     data: $("#continue-log-form").serialize() + '&action=login2',
-                    success: function (response) {
+                    success: function(response) {
                         $(".continueBtn").val('Continue To Checkout');
                         if (response === 'login2') {
                             window.location = 'step3';
