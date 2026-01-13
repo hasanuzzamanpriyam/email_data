@@ -1,5 +1,6 @@
 <?php
 require_once dirname(dirname(dirname(__DIR__))) . '/assets/php/config.php';
+require_once __DIR__ . '/PHPMailer/PHPMailerAutoload.php';
 
 class Auth extends Database
 {
@@ -208,6 +209,58 @@ class Auth extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function reply_feedback($id, $message)
+    {
+        $sql = "SELECT email FROM feedback WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $to = $user['email'];
+
+        try {
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            $mail->Host = '69.197.191.106';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'support@emailbigdata.com';
+            $mail->Password = 'Nazmul@@2025$$';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            // Bypass SSL verification for localhost/laragon
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+
+            $mail->setFrom('support@emailbigdata.com', 'EmailBigData Support');
+            $mail->addAddress($to);
+            $mail->isHTML(true);
+            $mail->Subject = 'Reply to your feedback - EmailBigData';
+            $mail->Body = "
+                <h3>Reply to your feedback</h3>
+                <p>Dear User,</p>
+                <p>Admin has checked your feedback and here is the reply:</p>
+                <p>" . nl2br(htmlspecialchars($message)) . "</p>
+                <br>
+                <p>Regards,</p>
+                <p>EmailBigData Team</p>
+            ";
+
+            if ($mail->send()) {
+                return true;
+            } else {
+                return 'Error: ' . $mail->ErrorInfo;
+            }
+        } catch (Exception $e) {
+            return 'Exception: ' . $e->getMessage();
+        }
     }
 
     public function edit_order($id)

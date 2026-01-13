@@ -686,7 +686,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-feedback')) {
          <td>' . $row['email'] . '</td>
          <td>' . $row['message'] . '</td>
          <td>' . $feedDate . '</td>
-         <td><a href="#" id="' . $row['id'] . '" title="Delete Feedback" class="text-danger deleteFeedbackBtn"><i class="fas fa-trash-alt fa-lg"></i></a></td>
+         <td>
+            <a href="#" id="' . $row['id'] . '" title="Reply" class="text-primary replyFeedbackBtn" data-bs-toggle="modal" data-bs-target="#replyModal"><i class="fas fa-reply fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete Feedback" class="text-danger deleteFeedbackBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+         </td>
          </tr>';
         }
         $output .= '</tbody></table>';
@@ -945,6 +948,16 @@ if (isset($_POST['deleteFeedbackBtn'])) {
     $id = $_POST['deleteFeedbackBtn'];
 
     $adminPanel->delete_feedback($id);
+}
+if (isset($_POST['action']) && ($_POST['action'] == 'reply_feedback_admin')) {
+    $id = $_POST['feedbackId'];
+    $message = $_POST['message'];
+    $result = $adminPanel->reply_feedback($id, $message);
+    if ($result === true) {
+        echo 'success';
+    } else {
+        echo $result;
+    }
 }
 if (isset($_POST['delete_failed_id'])) {
     $id = $_POST['delete_failed_id'];
