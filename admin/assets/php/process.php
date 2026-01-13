@@ -4,13 +4,13 @@ require_once 'auth.php';
 $adminPanel = new Auth();
 
 
-if(isset($_POST['action']) && ($_POST['action']=='display-emails')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-emails')) {
     $output = '';
     $emails = $adminPanel->get_emails();
 
 
-    if($emails){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($emails) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -26,38 +26,38 @@ if(isset($_POST['action']) && ($_POST['action']=='display-emails')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($emails as $row) {
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
+            <td>' . $sno++ . '</td>
             <td>' . $row['title'] . '</td>
             <td>' . $row['category'] . '</td>
             <td>' . substr($row['seo_title'] ?? '', 0, 30) . '-</td>
             <td>' . substr($row['seo_url'] ?? '', 0, 30) . '-</td>
             <td>' . substr($row['seo_desc'] ?? '', 0, 30) . '-</td>
             <td>' . substr($row['short_description'], 0, 30) . '..</td>
-            <td>'.$row['total_email'].'</td>
-            <td>'.$row['price'].'</td>
+            <td>' . $row['total_email'] . '</td>
+            <td>' . $row['price'] . '</td>
             <td>
-            <a href="#" id="'.$row['id'].'" title="Edit Emails" class="text-primary editEmailBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-            <a href="#" id="'.$row['id'].'" title="Delete Email" class="text-danger deleteEmailBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+            <a href="#" id="' . $row['id'] . '" title="Edit Emails" class="text-primary editEmailBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete Email" class="text-danger deleteEmailBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any email yet! Insert your first Emails now!</h3>';
     }
 }
 //Handle Display All page
-if(isset($_POST['action']) && ($_POST['action']=='display-page')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-page')) {
     $output = '';
     $page = $adminPanel->get_page();
 
 
-    if($page){
-     $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Page Name" onChange="showSelected()">
+    if ($page) {
+        $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Page Name" onChange="showSelected()">
      <option selected disabled>-Select Options-</option>
      
      <option>About</option>
@@ -97,28 +97,28 @@ if(isset($_POST['action']) && ($_POST['action']=='display-page')){
      <option>Signup</option>
      <option>Terms of Use</option>
      <option>Zoominfo</option>';
-        $output .='</select>
+        $output .= '</select>
         <label for="pageName">Select Page Name</label>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any page yet! Insert your first page now!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-coupon-post')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-coupon-post')) {
     $output = '';
-    $page = $adminPanel->get_page();
+    $page = $adminPanel->get_emails();
 
 
-    if($page){
-     $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Post Name" >
+    if ($page) {
+        $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Post Name" >
      <option selected disabled>-Select Options-</option>';
         foreach ($page as $row) {
-            $output .= '<option>'.$row['category'].'</option>';
+            $output .= '<option>' . $row['category'] . '</option>';
         }
-        $output .='</select>
+        $output .= '</select>
         <label for="pageName">Select Post Name</label>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any post yet! Insert your first post now!</h3>';
     }
 }
@@ -135,18 +135,19 @@ if (isset($_POST['action']) && ($_POST['action'] == 'coupon')) {
 if (isset($_POST['action']) && ($_POST['action'] == 'seo')) {
     $page = $adminPanel->test_input($_POST['page']);
     $seoTitle = $adminPanel->test_input($_POST['seoTitle']);
+    $seoUrl = $adminPanel->test_input($_POST['seoUrl']);
     $seoKey = $adminPanel->test_input($_POST['seoKeyword']);
     $seoDes = $adminPanel->test_input($_POST['seoDescription']);
 
-    $adminPanel->inert_seo($page, $seoTitle, $seoKey, $seoDes);
+    echo $adminPanel->inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes);
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-coupon')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-coupon')) {
     $output = '';
     $coupon = $adminPanel->get_coupon();
 
 
-    if($coupon){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($coupon) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -160,35 +161,35 @@ if(isset($_POST['action']) && ($_POST['action']=='display-coupon')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($coupon as $row) {
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
-            <td>'.$row['tacking_id'].'</td>
-            <td>'.$row['post_title'].'</td>
-            <td>'.$row['coupon_title'].'</td>
-            <td>'.$row['coupon_type'].'</td>
-            <td>'.$row['limitation'].'</td>
-            <td>'.$row['amount'].'</td>
+            <td>' . $sno++ . '</td>
+            <td>' . $row['tacking_id'] . '</td>
+            <td>' . $row['post_title'] . '</td>
+            <td>' . $row['coupon_title'] . '</td>
+            <td>' . $row['coupon_type'] . '</td>
+            <td>' . $row['limitation'] . '</td>
+            <td>' . $row['amount'] . '</td>
             <td>
-            <a href="#" id="'.$row['id'].'" title="Edit SEO" class="text-primary editCouponBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-            <a href="#" id="'.$row['id'].'" title="Delete SEO" class="text-danger deleteCouponBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+            <a href="#" id="' . $row['id'] . '" title="Edit SEO" class="text-primary editCouponBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete SEO" class="text-danger deleteCouponBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any SEO details yet! Insert your first SEO now!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-seo')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-seo')) {
     $output = '';
     $seoPage = $adminPanel->get_seo_page();
 
 
-    if($seoPage){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($seoPage) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -200,33 +201,33 @@ if(isset($_POST['action']) && ($_POST['action']=='display-seo')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($seoPage as $row) {
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
-            <td>'.$row['page'].'</td>
-            <td>'.$row['title'].'</td>
-            <td>'.$row['url'].'</td>
-            <td>'.substr($row['description'],0,60).'..</td>
+            <td>' . $sno++ . '</td>
+            <td>' . $row['page'] . '</td>
+            <td>' . $row['title'] . '</td>
+            <td>' . $row['url'] . '</td>
+            <td>' . substr($row['description'], 0, 60) . '..</td>
             <td>
-            <a href="#" id="'.$row['id'].'" title="Edit SEO" class="text-primary editSEOBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-            <a href="#" id="'.$row['id'].'" title="Delete SEO" class="text-danger deleteSEOBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+            <a href="#" id="' . $row['id'] . '" title="Edit SEO" class="text-primary editSEOBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete SEO" class="text-danger deleteSEOBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any SEO details yet! Insert your first SEO now!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-user')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-user')) {
     $output = '';
     $users = $adminPanel->get_all_user();
 
 
-    if($users){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($users) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -241,45 +242,45 @@ if(isset($_POST['action']) && ($_POST['action']=='display-user')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($users as $row) {
             $joinedDate = date('d-M-Y', strtotime($row['created_at']));
-            $fullNmae = $row['first_name'].' '.$row['last_name'];
+            $fullNmae = $row['first_name'] . ' ' . $row['last_name'];
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
-            <td>'.$fullNmae.'</td>
-            <td>'.$row['email'].'</td>
-            <td>'.$row['phone'].'</td>
-            <td>'.$row['country'].'</td>
-            <td>'.$row['company'].'</td>
-            <td>'.$row['topup'].'</td>
-            <td>'.$joinedDate.'</td>
+            <td>' . $sno++ . '</td>
+            <td>' . $fullNmae . '</td>
+            <td>' . $row['email'] . '</td>
+            <td>' . $row['phone'] . '</td>
+            <td>' . $row['country'] . '</td>
+            <td>' . $row['company'] . '</td>
+            <td>' . $row['topup'] . '</td>
+            <td>' . $joinedDate . '</td>
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" style="padding: 0 0!important; min-width: 7rem!important;">
-                        <li class="text-center"><a id="'.$row['id'].'" class="dropdown-item font-weight-bold bandUser" href="#"><i class="fas fa-user-slash"></i>&nbsp;&nbsp;&nbsp;Ban</a></li>
-                        <li class="text-center"><a id="'.$row['id'].'" class="dropdown-item font-weight-bold userLogin" href="#"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Login</a></li>
-                        <li class="text-center"><a id="'.$row['id'].'" class="dropdown-item font-weight-bold userTopup" href="#"><i class="fas fa-cart-arrow-down"></i>&nbsp;&nbsp;&nbsp;Topup</a></li>
+                        <li class="text-center"><a id="' . $row['id'] . '" class="dropdown-item font-weight-bold bandUser" href="#"><i class="fas fa-user-slash"></i>&nbsp;&nbsp;&nbsp;Ban</a></li>
+                        <li class="text-center"><a id="' . $row['id'] . '" class="dropdown-item font-weight-bold userLogin" href="#"><i class="fas fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Login</a></li>
+                        <li class="text-center"><a id="' . $row['id'] . '" class="dropdown-item font-weight-bold userTopup" href="#"><i class="fas fa-cart-arrow-down"></i>&nbsp;&nbsp;&nbsp;Topup</a></li>
                     </ul>
                 </div>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not register any user yet!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-band-user')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-band-user')) {
     $output = '';
     $users = $adminPanel->get_all_band_user();
 
 
-    if($users){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($users) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -292,31 +293,31 @@ if(isset($_POST['action']) && ($_POST['action']=='display-band-user')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($users as $row) {
-            $fullNmae = $row['first_name'].' '.$row['last_name'];
+            $fullNmae = $row['first_name'] . ' ' . $row['last_name'];
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
-            <td>'.$fullNmae.'</td>
-            <td>'.$row['email'].'</td>
-            <td>'.$row['phone'].'</td>
-            <td>'.$row['country'].'</td>
-            <td>'.$row['company'].'</td>
+            <td>' . $sno++ . '</td>
+            <td>' . $fullNmae . '</td>
+            <td>' . $row['email'] . '</td>
+            <td>' . $row['phone'] . '</td>
+            <td>' . $row['country'] . '</td>
+            <td>' . $row['company'] . '</td>
             <td>
                 <div class="btn-group">
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" style="padding: 0 0!important; min-width: 7rem!important;">
-                        <li class="text-center"><a id="'.$row['id'].'" class="dropdown-item font-weight-bold returnUser" href="#"><i class="fas fa-user-check"></i>&nbsp;&nbsp;&nbsp;Return</a></li>
-                        <li class="text-center"><a id="'.$row['id'].'" class="dropdown-item font-weight-bold deleteUser" href="#"><i class="fas fa-user-times"></i>&nbsp;&nbsp;&nbsp;Delete</a></li>
+                        <li class="text-center"><a id="' . $row['id'] . '" class="dropdown-item font-weight-bold returnUser" href="#"><i class="fas fa-user-check"></i>&nbsp;&nbsp;&nbsp;Return</a></li>
+                        <li class="text-center"><a id="' . $row['id'] . '" class="dropdown-item font-weight-bold deleteUser" href="#"><i class="fas fa-user-times"></i>&nbsp;&nbsp;&nbsp;Delete</a></li>
                     </ul>
                 </div>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not register any user yet!</h3>';
     }
 }
@@ -360,7 +361,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-order')) {
          <td>' . $row['email_category'] . '</td>
          <td>' . $row['email_item'] . '</td>
          <td>' . substr($row['total_email'], 0, 6) . '</td>
-         <td>' . substr($row['total_price'] ?? 0,0,6) . '</td>
+         <td>' . substr($row['total_price'] ?? 0, 0, 6) . '</td>
          <td>' . substr($row['days'], 6, 10) . '-</td>
          <td>' . substr($row['payment_way'], 0, 10) . '-</td>
          <td>' . $okDate . '</td>
@@ -570,14 +571,14 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-refund')) {
         echo '<h3 class="text-center text-secondary">:( You have not any order yet!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-sales')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-sales')) {
     $output = '';
 
     $sales = $adminPanel->get_sales();
 
 
-    if($sales){
-     $output .= ' <table class="table table-striped text-center">
+    if ($sales) {
+        $output .= ' <table class="table table-striped text-center">
      <thead>
      <tr>
      <th>S. No</th>
@@ -597,42 +598,42 @@ if(isset($_POST['action']) && ($_POST['action']=='display-sales')){
      </tr>
      </thead>
      <tbody>';
-     $sno =1;
-     foreach ($sales as $row) {
-         $output .= '
-         <td>'.$sno++.'</td>
-         <td>'.$row['tracking_id'].'</td>
-         <td>'.$row['username'].'</td>
-         <td>'.$row['email'].'</td>
-         <td>'.$row['email_type'].'</td>
-         <td>'.$row['email_category'].'</td>
-         <td>'.$row['email_item'].'</td>
-         <td>'.$row['total_email'].'</td>
-         <td>'.$row['total_price'].'</td>
-         <td>'.$row['days'].'</td>
-         <td>'.$row['payment_way'].'</td>
-         <td>'.$row['status'].'</td>
-         <td>'.$row['delivery_file'].'</td>
+        $sno = 1;
+        foreach ($sales as $row) {
+            $output .= '
+         <td>' . $sno++ . '</td>
+         <td>' . $row['tracking_id'] . '</td>
+         <td>' . $row['username'] . '</td>
+         <td>' . $row['email'] . '</td>
+         <td>' . $row['email_type'] . '</td>
+         <td>' . $row['email_category'] . '</td>
+         <td>' . $row['email_item'] . '</td>
+         <td>' . $row['total_email'] . '</td>
+         <td>' . $row['total_price'] . '</td>
+         <td>' . $row['days'] . '</td>
+         <td>' . $row['payment_way'] . '</td>
+         <td>' . $row['status'] . '</td>
+         <td>' . $row['delivery_file'] . '</td>
          <td>
-         <a href="#" id="'.$row['id'].'" title="Edit Sale" class="text-primary editSaleBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-         <a href="#" id="'.$row['id'].'" title="Delete Sale" class="text-danger deleteSaleBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+         <a href="#" id="' . $row['id'] . '" title="Edit Sale" class="text-primary editSaleBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+         <a href="#" id="' . $row['id'] . '" title="Delete Sale" class="text-danger deleteSaleBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
          </td>
          </tr>';
-     }
-     $output .='</tbody></table>';
-     echo $output;
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any sales yet!</h3>';
+        }
+        $output .= '</tbody></table>';
+        echo $output;
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any sales yet!</h3>';
+    }
 }
-}
-if(isset($_POST['action']) && ($_POST['action']=='display-subscription')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-subscription')) {
     $output = '';
 
     $subscription = $adminPanel->get_subscription();
 
 
-    if($subscription){
-     $output .= ' <table class="table table-striped text-center">
+    if ($subscription) {
+        $output .= ' <table class="table table-striped text-center">
      <thead>
      <tr>
      <th>S. No</th>
@@ -641,29 +642,29 @@ if(isset($_POST['action']) && ($_POST['action']=='display-subscription')){
      </tr>
      </thead>
      <tbody>';
-     $sno =1;
-     foreach ($subscription as $row) {
-         $joinedDate = date('d-M-Y [g:i A]', strtotime($row['created_at']));
-         $output .= '
-         <td>'.$sno++.'</td>
-         <td>'.$row['email'].'</td>
-         <td>'.$joinedDate.'</td>
+        $sno = 1;
+        foreach ($subscription as $row) {
+            $joinedDate = date('d-M-Y [g:i A]', strtotime($row['created_at']));
+            $output .= '
+         <td>' . $sno++ . '</td>
+         <td>' . $row['email'] . '</td>
+         <td>' . $joinedDate . '</td>
          </tr>';
-     }
-     $output .='</tbody></table>';
-     echo $output;
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any subscription yet!</h3>';
+        }
+        $output .= '</tbody></table>';
+        echo $output;
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any subscription yet!</h3>';
+    }
 }
-}
-if(isset($_POST['action']) && ($_POST['action']=='display-feedback')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-feedback')) {
     $output = '';
 
     $feedback = $adminPanel->get_feedback();
 
 
-    if($feedback){
-     $output .= ' <table class="table table-striped text-center">
+    if ($feedback) {
+        $output .= ' <table class="table table-striped text-center">
      <thead>
      <tr>
      <th>S. No</th>
@@ -675,38 +676,38 @@ if(isset($_POST['action']) && ($_POST['action']=='display-feedback')){
      </tr>
      </thead>
      <tbody>';
-     $sno =1;
-     foreach ($feedback as $row) {
-        $feedDate = date('d-M-Y [g:i A]', strtotime($row['created_at']));
-        $fullNmae = $row['first_name'].' '.$row['last_name'];
-         $output .= '
-         <td>'.$sno++.'</td>
-         <td>'.$fullNmae.'</td>
-         <td>'.$row['email'].'</td>
-         <td>'.$row['message'].'</td>
-         <td>'.$feedDate.'</td>
-         <td><a href="#" id="'.$row['id'].'" title="Delete Feedback" class="text-danger deleteFeedbackBtn"><i class="fas fa-trash-alt fa-lg"></i></a></td>
+        $sno = 1;
+        foreach ($feedback as $row) {
+            $feedDate = date('d-M-Y [g:i A]', strtotime($row['created_at']));
+            $fullNmae = $row['first_name'] . ' ' . $row['last_name'];
+            $output .= '
+         <td>' . $sno++ . '</td>
+         <td>' . $fullNmae . '</td>
+         <td>' . $row['email'] . '</td>
+         <td>' . $row['message'] . '</td>
+         <td>' . $feedDate . '</td>
+         <td><a href="#" id="' . $row['id'] . '" title="Delete Feedback" class="text-danger deleteFeedbackBtn"><i class="fas fa-trash-alt fa-lg"></i></a></td>
          </tr>';
-     }
-     $output .='</tbody></table>';
-     echo $output;
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any feedback yet!</h3>';
+        }
+        $output .= '</tbody></table>';
+        echo $output;
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any feedback yet!</h3>';
+    }
 }
-}
-if(isset($_POST['action']) && ($_POST['action']=='total-user-number')){
+if (isset($_POST['action']) && ($_POST['action'] == 'total-user-number')) {
 
     $users = $adminPanel->get_all_user();
 
-    if($users){
-     $count = 0;
-     foreach ($users as $row) {
-        $count++;
-     }
-     echo number_format($count);
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any user yet!</h3>';
-}
+    if ($users) {
+        $count = 0;
+        foreach ($users as $row) {
+            $count++;
+        }
+        echo number_format($count);
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any user yet!</h3>';
+    }
 }
 if (isset($_POST['action']) && ($_POST['action'] == 'total-order-number')) {
 
@@ -717,7 +718,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-order-number')) {
         $orderAmount = 0;
         foreach ($orders as $row) {
             $count++;
-            $orderAmount += $row['total_price'];
+            $orderAmount += (int)$row['total_price'];
         }
         echo 'Totla Orders ' . number_format($count) . '  &nbsp;&nbsp;&nbsp; Amount $ ' . number_format($orderAmount);
     } else {
@@ -733,7 +734,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-failed-number')) {
         $orderAmount = 0;
         foreach ($orders as $row) {
             $count++;
-            $orderAmount += $row['total_price'];
+            $orderAmount += (int)$row['total_price'];
         }
         echo 'Total ' . number_format($count) . ' Orders &nbsp;&nbsp;&nbsp; Order Amount $ ' . number_format($orderAmount);
     } else {
@@ -749,7 +750,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-cancel-number')) {
         $orderAmount = 0;
         foreach ($orders as $row) {
             $count++;
-            $orderAmount += $row['total_price'];
+            $orderAmount += (int)$row['total_price'];
         }
         echo 'Total Clanceled ' . number_format($count) . '&nbsp;&nbsp;&nbsp;Amount $ ' . number_format($orderAmount);
     } else {
@@ -765,7 +766,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-refund-number')) {
         $orderAmount = 0;
         foreach ($orders as $row) {
             $count++;
-            $orderAmount += $row['total_price'];
+            $orderAmount += (int)$row['total_price'];
         }
         echo 'Total ' . number_format($count) . ' &nbsp;&nbsp;&nbsp; Amount $ ' . number_format($orderAmount);
     } else {
@@ -780,9 +781,9 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-topup-number')) {
         $count = 0;
         $topupAmount = 0;
         foreach ($topup as $row) {
-            if($row['topup'] > 0){
+            if ($row['topup'] > 0) {
                 $count++;
-                $topupAmount += $row['topup'];
+                $topupAmount += (int)$row['topup'];
             }
         }
         echo '( ' . number_format($count) . ' )&nbsp;&nbsp;&nbsp;$ ' . number_format($topupAmount);
@@ -799,7 +800,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-sales-number')) {
         $orderAmount = 0;
         foreach ($sales as $row) {
             $count++;
-            $orderAmount += $row['total_price'];
+            $orderAmount += (int)$row['total_price'];
         }
         echo 'Total Sales ' . number_format($count) . '&nbsp;&nbsp;&nbsp; Amount $ ' . number_format($orderAmount);
     } else {
@@ -815,54 +816,54 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-coupon-number')) {
         $orderAmount = 0;
         foreach ($sales as $row) {
             $count++;
-            $orderAmount += $row['coupon_amount'];
+            $orderAmount += (int)$row['coupon_amount'];
         }
-        echo 'Total ' .number_format($count).' Coupons';
+        echo 'Total ' . number_format($count) . ' Coupons';
     } else {
         echo '<h3 class="text-center text-secondary">:( You have not any sales yet!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='total-email-number')){
+if (isset($_POST['action']) && ($_POST['action'] == 'total-email-number')) {
 
     $email = $adminPanel->get_emails();
 
-    if($email){
-     $count = 0;
-     foreach ($email as $row) {
-        $count += $row['total_email'];
-     }
-     echo number_format($count);
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any email yet!</h3>';
+    if ($email) {
+        $count = 0;
+        foreach ($email as $row) {
+            $count += (int)$row['total_email'];
+        }
+        echo number_format($count);
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any email yet!</h3>';
+    }
 }
-}
-if(isset($_POST['action']) && ($_POST['action']=='total-feedback-number')){
+if (isset($_POST['action']) && ($_POST['action'] == 'total-feedback-number')) {
 
     $feedback = $adminPanel->get_feedback();
 
-    if($feedback){
-     $count = 0;
-     foreach ($feedback as $row) {
-        $count++;
-     }
-     echo number_format($count);
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any feedback yet!</h3>';
+    if ($feedback) {
+        $count = 0;
+        foreach ($feedback as $row) {
+            $count++;
+        }
+        echo number_format($count);
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any feedback yet!</h3>';
+    }
 }
-}
-if(isset($_POST['action']) && ($_POST['action']=='total-subscription-number')){
+if (isset($_POST['action']) && ($_POST['action'] == 'total-subscription-number')) {
 
     $subscription = $adminPanel->get_subscription();
 
-    if($subscription){
-     $count = 0;
-     foreach ($subscription as $row) {
-        $count++;
-     }
-     echo number_format($count);
- }else{
-    echo '<h3 class="text-center text-secondary">:( You have not any subscription yet!</h3>';
-}
+    if ($subscription) {
+        $count = 0;
+        foreach ($subscription as $row) {
+            $count++;
+        }
+        echo number_format($count);
+    } else {
+        echo '<h3 class="text-center text-secondary">:( You have not any subscription yet!</h3>';
+    }
 }
 if (isset($_POST['action']) && ($_POST['action'] == 'total-income-number')) {
 
@@ -871,39 +872,39 @@ if (isset($_POST['action']) && ($_POST['action'] == 'total-income-number')) {
     if ($coupons) {
         $couponAmount = 0;
         foreach ($coupons as $row) {
-            $couponAmount += $row['coupon_amount'];
+            $couponAmount += (int)$row['coupon_amount'];
         }
     }
     $totalIncome = 0;
     if ($income) {
         foreach ($income as $row) {
-            $totalIncome += $row['total_price'];
+            $totalIncome += (int)$row['total_price'];
         }
         $totalIncome = $totalIncome - $couponAmount;
-        echo '$ '.number_format($totalIncome);
+        echo '$ ' . number_format($totalIncome);
     } else {
         echo '<h3 class="text-center text-secondary">:( You have not any subscription yet!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-order-email')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-order-email')) {
     $output = '';
     $customerEmail = $adminPanel->get_orders();
 
 
-    if($customerEmail){
-     $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Page Name">
+    if ($customerEmail) {
+        $output .= '<select class="form-select pageTitle" id="pageName" name="page" aria-label="Select Page Name">
      <option selected disabled>-Select Options-</option>';
         foreach ($customerEmail as $row) {
-            $output .= '<option>'.$row['email'].'</option>';
+            $output .= '<option>' . $row['email'] . '</option>';
         }
-        $output .='</select>
+        $output .= '</select>
         <label for="pageName">Select Customer Email</label>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any page yet! Insert your first page now!</h3>';
     }
 }
-if(isset($_POST['editOrderId'])){
+if (isset($_POST['editOrderId'])) {
 
     $id = $_POST['editOrderId'];
 
@@ -911,7 +912,7 @@ if(isset($_POST['editOrderId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['userTopup'])){
+if (isset($_POST['userTopup'])) {
 
     $id = $_POST['userTopup'];
 
@@ -919,29 +920,28 @@ if(isset($_POST['userTopup'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['action']) && ($_POST['action'] == 'topup')){
+if (isset($_POST['action']) && ($_POST['action'] == 'topup')) {
 
     $id = $_POST['topId'];
     $topupType = $_POST['topupType'];
     $amount = $_POST['amount'];
     $row = $adminPanel->get_top_user($id);
-    if($topupType === 'Add'){
+    if ($topupType === 'Add') {
         $total = $amount + $row['topup'];
-    }else if($topupType === 'Minus'){
+    } else if ($topupType === 'Minus') {
         $total = $row['topup'] - $amount;
-    }else{
+    } else {
         $total = $row['topup'];
     }
 
-    $adminPanel->topup($id,$total);
-    
+    $adminPanel->topup($id, $total);
 }
-if(isset($_POST['delete_id'])){
+if (isset($_POST['delete_id'])) {
     $id = $_POST['delete_id'];
 
     $adminPanel->delete_order($id);
 }
-if(isset($_POST['deleteFeedbackBtn'])){
+if (isset($_POST['deleteFeedbackBtn'])) {
     $id = $_POST['deleteFeedbackBtn'];
 
     $adminPanel->delete_feedback($id);
@@ -961,7 +961,7 @@ if (isset($_POST['delete_refund_id'])) {
 
     $adminPanel->delete_refund_order($id);
 }
-if(isset($_POST['editCouponBtn'])){
+if (isset($_POST['editCouponBtn'])) {
 
     $id = $_POST['editCouponBtn'];
 
@@ -969,7 +969,7 @@ if(isset($_POST['editCouponBtn'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['deleteCouponBtn'])){
+if (isset($_POST['deleteCouponBtn'])) {
     $id = $_POST['deleteCouponBtn'];
 
     $adminPanel->delete_coupon($id);
@@ -996,7 +996,7 @@ if (isset($_FILES['deliveryData'])) {
     } else {
         echo 'There was an error uploading your file!';
     }
-    
+
     $deliveryId = $_POST['deliveryId'];
     $status = "Completed";
     $deliveryData = $fileDestination;
@@ -1015,11 +1015,11 @@ if (isset($_FILES['deliveryData'])) {
     $copAm = $couponDetails['amount'];
     $copCost = $couponDetails['coupon_amount'];
 
-    if($copType === 'Percentage'){
+    if ($copType === 'Percentage') {
         $copLim = $copLim - 1;
-        $temp = ($presentPrice * 100)/(100 - $copAm);
+        $temp = ($presentPrice * 100) / (100 - $copAm);
         $copCost = $copCost + ($temp - $presentPrice);
-    }else{
+    } else {
         $copLim = $copLim - 1;
         $copCost = $copCost + $copAm;
     }
@@ -1027,9 +1027,9 @@ if (isset($_FILES['deliveryData'])) {
     $adminPanel->update_coupon_avai($copId, $copLim, $copCost);
 
     try {
-        ini_set('display_errors',1);
+        ini_set('display_errors', 1);
         error_reporting(E_ALL);
-        
+
         $delName = $getCoupon['username'];
         $delTack = $getCoupon['tracking_id'];
         $delType = $getCoupon['email_type'];
@@ -1037,11 +1037,11 @@ if (isset($_FILES['deliveryData'])) {
         $delEmailNumber =  $getCoupon['total_email'];
         $delPrice =  $getCoupon['total_price'];
         $delFile =  $emailFile;
-        
-        
+
+
         $email = $delEmail;
         $emailSubject = "Order Delivery";
-        $to = $email.',shahabahammed37@gmail.com,support@mailerstation.com';
+        $to = $email . ',shahabahammed37@gmail.com,support@mailerstation.com';
         $subject = $emailSubject;
         $message = '<!DOCTYPE html>
 <html lang="en">
@@ -1080,7 +1080,7 @@ if (isset($_FILES['deliveryData'])) {
                                                 <a class="o_text-light" href="https://mailerstation.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
-                          Hello '.$delName.' 
+                          Hello ' . $delName . ' 
                           </span>
 
                                                     <img src="https://www.fiviral.com/images/email/person.png" width="24" height="24" style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
@@ -1141,12 +1141,12 @@ if (isset($_FILES['deliveryData'])) {
                                     <h2 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 15px;color: #242b3d;font-size: 30px;line-height: 23px;padding-top:15px;">Delivered Summery</h2>
                                     <h4 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">
                                     
-                                    Your Tracking ID : '.$delTack.'<br>Order Item : '.$delType.' '.$delItem.' Email List
+                                    Your Tracking ID : ' . $delTack . '<br>Order Item : ' . $delType . ' ' . $delItem . ' Email List
                                     
                                     </h4>
                                     <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">
                                     
-                                    Total Email: '.$delEmailNumber.'<br>Total Price: '.$delPrice.'
+                                    Total Email: ' . $delEmailNumber . '<br>Total Price: ' . $delPrice . '
                                     
                                     
                                     </p>
@@ -1166,7 +1166,7 @@ if (isset($_FILES['deliveryData'])) {
                                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                                         <tbody>
                                                             <tr>
-                                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="https://mailerstation.com/admin/assets/php/'.$delFile.'" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Download Now</a></td>
+                                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="https://mailerstation.com/admin/assets/php/' . $delFile . '" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">Download Now</a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -1181,7 +1181,7 @@ if (isset($_FILES['deliveryData'])) {
                                                                 <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 21px; background-color: #e8f2e8; border-radius: 4px; padding-left: 8px; padding-right: 8px; padding-top: 16px; padding-bottom: 16px;">
 
                                                                     <p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;">
-                                                                        https://mailerstation.com/admin/assets/php/'.$delFile.'
+                                                                        https://mailerstation.com/admin/assets/php/' . $delFile . '
                                                                     </p>
 
                                                                 </td>
@@ -1222,7 +1222,7 @@ if (isset($_FILES['deliveryData'])) {
                                                         </tbody>
                                                     </table>
                                                     <h2 class="o_heading o_text-dark o_mb-xxs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 4px;color: #242b3d;font-size: 30px;line-height: 39px;">Re-order Request </h2>
-                                                    <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Hello '.$delName.', You may complete your next order with 10% off with coupon code.</p>
+                                                    <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Hello ' . $delName . ', You may complete your next order with 10% off with coupon code.</p>
                                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                                         <tbody>
                                                             <tr>
@@ -1298,23 +1298,22 @@ if (isset($_FILES['deliveryData'])) {
 </body>
 
 </html>';
-       
+
 
         // Always set content-type when sending HTML email
         $headers = "MIME-Version: 1.0" . "\r\n";
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                
+
         // More headers
         $headers .= 'From: <admin@mailerstation.com>' . "\r\n";
 
-        mail($to,$subject,$message,$headers);
-        echo $user->showMessage('info','Product delivery successfully!');
-        
-    }catch(Exception $e){
-        echo $user->showMessage('danger','Something went to wrong... try later');
+        mail($to, $subject, $message, $headers);
+        echo $user->showMessage('info', 'Product delivery successfully!');
+    } catch (Exception $e) {
+        echo $user->showMessage('danger', 'Something went to wrong... try later');
     }
 }
-if(isset($_POST['editSaleId'])){
+if (isset($_POST['editSaleId'])) {
 
     $id = $_POST['editSaleId'];
 
@@ -1322,7 +1321,7 @@ if(isset($_POST['editSaleId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['delete_sale_id'])){
+if (isset($_POST['delete_sale_id'])) {
     $id = $_POST['delete_sale_id'];
 
     $adminPanel->delete_order($id);
@@ -1350,14 +1349,14 @@ if (isset($_FILES['deliveryUpdateData'])) {
     } else {
         echo 'There was an error uploading your file!';
     }
-    
+
     $saleId = $_POST['saleId'];
     $days = $_POST['day'];
     $deliveryData = $fileDestination;
 
     $adminPanel->update_sale($saleId, $days, $deliveryData);
 }
-if(isset($_POST['editSEOId'])){
+if (isset($_POST['editSEOId'])) {
 
     $id = $_POST['editSEOId'];
 
@@ -1365,22 +1364,22 @@ if(isset($_POST['editSEOId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['delete_seo_id'])){
+if (isset($_POST['delete_seo_id'])) {
 
     $id = $_POST['delete_seo_id'];
 
-    $adminPanel->delete_seo($id);
+    echo $adminPanel->delete_seo($id);
 }
-if(isset($_POST['action']) && ($_POST['action'] == 'update-seo')){
+if (isset($_POST['action']) && ($_POST['action'] == 'update-seo')) {
     $id = $adminPanel->test_input($_POST['updateSeoId']);
     $seoTitle = $adminPanel->test_input($_POST['seoUpdateTitle']);
     $seoUrl = $adminPanel->test_input(preg_replace('/\s+/', '-', strtolower($_POST['seoUpdateUrl'])));
     $seoKey = $adminPanel->test_input($_POST['seoUpdateKeyword']);
     $seoDes = $adminPanel->test_input($_POST['seoUpdateDescription']);
 
-    $adminPanel->update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes);
+    echo $adminPanel->update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes);
 }
-if(isset($_POST['action']) && ($_POST['action'] == 'update-coupon')){
+if (isset($_POST['action']) && ($_POST['action'] == 'update-coupon')) {
 
     $id = $adminPanel->test_input($_POST['updateCouponId']);
     $couponTitle = $adminPanel->test_input($_POST['updatecouponTitle']);
@@ -1391,7 +1390,7 @@ if(isset($_POST['action']) && ($_POST['action'] == 'update-coupon')){
 
     $adminPanel->update_coupon($id, $couponTitle, $track, $limit, $type, $amount);
 }
-if(isset($_POST['editEmailId'])){
+if (isset($_POST['editEmailId'])) {
 
     $id = $_POST['editEmailId'];
 
@@ -1399,35 +1398,35 @@ if(isset($_POST['editEmailId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['deleteEmailBtn'])){
+if (isset($_POST['deleteEmailBtn'])) {
     $id = $_POST['deleteEmailBtn'];
 
     $adminPanel->delete_email($id);
 }
-if(isset($_POST['bandUser'])){
+if (isset($_POST['bandUser'])) {
 
     $id = $_POST['bandUser'];
 
     $adminPanel->bandUser($id);
 }
-if(isset($_POST['returnUser'])){
+if (isset($_POST['returnUser'])) {
 
     $id = $_POST['returnUser'];
 
     $adminPanel->returnUser($id);
 }
-if(isset($_POST['deleteUser'])){
+if (isset($_POST['deleteUser'])) {
 
     $id = $_POST['deleteUser'];
 
     $adminPanel->deleteUser($id);
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-topup')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-topup')) {
     $output = '';
     $topup = $adminPanel->get_topup();
 
-    if($topup){
-       $output .= ' <table class="table table-striped text-center">
+    if ($topup) {
+        $output .= ' <table class="table table-striped text-center">
        <thead>
            <tr>
                <th>S. No</th>
@@ -1442,33 +1441,33 @@ if(isset($_POST['action']) && ($_POST['action']=='display-topup')){
            </tr>
        </thead>
        <tbody>';
-       $sno = 1;
-       foreach ($topup as $row) {
+        $sno = 1;
+        foreach ($topup as $row) {
             $topupDate = date('d-M-y', strtotime($row['created_at']));
             $topupTime = date('g:i A', strtotime($row['created_at']));
             $okDate =  $topupDate . '<br>' . $topupTime;
             $output .= '<tr>
-               <td>'.$sno++.'</td>
-               <td>'.$row['top_code'].'</td>
-               <td>'.$row['full_name'].'</td>
-               <td style="font-size: 12px;">'.substr($row['email'],0,20).'..</td>
-               <td>'.$row['amount'].'</td>
-               <td>'.$row['status'].'</td>
-               <td>'.$row['payment_way'].'</td>
-               <td style="font-size: 12px;">'.$okDate.'</td>
+               <td>' . $sno++ . '</td>
+               <td>' . $row['top_code'] . '</td>
+               <td>' . $row['full_name'] . '</td>
+               <td style="font-size: 12px;">' . substr($row['email'], 0, 20) . '..</td>
+               <td>' . $row['amount'] . '</td>
+               <td>' . $row['status'] . '</td>
+               <td>' . $row['payment_way'] . '</td>
+               <td style="font-size: 12px;">' . $okDate . '</td>
                <td>
-                   <a href="#" id="'.$row['id'].'" title="Edit Top" class="text-primary editTopBtn" style="font-size: 25px;"><i class="fas fa-reply-all"></i></a>&nbsp;
-                    <a href="#" id="'.$row['id'].'" title="Delete Top" class="text-danger deleteTopBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+                   <a href="#" id="' . $row['id'] . '" title="Edit Top" class="text-primary editTopBtn" style="font-size: 25px;"><i class="fas fa-reply-all"></i></a>&nbsp;
+                    <a href="#" id="' . $row['id'] . '" title="Delete Top" class="text-danger deleteTopBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
                </td>
            </tr>';
-       }
-       $output .='</tbody></table>';
-       echo $output;
-    }else{
+        }
+        $output .= '</tbody></table>';
+        echo $output;
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not created any order yet! Create your first order now!</h3>';
     }
 }
-if(isset($_POST['editTopId'])){
+if (isset($_POST['editTopId'])) {
 
     $id = $_POST['editTopId'];
 
@@ -1476,13 +1475,13 @@ if(isset($_POST['editTopId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['delete_top_id'])){
+if (isset($_POST['delete_top_id'])) {
 
     $id = $_POST['delete_top_id'];
 
     $adminPanel->delete_top($id);
 }
-if(isset($_POST['action']) && ($_POST['action'] == 'update_topup')){
+if (isset($_POST['action']) && ($_POST['action'] == 'update_topup')) {
     $topId = $adminPanel->test_input($_POST['topId']);
     $topUid = $adminPanel->test_input($_POST['topUid']);
     $topAmount = $adminPanel->test_input($_POST['amount']);
@@ -1494,13 +1493,12 @@ if(isset($_POST['action']) && ($_POST['action'] == 'update_topup')){
 
     $adminPanel->update_top($topId, $topStatus);
 
-    if($topStatus === 'Completed'){
-        $adminPanel->topup($topUid,$total);
+    if ($topStatus === 'Completed') {
+        $adminPanel->topup($topUid, $total);
     }
-
 }
-    //Handle profile update ajax request
-if(isset($_FILES['image'])){
+//Handle profile update ajax request
+if (isset($_FILES['image'])) {
     $name = $cuser->test_input($_POST['name']);
     $gender = $cuser->test_input($_POST['gender']);
     $dob = $cuser->test_input($_POST['dob']);
@@ -1510,41 +1508,41 @@ if(isset($_FILES['image'])){
 
     $folder = 'uploads/';
 
-    if(isset($_FILES['image']['name']) && ($_FILES['image']['name'] != "")){
-        $newImage = $folder.$_FILES['image']['name'];
+    if (isset($_FILES['image']['name']) && ($_FILES['image']['name'] != "")) {
+        $newImage = $folder . $_FILES['image']['name'];
         move_uploaded_file($_FILES['image']['tmp_name'], $newImage);
 
-        if(oldImage != null){
+        if (oldImage != null) {
             unlink($oldImage);
         }
-    }else{
+    } else {
         $newImage = $oldImage;
     }
     $cuser->update_profile($name, $gender, $dob, $phone, $newImage, $cid);
     $cuser->user_notification($cid, 'Admin', 'Profile Updated');
 }
-    //Handle Change password profile ajax request
-if(isset($_POST['action']) && ($_POST['action'] == 'change_pass')){
+//Handle Change password profile ajax request
+if (isset($_POST['action']) && ($_POST['action'] == 'change_pass')) {
     $currentPass = $cuser->test_input($_POST['curpass']);
     $newPass = $cuser->test_input($_POST['newpass']);
     $cnewPass = $cuser->test_input($_POST['cnewpass']);
 
     $hnewPass = password_hash($newPass, PASSWORD_DEFAULT);
 
-    if($newPass != $cnewPass){
+    if ($newPass != $cnewPass) {
         echo $cuser->showMessage('danger', 'Password did not Matched!');
-    }else{
-        if(password_verify($currentPass, $cpass)){
+    } else {
+        if (password_verify($currentPass, $cpass)) {
             $cuser->change_password($hnewPass, $cid);
-            echo $cuser->showMessage('success','Password Changed Successfully!');
+            echo $cuser->showMessage('success', 'Password Changed Successfully!');
             $cuser->user_notification($cid, 'Admin', 'Password Change');
-        }else{
-            echo $cuser->showMessage('danger','Current Password is Wrong!');
+        } else {
+            echo $cuser->showMessage('danger', 'Current Password is Wrong!');
         }
     }
 }
-    //Handle Verify e-mail ajax request
-if(isset($_POST['action']) && ($_POST['action'] == 'verify_email')){
+//Handle Verify e-mail ajax request
+if (isset($_POST['action']) && ($_POST['action'] == 'verify_email')) {
     try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.gmail.com';
@@ -1554,66 +1552,66 @@ if(isset($_POST['action']) && ($_POST['action'] == 'verify_email')){
         $mail->SMTPSecure = 'tls';
         $mail->Port       = 587;
 
-        $mail->setFrom(Database::USERNAME,'UserManagementSystem');
+        $mail->setFrom(Database::USERNAME, 'UserManagementSystem');
         $mail->addAddress($cemail);
         $mail->addReplyTo(Database::USERNAME);
 
         $mail->isHTML(true);
         $mail->Subject = 'E-Mail Verification';
-        $mail->Body ='<h3>Click the below link to verify Your E-mail..<br><br><a class="btn btn-primary btn-lg bg-primary" href="http://localhost/shahab/usermanagement/verify-email.php?email='.$cemail.'" role="button">Verify E-mail</a><br><br>Regards<br>User Management<h3>';
+        $mail->Body = '<h3>Click the below link to verify Your E-mail..<br><br><a class="btn btn-primary btn-lg bg-primary" href="http://localhost/shahab/usermanagement/verify-email.php?email=' . $cemail . '" role="button">Verify E-mail</a><br><br>Regards<br>User Management<h3>';
 
 
-        if(!$mail->send()) {
+        if (!$mail->send()) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            echo $cuser->showMessage('Success','We have send you the verification link in your e-mail ID, Please check your e-mail!');
+            echo $cuser->showMessage('Success', 'We have send you the verification link in your e-mail ID, Please check your e-mail!');
         }
-    }catch(Exception $e){
-        echo $user->showMessage('danger','Something went to wrong... try later');
+    } catch (Exception $e) {
+        echo $user->showMessage('danger', 'Something went to wrong... try later');
     }
 }
-    //Handle Send Feedback from user to admin ajax request
-if(isset($_POST['action']) && ($_POST['action']=='feedback')){
+//Handle Send Feedback from user to admin ajax request
+if (isset($_POST['action']) && ($_POST['action'] == 'feedback')) {
     $subject = $cuser->test_input($_POST['subject']);
     $feedback = $cuser->test_input($_POST['feedback']);
 
     $cuser->send_feedback($subject, $feedback, $cid);
     $cuser->user_notification($cid, 'Admin', 'Feedback written');
 }
-    //Handle Fetch of an user Notification
-if(isset($_POST['action']) && ($_POST['action'] == 'fetchNotification')){
+//Handle Fetch of an user Notification
+if (isset($_POST['action']) && ($_POST['action'] == 'fetchNotification')) {
     $notification = $cuser->fetchNotification($cid);
     $output = '';
 
-    if($notification){
+    if ($notification) {
         foreach ($notification as $row) {
             $output .= '<div class="alert alert-danger" role="alert">
-            <button type="button" id="'.$row['id'].'" class="close delete_notification" data-dismiss="alert" aria-label="Close">
+            <button type="button" id="' . $row['id'] . '" class="close delete_notification" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
             <h4 class="alert-heading">New Notification</h4>
             <hr class="my-2">
             <div class="clearfix"></div>
-            <p class="mb-0 lead">'.$row['message'].'</p>
+            <p class="mb-0 lead">' . $row['message'] . '</p>
             <hr class="my-2">
             <p class="mb-0 float-left">Reply of feedback from Admin</p>
-            <p class="mb-0 float-right">'.$cuser->timeInAgo($row['created_at']).'</p>
+            <p class="mb-0 float-right">' . $cuser->timeInAgo($row['created_at']) . '</p>
             <div class="clearfix"></div>
             </div>';
         }
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary mt-5">No any new notification!</h3>';
     }
 }
-if(isset($_POST['action']) && ($_POST['action']=='display-blog')){
+if (isset($_POST['action']) && ($_POST['action'] == 'display-blog')) {
     $output = '';
     $blogs = $adminPanel->get_blogs();
 
 
-    if($blogs){
-     $output .= '<table class="table table-striped table-hover" style="width:100%">
+    if ($blogs) {
+        $output .= '<table class="table table-striped table-hover" style="width:100%">
      <thead>
      <tr>
      <th>S. No</th>
@@ -1628,30 +1626,30 @@ if(isset($_POST['action']) && ($_POST['action']=='display-blog')){
      </tr>
      </thead>
      <tbody>';
-     $sno = 1;
+        $sno = 1;
         foreach ($blogs as $row) {
             $output .= ' <tr>
-            <td>'.$sno++.'</td>
-            <td>'.$row['category'].'</td>
-            <td>'.$row['title'].'</td>
-            <td>'.$row['seo_title'].'</td>
-            <td>'.$row['seo_url'].'</td>
-            <td>'.$row['seo_key'].'</td>
-            <td>'.substr($row['seo_desc'],0,40).'..</td>
-            <td>'.substr(strip_tags($row['description']), 0, 70).'..</td>
+            <td>' . $sno++ . '</td>
+            <td>' . $row['category'] . '</td>
+            <td>' . $row['title'] . '</td>
+            <td>' . $row['seo_title'] . '</td>
+            <td>' . $row['seo_url'] . '</td>
+            <td>' . $row['seo_key'] . '</td>
+            <td>' . substr($row['seo_desc'], 0, 40) . '..</td>
+            <td>' . substr(strip_tags($row['description']), 0, 70) . '..</td>
             <td>
-            <a href="#" id="'.$row['id'].'" title="Edit Blog" class="text-primary editBlogBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-            <a href="#" id="'.$row['id'].'" title="Delete Blog" class="text-danger deleteBlogBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+            <a href="#" id="' . $row['id'] . '" title="Edit Blog" class="text-primary editBlogBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete Blog" class="text-danger deleteBlogBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
             </td>
             </tr>';
         }
-        $output .='</tbody></table>';
+        $output .= '</tbody></table>';
         echo $output;
-    }else{
+    } else {
         echo '<h3 class="text-center text-secondary">:( You have not insert any blog yet! Insert your first blog now!</h3>';
     }
 }
-if(isset($_POST['editBlogId'])){
+if (isset($_POST['editBlogId'])) {
 
     $id = $_POST['editBlogId'];
 
@@ -1659,18 +1657,15 @@ if(isset($_POST['editBlogId'])){
 
     echo json_encode($row);
 }
-if(isset($_POST['deleteBlogBtn'])){
+if (isset($_POST['deleteBlogBtn'])) {
     $id = $_POST['deleteBlogBtn'];
 
     $adminPanel->delete_blog($id);
 }
 
-if(isset($_POST['action']) && ($_POST['action'] == 'edit-order')){
+if (isset($_POST['action']) && ($_POST['action'] == 'edit-order')) {
     $id = $adminPanel->test_input($_POST['editDeliveryId']);
     $status = $adminPanel->test_input($_POST['paymentStatus']);
 
-    $adminPanel->update_order_status($id,$status);
+    $adminPanel->update_order_status($id, $status);
 }
-
-    ?>
-

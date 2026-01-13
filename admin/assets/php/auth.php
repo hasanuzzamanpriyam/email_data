@@ -32,22 +32,46 @@ class Auth extends Database {
             return $result;
         }
     public function get_page() {
-        $sql = "SELECT DISTINCT category FROM email_short_info ORDER BY category ASC";
+        $sql = "SELECT DISTINCT page FROM seo ORDER BY page ASC";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function inert_seo($page, $seoTitle, $seoKey, $seoDes) {
-        $sql = "INSERT INTO seo (page, title, key_word, description) VALUES(:page, :title, :key_word, :description)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute([
-            'page' => $page,
-            'title' => $seoTitle,
-            'key_word' => $seoKey,
-            'description' => $seoDes
-        ]);
-        return true;
+    public function inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes) {
+        try {
+            $sql = "INSERT INTO seo (page, title, url, key_word, description) 
+                    VALUES(:page, :title, :url, :key_word, :description)
+                    ON DUPLICATE KEY UPDATE 
+                        title = VALUES(title),
+                        url = VALUES(url),
+                        key_word = VALUES(key_word),
+                        description = VALUES(description)";
+            
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute([
+                'page' => $page,
+                'title' => $seoTitle,
+                'url' => $seoUrl,
+                'key_word' => $seoKey,
+                'description' => $seoDes
+            ]);
+            
+            $rowCount = $stmt->rowCount();
+            
+            if ($rowCount == 1) {
+                return 'inserted';
+            } else if ($rowCount == 2) {
+                return 'updated';
+            } else if ($rowCount == 0) {
+                return 'no-changes';
+            }
+            
+            return 'error';
+            
+        } catch (PDOException $e) {
+            return 'database-error: ' . $e->getMessage();
+        }
     }
 
     public function inert_coupon($postName, $couponTitle, $trackingID, $limitation, $couponType, $amount) {
@@ -227,6 +251,78 @@ class Auth extends Database {
         return true;
     }
     
+    public function edit_email($id){
+        $sql = "SELECT * FROM email_short_info WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id'=> $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    public function delete_email($id){
+        $sql = "DELETE FROM email_short_info WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id'=>$id]);
+        return true;
+    }
+
+    public function edit_seo($id){
+        $sql = "SELECT * FROM seo WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id'=> $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    public function delete_seo($id){
+        try {
+            $sql = "DELETE FROM seo WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute(['id'=>$id]);
+            
+            if ($result && $stmt->rowCount() > 0) {
+                return 'success';
+            } else if ($stmt->rowCount() == 0) {
+                return 'not-found';
+            }
+            
+            return 'error';
+        } catch (PDOException $e) {
+            return 'database-error: ' . $e->getMessage();
+        }
+    }
+
+    public function update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes){
+        try {
+            $sql = "UPDATE seo 
+                     SET title = :title, 
+                         url = :url, 
+                         key_word = :key_word, 
+                         description = :description 
+                     WHERE id = :id";
+            
+            $stmt = $this->conn->prepare($sql);
+            $result = $stmt->execute([
+                'title' => $seoTitle,
+                'url' => $seoUrl,
+                'key_word' => $seoKey,
+                'description' => $seoDes,
+                'id' => $id
+            ]);
+            
+            if ($result && $stmt->rowCount() > 0) {
+                return 'success';
+            } else if ($stmt->rowCount() == 0) {
+                return 'no-changes';
+            }
+            
+            return 'error';
+            
+        } catch (PDOException $e) {
+            return 'database-error: ' . $e->getMessage();
+        }
+    }
 
 }
 ?>

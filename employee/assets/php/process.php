@@ -119,7 +119,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'seo')) {
     $seoKey = $adminPanel->test_input($_POST['seoKeyword']);
     $seoDes = $adminPanel->test_input($_POST['seoDescription']);
 
-    $adminPanel->inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes);
+    echo $adminPanel->inert_seo($page, $seoTitle, $seoUrl, $seoKey, $seoDes);
 }
 if(isset($_POST['action']) && ($_POST['action']=='display-coupon')){
     $output = '';
@@ -756,7 +756,9 @@ if(isset($_POST['delete_seo_id'])){
 
     $id = $_POST['delete_seo_id'];
 
-    $adminPanel->delete_seo($id);
+    $result = $adminPanel->delete_seo($id);
+    
+    echo $result;
 }
 if(isset($_POST['action']) && ($_POST['action'] == 'update-seo')){
     $id = $adminPanel->test_input($_POST['updateSeoId']);
@@ -765,7 +767,9 @@ if(isset($_POST['action']) && ($_POST['action'] == 'update-seo')){
     $seoKey = $adminPanel->test_input($_POST['seoUpdateKeyword']);
     $seoDes = $adminPanel->test_input($_POST['seoUpdateDescription']);
 
-    $adminPanel->update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes);
+    $result = $adminPanel->update_seo($id, $seoTitle, $seoUrl, $seoKey, $seoDes);
+    
+    echo $result;
 }
 if(isset($_POST['action']) && ($_POST['action'] == 'update-coupon')){
 

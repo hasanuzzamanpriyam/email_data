@@ -17,6 +17,10 @@ require_once 'assets/php/header.php';
                 <label for="seoTitle">SEO Title</label>
             </div>
             <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="seoUrl" placeholder="Enter SEO URL" name="seoUrl" required>
+                <label for="seoUrl">SEO URL</label>
+            </div>
+            <div class="form-floating mb-3">
                   <textarea class="form-control" placeholder="Write Key-word" id="seoKeyword" style="height: 100px" name="seoKeyword"required></textarea>
                   <label for="seoKeyword">Key-word</label>
             </div>
@@ -41,6 +45,10 @@ require_once 'assets/php/header.php';
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="seoUpdateTitle" placeholder="Enter SEO Title" name="seoUpdateTitle">
                 <label for="seoUpdateTitle">SEO Title</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="seoUpdateUrl" placeholder="Enter SEO URL" name="seoUpdateUrl">
+                <label for="seoUpdateUrl">SEO URL</label>
             </div>
             <div class="form-floating mb-3">
                   <textarea class="form-control" placeholder="Write Key-word" id="seoUpdateKeyword" style="height: 100px" name="seoUpdateKeyword"></textarea>
@@ -86,8 +94,23 @@ require_once 'assets/php/footer.php';
                     data: $("#seo-form").serialize() + '&action=seo',
                     success: function (response) {
                         $("#seoBtn").val('Save');
-                        alert("Data Insert Successfully!");
-                        $("#seo-form")[0].reset();
+                        if (response === 'inserted') {
+                            alert("SEO inserted successfully!");
+                            $("#seo-form")[0].reset();
+                            displayAllSEOPage();
+                        } else if (response === 'updated') {
+                            alert("SEO updated successfully!");
+                            $("#seo-form")[0].reset();
+                            displayAllSEOPage();
+                        } else if (response.startsWith('database-error')) {
+                            alert("Database Error: " + response.replace('database-error: ', ''));
+                        } else {
+                            alert("Error: Failed to save SEO data.");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#seoBtn").val('Save');
+                        alert("Server Error: " + error);
                     }
                 });
             }
@@ -128,14 +151,47 @@ require_once 'assets/php/footer.php';
                 data: $("#seo-update-form").serialize() + '&action=update-seo',
                 success: function (response) {
                     $("#seoUpdateBtn").val("Update Now");
-                    swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'SEO Update successfully!',
-                        showConfirmButton: true,
-                        //timer: 1500
+                    if (response === 'success') {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'SEO Update successfully!',
+                            showConfirmButton: true
+                        });
+                        location.reload();
+                    } else if (response === 'no-changes') {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'info',
+                            title: 'No Changes Made',
+                            text: 'SEO data was not modified.',
+                            showConfirmButton: true,
+                            confirmButtonColor: '#3085d6'
+                        });
+                    } else if (response.startsWith('database-error')) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Database Error',
+                            text: response.replace('database-error: ', ''),
+                            confirmButtonColor: '#d33'
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Update Failed',
+                            text: 'Failed to update SEO data.',
+                            confirmButtonColor: '#d33'
+                        });
+                    }
+                },
+                error: function (xhr, status, error) {
+                    $("#seoUpdateBtn").val("Update Now");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Server Error',
+                        text: error,
+                        confirmButtonColor: '#d33'
                     });
-                    location.reload();
                 }
             });
         });
@@ -160,18 +216,61 @@ require_once 'assets/php/footer.php';
                     type: 'post',
                     data: { delete_seo_id: delete_seo_id},
                     success: function(response) {
+                        if (response === 'success') {
+                            Swal.fire(
+                              'Deleted!',
+                              'Your file has been deleted.',
+                              'success'
+                            )
+                            location.reload();
+                        } else if (response === 'not-found') {
+                            Swal.fire(
+                              'Not Found',
+                              'SEO record not found or already deleted.',
+                              'error'
+                            )
+                        } else if (response.startsWith('database-error')) {
+                            Swal.fire(
+                              'Error!',
+                              response.replace('database-error: ', ''),
+                              'error'
+                            )
+                        } else {
+                            Swal.fire(
+                              'Error!',
+                              'Failed to delete SEO data.',
+                              'error'
+                            );
+                        }
+                    },
+                    error: function (xhr, status, error) {
                         Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
+                          'Error!',
+                          'Server Error: ' + error,
+                          'error'
                         )
-                        location.reload();
                     }
-                });  
+                });
               }
             })
         });
+
         displayAllPage();
+
+        function displayAllPage() {
+            $.ajax({
+                url: 'assets/php/process',
+                type: 'post',
+                data: {
+                    action: 'display-page'
+                },
+                success: function(response) {
+                    $("#showPage").html(response);
+                }
+            });
+        }
+
+        displayAllSEOPage();
         function displayAllPage() {
             $.ajax({
                 url: 'assets/php/process',
@@ -198,6 +297,22 @@ require_once 'assets/php/footer.php';
                 }
             });
         }
+
+        $(document).on('input', '#seoTitle', function() {
+            const title = $(this).val();
+            if (title && $('#seoUrl').val() === '') {
+                const url = title.toLowerCase().replace(/\s+/g, '-');
+                $('#seoUrl').val(url);
+            }
+        });
+
+        $(document).on('input', '#seoUpdateTitle', function() {
+            const title = $(this).val();
+            if (title && $('#seoUpdateUrl').val() === '') {
+                const url = title.toLowerCase().replace(/\s+/g, '-');
+                $('#seoUpdateUrl').val(url);
+            }
+        });
     });
 </script>
 <!--

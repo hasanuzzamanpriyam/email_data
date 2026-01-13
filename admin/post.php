@@ -5,7 +5,7 @@ require_once dirname(__DIR__) . '/assets/php/config.php';
 $database = new Database();
 $pdo = $database->conn;
 
-if(isset($_POST['insertEmail'])){
+if (isset($_POST['insertEmail'])) {
     $title = $_POST['title'];
     $category = $_POST['category'];
     $totalemail = $_POST['total_email'];
@@ -13,12 +13,24 @@ if(isset($_POST['insertEmail'])){
     $desc = $_POST['editor1'];
     $price = $_POST['price'];
 
-    $stmt = $pdo->prepare("INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`) VALUES (?, ?, ?, ?, ?, ?)");
-    $stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price]);
+    $seoTitle = $_POST['seoTitle'];
+    $seoUrl = preg_replace('/\s+/', '-', strtolower($_POST['seoUrl']));
+    $seoKey = $_POST['seoKeyword'];
+    $seoDes = $_POST['seoDescription'];
 
+    try {
+        $stmt = $pdo->prepare("INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`, `seo_title`, `seo_url`, `seo_keyword`, `seo_desc`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes])) {
+            echo "<script>alert('Email added successfully!')</script>";
+            echo "<meta http-equiv='refresh' content='0'>";
+        }
+    } catch (PDOException $e) {
+        die("Error: " . $e->getMessage());
+    }
 }
-if(isset($_POST['updateEmail'])){
+if (isset($_POST['updateEmail'])) {
     $updateId = $_POST['updatePostId'];
+    $title = $_POST['updateTitle'];
     $category = $_POST['updateCategory'];
     $totalemail = $_POST['update-total_email'];
     $shortdec = $_POST['update_short_description'];
@@ -30,23 +42,22 @@ if(isset($_POST['updateEmail'])){
     $seoKey = $_POST['seoUpdateKeyword'];
     $seoDes = $_POST['seoUpdateDescription'];
 
-    $stmt = $pdo->prepare("UPDATE `email_short_info` SET `category`=?,`total_email`=?,`short_description`=?,`description`=?,`price`=?, `seo_title`=?, `seo_url`=?, `seo_keyword`=?, `seo_desc`=? WHERE id=?");
+    $stmt = $pdo->prepare("UPDATE `email_short_info` SET `title`=?,`category`=?,`total_email`=?,`short_description`=?,`description`=?,`price`=?, `seo_title`=?, `seo_url`=?, `seo_keyword`=?, `seo_desc`=? WHERE id=?");
 
-     if ($stmt->execute([$category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes, $updateId])) {
+    if ($stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes, $updateId])) {
         echo "<script>alert('Data Updated successfully')</script>";
         echo "<meta http-equiv='refresh' content='0'>";
-      } else {
+    } else {
         echo "Error: " . implode(", ", $stmt->errorInfo());
-      }
-     
+    }
 }
-    
+
 ?>
 <script src="https://cdn.ckeditor.com/4.8.0/full-all/ckeditor.js"></script>
 <main>
     <div class="seo-details">
         <h3>Insert New Email For Ready Made list</h3>
-        <form id="insert-email-form"  method="POST" action="#">
+        <form id="insert-email-form" method="POST" action="#">
             <div class="form-floating mb-3">
                 <select class="form-select" id="floatingSelect" name="title" aria-label="Select E-mail Category">
                     <option selected disabled>-Select Options-</option>
@@ -67,7 +78,7 @@ if(isset($_POST['updateEmail'])){
                 <label for="floatingInput">Category</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="total-email" placeholder="Enter Page Title" name="total_email" onkeyup="myFunction(value.this)" required>
+                <input type="text" class="form-control" id="total-email" placeholder="Enter Page Title" name="total_email" onkeyup="myFunction()" required>
                 <label for="total-email">Total E-mail</label>
             </div>
             <div class="form-floating mb-3">
@@ -76,8 +87,8 @@ if(isset($_POST['updateEmail'])){
             </div>
             <div class="form-floating mb-3">
                 <ul id="fieldList" style="list-style: none; margin-left: -33px;">
-                   <li>
-                       <textarea class='form-control fixborder' id="editor1" name="editor1" placeholder='File description'></textarea>
+                    <li>
+                        <textarea class='form-control fixborder' id="editor1" name="editor1" placeholder='File description'></textarea>
                     </li>
                 </ul>
             </div>
@@ -90,16 +101,16 @@ if(isset($_POST['updateEmail'])){
                 <label for="seoTitle">SEO Title</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="seoUrl" placeholder="Enter SEO URL" name="seoUrl"required>
+                <input type="text" class="form-control" id="seoUrl" placeholder="Enter SEO URL" name="seoUrl" required>
                 <label for="seoUrl">SEO URL</label>
             </div>
             <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Write Key-word" id="seoKeyword" style="height: 100px" name="seoKeyword"required></textarea>
-                  <label for="seoKeyword">Key-word</label>
+                <textarea class="form-control" placeholder="Write Key-word" id="seoKeyword" style="height: 100px" name="seoKeyword" required></textarea>
+                <label for="seoKeyword">Key-word</label>
             </div>
             <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Write short description" id="seoDescription" style="height: 100px" name="seoDescription"required></textarea>
-                  <label for="seoDescription">Description</label>
+                <textarea class="form-control" placeholder="Write short description" id="seoDescription" style="height: 100px" name="seoDescription" required></textarea>
+                <label for="seoDescription">Description</label>
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-3">
@@ -110,7 +121,7 @@ if(isset($_POST['updateEmail'])){
     </div>
     <div class="seo-update-details" style="display: none;">
         <h3>Edit Email Details For Ready Made list</h3>
-        <form id="update-email-form"  method="POST" action="#">
+        <form id="update-email-form" method="POST" action="#">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="updateTitle" name="updateTitle" required placeholder="Enter E-mail Category">
                 <label for="updateTitle">Category</label>
@@ -120,7 +131,7 @@ if(isset($_POST['updateEmail'])){
                 <label for="updateCategory">Category</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="update-total-email" placeholder="Enter Page Title" name="update-total_email" onkeyup="myFunctionU(value.this)" required>
+                <input type="text" class="form-control" id="update-total-email" placeholder="Enter Page Title" name="update-total_email" onkeyup="myFunctionU()" required>
                 <label for="total-email">Total E-mail</label>
             </div>
             <div class="form-floating mb-3">
@@ -129,8 +140,8 @@ if(isset($_POST['updateEmail'])){
             </div>
             <div class="form-floating mb-3">
                 <ul id="fieldList" style="list-style: none; margin-left: -33px;">
-                   <li>
-                       <textarea class='form-control fixborder' id="updateEditor1" name="updateEditor1" placeholder='File description'></textarea>
+                    <li>
+                        <textarea class='form-control fixborder' id="updateEditor1" name="updateEditor1" placeholder='File description'></textarea>
                     </li>
                 </ul>
             </div>
@@ -147,12 +158,12 @@ if(isset($_POST['updateEmail'])){
                 <label for="seoUpdateUrl">SEO URL</label>
             </div>
             <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Write Key-word" id="seoUpdateKeyword" style="height: 100px" name="seoUpdateKeyword"></textarea>
-                  <label for="seoUpdateKeyword">Key-word</label>
+                <textarea class="form-control" placeholder="Write Key-word" id="seoUpdateKeyword" style="height: 100px" name="seoUpdateKeyword"></textarea>
+                <label for="seoUpdateKeyword">Key-word</label>
             </div>
             <div class="form-floating mb-3">
-                  <textarea class="form-control" placeholder="Write short description" id="seoUpdateDescription" style="height: 100px" name="seoUpdateDescription"></textarea>
-                  <label for="seoUpdateDescription">Description</label>
+                <textarea class="form-control" placeholder="Write short description" id="seoUpdateDescription" style="height: 100px" name="seoUpdateDescription"></textarea>
+                <label for="seoUpdateDescription">Description</label>
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-3">
@@ -177,16 +188,18 @@ if(isset($_POST['updateEmail'])){
 require_once 'assets/php/footer.php';
 ?>
 <script>
-    $(document).ready(function () {
-        $("body").on("click", ".editEmailBtn", function (e) {
+    $(document).ready(function() {
+        $("body").on("click", ".editEmailBtn", function(e) {
             e.preventDefault();
 
-            editEmailId =  $(this).attr("id");
+            editEmailId = $(this).attr("id");
 
             $.ajax({
                 url: 'assets/php/process',
                 type: 'post',
-                data: { editEmailId: editEmailId},
+                data: {
+                    editEmailId: editEmailId
+                },
                 success: function(response) {
                     $(".seo-update-details").attr('style', 'display:block');
                     $(".seo-details").attr('style', 'display:none');
@@ -205,41 +218,44 @@ require_once 'assets/php/footer.php';
                     $("#seoUpdateKeyword").val(data.seo_keyword);
                     $("#seoUpdateDescription").val(data.seo_desc);
                 }
-            });  
+            });
         });
-        $("body").on("click", ".deleteEmailBtn", function (e) {
+        $("body").on("click", ".deleteEmailBtn", function(e) {
             e.preventDefault();
 
-          let deleteEmailBtn =  $(this).attr("id");
+            let deleteEmailBtn = $(this).attr("id");
 
-          Swal.fire({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!'
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-              if (result.isConfirmed) {
-                $.ajax({
-                    url: 'assets/php/process',
-                    type: 'post',
-                    data: { deleteEmailBtn: deleteEmailBtn },
-                    success: function(response) {
-                        Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                        location.reload();
-                    }
-                });  
-              }
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: 'assets/php/process',
+                        type: 'post',
+                        data: {
+                            deleteEmailBtn: deleteEmailBtn
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            location.reload();
+                        }
+                    });
+                }
             })
         });
-        
+
         displayAllEmail();
+
         function displayAllEmail() {
             $.ajax({
                 url: 'assets/php/process',
@@ -256,7 +272,7 @@ require_once 'assets/php/footer.php';
     });
 </script>
 <script type="text/javascript">
-    function myFunction(){
+    function myFunction() {
         let totalEmail = document.getElementById("total-email").value;
         let price = 0;
         if (totalEmail < 6000) {
@@ -280,7 +296,8 @@ require_once 'assets/php/footer.php';
         }
         document.getElementById("total-price").value = Math.round(price).toFixed(2);
     }
-    function myFunctionU(){
+
+    function myFunctionU() {
         let totalEmail = document.getElementById("update-total-email").value;
         let price = 0;
         if (totalEmail < 6000) {
@@ -306,7 +323,6 @@ require_once 'assets/php/footer.php';
     }
 </script>
 <script>
-
     CKEDITOR.replace('editor1', {
         fullPage: true,
         extraPlugins: 'docprops',
@@ -318,117 +334,117 @@ require_once 'assets/php/footer.php';
         allowedContent: true
     });
 
-function CKEditorChange(name) {
+    function CKEditorChange(name) {
 
-  CKEDITOR.replace(name, {
-    toolbar: [{
-        name: 'document',
-        items: ['Print']
-      },
-      {
-        name: 'clipboard',
-        items: ['Undo', 'Redo']
-      },
-      {
-        name: 'styles',
-        items: ['Format', 'Font', 'FontSize']
-      },
-      {
-        name: 'basicstyles',
-        items: ['Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat', 'CopyFormatting']
-      },
-      {
-        name: 'colors',
-        items: ['TextColor', 'BGColor']
-      },
-      {
-        name: 'align',
-        items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
-      },
-      {
-        name: 'links',
-        items: ['Link', 'Unlink']
-      },
-      {
-        name: 'paragraph',
-        items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote']
-      },
-      {
-        name: 'insert',
-        items: ['Image', 'Table']
-      },
-      {
-        name: 'tools',
-        items: ['Maximize']
-      },
-      {
-        name: 'editing',
-        items: ['Scayt']
-      }
-    ],
-    filebrowserUploadUrl: 'request.php?pID=Upload',
-    customConfig: '',
-    disallowedContent: 'img{width,height,float}',
-    extraAllowedContent: 'img[width,height,align]',
-    extraPlugins: 'tableresize,uploadimage,uploadfile',
-    height: 200,
-    contentsCss: ['https://cdn.ckeditor.com/4.8.0/full-all/contents.css'],
-    bodyClass: 'document-editor',
-    format_tags: 'p;h1;h2;h3;pre',
-    removeDialogTabs: 'image:advanced;link:advanced',
-    stylesSet: [{
-        name: 'Marker',
-        element: 'span',
-        attributes: {
-          'class': 'marker'
-        }
-      },
-      {
-        name: 'Cited Work',
-        element: 'cite'
-      },
-      {
-        name: 'Inline Quotation',
-        element: 'q'
-      },
-      {
-        name: 'Special Container',
-        element: 'div',
-        styles: {
-          padding: '5px 10px',
-          background: '#eee',
-          border: '1px solid #ccc'
-        }
-      },
-      {
-        name: 'Compact table',
-        element: 'table',
-        attributes: {
-          cellpadding: '5',
-          cellspacing: '0',
-          border: '1',
-          bordercolor: '#ccc'
-        },
-        styles: {
-          'border-collapse': 'collapse'
-        }
-      },
-      {
-        name: 'Borderless Table',
-        element: 'table',
-        styles: {
-          'border-style': 'hidden',
-          'background-color': '#E6E6FA'
-        }
-      },
-      {
-        name: 'Square Bulleted List',
-        element: 'ul',
-        styles: {
-          'list-style-type': 'square'
-        }
-      }
-    ]
-  });
-}
+        CKEDITOR.replace(name, {
+            toolbar: [{
+                    name: 'document',
+                    items: ['Print']
+                },
+                {
+                    name: 'clipboard',
+                    items: ['Undo', 'Redo']
+                },
+                {
+                    name: 'styles',
+                    items: ['Format', 'Font', 'FontSize']
+                },
+                {
+                    name: 'basicstyles',
+                    items: ['Bold', 'Italic', 'Underline', 'Strike', 'RemoveFormat', 'CopyFormatting']
+                },
+                {
+                    name: 'colors',
+                    items: ['TextColor', 'BGColor']
+                },
+                {
+                    name: 'align',
+                    items: ['JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']
+                },
+                {
+                    name: 'links',
+                    items: ['Link', 'Unlink']
+                },
+                {
+                    name: 'paragraph',
+                    items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote']
+                },
+                {
+                    name: 'insert',
+                    items: ['Image', 'Table']
+                },
+                {
+                    name: 'tools',
+                    items: ['Maximize']
+                },
+                {
+                    name: 'editing',
+                    items: ['Scayt']
+                }
+            ],
+            filebrowserUploadUrl: 'request.php?pID=Upload',
+            customConfig: '',
+            disallowedContent: 'img{width,height,float}',
+            extraAllowedContent: 'img[width,height,align]',
+            extraPlugins: 'tableresize,uploadimage,uploadfile',
+            height: 200,
+            contentsCss: ['https://cdn.ckeditor.com/4.8.0/full-all/contents.css'],
+            bodyClass: 'document-editor',
+            format_tags: 'p;h1;h2;h3;pre',
+            removeDialogTabs: 'image:advanced;link:advanced',
+            stylesSet: [{
+                    name: 'Marker',
+                    element: 'span',
+                    attributes: {
+                        'class': 'marker'
+                    }
+                },
+                {
+                    name: 'Cited Work',
+                    element: 'cite'
+                },
+                {
+                    name: 'Inline Quotation',
+                    element: 'q'
+                },
+                {
+                    name: 'Special Container',
+                    element: 'div',
+                    styles: {
+                        padding: '5px 10px',
+                        background: '#eee',
+                        border: '1px solid #ccc'
+                    }
+                },
+                {
+                    name: 'Compact table',
+                    element: 'table',
+                    attributes: {
+                        cellpadding: '5',
+                        cellspacing: '0',
+                        border: '1',
+                        bordercolor: '#ccc'
+                    },
+                    styles: {
+                        'border-collapse': 'collapse'
+                    }
+                },
+                {
+                    name: 'Borderless Table',
+                    element: 'table',
+                    styles: {
+                        'border-style': 'hidden',
+                        'background-color': '#E6E6FA'
+                    }
+                },
+                {
+                    name: 'Square Bulleted List',
+                    element: 'ul',
+                    styles: {
+                        'list-style-type': 'square'
+                    }
+                }
+            ]
+        });
+    }
 </script>

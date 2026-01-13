@@ -94,8 +94,19 @@ require_once 'assets/php/footer.php';
                     data: $("#seo-form").serialize() + '&action=seo',
                     success: function (response) {
                         $("#seoBtn").val('Save');
-                        alert("Data Insert Successfully!");
-                        $("#seo-form")[0].reset();
+                        if (response === 'inserted') {
+                            alert("SEO inserted successfully!");
+                            $("#seo-form")[0].reset();
+                        } else if (response === 'updated') {
+                            alert("SEO updated successfully!");
+                            $("#seo-form")[0].reset();
+                        } else {
+                            alert("Error: Failed to save SEO data.");
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        $("#seoBtn").val('Save');
+                        alert("Server Error: " + error);
                     }
                 });
             }
@@ -168,14 +179,33 @@ require_once 'assets/php/footer.php';
                     type: 'post',
                     data: { delete_seo_id: delete_seo_id},
                     success: function(response) {
-                        Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                        location.reload();
-                    }
-                });  
+                        if (response === 'success') {
+                            Swal.fire(
+                              'Deleted!',
+                              'Your file has been deleted.',
+                              'success'
+                            )
+                            location.reload();
+                        } else if (response === 'not-found') {
+                            Swal.fire(
+                              'Not Found',
+                              'SEO record not found or already deleted.',
+                              'error'
+                            )
+                        } else if (response.startsWith('database-error')) {
+                            Swal.fire(
+                              'Error!',
+                              response.replace('database-error: ', ''),
+                              'error'
+                            )
+                        } else {
+                            Swal.fire(
+                              'Error!',
+                              'Failed to delete SEO data.',
+                              'error'
+                            );
+                        }
+                    });
               }
             })
         });
@@ -206,6 +236,22 @@ require_once 'assets/php/footer.php';
                 }
             });
         }
+
+        $(document).on('input', '#seoTitle', function() {
+            const title = $(this).val();
+            if (title && $('#seoUrl').val() === '') {
+                const url = title.toLowerCase().replace(/\s+/g, '-');
+                $('#seoUrl').val(url);
+            }
+        });
+
+        $(document).on('input', '#seoUpdateTitle', function() {
+            const title = $(this).val();
+            if (title && $('#seoUpdateUrl').val() === '') {
+                const url = title.toLowerCase().replace(/\s+/g, '-');
+                $('#seoUpdateUrl').val(url);
+            }
+        });
     });
 </script>
 <!--
