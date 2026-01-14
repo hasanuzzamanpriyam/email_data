@@ -45,7 +45,7 @@ $_SESSION['myPrice'] = $product['price'];
             </div>
         </div>
         <div class="jumbotron--list-detail__col-half jumbotron--list-detail__col-right">
-            
+
             <div class="gap-bottom-small">
                 <h1 class="jumbotron__title" style="margin-top: 15px;">
                     <?= htmlspecialchars($product['category']); ?> EMAIL LIST
@@ -53,13 +53,13 @@ $_SESSION['myPrice'] = $product['price'];
             </div>
             <div class="gap-bottom">
                 <h4 class="jumbotron__title">
-                    Custom Order E-mail: 
+                    Custom Order E-mail:
                     <span id="demo" class="jumbotron--list-detail__price" style="color: orange">
                         <?= number_format($product['total_email']); ?>
                     </span>
                 </h4>
                 <h4 class="jumbotron__title">
-                    Total Price: 
+                    Total Price:
                     <span id="demo1" class="jumbotron--list-detail__price" style="color: orange">
                         $<?= number_format($product['price']); ?>
                     </span>
@@ -69,16 +69,20 @@ $_SESSION['myPrice'] = $product['price'];
                 </div>
             </div>
 
-           <p class="text-loblolly">
-    <?php
-    $words = explode(' ', strip_tags($product['description']));
-    $preview = implode(' ', array_slice($words, 0, 60));
-    echo $preview . (count($words) > 60 ? '...' : '');
-    ?>
-</p>
-
+            <p class="text-loblolly">
+                <?php
+                $words = explode(' ', strip_tags($product['description']));
+                $preview = implode(' ', array_slice($words, 0, 60));
+                echo $preview . (count($words) > 60 ? '...' : '');
+                ?>
+            </p>
 
             <div class="gap-bottom-medium hidden-tlnd">
+                <?php if (!empty($product['file_type'])): ?>
+                    <a href="<?= $siteUrl; ?>admin/assets/uploads/samples/<?= $product['file_type']; ?>" class="button button--secondary gap-right-plnu full-width-pld gap-bottom-small" download style="display:block; text-align:center; margin-bottom: 10px;">
+                        <i class="icon icon-download"></i> Download Sample
+                    </a>
+                <?php endif; ?>
                 <form action="<?= $siteUrl; ?>checkout/step1" method="POST">
                     <input type="hidden" name="ordercode" value="<?php echo ('PO' . rand(10, 99) . 'P' . rand(10, 99) . 'L' . rand(0, 9) . 'R'); ?>">
                     <input type="hidden" name="emailType" value="Popular">
@@ -88,7 +92,7 @@ $_SESSION['myPrice'] = $product['price'];
                     <input type="hidden" id="hiddenPrice" name="price" value="<?= $product['price']; ?>">
                     <input type="hidden" name="deliveryDays" value="Within 1 Day">
                     <input type="hidden" name="dataType" id="dataType" value="">
-                    
+
                     <input type="submit" name="buyNow" class="button button--primary gap-right-plnu full-width-pld gap-bottom-small-pld" value="Buy Now">
                 </form>
             </div>
@@ -121,23 +125,23 @@ $_SESSION['myPrice'] = $product['price'];
     var hiddenTotalEmail = document.getElementById("hiddenTotalEmail");
     var dataType = document.getElementById("dataType");
 
-    slider.oninput = function () {
+    slider.oninput = function() {
         var totalEmail = parseInt(this.value);
         var price = 0;
 
-        if(totalEmail < 6000){
+        if (totalEmail < 6000) {
             price = totalEmail * 0.10;
-        } else if(totalEmail < 11000){
+        } else if (totalEmail < 11000) {
             price = totalEmail * 0.09;
-        } else if(totalEmail < 26000){
+        } else if (totalEmail < 26000) {
             price = totalEmail * 0.088;
-        } else if(totalEmail < 51000){
+        } else if (totalEmail < 51000) {
             price = totalEmail * 0.08;
-        } else if(totalEmail < 76000){
+        } else if (totalEmail < 76000) {
             price = totalEmail * 0.073;
-        } else if(totalEmail < 110000){
+        } else if (totalEmail < 110000) {
             price = totalEmail * 0.07;
-        } else if(totalEmail < 510000){
+        } else if (totalEmail < 510000) {
             price = totalEmail * 0.06;
         } else {
             price = totalEmail * 0.05;

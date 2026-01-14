@@ -14,7 +14,7 @@ IN SECONDS</h1>
                     <a class="button button--primary button--medium
                        gap-right hidden-tpd" href="<?= $siteUrl; ?>custom-order/business-contacts">Custom Order
                     </a>
-                <a target="_blank" rel="noopener noreferrer" href="/contact" class="button button--nonary full-width-pld gap-bottom-pld">
+                <a target="_blank" rel="noopener noreferrer" href="<?= $siteUrl; ?>contact" class="button button--nonary full-width-pld gap-bottom-pld">
                 Submit a Request
                 </a>
                 </div>

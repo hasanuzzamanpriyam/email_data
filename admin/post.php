@@ -18,9 +18,19 @@ if (isset($_POST['insertEmail'])) {
     $seoKey = $_POST['seoKeyword'];
     $seoDes = $_POST['seoDescription'];
 
+    $sampleFileName = '';
+    if (isset($_FILES['sample_file']['name']) && $_FILES['sample_file']['name'] != "") {
+        $allowed = ['zip', 'rar', 'xlsx', 'xls', 'csv'];
+        $ext = strtolower(pathinfo($_FILES['sample_file']['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, $allowed)) {
+            $sampleFileName = time() . '_' . preg_replace('/\s+/', '_', $_FILES['sample_file']['name']);
+            move_uploaded_file($_FILES['sample_file']['tmp_name'], 'assets/uploads/samples/' . $sampleFileName);
+        }
+    }
+
     try {
-        $stmt = $pdo->prepare("INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`, `seo_title`, `seo_url`, `seo_keyword`, `seo_desc`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-        if ($stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes])) {
+        $stmt = $pdo->prepare("INSERT INTO `email_short_info`(`title`, `category`, `total_email`, `short_description`, `description`, `price`, `seo_title`, `seo_url`, `seo_keyword`, `seo_desc`, `file_type`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        if ($stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes, $sampleFileName])) {
             echo "<script>alert('Email added successfully!')</script>";
             echo "<meta http-equiv='refresh' content='0'>";
         }
@@ -42,9 +52,25 @@ if (isset($_POST['updateEmail'])) {
     $seoKey = $_POST['seoUpdateKeyword'];
     $seoDes = $_POST['seoUpdateDescription'];
 
-    $stmt = $pdo->prepare("UPDATE `email_short_info` SET `title`=?,`category`=?,`total_email`=?,`short_description`=?,`description`=?,`price`=?, `seo_title`=?, `seo_url`=?, `seo_keyword`=?, `seo_desc`=? WHERE id=?");
+    $fileUpdateQuery = "";
+    $params = [$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes];
 
-    if ($stmt->execute([$title, $category, $totalemail, $shortdec, $desc, $price, $seoTitle, $seoUrl, $seoKey, $seoDes, $updateId])) {
+    if (isset($_FILES['sample_file']['name']) && $_FILES['sample_file']['name'] != "") {
+        $allowed = ['zip', 'rar', 'xlsx', 'xls', 'csv'];
+        $ext = strtolower(pathinfo($_FILES['sample_file']['name'], PATHINFO_EXTENSION));
+        if (in_array($ext, $allowed)) {
+            $sampleFileName = time() . '_' . preg_replace('/\s+/', '_', $_FILES['sample_file']['name']);
+            move_uploaded_file($_FILES['sample_file']['tmp_name'], 'assets/uploads/samples/' . $sampleFileName);
+            $fileUpdateQuery = ", `file_type`=?";
+            $params[] = $sampleFileName;
+        }
+    }
+
+    $params[] = $updateId;
+
+    $stmt = $pdo->prepare("UPDATE `email_short_info` SET `title`=?,`category`=?,`total_email`=?,`short_description`=?,`description`=?,`price`=?, `seo_title`=?, `seo_url`=?, `seo_keyword`=?, `seo_desc`=? $fileUpdateQuery WHERE id=?");
+
+    if ($stmt->execute($params)) {
         echo "<script>alert('Data Updated successfully')</script>";
         echo "<meta http-equiv='refresh' content='0'>";
     } else {
@@ -57,7 +83,7 @@ if (isset($_POST['updateEmail'])) {
 <main>
     <div class="seo-details">
         <h3>Insert New Email For Ready Made list</h3>
-        <form id="insert-email-form" method="POST" action="#">
+        <form id="insert-email-form" method="POST" action="#" enctype="multipart/form-data">
             <div class="form-floating mb-3">
                 <select class="form-select" id="floatingSelect" name="title" aria-label="Select E-mail Category">
                     <option selected disabled>-Select Options-</option>
@@ -93,6 +119,10 @@ if (isset($_POST['updateEmail'])) {
                 </ul>
             </div>
             <div class="form-floating mb-3">
+                <input type="file" class="form-control" id="sample-file" name="sample_file" accept=".zip,.rar,.xlsx,.xls,.csv">
+                <label for="sample-file">Sample File (Zip/Excel)</label>
+            </div>
+            <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="total-price" name="price" value="0" readonly>
                 <label for="total-price">Total Price</label>
             </div>
@@ -121,7 +151,7 @@ if (isset($_POST['updateEmail'])) {
     </div>
     <div class="seo-update-details" style="display: none;">
         <h3>Edit Email Details For Ready Made list</h3>
-        <form id="update-email-form" method="POST" action="#">
+        <form id="update-email-form" method="POST" action="#" enctype="multipart/form-data">
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="updateTitle" name="updateTitle" required placeholder="Enter E-mail Category">
                 <label for="updateTitle">Category</label>
