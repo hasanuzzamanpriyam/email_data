@@ -33,7 +33,6 @@ if (count($parts) > $startIndex && $parts[$startIndex] === 'ready-made') {
     // Product Page: /ready-made/category/product-slug
     if (isset($parts[$startIndex + 2])) {
         $_GET['slug'] = $parts[$startIndex + 2];
-        $_GET['cat'] = $parts[$startIndex + 2]; // For header.php compatibility if needed
         include('product-template.php');
         exit;
     }

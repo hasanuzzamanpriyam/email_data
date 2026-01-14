@@ -78,11 +78,6 @@ $_SESSION['myPrice'] = $product['price'];
             </p>
 
             <div class="gap-bottom-medium hidden-tlnd">
-                <?php if (!empty($product['file_type'])): ?>
-                    <a href="<?= $siteUrl; ?>admin/assets/uploads/samples/<?= $product['file_type']; ?>" class="button button--secondary gap-right-plnu full-width-pld gap-bottom-small" download style="display:block; text-align:center; margin-bottom: 10px;">
-                        <i class="icon icon-download"></i> Download Sample
-                    </a>
-                <?php endif; ?>
                 <form action="<?= $siteUrl; ?>checkout/step1" method="POST">
                     <input type="hidden" name="ordercode" value="<?php echo ('PO' . rand(10, 99) . 'P' . rand(10, 99) . 'L' . rand(0, 9) . 'R'); ?>">
                     <input type="hidden" name="emailType" value="Popular">
@@ -93,7 +88,24 @@ $_SESSION['myPrice'] = $product['price'];
                     <input type="hidden" name="deliveryDays" value="Within 1 Day">
                     <input type="hidden" name="dataType" id="dataType" value="">
 
-                    <input type="submit" name="buyNow" class="button button--primary gap-right-plnu full-width-pld gap-bottom-small-pld" value="Buy Now">
+                    <div class="row">
+                        <?php if (!empty($product['file_type'])): ?>
+                            <!-- Two buttons side by side when sample exists -->
+                            <div class="col-xs-6" style="padding-right: 5px;">
+                                <a href="<?= $siteUrl; ?>admin/assets/uploads/samples/<?= $product['file_type']; ?>" class="button button--secondary full-width gap-bottom-small-pld" download style="display:block; text-align:center;">
+                                    <i class="icon icon-download"></i> Download Sample
+                                </a>
+                            </div>
+                            <div class="col-xs-6" style="padding-left: 5px;">
+                                <input type="submit" name="buyNow" class="button button--primary full-width gap-bottom-small-pld" value="Buy Now">
+                            </div>
+                        <?php else: ?>
+                            <!-- Full width Buy Now button when no sample -->
+                            <div class="col-xs-12">
+                                <input type="submit" name="buyNow" class="button button--primary full-width gap-bottom-small-pld" value="Buy Now">
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </form>
             </div>
             <ul class="list row">

@@ -13,9 +13,9 @@ $user = new Auth();
                         Levels</h1>
                     <div class="breadbrumb">
                         <a href="<?= $siteUrl; ?>"
-                           class="breadbrumb__item">Home</a>
+                            class="breadbrumb__item">Home</a>
                         <a href="<?= $siteUrl; ?>ready-made"
-                           class="breadbrumb__item">Ready Made Lists</a>
+                            class="breadbrumb__item">Ready Made Lists</a>
                         <span class="breadbrumb__item">Job Levels</span>
                     </div>
                 </div>
@@ -47,37 +47,38 @@ $user = new Auth();
                 <div class="col-md-6 col-lg-5">
                     <a class="button button--septenary button--small
                        text-uppercase gap-bottom-small-tld full-width"
-                       href="<?= $siteUrl; ?>custom-order/business-contacts">
+                        href="<?= $siteUrl; ?>custom-order/business-contacts">
                         Build your own business contacts list
                     </a>
                 </div>
             </div>
         </div>
         <div class="premade-lists gap-bottom-small">
-            
-        <?php 
-            function slugify($text, string $divider = '-'){
-        	  $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
-        	  $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
-        	  $text = preg_replace('~[^-\w]+~', '', $text);
-        	  $text = trim($text, $divider);
-        	  $text = preg_replace('~-+~', $divider, $text);
-        	  $text = strtolower($text);
-        
-        	  if (empty($text)) {
-        	    return 'n-a';
-        	  }
-        
-        	  return $text;
-        	}
-        	
+
+            <?php
+            function slugify($text, string $divider = '-')
+            {
+                $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
+                $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+                $text = preg_replace('~[^-\w]+~', '', $text);
+                $text = trim($text, $divider);
+                $text = preg_replace('~-+~', $divider, $text);
+                $text = strtolower($text);
+
+                if (empty($text)) {
+                    return 'n-a';
+                }
+
+                return $text;
+            }
+
             $output = '';
             $allJobLevel = $user->all_job_level();
             if ($allJobLevel) {
                 foreach ($allJobLevel as $row) {
                     $title = slugify($row['title']);
                     $seoUrl = $row['seo_url'];
-                    
+
                     $output .= '<div class="premade-lists__item"><div class="premade-lists__item__row">
                             <div class="premade-lists__item__col">
                                 <h2 class="premade-lists__item__title h4">
@@ -96,20 +97,20 @@ $user = new Auth();
                                 ' . $row['short_description'] . '
                             </div>
                             <div class="premade-lists__item__col text-right">';
-                                    if($seoUrl != ''){
-                                $output .= '<a href="'.$siteUrl.'ready-made/'.$title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                    // Always link to single product page
+                    if ($seoUrl != '') {
+                        $output .= '<a href="' . $siteUrl . 'ready-made/single-product?slug=' . urlencode($seoUrl) . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                         </div></div>';
-                            }else{
-                                $category = slugify($row['category'].'-email list');
-                                $output .= '<a href="'.$siteUrl.'ready-made/'.$title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
+                    } else {
+                        $output .= '<a href="' . $siteUrl . 'ready-made/single-product?id=' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
                         </div></div>';
-                            }
+                    }
                 }
                 echo $output;
             } else {
                 echo '<h3 class="text-center text-secondary">No Records Fount!</h3>';
             }
-        ?>
+            ?>
         </div>
     </div>
 </main>
@@ -179,7 +180,7 @@ $user = new Auth();
             </div>
         </div>
     </div>
-</div> 
+</div>
 <div class="lead hidden-dd">
     <div class="container lead__container">
         <div class="lead__col lead__col--left">
@@ -188,7 +189,7 @@ $user = new Auth();
         </div>
         <div class="lead__col lead__col--right">
             <a class="button button--quaternary full-width"
-               href="<?= $siteUrl; ?>custom-order/business-contacts">
+                href="<?= $siteUrl; ?>custom-order/business-contacts">
                 Custom Order <i class="icon icon-arrow-forward
                                 button--quaternary__icon"></i>
             </a>
@@ -201,6 +202,7 @@ $user = new Auth();
 
 <script>
     displayTotalJobLevel();
+
     function displayTotalJobLevel() {
         $.ajax({
             url: '../assets/php/action',
@@ -208,7 +210,7 @@ $user = new Auth();
             data: {
                 action: 'display-total-job-level'
             },
-            success: function (response) {
+            success: function(response) {
                 $("#totalJobLevel").html(response);
             }
         });

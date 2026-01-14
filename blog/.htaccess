@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# Route category URLs to index.php with category parameter
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^category/([a-zA-Z0-9\-_]+)$ index.php?type=category&category=$1 [L,QSA]
+
 # Allow access to index.php for clean URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

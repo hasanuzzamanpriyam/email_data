@@ -1,6 +1,6 @@
 <?php
 // Includes
-include_once 'assets/php/header.php';
+include_once __DIR__ . '/assets/php/header.php';
 // auth.php and session.php are already included in header.php usually, but let's keep it safe or rely on header
 // header.php includes session.php and auth.php (Line 2-3 of header.php viewed in Step 603)
 // So we just need header.php
@@ -119,7 +119,7 @@ $_SESSION['myPrice'] = $product['price'];
 </div>
 <hr class="hr-line">
 
-<?php include_once 'assets/php/footer.php'; ?>
+<?php include_once __DIR__ . '/assets/php/footer.php'; ?>
 
 <script>
     Number.prototype.format = function(n, x) {

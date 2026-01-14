@@ -639,14 +639,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-job-level')) 
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -694,14 +697,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-job-title')) 
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -805,14 +811,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-industries'))
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -862,14 +871,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-health')) {
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -917,14 +929,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-international
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -973,14 +988,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-real-state'))
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {
@@ -1083,14 +1101,17 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-total-office-365'))
                         ' . $row['short_description'] . '
                     </div>
                     <div class="premade-lists__item__col text-right">';
-            if ($seoUrl != '') {
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $seoUrl . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            } else {
-                $category = slugify($row['category'] . '-email list');
-                $output .= '<a href="' . $siteUrl . 'ready-made/' . $title . '/' . $category . '/' . $row['id'] . '" class="premade-lists__item__price" style="text-decoration:none;">$ ' . number_format($row['price']) . '</a></div>
-                </div></div>';
-            }
+            $output .= '<form action="' . $siteUrl . 'checkout/step1.php" method="POST" style="display:inline;">
+                <input type="hidden" name="ordercode" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="emailType" value="Ready Made">
+                <input type="hidden" name="emailCategory" value="' . htmlspecialchars($row['category']) . '">
+                <input type="hidden" name="selectItem" value="' . htmlspecialchars($row['title']) . '">
+                <input type="hidden" name="totalemail" value="' . $row['total_email'] . '">
+                <input type="hidden" name="price" value="' . $row['price'] . '">
+                <input type="hidden" name="deliveryDays" value="3-5">
+                <button type="submit" name="buyNow" class="premade-lists__item__price" style="border:none;background:none;cursor:pointer;text-decoration:none;color:inherit;font:inherit;">$ ' . number_format($row['price']) . '</button>
+            </form></div>
+            </div></div>';
         }
         echo $output;
     } else {

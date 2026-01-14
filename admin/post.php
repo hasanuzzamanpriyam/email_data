@@ -153,8 +153,19 @@ if (isset($_POST['updateEmail'])) {
         <h3>Edit Email Details For Ready Made list</h3>
         <form id="update-email-form" method="POST" action="#" enctype="multipart/form-data">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" id="updateTitle" name="updateTitle" required placeholder="Enter E-mail Category">
-                <label for="updateTitle">Category</label>
+                <select class="form-select" id="updateTitle" name="updateTitle" aria-label="Select E-mail Category">
+                    <option selected disabled>-Select Options-</option>
+                    <option>Healthcare Professional</option>
+                    <option>Industries</option>
+                    <option>International</option>
+                    <option>Job Level</option>
+                    <option>Job Title</option>
+                    <option>Job Function</option>
+                    <option>Office 365</option>
+                    <option>Real Estate</option>
+                    <option>Zoom Info</option>
+                </select>
+                <label for="updateTitle">Select E-mail Category</label>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="updateCategory" name="updateCategory" required placeholder="Enter E-mail Category">
@@ -233,7 +244,6 @@ require_once 'assets/php/footer.php';
                 success: function(response) {
                     $(".seo-update-details").attr('style', 'display:block');
                     $(".seo-details").attr('style', 'display:none');
-                    $("#updateTitle").attr('disabled', true);
 
                     data = JSON.parse(response);
                     $("#updateTitle").val(data.title);

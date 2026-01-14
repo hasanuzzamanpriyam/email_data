@@ -102,7 +102,7 @@ if ($name === 'index') {
                     </div>
                 </div>
                 <div class="col-md-3 gap-bottom-tld">
-                    <div class="text-uppercase">Bookyourdata</div>
+                    <div class="text-uppercase">EmailBigData</div>
                     <a href="<?php echo $seoUrl; ?>contact">Send Message</a>
                     <address>
                         <p><strong>Washington:</strong> 1348 Florida Ave. NW, Washington, DC, 20009, US</p>
@@ -151,7 +151,7 @@ if ($name === 'index') {
         <div class="container font-small">
             <ul class="list list--primary footer__bottom-links">
                 <li class="list__item">Copyright &copy; 2021
-                    Bookyourdata - All Rights Reserved</li>
+                    EmailBigData - All Rights Reserved</li>
                 <li class="list__item"><a class="link-quaternary"
                         href="terms-of-use.php">Terms of Use</a></li>
                 <li class="list__item"><a class="link-quaternary"
@@ -170,11 +170,11 @@ if ($name === 'index') {
                 <span>Find us on</span>
                 <div class="social-menu gap-left align-middle">
                     <a
-                        href="https://www.facebook.com/bookyourdata.io/"
+                        href="https://www.facebook.com/emailbigdata.com/"
                         target="_blank" class="social-menu__item
                                 icon-facebook"></a>
                     <a
-                        href="https://www.linkedin.com/company/bookyourdata-io/"
+                        href="https://www.linkedin.com/company/emailbigdata"
                         target="_blank" class="social-menu__item
                                 icon-linkedin"></a>
                 </div>
