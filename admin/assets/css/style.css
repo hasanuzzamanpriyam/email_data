@@ -93,9 +93,6 @@ header{
 .social-icon div{
     width: 40px;
     height: 40px;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: url('https://cdn1.iconfinder.com/data/icons/logotypes/32/square-facebook-512.png');
     border-radius: 50%;
 }
 main{

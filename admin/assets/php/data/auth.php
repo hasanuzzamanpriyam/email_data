@@ -173,4 +173,18 @@ class Auth extends Database
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
+
+    // Update Admin Profile
+    // Update Admin Profile
+    public function update_admin_profile($name, $photo, $id)
+    {
+        $parts = explode(' ', trim($name), 2);
+        $fname = $parts[0];
+        $lname = isset($parts[1]) ? $parts[1] : '';
+
+        $sql = "UPDATE admin SET first_name = :fname, last_name = :lname, profile_image = :photo WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['fname' => $fname, 'lname' => $lname, 'photo' => $photo, 'id' => $id]);
+        return true;
+    }
 }

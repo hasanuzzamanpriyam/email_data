@@ -172,8 +172,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'display-coupon')) {
             <td>' . $row['limitation'] . '</td>
             <td>' . $row['amount'] . '</td>
             <td>
-            <a href="#" id="' . $row['id'] . '" title="Edit SEO" class="text-primary editCouponBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
-            <a href="#" id="' . $row['id'] . '" title="Delete SEO" class="text-danger deleteCouponBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
+            <a href="#" id="' . $row['id'] . '" title="Edit Coupon" class="text-primary editCouponBtn"><i class="fas fa-edit fa-lg"></i></a>&nbsp;
+            <a href="#" id="' . $row['id'] . '" title="Delete Coupon" class="text-danger deleteCouponBtn"><i class="fas fa-trash-alt fa-lg"></i></a>
             </td>
             </tr>';
         }
@@ -1018,6 +1018,32 @@ if (isset($_FILES['deliveryData'])) {
     $adminPanel->update_order($deliveryId, $status, $deliveryData);
     $id = $deliveryId;
     $getCoupon = $adminPanel->edit_order($id);
+
+    // Send delivery email (Background Queue)
+    $to = $delEmail;
+    $name = $getCoupon['name'];
+    $title = $getCoupon['title'];
+
+    try {
+        // Insert into Mail Queue
+        $qSql = "INSERT INTO mail_queue (to_email, name, title, file_path, status) VALUES (:to, :name, :title, :file, 'pending')";
+        $qStmt = $adminPanel->conn->prepare($qSql);
+        $qStmt->execute(['to' => $to, 'name' => $name, 'title' => $title, 'file' => $deliveryData]);
+
+        // Spawn Background Worker (Fire & Forget)
+        if (defined('PHP_BINARY') && PHP_BINARY) {
+            $phpPath = PHP_BINARY;
+        } else {
+            $phpPath = 'php';
+        }
+        $scriptPath = __DIR__ . '/background_mailer.php';
+
+        // Windows-specific background spawn
+        pclose(popen("start /B $phpPath $scriptPath", "r"));
+    } catch (Exception $e) {
+        // If queue fails, logic continues (email might not send but order completes)
+    }
+
     $emailFile = $getCoupon['delivery_file'];
     $id = $getCoupon['cop_id'];
     $presentPrice = $getCoupon['total_price'];
@@ -1525,7 +1551,7 @@ if (isset($_FILES['image'])) {
         $newImage = $folder . $_FILES['image']['name'];
         move_uploaded_file($_FILES['image']['tmp_name'], $newImage);
 
-        if (oldImage != null) {
+        if ($oldImage != null) {
             unlink($oldImage);
         }
     } else {
@@ -1681,4 +1707,33 @@ if (isset($_POST['action']) && ($_POST['action'] == 'edit-order')) {
     $status = $adminPanel->test_input($_POST['paymentStatus']);
 
     $adminPanel->update_order_status($id, $status);
+}
+
+// Fetch Admin Notifications
+if (isset($_POST['action']) && ($_POST['action'] == 'fetchAdminNotification')) {
+    $notifications = $adminPanel->fetchAdminNotifications();
+    $output = '';
+
+    if ($notifications) {
+        foreach ($notifications as $row) {
+            $icon = ($row['type'] == 'order') ? 'fa-shopping-cart text-primary' : 'fa-info-circle text-info';
+            $time = $adminPanel->timeInAgo($row['created_at']);
+
+            $output .= '
+             <a class="dropdown-item d-flex align-items-center" href="' . ($row['type'] == 'order' ? 'order' : '#') . '" style="padding: 10px 15px; border-bottom: 1px solid #e3e6f0;">
+                <div class="mr-3" style="margin-right: 1rem;">
+                    <div class="icon-circle bg-light" style="height: 2.5rem; width: 2.5rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background-color: #f8f9fc;">
+                        <i class="fas ' . $icon . '"></i>
+                    </div>
+                </div>
+                <div>
+                    <div class="small text-gray-500" style="color: #b7b9cc; font-size: 80%;">' . $time . '</div>
+                    <span class="font-weight-bold" style="white-space: normal; display: block;">' . $row['message'] . '</span>
+                </div>
+             </a>';
+        }
+        echo $output;
+    } else {
+        echo '<a class="dropdown-item text-center small text-gray-500" href="#">No New Alerts</a>';
+    }
 }

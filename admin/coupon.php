@@ -6,37 +6,37 @@ require_once 'assets/php/header.php';
         <h3>Set up coupon on your post!</h3>
         <form action="#" method="POST" id="coupon-form">
             <div class="form-floating mb-3" id="showPage">
-                 <h3 class="text-center font-weight-bold">Please Wait....</h3>
+                <h3 class="text-center font-weight-bold">Please Wait....</h3>
             </div>
             <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="couponTitle" placeholder="Enter Coupon Title" name="couponTitle" required>
                 <label for="couponTitle">Coupon Title</label>
             </div>
             <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="couponKeyword" placeholder="Enter Coupon Keyword" name="couponKeyword" required>
-                  <label for="couponKeyword">Coupon Tracking ID</label>
+                <input type="text" class="form-control" id="couponKeyword" placeholder="Enter Coupon Keyword" name="couponKeyword" required>
+                <label for="couponKeyword">Coupon Tracking ID</label>
             </div>
             <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="couponLimit" placeholder="Enter Coupon Limit" name="couponLimit" required>
-                  <label for="couponLimit">Coupon Limitation Number</label>
+                <input type="number" class="form-control" id="couponLimit" placeholder="Enter Coupon Limit" name="couponLimit" required>
+                <label for="couponLimit">Coupon Limitation Number</label>
             </div>
             <div class="row g-2 mb-3">
-              <div class="col-md">
-                <div class="form-floating">
-                  <select class="form-select" id="couponType" name="couponType" aria-label="Floating label select example">
-                    <option selected disabled>-Select Options-</option>
-                    <option>Amount</option>
-                    <option>Percentage</option>
-                  </select>
-                  <label for="floatingSelectGrid">Choice Coupon Type</label>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="couponType" name="couponType" aria-label="Floating label select example">
+                            <option selected disabled>-Select Options-</option>
+                            <option>Amount</option>
+                            <option>Percentage</option>
+                        </select>
+                        <label for="floatingSelectGrid">Choice Coupon Type</label>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md">
-                <div class="form-floating">
-                  <input type="number" class="form-control" id="couponAmount" name="couponAmount" placeholder="couponAmount">
-                  <label for="couponAmount">Coupon Amount</label>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="couponAmount" name="couponAmount" placeholder="couponAmount">
+                        <label for="couponAmount">Coupon Amount</label>
+                    </div>
                 </div>
-              </div>
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-3">
@@ -57,30 +57,30 @@ require_once 'assets/php/header.php';
                 <label for="updatecouponTitle">Coupon Title</label>
             </div>
             <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="updatecouponKeyword" placeholder="Enter Coupon Keyword" name="updatecouponKeyword" required>
-                  <label for="updatecouponKeyword">Coupon Tracking ID</label>
+                <input type="text" class="form-control" id="updatecouponKeyword" placeholder="Enter Coupon Keyword" name="updatecouponKeyword" required>
+                <label for="updatecouponKeyword">Coupon Tracking ID</label>
             </div>
             <div class="form-floating mb-3">
-                  <input type="number" class="form-control" id="updatecouponLimit" placeholder="Enter Coupon Limit" name="updatecouponLimit" required>
-                  <label for="updatecouponLimit">Coupon Limitation Number</label>
+                <input type="number" class="form-control" id="updatecouponLimit" placeholder="Enter Coupon Limit" name="updatecouponLimit" required>
+                <label for="updatecouponLimit">Coupon Limitation Number</label>
             </div>
             <div class="row g-2 mb-3">
-              <div class="col-md">
-                <div class="form-floating">
-                  <select class="form-select" id="updatecouponType" name="updatecouponType" aria-label="Floating label select example">
-                    <option selected disabled>-Select Options-</option>
-                    <option>Amount</option>
-                    <option>Percentage</option>
-                  </select>
-                  <label for="floatingSelectGrid">Choice Coupon Type</label>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="updatecouponType" name="updatecouponType" aria-label="Floating label select example">
+                            <option selected disabled>-Select Options-</option>
+                            <option>Amount</option>
+                            <option>Percentage</option>
+                        </select>
+                        <label for="floatingSelectGrid">Choice Coupon Type</label>
+                    </div>
                 </div>
-              </div>
-              <div class="col-md">
-                <div class="form-floating">
-                  <input type="number" class="form-control" id="updatecouponAmount" name="updatecouponAmount" placeholder="couponAmount">
-                  <label for="updatecouponAmount">Coupon Amount</label>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input type="number" class="form-control" id="updatecouponAmount" name="updatecouponAmount" placeholder="couponAmount">
+                        <label for="updatecouponAmount">Coupon Amount</label>
+                    </div>
                 </div>
-              </div>
             </div>
             <div class="row justify-content-end">
                 <div class="col-lg-3">
@@ -106,8 +106,8 @@ require_once 'assets/php/header.php';
 require_once 'assets/php/footer.php';
 ?>
 <script>
-    $(document).ready(function () {
-        $("#couponBtn").click(function (e) {
+    $(document).ready(function() {
+        $("#couponBtn").click(function(e) {
             if ($("#coupon-form")[0].checkValidity()) {
                 e.preventDefault();
                 $("#couponBtn").val('Please Wait...');
@@ -116,16 +116,16 @@ require_once 'assets/php/footer.php';
                     url: 'assets/php/process',
                     type: 'post',
                     data: $("#coupon-form").serialize() + '&action=coupon',
-                    success: function (response) {
+                    success: function(response) {
                         $("#couponBtn").val('Save');
                         alert("Data Insert Successfully!");
-                        $("#coupon-form")[0].reset(); 
+                        $("#coupon-form")[0].reset();
                         location.reload();
                     }
                 });
             }
         });
-        $("#updatecouponBtn").click(function (e) {
+        $("#updatecouponBtn").click(function(e) {
             if ($("#update-coupon-form")[0].checkValidity()) {
                 e.preventDefault();
                 $("#updatecouponBtn").val('Please Wait...');
@@ -134,8 +134,8 @@ require_once 'assets/php/footer.php';
                     url: 'assets/php/process',
                     type: 'post',
                     data: $("#update-coupon-form").serialize() + '&action=update-coupon',
-                    success: function (response) {
-                        
+                    success: function(response) {
+
                         $("#updatecouponBtn").val('Update');
                         alert("Data Update Successfully!");
                         $("#update-coupon-form")[0].reset();
@@ -144,15 +144,17 @@ require_once 'assets/php/footer.php';
                 });
             }
         });
-        $("body").on("click", ".editCouponBtn", function (e) {
+        $("body").on("click", ".editCouponBtn", function(e) {
             e.preventDefault();
 
-            let editCouponBtn =  $(this).attr("id");
+            let editCouponBtn = $(this).attr("id");
 
             $.ajax({
                 url: 'assets/php/process',
                 type: 'post',
-                data: { editCouponBtn: editCouponBtn},
+                data: {
+                    editCouponBtn: editCouponBtn
+                },
                 success: function(response) {
                     $(".seo-update-details").attr('style', 'display:block');
                     $(".seo-details").attr('style', 'display:none');
@@ -166,40 +168,43 @@ require_once 'assets/php/footer.php';
                     $("#updatecouponAmount").val(data.amount);
                     $("#updateCouponId").val(data.id);
                 }
-            });  
+            });
         });
-        $("body").on("click", ".deleteCouponBtn", function (e) {
+        $("body").on("click", ".deleteCouponBtn", function(e) {
             e.preventDefault();
 
-          let deleteCouponBtn =  $(this).attr("id");
+            let deleteCouponBtn = $(this).attr("id");
 
-          Swal.fire({
-              title: 'Are you sure?',
-              text: "You won't be able to revert this!",
-              icon: 'warning',
-              showCancelButton: true,
-              confirmButtonColor: '#3085d6',
-              cancelButtonColor: '#d33',
-              confirmButtonText: 'Yes, delete it!'
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-              if (result.isConfirmed) {
-                $.ajax({
-                    url: 'assets/php/process',
-                    type: 'post',
-                    data: { deleteCouponBtn: deleteCouponBtn},
-                    success: function(response) {
-                        Swal.fire(
-                          'Deleted!',
-                          'Your file has been deleted.',
-                          'success'
-                        )
-                        location.reload();
-                    }
-                });  
-              }
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: 'assets/php/process',
+                        type: 'post',
+                        data: {
+                            deleteCouponBtn: deleteCouponBtn
+                        },
+                        success: function(response) {
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                            location.reload();
+                        }
+                    });
+                }
             })
         });
         displayAllPage();
+
         function displayAllPage() {
             $.ajax({
                 url: 'assets/php/process',
@@ -213,6 +218,7 @@ require_once 'assets/php/footer.php';
             });
         }
         displayAllCoupon();
+
         function displayAllCoupon() {
             $.ajax({
                 url: 'assets/php/process',
@@ -229,8 +235,8 @@ require_once 'assets/php/footer.php';
     });
 </script>
 <script>
-function showSelected() {
+    function showSelected() {
         var selectedCountry = $('.pageTitle').children("option:selected").val();
         document.getElementById("copytext").value = selectedCountry;
-        }
+    }
 </script>

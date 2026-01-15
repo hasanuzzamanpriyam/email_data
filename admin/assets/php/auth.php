@@ -36,6 +36,47 @@ class Auth extends Database
 
         return $result;
     }
+
+    public function editTop($id)
+    {
+        $sql = "SELECT * FROM topup WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update_top($id, $status)
+    {
+        $sql = "UPDATE topup SET status = :status WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['status' => $status, 'id' => $id]);
+        return true;
+    }
+
+    public function delete_top($id)
+    {
+        $sql = "DELETE FROM topup WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return true;
+    }
+
+    public function topup($uid, $amount)
+    {
+        $sql = "UPDATE clients_info SET topup = :amount WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['amount' => $amount, 'id' => $uid]);
+        return true;
+    }
+
+    public function get_top_amount($id)
+    {
+        $sql = "SELECT topup FROM clients_info WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function get_page()
     {
         $sql = "SELECT DISTINCT page FROM seo ORDER BY page ASC";
@@ -102,6 +143,37 @@ class Auth extends Database
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function edit_coupon($id)
+    {
+        $sql = "SELECT * FROM coupon WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function update_coupon($id, $couponTitle, $trackId, $limit, $type, $amount)
+    {
+        $sql = "UPDATE coupon SET coupon_title = :coupon_title, tacking_id = :tacking_id, limitation = :limitation, coupon_type = :coupon_type, amount = :amount WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            'coupon_title' => $couponTitle,
+            'tacking_id' => $trackId,
+            'limitation' => $limit,
+            'coupon_type' => $type,
+            'amount' => $amount,
+            'id' => $id
+        ]);
+        return true;
+    }
+
+    public function delete_coupon($id)
+    {
+        $sql = "DELETE FROM coupon WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return true;
     }
 
     public function get_seo_page()
@@ -279,6 +351,29 @@ class Auth extends Database
         return true;
     }
 
+    public function delete_failed_order($id)
+    {
+        return $this->delete_order($id);
+    }
+
+    public function delete_cancel_order($id)
+    {
+        return $this->delete_order($id);
+    }
+
+    public function delete_refund_order($id)
+    {
+        return $this->delete_order($id);
+    }
+
+    public function update_order_status($id, $status)
+    {
+        $sql = "UPDATE order_info SET status = :status WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['status' => $status, 'id' => $id]);
+        return true;
+    }
+
     public function update_order($deliveryId, $status, $deliveryData)
     {
         $sql = "UPDATE order_info SET status= :status, delivery_file= :delivery_file WHERE id= :id";
@@ -409,6 +504,111 @@ class Auth extends Database
             return 'error';
         } catch (PDOException $e) {
             return 'database-error: ' . $e->getMessage();
+        }
+    }
+    public function send_delivery_email($to, $name, $title, $file)
+    {
+        try {
+            $mail = new PHPMailer;
+            $mail->isSMTP();
+            $mail->Host = '69.197.191.106';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'support@emailbigdata.com';
+            $mail->Password = 'Nazmul@@2025$$';
+            $mail->SMTPSecure = 'tls';
+            $mail->Port = 587;
+
+            // Bypass SSL verification for localhost/laragon
+            $mail->SMTPOptions = array(
+                'ssl' => array(
+                    'verify_peer' => false,
+                    'verify_peer_name' => false,
+                    'allow_self_signed' => true
+                )
+            );
+
+            $mail->setFrom('support@emailbigdata.com', 'EmailBigData Support');
+            $mail->addAddress($to);
+            $mail->addAttachment($file); // Add the uploaded file as attachment
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Your Order Delivery - ' . $title;
+            $bodyContent = "
+                <h3>Hello $name,</h3>
+                <p>Thank you for your order!</p>
+                <p>We are pleased to inform you that your order <b>$title</b> has been completed.</p>
+                <p>Please find your delivery file attached to this email.</p>
+                <br>
+                <p>If you have any issues, feel free to contact us.</p>
+                <br>
+                <p>Regards,</p>
+                <p>EmailBigData Team</p>
+            ";
+            $mail->Body = $bodyContent;
+
+            if ($mail->send()) {
+                return true;
+            } else {
+                return 'Error: ' . $mail->ErrorInfo;
+            }
+        } catch (Exception $e) {
+            return 'Exception: ' . $e->getMessage();
+        }
+    }
+
+    // Fetch Admin Dashboard Notifications
+    public function fetchAdminNotifications()
+    {
+        $notifications = [];
+
+        try {
+            $sql = "SELECT id, message, created_at, 'system' as type FROM notification WHERE type = 'admin' ORDER BY created_at DESC LIMIT 5";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $r) {
+                $notifications[] = $r;
+            }
+        } catch (Exception $e) {
+        }
+
+        try {
+            $sql = "SELECT id, 'New Order Received' as message, created_at, 'order' as type FROM order_info WHERE status = 'pending' ORDER BY created_at DESC LIMIT 5";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            foreach ($rows as $r) {
+                $r['message'] = 'New Order #' . $r['id'];
+                $notifications[] = $r;
+            }
+        } catch (Exception $e) {
+        }
+
+        usort($notifications, function ($a, $b) {
+            return strtotime($b['created_at']) - strtotime($a['created_at']);
+        });
+
+        return array_slice($notifications, 0, 5);
+    }
+
+    public function timeInAgo($timestamp)
+    {
+        $timestamp = strtotime($timestamp) ? strtotime($timestamp) : $timestamp;
+        $time = time() - $timestamp;
+
+        switch ($time) {
+            case $time < 60:
+                return 'Just now';
+            case $time < 3600:
+                return round($time / 60) . ' mins ago';
+            case $time < 86400:
+                return round($time / 3600) . ' hours ago';
+            case $time < 604800:
+                return round($time / 86400) . ' days ago';
+            case $time < 2419200:
+                return round($time / 604800) . ' weeks ago';
+            default:
+                return date('d M Y', $timestamp);
         }
     }
 }
