@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
 
-:root{
-    --main-color: #34282C;
+:root {
+    --main-color: #04AA6D;
     --color-dark: #1d2231;
     --color-gray: #fff;
 }
-*{
+
+* {
     font-family: 'Maven Pro', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-.sidebar{
+
+.sidebar {
     height: 100%;
     width: 240px;
     position: fixed;
@@ -22,43 +24,76 @@
     color: #ffffff;
     overflow-y: auto;
 }
-.sidebar-header{
+
+.sidebar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 60px;
     padding: 0rem 1rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
-.sidebar-header label{
+
+.sidebar-header label {
     cursor: pointer;
+    color: var(--main-color);
+    font-size: 1.2rem;
 }
-.sidebar-menu ul{
-    padding-left: 0;
+
+.sidebar-menu {
+    padding: 10px;
 }
-.sidebar-menu ul li{
-    border-top: 1px solid gray;
+
+.sidebar-menu ul li {
+    border-top: none;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
 }
-.sidebar-menu ul li:hover{
-    background-color: #3A3B3C;
+
+.sidebar-menu ul li:hover,
+.sidebar-menu ul li.active {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
-.sidebar-menu ul li:hover a{
+
+.sidebar-menu ul li:hover a,
+.sidebar-menu ul li.active a {
     text-decoration: none;
+    color: var(--main-color);
+    font-weight: 600;
 }
-.sidebar ul li a{
-    display: block;
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
     color: #ffffff;
-    font-size: .9rem;
-    padding: 1rem;
+    font-size: .95rem;
+    padding: 12px 15px;
     text-decoration: none;
+    font-weight: 500;
 }
-.sidebar a span:first-child{
-    padding-right: .6rem;
+
+.sidebar ul li a i {
+    margin-right: 15px;
+    font-size: 1.1rem;
+    width: 25px;
+    text-align: center;
 }
-.main-content{
+
+.sidebar ul li a span:first-child {
+    /* Override identifying span logic if necessary, but usually icon is first child or i tag */
+    /* The HTML has <i> then <span>. The previous CSS targetted span:first-child? Check line 54 in original */
+    padding-right: 0;
+}
+
+.main-content {
     position: relative;
     margin-left: 240px;
 }
-header{
+
+header {
     position: fixed;
     left: 240px;
     top: 0;
@@ -72,214 +107,260 @@ header{
     align-items: center;
     display: flex;
 }
-.search-wrapper{
+
+.search-wrapper {
     display: flex;
     align-items: center;
 }
-.search-wrapper input{
+
+.search-wrapper input {
     border: 0;
     outline: 0;
     padding: 1rem;
     height: 38px;
 }
-.social-icon{
+
+.social-icon {
     display: flex;
     align-items: center;
 }
+
 .social-icon span,
-.social-icon div{
+.social-icon div {
     margin-left: 1.2rem;
 }
-.social-icon div{
+
+.social-icon div {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
-main{
+
+main {
     margin-top: 60px;
     background-color: rgb(224, 223, 223);
     min-height: 90vh;
     padding: 3rem;
 }
-.dashboard-title{
+
+.dashboard-title {
     color: var(--color-dark);
     margin-bottom: 1rem;
 }
-.dashboard-cards{
+
+.dashboard-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-column-gap: 1rem;
 }
-.card-single{
+
+.card-single {
     border-radius: 7px;
-    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     grid-row-gap: 3rem;
-    
+
 }
-.card-body{
+
+.card-body {
     display: flex;
     padding: 1.3rem 1rem;
     align-items: center;
-    background-color: #839192 ;
+    background-color: #839192;
 }
-.card-body span{
+
+.card-body span {
     font-size: 2rem;
     color: #fff;
     padding-right: 1.4rem;
     font-weight: 600;
 }
-.card-body h5{
+
+.card-body h5 {
     color: var(--color-gray);
     font-size: 1.2rem;
 }
-.card-body h4{
+
+.card-body h4 {
     color: #FFBF00;
     font-size: 1.1rem;
     margin-top: .2rem;
 }
-.card-footer{
+
+.card-footer {
     padding: .5rem 1rem;
     background-color: #f9fafc;
 }
-.card-footer:hover{
+
+.card-footer:hover {
     background-color: green;
 }
-.card-footer a{
+
+.card-footer a {
     display: block;
     font-size: 18px;
     font-weight: 500;
     color: var(--main-color);
     text-decoration: none;
 }
-.card-footer a:hover{
+
+.card-footer a:hover {
     text-decoration: none;
     color: #fff;
 }
-.recent{
+
+.recent {
     margin-top: 3rem;
     margin-bottom: 3rem;
 }
-.activity-grid{
+
+.activity-grid {
     display: grid;
     grid-template-columns: 100%;
     grid-column-gap: 1.5rem;
 }
-.activity-card{
+
+.activity-card {
     background-color: #ffffff;
     border-radius: 7px;
 }
-.activity-card h3{
+
+.activity-card h3 {
     color: var(--color-gray);
     margin: 1rem;
 }
+
 /* responsive and toggle */
-.sidebar{
+.sidebar {
     transition: width 500ms;
 }
-.main-content{
+
+.main-content {
     transition: margin-left 500ms;
 }
-header{
+
+header {
     transition: left 500ms;
 }
-#sidebar-toggle{
+
+#sidebar-toggle {
     display: none;
 }
-#sidebar-toggle:checked ~ .sidebar{
+
+#sidebar-toggle:checked~.sidebar {
     width: 60px;
 }
-#sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
-#sidebar-toggle:checked ~ .sidebar li span:last-child{
+
+#sidebar-toggle:checked~.sidebar .sidebar-header h3 span,
+#sidebar-toggle:checked~.sidebar li span:last-child {
     display: none;
 }
-#sidebar-toggle:checked ~ .sidebar .sidebar-header,
-#sidebar-toggle:checked ~ .sidebar li{
+
+#sidebar-toggle:checked~.sidebar .sidebar-header,
+#sidebar-toggle:checked~.sidebar li {
     display: flex;
     justify-content: center;
 }
 
-#sidebar-toggle:checked ~ .main-content{
+#sidebar-toggle:checked~.main-content {
     margin-left: 60px;
 }
-#sidebar-toggle:checked ~ .main-content header{
+
+#sidebar-toggle:checked~.main-content header {
     left: 60px;
 }
-.table-responsive{
+
+.table-responsive {
     overflow-x: auto;
 }
+
 @media only screen and (max-width: 1200px) {
-    .sidebar{
+    .sidebar {
         width: 60px;
         z-index: 150;
     }
+
     .sidebar .sidebar-header h3 span,
-    .sidebar li span:last-child{
+    .sidebar li span:last-child {
         display: none;
     }
+
     .sidebar .sidebar-header,
-    .sidebar li{
+    .sidebar li {
         display: flex;
         justify-content: center;
     }
-    
-    .main-content{
+
+    .main-content {
         margin-left: 60px;
     }
-    .main-content header{
+
+    .main-content header {
         left: 60px;
         width: calc(100% - 60px);
     }
-    #sidebar-toggle:checked ~ .sidebar{
+
+    #sidebar-toggle:checked~.sidebar {
         width: 240px;
     }
-    #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
-    #sidebar-toggle:checked ~ .sidebar li span:last-child{
+
+    #sidebar-toggle:checked~.sidebar .sidebar-header h3 span,
+    #sidebar-toggle:checked~.sidebar li span:last-child {
         display: inline;
     }
-    #sidebar-toggle:checked ~ .sidebar .sidebar-header{
+
+    #sidebar-toggle:checked~.sidebar .sidebar-header {
         display: flex;
         justify-content: space-between;
     }
-    #sidebar-toggle:checked ~ .sidebar li{
+
+    #sidebar-toggle:checked~.sidebar li {
         display: block;
     }
-    #sidebar-toggle:checked ~ .main-content{
+
+    #sidebar-toggle:checked~.main-content {
         margin-left: 60;
     }
-    #sidebar-toggle:checked ~ .main-content header{
+
+    #sidebar-toggle:checked~.main-content header {
         left: 60;
     }
 }
-@media only screen and (max-width: 860px){
-    .dashboard-cards{
+
+@media only screen and (max-width: 860px) {
+    .dashboard-cards {
         grid-template-columns: repeat(2, 1fr);
     }
-    .card-single{
+
+    .card-single {
         margin-bottom: 1rem;
     }
-    .activity-grid{
+
+    .activity-grid {
         display: block;
     }
 }
-@media only screen and (max-width: 600px){
-    .dashboard-cards{
+
+@media only screen and (max-width: 600px) {
+    .dashboard-cards {
         grid-template-columns: 100%;
     }
 }
-@media only screen and (max-width: 450px){
-    main{
+
+@media only screen and (max-width: 450px) {
+    main {
         padding-left: 1rem;
         padding-right: 1rem;
     }
 }
+
 div.dataTables_wrapper div.dataTables_length select {
     width: 100px;
 }
 
-#totalUsers{
-    background: rgb(163,150,120);
-    background: -moz-linear-gradient(90deg, rgba(163,150,120,1) 4%, rgba(226,171,82,1) 30%, rgba(0,164,255,1) 98%);
-    background: -webkit-linear-gradient(90deg, rgba(163,150,120,1) 4%, rgba(226,171,82,1) 30%, rgba(0,164,255,1) 98%);
-    background: linear-gradient(90deg, rgba(163,150,120,1) 4%, rgba(226,171,82,1) 30%, rgba(0,164,255,1) 98%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a39678",endColorstr="#00a4ff",GradientType=1);
+#totalUsers {
+    background: rgb(163, 150, 120);
+    background: -moz-linear-gradient(90deg, rgba(163, 150, 120, 1) 4%, rgba(226, 171, 82, 1) 30%, rgba(0, 164, 255, 1) 98%);
+    background: -webkit-linear-gradient(90deg, rgba(163, 150, 120, 1) 4%, rgba(226, 171, 82, 1) 30%, rgba(0, 164, 255, 1) 98%);
+    background: linear-gradient(90deg, rgba(163, 150, 120, 1) 4%, rgba(226, 171, 82, 1) 30%, rgba(0, 164, 255, 1) 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a39678", endColorstr="#00a4ff", GradientType=1);
 }

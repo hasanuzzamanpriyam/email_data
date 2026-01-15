@@ -1,5 +1,5 @@
 
-Sitemap: https://mailerstation.com/sitemap.xml
+Sitemap: http://localhost/emailbigdata.com/sitemap.xml
 
 User-agent: Mediapartners-Google 
 Disallow:

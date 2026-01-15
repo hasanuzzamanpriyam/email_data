@@ -3,6 +3,7 @@ require_once 'data/session.php';
 $sitesettings = $cuser->get_website_settings();
 $site_url = $sitesettings['siteurl'];
 $admin_email = $sitesettings['adminemail'];
+$page = basename($_SERVER['PHP_SELF'], '.php');
 
 ?>
 <!DOCTYPE html>
@@ -30,93 +31,92 @@ $admin_email = $sitesettings['adminemail'];
     <input type="checkbox" id="sidebar-toggle">
     <div class="sidebar">
         <div class="sidebar-header">
-            <h3 class="band">
-                <!-- <span class="ti-unlink"></span>-->
-                <span>Email Big Data</span>
+            <h3 class="band" style="margin: 0;">
+                <img src="../bundles/bydhome/img/bookyourdata-logo.png" alt="Logo" style="max-height: 45px; max-width: 100%; object-fit: contain;">
             </h3>
             <label for="sidebar-toggle" class="ti-menu-alt"></label>
         </div>
         <div class="sidebar-menu">
             <ul>
-                <li>
+                <li class="<?= ($page == 'dashboard') ? 'active' : '' ?>">
                     <a href="dashboard">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-tachometer-alt margin-right: 1rem;"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'seo') ? 'active' : '' ?>">
                     <a href="seo">
                         <i class="fab fa-yoast"></i>
                         <span>SEO</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'post') ? 'active' : '' ?>">
                     <a href="post">
                         <i class="fas fa-mail-bulk"></i>
                         <span>Products</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'blogs') ? 'active' : '' ?>">
                     <a href="blogs">
                         <i class="fas fa-mail-bulk"></i>
                         <span>Blogs</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'coupon') ? 'active' : '' ?>">
                     <a href="coupon">
                         <i class="fas fa-baby"></i>
                         <span>Coupons</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'topup') ? 'active' : '' ?>">
                     <a href="topup">
                         <i class="fas fa-baby"></i>
                         <span>Topup</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'user') ? 'active' : '' ?>">
                     <a href="user">
                         <i class="fas fa-users"></i>
                         <span>Users</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'band-user') ? 'active' : '' ?>">
                     <a href="band-user">
                         <i class="fas fa-user-slash"></i>
                         <span>Ban Users</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'order') ? 'active' : '' ?>">
                     <a href="order">
                         <i class="fas fa-cart-plus"></i>
                         <span>Order</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'sales') ? 'active' : '' ?>">
                     <a href="sales">
                         <i class="fas fa-cart-plus"></i>
                         <span>Sales</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'feedback') ? 'active' : '' ?>">
                     <a href="feedback">
                         <i class="far fa-comment-dots"></i>
                         <span>Feedback</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'subscription') ? 'active' : '' ?>">
                     <a href="subscription">
                         <i class="fas fa-address-book"></i>
                         <span>Subscription</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'setthing') ? 'active' : '' ?>">
                     <a href="setthing">
                         <i class="fas fa-cog"></i>
                         <span>Setting</span>
                     </a>
                 </li>
-                <li>
+                <li class="<?= ($page == 'website-settings') ? 'active' : '' ?>">
                     <a href="website-settings">
                         <i class="fas fa-cog"></i>
                         <span>Website Settings</span>

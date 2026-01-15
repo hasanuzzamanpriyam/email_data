@@ -45,8 +45,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                                    <a class="o_text-primary" href="https://mailerstation.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                                        <img src="https://mailerstation.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
+                                                        <img src="http://localhost/emailbigdata.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                                     </a>
                                                 </p>
                                             </div>
@@ -58,7 +58,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                                     <tbody>
                                                         <tr>
                                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                                <a class="o_text-light" href="https://mailerstation.com/login" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                                <a class="o_text-light" href="http://localhost/emailbigdata.com/login" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
                 
                                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                                           Hello ' . $userName . ' 
@@ -106,7 +106,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                                         <tbody>
                                                             <tr>
                                                                 <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
-                                                                    <a class="o_text-primary" href="https://mailerstation.com/verify-email?email=' . $email . '" target="_blank" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
+                                                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/verify-email?email=' . $email . '" target="_blank" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -135,7 +135,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                                     <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 21px; background-color: #e8f2e8; border-radius: 4px; padding-left: 8px; padding-right: 8px; padding-top: 16px; padding-bottom: 16px;">
                 
                                                         <p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;">
-                                                            https://mailerstation.com/verify-email?email=' . $email . '
+                                                            http://localhost/emailbigdata.com/verify-email?email=' . $email . '
                                                         </p>
                 
                                                     </td>
@@ -374,8 +374,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'forgot')) {
                                                 <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                                                 <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                                     <p style="margin-top: 0px;margin-bottom: 0px;">
-                                                        <a class="o_text-primary" href="https://mailerstation.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                                            <img src="https://mailerstation.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                                        <a class="o_text-primary" href="http://localhost/emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
+                                                            <img src="http://localhost/emailbigdata.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                                         </a>
                                                     </p>
                                                 </div>
@@ -387,7 +387,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'forgot')) {
                                                         <tbody>
                                                             <tr>
                                                                 <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                                    <a class="o_text-light" href="https://mailerstation.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                                    <a class="o_text-light" href="http://localhost/emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
                     
                                                                         <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                                               Hello ' . $fullName . ' 
@@ -436,7 +436,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'forgot')) {
                                                             <tbody>
                                                                 <tr>
                                                                     <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
-                                                                        <a class="o_text-primary" href="https://mailerstation.com/change-password?email=' . $email . '&token=' . $token . '" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Change Password</a></td>
+                                                                        <a class="o_text-primary" href="http://localhost/emailbigdata.com/change-password?email=' . $email . '&token=' . $token . '" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Change Password</a></td>
                                                                 </tr>
                                                             </tbody>
                                                         </table>
@@ -470,7 +470,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'forgot')) {
                                                         <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 21px; background-color: #e8f2e8; border-radius: 4px; padding-left: 8px; padding-right: 8px; padding-top: 16px; padding-bottom: 16px;">
                     
                                                             <p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;">
-                                                                https://mailerstation.com/change-password?email=' . $email . '&token=' . $token . '
+                                                                http://localhost/emailbigdata.com/change-password?email=' . $email . '&token=' . $token . '
                                                             </p>
                     
                                                         </td>
@@ -1157,8 +1157,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'message-register')) {
                                     <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                                     <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                         <p style="margin-top: 0px;margin-bottom: 0px;">
-                                            <a class="o_text-primary" href="https://mailerstation.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                                <img src="https://mailerstation.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                            <a class="o_text-primary" href="http://localhost/emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
+                                                <img src="http://localhost/emailbigdata.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                             </a>
                                         </p>
                                     </div>
@@ -1170,7 +1170,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'message-register')) {
                                             <tbody>
                                                 <tr>
                                                     <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                        <a class="o_text-light" href="https://mailerstation.com/admin" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                        <a class="o_text-light" href="http://localhost/emailbigdata.com/admin" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
         
                                                             <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                                   Hello ' . $useName . '
@@ -1218,7 +1218,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'message-register')) {
                                             <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                                 <tbody>
                                                     <tr>
-                                                        <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="https://mailerstation.com/admin" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Feedback Details</a></td>
+                                                        <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="http://localhost/emailbigdata.com/admin" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Feedback Details</a></td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -1415,8 +1415,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'verify_email')) {
                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                    <a class="o_text-primary" href="https://mailerstation.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="https://mailerstation.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
+                                        <img src="http://localhost/emailbigdata.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
@@ -1428,7 +1428,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'verify_email')) {
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="https://mailerstation.com/login" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="http://localhost/emailbigdata.com/login" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                           Hello ' . $cfull . ' 
@@ -1476,7 +1476,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'verify_email')) {
                                         <tbody>
                                             <tr>
                                                 <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
-                                                    <a class="o_text-primary" href="https://mailerstation.com/verify-email?email=' . $cemail . '" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
+                                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/verify-email?email=' . $cemail . '" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1505,7 +1505,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'verify_email')) {
                                     <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 21px; background-color: #e8f2e8; border-radius: 4px; padding-left: 8px; padding-right: 8px; padding-top: 16px; padding-bottom: 16px;">
 
                                         <p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;">
-                                            https://mailerstation.com/verify-email?email=' . $cemail . '
+                                            http://localhost/emailbigdata.com/verify-email?email=' . $cemail . '
                                         </p>
 
                                     </td>

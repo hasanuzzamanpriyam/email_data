@@ -46,13 +46,13 @@ $user = new Auth();
             $payMethod = $_SESSION['payMethod'];
 
             $user->update_order_status($tracking_ID, $status);
-            
-            $orderSummary = $emailCategory.','.$emailItem.' of '.$emailType;
+
+            $orderSummary = $emailCategory . ',' . $emailItem . ' of ' . $emailType;
 
             try {
                 $emailSubject = "Order Failed";
 
-                $to = $email.',shahabahammed37@gmail.com,support@mailerstation.com';
+                $to = $email . ',shahabahammed37@gmail.com,support@mailerstation.com';
                 $subject = $emailSubject;
 
                 $message = '<!DOCTYPE html>
@@ -89,7 +89,7 @@ $user = new Auth();
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="https://mailerstation.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="http://localhost/emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                           Hello ' . $fullName . '
@@ -132,7 +132,7 @@ $user = new Auth();
                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                         <tbody>
                                             <tr>
-                                                <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;"><a class="o_text-primary" href="https://mailerstation.com/checkout/step1?reorder='.$tracking_ID.'" style="text-decoration: none;
+                                                <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;"><a class="o_text-primary" href="https://mailerstation.com/checkout/step1?reorder=' . $tracking_ID . '" style="text-decoration: none;
             outline: none;
             color: #0ec06e;display: block;padding: 12px 24px;mso-text-raise: 3px;">Again try to Order</a></td>
             </tr>
@@ -143,9 +143,9 @@ $user = new Auth();
             <tr>
             <td class = "o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align = "center" style = "font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
             <h2 class = "o_heading o_text-dark o_mb-xs" style = "font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 15px;color: #242b3d;font-size: 30px;line-height: 23px;padding-top:15px;">Failed Order Summery</h2>
-            <h4 class = "o_heading o_text-dark o_mb-xs" style = "font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">'.$orderSummary.' Email List
+            <h4 class = "o_heading o_text-dark o_mb-xs" style = "font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">' . $orderSummary . ' Email List
             </h4>
-            <p class = "o_mb-md" style = "margin-top: 0px;margin-bottom: 24px;">Total Email :  '.$totalEmail.' and Total Price : '.$totalPrice.'</p>
+            <p class = "o_mb-md" style = "margin-top: 0px;margin-bottom: 24px;">Total Email :  ' . $totalEmail . ' and Total Price : ' . $totalPrice . '</p>
             </td>
             </tr>
             </tbody>

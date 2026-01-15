@@ -1,2 +1,2 @@
 <?php
- header('Location:https://mailerstation.com/user/order');
+header('Location:http://localhost/emailbigdata.com/user/order');

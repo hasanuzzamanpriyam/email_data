@@ -28,8 +28,8 @@ if (isset($_POST['payment_amount'])) {
     'customer_email' => $user_email,
     'mode' => 'payment',
     'allow_promotion_codes' => true,
-    'success_url' => 'https://mailerstation.com/user/top_success',
-    'cancel_url' => 'https://mailerstation.com/user/top_cancel',
+    'success_url' => 'http://localhost/emailbigdata.com/user/top_success',
+    'cancel_url' => 'http://localhost/emailbigdata.com/user/top_cancel',
   ]);
 
   // echo '<pre>';
