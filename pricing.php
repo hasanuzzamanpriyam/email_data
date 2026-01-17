@@ -59,9 +59,9 @@
                 <thead>
                 <tr>
                     <th># Of Records</th>
-                    <th>Ready-Made</th>
-                    <th>Custom-Order</th>
-                    <th>Office-365</th>
+                    <th>Ready-Made (Pre E-MAIL)</th>
+                    <th>Custom-Order (Pre E-MAIL)</th>
+                    <th>Office-365 (Pre E-MAIL)</th>
                 </tr>
                 </thead>
                 <tbody>
