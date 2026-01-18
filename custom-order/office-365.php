@@ -1,25 +1,25 @@
 <?php
 include_once '../assets/php/header.php';
-if(isset($_POST['officeBtn'])){
-  if(!empty($_POST['officeTechno'])){
-    foreach($_POST['officeTechno'] as $selected){
-      $_SESSION['selectItemOffice'][] = array(
-        'id' => rand(100,10000),
-        'emailCategory' => $_POST['office'],
-        'itemname' => $selected
-      );
+if (isset($_POST['officeBtn'])) {
+    if (!empty($_POST['officeTechno'])) {
+        foreach ($_POST['officeTechno'] as $selected) {
+            $_SESSION['selectItemOffice'][] = array(
+                'id' => rand(100, 10000),
+                'emailCategory' => $_POST['office'],
+                'itemname' => $selected
+            );
+        }
     }
-  }
 }
 
-if(isset($_SESSION['selectItemOffice'])){
-    if(isset($_GET['remove'])){
-      $id = $_GET['id'];
-      foreach($_SESSION['selectItemOffice'] as $key => $del){
-        if($id == $del['id']){
-          unset($_SESSION['selectItemOffice'][$key]);
+if (isset($_SESSION['selectItemOffice'])) {
+    if (isset($_GET['remove'])) {
+        $id = $_GET['id'];
+        foreach ($_SESSION['selectItemOffice'] as $key => $del) {
+            if ($id == $del['id']) {
+                unset($_SESSION['selectItemOffice'][$key]);
+            }
         }
-      }
     }
 }
 ?>
@@ -27,7 +27,7 @@ if(isset($_SESSION['selectItemOffice'])){
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <!-- Optional theme -->
 <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<script src="js/jquery-v1.11.1.min.js"></script> 
+<script src="js/jquery-v1.11.1.min.js"></script>
 <style>
     .modal .modal-body {
         max-height: 300px;
@@ -66,7 +66,8 @@ if(isset($_SESSION['selectItemOffice'])){
         font-weight: 600;
         font-size: 15px;
     }
-    .labelStyle{
+
+    .labelStyle {
         background-color: green;
         color: #ffffff;
         width: 300px;
@@ -76,34 +77,39 @@ if(isset($_SESSION['selectItemOffice'])){
         text-transform: uppercase;
     }
 
-    .itemStyle{
+    .itemStyle {
         margin-bottom: 10px;
         margin-left: 3px;
         float: left;
-        font-size: 16px; 
-        font-weight: 600; 
-        border: 1px solid #AEB6BF; 
-        background: #F2F3F4;  
-        border-radius: 5px; 
+        font-size: 16px;
+        font-weight: 600;
+        border: 1px solid #AEB6BF;
+        background: #F2F3F4;
+        border-radius: 5px;
         padding: 3px 5px;
     }
-    .itemStyle:hover{
+
+    .itemStyle:hover {
         background-color: #EB3D32;
         color: #ffffff;
     }
-    .orderStyle{
+
+    .orderStyle {
         width: 300px;
         margin: auto;
     }
-    .categoryStyle{
+
+    .categoryStyle {
         background-color: #FD000D;
         color: #ffffff;
         border-radius: 8px;
     }
-    .subtabStyle{
+
+    .subtabStyle {
         margin-bottom: 20px;
         border-radius: 5px;
     }
+
     .mybtn {
         border: none;
         background-color: transparent;
@@ -112,9 +118,11 @@ if(isset($_SESSION['selectItemOffice'])){
         margin: 0;
         padding: 0;
     }
-    .mySelectBtn{
+
+    .mySelectBtn {
         border-radius: 5px;
     }
+
     #myDiv,
     #myDiv-2,
     #myDiv-3,
@@ -164,10 +172,10 @@ if(isset($_SESSION['selectItemOffice'])){
         content: attr(data-placeholder);
         color: red;
     }
-    .tab--btn-md-3 > .tab__nav > a{
+
+    .tab--btn-md-3>.tab__nav>a {
         width: 25%;
     }
-
 </style>
 <div class="container" style="height: 0auto;">
     <div class="main-title text-center" style="margin: 40px 0px;">
@@ -178,7 +186,7 @@ if(isset($_SESSION['selectItemOffice'])){
             <div class="tab tab--primary tab--btn-md-3 tab--responsive-sm subtabStyle">
                 <div class="tab__nav js-tabs">
                     <a href="<?= $siteUrl; ?>custom-order/business-contacts">Business Contacts</a>
-                    <a href="<?= $siteUrl; ?>custom-order/healthcare-professionals" >Healthcare Professionals</a>
+                    <a href="<?= $siteUrl; ?>custom-order/healthcare-professionals">Healthcare Professionals</a>
                     <a href="<?= $siteUrl; ?>custom-order/real-estate-agents">Real Estate Agents</a>
                     <a class="is-active" href="<?= $siteUrl; ?>custom-order/office-365">Office 365</a>
                     <button id="tab-toggle-btn" class="tab__toggle-btn" type="button"></button>
@@ -213,8 +221,8 @@ if(isset($_SESSION['selectItemOffice'])){
                                                     Your Custom Order</h4>
                                                 <div class='form-group'>
                                                     <textarea name="" rows="4" class="form-control output"
-                                                              style="font-size: 16px; font-weight: 600;" readonly
-                                                              placeholder="You are not selected any item yet!"></textarea>
+                                                        style="font-size: 16px; font-weight: 600;" readonly
+                                                        placeholder="You are not selected any item yet!"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-body">
@@ -222,8 +230,8 @@ if(isset($_SESSION['selectItemOffice'])){
                                                     <div class="row">
                                                         <div class="col-sm-1"></div>
                                                         <form action="" method="POST">
-                                                            <input type="hidden" name="office" value="Industry" >
-                                                            <input type="hidden" name="officeCategory" value="Office-365" >
+                                                            <input type="hidden" name="office" value="Industry">
+                                                            <input type="hidden" name="officeCategory" value="Office-365">
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Accounting">
@@ -849,14 +857,14 @@ if(isset($_SESSION['selectItemOffice'])){
                                             </div>
                                             <div class="modal-body">
                                                 <form action="" method="POST">
-                                                    <input type="hidden" name="office" value="Company" >
-                                                    <input type="hidden" name="officeCategory" value="Office-365" >
+                                                    <input type="hidden" name="office" value="Company">
+                                                    <input type="hidden" name="officeCategory" value="Office-365">
                                                     <div class="row">
                                                         <div class="col-sm-1"></div>
                                                         <div class="col-sm-11">
                                                             <div class="form-group">
                                                                 <label for="searchCity">Insert Companies Name</label>
-                                                                <input type="text" name="officeTechno[]" placeholder ="Please, Type companies name max 2000 entries" class="form-control">
+                                                                <input type="text" name="officeTechno[]" placeholder="Please, Type companies name max 2000 entries" class="form-control">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -891,14 +899,14 @@ if(isset($_SESSION['selectItemOffice'])){
                                                     Your Custom Order</h4>
                                                 <div class='form-group'>
                                                     <textarea name="" rows="4" class="form-control output"
-                                                              style="font-size: 16px; font-weight: 600;" readonly
-                                                              placeholder="You are not selected any item yet!"></textarea>
+                                                        style="font-size: 16px; font-weight: 600;" readonly
+                                                        placeholder="You are not selected any item yet!"></textarea>
                                                 </div>
                                             </div>
 
                                             <form action="" method="POST">
-                                                <input type="hidden" name="office" value="Job-Level" >
-                                                <input type="hidden" name="officeCategory" value="Office-365" >
+                                                <input type="hidden" name="office" value="Job-Level">
+                                                <input type="hidden" name="officeCategory" value="Office-365">
                                                 <div class="modal-body">
                                                     <div class="main-order-item">
                                                         <div class="row">
@@ -910,30 +918,30 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <label for="" id="myLabel">C-Level</label>
                                                                     <div id="myDiv">
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]' 
-                                                                                   value='Board Member'>
+                                                                            <input type='checkbox' name='officeTechno[]'
+                                                                                value='Board Member'>
                                                                             <label for='clevel-1'>Board
                                                                                 Member</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='Board of Director'>
+                                                                                value='Board of Director'>
                                                                             <label for='clevel-2'>Board
                                                                                 of Director</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='CEO'>
+                                                                                value='CEO'>
                                                                             <label for='clevel-3'>CEO</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='CFO'>
+                                                                                value='CFO'>
                                                                             <label for='clevel-4'>CFO</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]' 
-                                                                                   value='CIO'>
+                                                                            <input type='checkbox' name='officeTechno[]'
+                                                                                value='CIO'>
                                                                             <label for='clevel-5'>CIO</label>
                                                                         </div>
                                                                         <div class='form-group'>
@@ -941,26 +949,26 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                             <label for='clevel-6'>CMO</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]'  value='COO'>
+                                                                            <input type='checkbox' name='officeTechno[]' value='COO'>
                                                                             <label for='clevel-7'>COO</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]'  value='CTO'>
+                                                                            <input type='checkbox' name='officeTechno[]' value='CTO'>
                                                                             <label for='clevel-8'>CTO</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]'  value='Chairman'>
+                                                                            <input type='checkbox' name='officeTechno[]' value='Chairman'>
                                                                             <label for='clevel-9'>Chairman</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]' 
-                                                                                   value='Executive Director'>
+                                                                            <input type='checkbox' name='officeTechno[]'
+                                                                                value='Executive Director'>
                                                                             <label for='clevel-10'>Executive
                                                                                 Director</label>
                                                                         </div>
                                                                         <div class='form-group'>
-                                                                            <input type='checkbox' name='officeTechno[]' 
-                                                                                   value='Executive Officer'>
+                                                                            <input type='checkbox' name='officeTechno[]'
+                                                                                value='Executive Officer'>
                                                                             <label for='clevel-11'>Executive
                                                                                 Officer</label>
                                                                         </div>
@@ -970,13 +978,13 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='General Counsel'>
+                                                                                value='General Counsel'>
                                                                             <label for='clevel-13'>General
                                                                                 Counsel</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='General Manager'>
+                                                                                value='General Manager'>
                                                                             <label for='clevel-14'>General
                                                                                 Manager</label>
                                                                         </div>
@@ -986,7 +994,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='Managing  Director'>
+                                                                                value='Managing  Director'>
                                                                             <label for='clevel-16'>Managing
                                                                                 Director</label>
                                                                         </div>
@@ -1000,17 +1008,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='President'>
+                                                                                value='President'>
                                                                             <label for='clevel-19'>President</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='Shareholder'>
+                                                                                value='Shareholder'>
                                                                             <label for='clevel-20'>Shareholder</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]'
-                                                                                   value='Other C-Levels'>
+                                                                                value='Other C-Levels'>
                                                                             <label for='clevel-21'>Other
                                                                                 C-Levels</label>
                                                                         </div>
@@ -1054,12 +1062,12 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-3">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-1'
-                                                                                   value='Business Development'>
+                                                                                value='Business Development'>
                                                                             <label for='business-1'>Business Development</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-2'
-                                                                                   value='Marketing'>
+                                                                                value='Marketing'>
                                                                             <label for='business-2'>Marketing</label>
                                                                         </div>
                                                                         <div class='form-group'>
@@ -1068,22 +1076,22 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-4'
-                                                                                   value='Sales Marketing'>
+                                                                                value='Sales Marketing'>
                                                                             <label for='business-4'>Sales Marketing</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-5'
-                                                                                   value='Commercial'>
+                                                                                value='Commercial'>
                                                                             <label for='business-5'>Commercial</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-6'
-                                                                                   value='Wholesale-Retail'>
+                                                                                value='Wholesale-Retail'>
                                                                             <label for='business-6'>Wholesale-Retail</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='business-7'
-                                                                                   value='Strategy'>
+                                                                                value='Strategy'>
                                                                             <label for='business-7'>Strategy</label>
                                                                         </div>
                                                                     </div>
@@ -1095,43 +1103,43 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-4">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-1'
-                                                                                   value='Engineering'>
+                                                                                value='Engineering'>
                                                                             <label for='engineering-1'>Engineering</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-2'
-                                                                                   value='Design'>
+                                                                                value='Design'>
                                                                             <label for='engineering-2'>Design</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-3'
-                                                                                   value='Research and Development'>
+                                                                                value='Research and Development'>
                                                                             <label for='engineering-3'>Research and Development</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-4'
-                                                                                   value='Project'>
+                                                                                value='Project'>
                                                                             <label for='engineering-4'>Project</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-5'
-                                                                                   value='Technical'>
+                                                                                value='Technical'>
                                                                             <label for='engineering-5'>Technical</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-6'
-                                                                                   value='Test'>
+                                                                                value='Test'>
                                                                             <label for='engineering-6'>Test</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='engineering-7'
-                                                                                   value='Chemical'>
+                                                                                value='Chemical'>
                                                                             <label for='engineering-7'>Chemical</label>
                                                                         </div>
                                                                     </div>
                                                                     <div class='form-group'>
                                                                         <input type='checkbox' name='officeTechno[]' id='engineering-8'
-                                                                               value='Chemist'>
+                                                                            value='Chemist'>
                                                                         <label for='engineering-8'>Chemist</label>
                                                                     </div>
                                                                 </div>
@@ -1146,17 +1154,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-5">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='accountant-1'
-                                                                                   value='Accountant'>
+                                                                                value='Accountant'>
                                                                             <label for='accountant-1'>Accountant</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='accountant-2'
-                                                                                   value='CPA'>
+                                                                                value='CPA'>
                                                                             <label for='accountant-2'>CPA</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='accountant-3'
-                                                                                   value='Bookkeeper'>
+                                                                                value='Bookkeeper'>
                                                                             <label for='accountant-3'>Bookkeeper</label>
                                                                         </div>
                                                                     </div>
@@ -1180,32 +1188,32 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-6">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-1'
-                                                                                   value='Facilities'>
+                                                                                value='Facilities'>
                                                                             <label for='facilities-1'>Facilities</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-2'
-                                                                                   value='Maintenance'>
+                                                                                value='Maintenance'>
                                                                             <label for='facilities-2'>Maintenance</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-3'
-                                                                                   value='Safety'>
+                                                                                value='Safety'>
                                                                             <label for='facilities-3'>Safety</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-4'
-                                                                                   value='Transportation'>
+                                                                                value='Transportation'>
                                                                             <label for='facilities-4'>Transportation</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-5'
-                                                                                   value='Security'>
+                                                                                value='Security'>
                                                                             <label for='facilities-5'>Security</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='facilities-6'
-                                                                                   value='Real Estate'>
+                                                                                value='Real Estate'>
                                                                             <label for='facilities-6'>Real Estate</label>
                                                                         </div>
                                                                     </div>
@@ -1217,22 +1225,22 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-7">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-1'
-                                                                                   value='Financing'>
+                                                                                value='Financing'>
                                                                             <label for='financing-1'>Financing</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-2'
-                                                                                   value='Controlling'>
+                                                                                value='Controlling'>
                                                                             <label for='financing-2'>Controlling</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-3'
-                                                                                   value='Credit'>
+                                                                                value='Credit'>
                                                                             <label for='financing-3'>Credit</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-4'
-                                                                                   value='Accounting'>
+                                                                                value='Accounting'>
                                                                             <label for='financing-4'>Accounting</label>
                                                                         </div>
                                                                         <div class='form-group'>
@@ -1241,17 +1249,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-6'
-                                                                                   value='Treasurer'>
+                                                                                value='Treasurer'>
                                                                             <label for='financing-6'>Treasurer</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-7'
-                                                                                   value='Controller'>
+                                                                                value='Controller'>
                                                                             <label for='financing-7'>Controller</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='financing-8'
-                                                                                   value='Comptroller'>
+                                                                                value='Comptroller'>
                                                                             <label for='financing-8'>Comptroller</label>
                                                                         </div>
                                                                     </div>
@@ -1263,32 +1271,32 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-8">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-1'
-                                                                                   value='Creative'>
+                                                                                value='Creative'>
                                                                             <label for='creative-1'>Creative</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-2'
-                                                                                   value='Art Director'>
+                                                                                value='Art Director'>
                                                                             <label for='creative-2'>Art Director</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-3'
-                                                                                   value='Creative Director'>
+                                                                                value='Creative Director'>
                                                                             <label for='creative-3'>Creative Director</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-4'
-                                                                                   value='Photographer'>
+                                                                                value='Photographer'>
                                                                             <label for='creative-4'>Photographer</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-5'
-                                                                                   value='Content'>
+                                                                                value='Content'>
                                                                             <label for='creative-5'>Content</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='creative-6'
-                                                                                   value='Graphic Designer'>
+                                                                                value='Graphic Designer'>
                                                                             <label for='creative-6'>Graphic Designer</label>
                                                                         </div>
                                                                     </div>
@@ -1300,42 +1308,42 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                     <div id="myDiv-9">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-1'
-                                                                                   value='Education'>
+                                                                                value='Education'>
                                                                             <label for='education-1'>Education</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-2'
-                                                                                   value='Teacher'>
+                                                                                value='Teacher'>
                                                                             <label for='education-2'>Teacher</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-3'
-                                                                                   value='Elementary Teacher'>
+                                                                                value='Elementary Teacher'>
                                                                             <label for='education-3'>Elementary Teacher</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-4'
-                                                                                   value='Math Teacher'>
+                                                                                value='Math Teacher'>
                                                                             <label for='education-4'>Math Teacher</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-5'
-                                                                                   value='English Teacher'>
+                                                                                value='English Teacher'>
                                                                             <label for='education-5'>English Teacher</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-6'
-                                                                                   value='K12 Teacher'>
+                                                                                value='K12 Teacher'>
                                                                             <label for='education-6'>K12 Teacher</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-7'
-                                                                                   value='Instructor'>
+                                                                                value='Instructor'>
                                                                             <label for='education-7'>Instructor</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-8'
-                                                                                   value='Lecturer'>
+                                                                                value='Lecturer'>
                                                                             <label for='education-8'>Lecturer</label>
                                                                         </div>
                                                                         <div class='form-group'>
@@ -1344,17 +1352,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-10'
-                                                                                   value='Academic'>
+                                                                                value='Academic'>
                                                                             <label for='education-10'>Academic</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-11'
-                                                                                   value='Alumni'>
+                                                                                value='Alumni'>
                                                                             <label for='education-11'>Alumni</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='education-12'
-                                                                                   value='Student'>
+                                                                                value='Student'>
                                                                             <label for='education-12'>Student</label>
                                                                         </div>
                                                                     </div>
@@ -1362,7 +1370,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="HR">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_10(this);" />
+                                                                        onclick="return change_10(this);" />
                                                                     <label for="" id="myLabel-10">HR</label>
                                                                     <div id="myDiv-10">
                                                                         <div class='form-group'>
@@ -1394,42 +1402,42 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Production">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_11(this);" />
+                                                                        onclick="return change_11(this);" />
                                                                     <label for="" id="myLabel-11">Production</label>
                                                                     <div id="myDiv-11">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-1'
-                                                                                   value='Production'>
+                                                                                value='Production'>
                                                                             <label for='production-1'>Production</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-2'
-                                                                                   value='Manufacture'>
+                                                                                value='Manufacture'>
                                                                             <label for='production-2'>Manufacture</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-3'
-                                                                                   value='Operation'>
+                                                                                value='Operation'>
                                                                             <label for='production-3'>Operation</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-4'
-                                                                                   value='Construction'>
+                                                                                value='Construction'>
                                                                             <label for='production-4'>Construction</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-5'
-                                                                                   value='Plant'>
+                                                                                value='Plant'>
                                                                             <label for='production-5'>Plant</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-6'
-                                                                                   value='Logistics'>
+                                                                                value='Logistics'>
                                                                             <label for='production-6'>Logistics</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='production-7'
-                                                                                   value='Warehouse'>
+                                                                                value='Warehouse'>
                                                                             <label for='production-7'>Warehouse</label>
                                                                         </div>
                                                                     </div>
@@ -1437,47 +1445,47 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Professor">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_12(this);" />
+                                                                        onclick="return change_12(this);" />
                                                                     <label for="" id="myLabel-12">Professor</label>
                                                                     <div id="myDiv-12">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-1'
-                                                                                   value='Public Relation'>
+                                                                                value='Public Relation'>
                                                                             <label for='professor-1'>Public Relation</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-2'
-                                                                                   value='Public Relation'>
+                                                                                value='Public Relation'>
                                                                             <label for='professor-2'>Public Relation</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-3'
-                                                                                   value='Admission'>
+                                                                                value='Admission'>
                                                                             <label for='professor-3'>Admission</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-4'
-                                                                                   value='Customer Service'>
+                                                                                value='Customer Service'>
                                                                             <label for='professor-4'>Customer Service</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-5'
-                                                                                   value='Communication'>
+                                                                                value='Communication'>
                                                                             <label for='professor-5'>Communication</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-6'
-                                                                                   value='Media'>
+                                                                                value='Media'>
                                                                             <label for='professor-6'>Media</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-7'
-                                                                                   value='Publishing'>
+                                                                                value='Publishing'>
                                                                             <label for='professor-7'>Publishing</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='professor-8'
-                                                                                   value='Social Media'>
+                                                                                value='Social Media'>
                                                                             <label for='professor-8'>Social Media</label>
                                                                         </div>
                                                                     </div>
@@ -1485,17 +1493,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Purchasing">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_13(this);" />
+                                                                        onclick="return change_13(this);" />
                                                                     <label for="" id="myLabel-13">Purchasing</label>
                                                                     <div id="myDiv-13">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='purchasing-1'
-                                                                                   value='Purchasing'>
+                                                                                value='Purchasing'>
                                                                             <label for='purchasing-1'>Purchasing</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='purchasing-2'
-                                                                                   value='Supply Chain'>
+                                                                                value='Supply Chain'>
                                                                             <label for='purchasing-2'>Supply Chain</label>
                                                                         </div>
                                                                     </div>
@@ -1507,42 +1515,42 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Religious">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_14(this);" />
+                                                                        onclick="return change_14(this);" />
                                                                     <label for="" id="myLabel-14">Religious</label>
                                                                     <div id="myDiv-14">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-1'
-                                                                                   value='Religious'>
+                                                                                value='Religious'>
                                                                             <label for='religious-1'>Religious</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-2'
-                                                                                   value='Bishop'>
+                                                                                value='Bishop'>
                                                                             <label for='religious-2'>Bishop</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-3'
-                                                                                   value='Deacon'>
+                                                                                value='Deacon'>
                                                                             <label for='religious-3'>Deacon</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-4'
-                                                                                   value='Cardinal'>
+                                                                                value='Cardinal'>
                                                                             <label for='religious-4'>Cardinal</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-5'
-                                                                                   value='Pastor'>
+                                                                                value='Pastor'>
                                                                             <label for='religious-5'>Pastor</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-6'
-                                                                                   value='Priest'>
+                                                                                value='Priest'>
                                                                             <label for='religious-6'>Priest</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='religious-7'
-                                                                                   value='Religious Leader'>
+                                                                                value='Religious Leader'>
                                                                             <label for='religious-7'>Religious Leader</label>
                                                                         </div>
                                                                     </div>
@@ -1554,7 +1562,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Support">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_15(this);" />
+                                                                        onclick="return change_15(this);" />
                                                                     <label for="" id="myLabel-15">Support</label>
                                                                     <div id="myDiv-15">
                                                                         <div class='form-group'>
@@ -1563,7 +1571,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='support-2'
-                                                                                   value='Other Officer'>
+                                                                                value='Other Officer'>
                                                                             <label for='support-2'>Other Officer</label>
                                                                         </div>
                                                                     </div>
@@ -1575,7 +1583,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="IT">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_16(this);" />
+                                                                        onclick="return change_16(this);" />
                                                                     <label for="" id="myLabel-16">IT</label>
                                                                     <div id="myDiv-16">
                                                                         <div class='form-group'>
@@ -1599,7 +1607,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Import/Export">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_17(this);" />
+                                                                        onclick="return change_17(this);" />
                                                                     <label for="" id="myLabel-17">Import/Export</label>
                                                                     <div id="myDiv-17">
                                                                         <div class='form-group'>
@@ -1615,17 +1623,17 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Insurance">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_18(this);" />
+                                                                        onclick="return change_18(this);" />
                                                                     <label for="" id="myLabel-18">Insurance</label>
                                                                     <div id="myDiv-18">
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='insurance-1'
-                                                                                   value='Insurance Agent'>
+                                                                                value='Insurance Agent'>
                                                                             <label for='insurance-1'>Insurance Agent</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='insurance-2'
-                                                                                   value='Insurance Broker'>
+                                                                                value='Insurance Broker'>
                                                                             <label for='insurance-2'>Insurance Broker</label>
                                                                         </div>
                                                                     </div>
@@ -1633,7 +1641,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Legal">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_19(this);" />
+                                                                        onclick="return change_19(this);" />
                                                                     <label for="" id="myLabel-19">Legal</label>
                                                                     <div id="myDiv-19">
                                                                         <div class='form-group'>
@@ -1653,7 +1661,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Medical">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_20(this);" />
+                                                                        onclick="return change_20(this);" />
                                                                     <label for="" id="myLabel-20">Medical</label>
                                                                     <div id="myDiv-20">
                                                                         <div class='form-group'>
@@ -1677,7 +1685,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Others">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_21(this);" />
+                                                                        onclick="return change_21(this);" />
                                                                     <label for="" id="myLabel-21">Others</label>
                                                                     <div id="myDiv-21">
                                                                         <div class='form-group'>
@@ -1722,32 +1730,32 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-11'
-                                                                                   value='Personal Trainer'>
+                                                                                value='Personal Trainer'>
                                                                             <label for='others-11'>Personal Trainer</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-12'
-                                                                                   value='Stockbroker'>
+                                                                                value='Stockbroker'>
                                                                             <label for='others-12'>Stockbroker</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-13'
-                                                                                   value='Registrar'>
+                                                                                value='Registrar'>
                                                                             <label for='others-13'>Registrar</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-14'
-                                                                                   value='Electrician'>
+                                                                                value='Electrician'>
                                                                             <label for='others-14'>Electrician</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-15'
-                                                                                   value='Librarian'>
+                                                                                value='Librarian'>
                                                                             <label for='others-15'>Librarian</label>
                                                                         </div>
                                                                         <div class='form-group'>
                                                                             <input type='checkbox' name='officeTechno[]' id='others-16'
-                                                                                   value='Agricultural'>
+                                                                                value='Agricultural'>
                                                                             <label for='others-16'>Agricultural</label>
                                                                         </div>
                                                                     </div>
@@ -1782,8 +1790,8 @@ if(isset($_SESSION['selectItemOffice'])){
                                                     Your Custom Order</h4>
                                                 <div class='form-group'>
                                                     <textarea name="" rows="4" class="form-control output"
-                                                              style="font-size: 16px; font-weight: 600;" readonly
-                                                              placeholder="You are not selected any item yet!"></textarea>
+                                                        style="font-size: 16px; font-weight: 600;" readonly
+                                                        placeholder="You are not selected any item yet!"></textarea>
                                                 </div>
                                             </div>
                                             <div class="modal-body">
@@ -1791,8 +1799,8 @@ if(isset($_SESSION['selectItemOffice'])){
                                                     <div class="row">
                                                         <div class="col-sm-1"></div>
                                                         <form action="" method="POST">
-                                                            <input type="hidden" name="office" value="Country" >
-                                                            <input type="hidden" name="officeCategory" value="Office-365" >
+                                                            <input type="hidden" name="office" value="Country">
+                                                            <input type="hidden" name="officeCategory" value="Office-365">
                                                             <div class="col-sm-8">
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="United States">
@@ -1809,7 +1817,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="namerica">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_22(this);" />
+                                                                        onclick="return change_22(this);" />
                                                                     <label for="" id="myLabel-22">N. America (Others)</label>
                                                                     <div id="myDiv-22">
                                                                         <div class='form-group'>
@@ -1889,7 +1897,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="South America">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_23(this);" />
+                                                                        onclick="return change_23(this);" />
                                                                     <label for="" id="myLabel-23">South America</label>
                                                                     <div id="myDiv-23">
                                                                         <div class='form-group'>
@@ -1941,7 +1949,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Asia">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_24(this);" />
+                                                                        onclick="return change_24(this);" />
                                                                     <label for="" id="myLabel-24">Asia</label>
                                                                     <div id="myDiv-24">
                                                                         <div class='form-group'>
@@ -2029,7 +2037,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Europe">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_25(this);" />
+                                                                        onclick="return change_25(this);" />
                                                                     <label for="" id="myLabel-25">Europe</label>
                                                                     <div id="myDiv-25">
                                                                         <div class='form-group'>
@@ -2209,7 +2217,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Middle East">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_26(this);" />
+                                                                        onclick="return change_26(this);" />
                                                                     <label for="" id="myLabel-26">Middle East</label>
                                                                     <div id="myDiv-26">
                                                                         <div class='form-group'>
@@ -2277,7 +2285,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Oceania">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_27(this);" />
+                                                                        onclick="return change_27(this);" />
                                                                     <label for="" id="myLabel-27">Oceania</label>
                                                                     <div id="myDiv-27">
                                                                         <div class='form-group'>
@@ -2293,7 +2301,7 @@ if(isset($_SESSION['selectItemOffice'])){
                                                                 <div class="form-group">
                                                                     <input type="checkbox" name="officeTechno[]" value="Africa">
                                                                     <input type="button" class="mybtn" value="+"
-                                                                           onclick="return change_28(this);" />
+                                                                        onclick="return change_28(this);" />
                                                                     <label for="" id="myLabel-28">Africa</label>
                                                                     <div id="myDiv-28">
                                                                         <div class='form-group'>
@@ -2410,20 +2418,20 @@ if(isset($_SESSION['selectItemOffice'])){
                                             </div>
                                             <div class="modal-body">
                                                 <form action="" method="POST">
-                                                    <input type="hidden" name="office" value="Employee-Range" >
-                                                    <input type="hidden" name="officeCategory" value="Office-365" >
+                                                    <input type="hidden" name="office" value="Employee-Range">
+                                                    <input type="hidden" name="officeCategory" value="Office-365">
                                                     <div class="row">
                                                         <div class="col-sm-1"></div>
                                                         <div class="col-sm-5">
                                                             <div class="form-group">
                                                                 <label for="searchCity">Min Employee Range</label>
-                                                                <input type="text" name="officeTechno[]" placeholder ="Enter Min Employee Range" class="form-control" required>
+                                                                <input type="text" name="officeTechno[]" placeholder="Enter Min Employee Range" class="form-control" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-5">
                                                             <div class="form-group">
                                                                 <label for="searchCity">Max Employee Range</label>
-                                                                <input type="text" name="officeTechno[]" placeholder ="Enter Max Employee Range" class="form-control" required>
+                                                                <input type="text" name="officeTechno[]" placeholder="Enter Max Employee Range" class="form-control" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-1"></div>
@@ -2461,20 +2469,20 @@ if(isset($_SESSION['selectItemOffice'])){
                                             </div>
                                             <div class="modal-body">
                                                 <form action="" method="POST">
-                                                    <input type="hidden" name="office" value="Revenue-Range" >
-                                                    <input type="hidden" name="officeCategory" value="Office-365" >
+                                                    <input type="hidden" name="office" value="Revenue-Range">
+                                                    <input type="hidden" name="officeCategory" value="Office-365">
                                                     <div class="row">
                                                         <div class="col-sm-1"></div>
                                                         <div class="col-sm-5">
                                                             <div class="form-group">
                                                                 <label for="searchCity">Min Revenue Range</label>
-                                                                <input type="text" name="officeTechno[]" placeholder ="Enter Min Revenue Range" class="form-control" required>
+                                                                <input type="text" name="officeTechno[]" placeholder="Enter Min Revenue Range" class="form-control" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-5">
                                                             <div class="form-group">
                                                                 <label for="searchCity">Max Revenue Range</label>
-                                                                <input type="text" name="officeTechno[]" placeholder ="Enter Max Revenue Range" class="form-control" required>
+                                                                <input type="text" name="officeTechno[]" placeholder="Enter Max Revenue Range" class="form-control" required>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-1"></div>
@@ -2500,56 +2508,56 @@ if(isset($_SESSION['selectItemOffice'])){
                 <div class="col-sm-7">
                     <div class="main-title text-center" style="margin-top: 10px;">
                         <div class='form-group'>
-                                <div class="row">
-                                    <div class="col-sm-12">
-                                        <?php 
-                                        $allcustomitems = '';
-                                        $allemailCategory = '';
-                                                if(isset($_SESSION['selectItemOffice'])){
-                                                    foreach($_SESSION['selectItemOffice'] as $key => $item ){
-                                                        $id = $item['id'];
-                                                        $emailCate = $item['emailCategory'];
-                                                        $item = $item['itemname'];
-                                                        $allcustomitems .= preg_replace('/\s+/', '-', $item).', ';
-                                                        $allemailCategory .= $emailCate.', ';
-                                                        echo '<form action="" method="GET">
-                                                        <input type="hidden" name="id" value="'.$id.'" >
-                                                        <input type="submit" value="'.$item.' X" name="remove" class="itemStyle">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <?php
+                                    $allcustomitems = '';
+                                    $allemailCategory = '';
+                                    if (isset($_SESSION['selectItemOffice'])) {
+                                        foreach ($_SESSION['selectItemOffice'] as $key => $item) {
+                                            $id = $item['id'];
+                                            $emailCate = $item['emailCategory'];
+                                            $item = $item['itemname'];
+                                            $allcustomitems .= preg_replace('/\s+/', '-', $item) . ', ';
+                                            $allemailCategory .= $emailCate . ', ';
+                                            echo '<form action="" method="GET">
+                                                        <input type="hidden" name="id" value="' . $id . '" >
+                                                        <input type="submit" value="' . $item . ' X" name="remove" class="itemStyle">
                                                         </form>';
-                                                    } 
-                                                }else{
-                                                    echo '<h3 style="color: red;">You aren&apos;t select any item yet!</h3>';
-                                                }
+                                        }
+                                    } else {
+                                        echo '<h3 style="color: red;">You aren&apos;t select any item yet!</h3>';
+                                    }
+                                    ?>
+                                    <form action="/checkout/step1" method="POST">
+                                        <div class="row" style="margin-top:10px; clear: left;">
+                                            <?php
+                                            $raw = $allemailCategory;
+                                            $raw2 = $allcustomitems;
+                                            $allemailCategory = implode(',', array_unique(str_word_count($raw, 1)));
+                                            $allcustomitems = implode(',', array_unique(str_word_count($raw2, 1)));
                                             ?>
-                                        <form action="/checkout/step1" method="POST">
-                                            <div class="row" style="margin-top:10px; clear: left;">
-                                                <?php 
-                                                $raw = $allemailCategory;
-                                                $raw2 = $allcustomitems;
-                                                $allemailCategory = implode(',',array_unique(str_word_count($raw,1)));
-                                                $allcustomitems = implode(',',array_unique(str_word_count($raw2,1)));
-                                                ?>
-                                                <div class="col-sm-4 gap-bottom">
-                                                    <input type="text" class="form__control" placeholder="Enter Total Leads" name="totalemail" id="totalemailoffice" required 
-                                                           onkeyup="totalEmailOffice(value.this)">
-                                                </div>
-                                                <div class="col-sm-4 gap-bottom">
-                                                    <input type="text" class="form__control" placeholder="Delivery Days" name="deliveryDays" id="deliveryDays" readonly required>
-                                                </div>
-                                                <div class="col-sm-4 gap-bottom">
-                                                    <input type="text" class="form__control" placeholder="E-mail Price" name="price" id="totalpriceoffice" onkeyup="totalPriceOffice(value.this)" required>
-                                                </div>
+                                            <div class="col-sm-4 gap-bottom">
+                                                <input type="text" class="form__control" placeholder="Enter Total Leads" name="totalemail" id="totalemailoffice" required
+                                                    onkeyup="totalEmailOffice(value.this)">
                                             </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <input type="hidden" name="ordercode" value="<?php echo ('CU' . rand(10, 99) . 'S' . rand(10, 99) . 'TO' . rand(0, 9) . 'M'); ?>" >
-                                        <input type="hidden" name="emailType" value="Office-365" >
-                                        <input type="hidden" name="emailCategory" value="<?= $allemailCategory; ?>">
-                                        <input type="hidden" name="selectItem" value="<?= $allcustomitems; ?>">
-                                        <input type="submit" name="orderBtn" value="Order Now" class="button button--primary full-width orderStyle">
-                                    </div>
+                                            <div class="col-sm-4 gap-bottom">
+                                                <input type="text" class="form__control" placeholder="Delivery Days" name="deliveryDays" id="deliveryDays" readonly required>
+                                            </div>
+                                            <div class="col-sm-4 gap-bottom">
+                                                <input type="text" class="form__control" placeholder="E-mail Price" name="price" id="totalpriceoffice" onkeyup="totalPriceOffice(value.this)" required>
+                                            </div>
+                                        </div>
                                 </div>
+
+                                <div class="row">
+                                    <input type="hidden" name="ordercode" value="<?php echo ('CU' . rand(10, 99) . 'S' . rand(10, 99) . 'TO' . rand(0, 9) . 'M'); ?>">
+                                    <input type="hidden" name="emailType" value="Office-365">
+                                    <input type="hidden" name="emailCategory" value="<?= $allemailCategory; ?>">
+                                    <input type="hidden" name="selectItem" value="<?= $allcustomitems; ?>">
+                                    <input type="submit" name="orderBtn" value="Order Now" class="button button--primary full-width orderStyle">
+                                </div>
+                            </div>
                             </form>
 
                         </div>
@@ -2562,7 +2570,6 @@ if(isset($_SESSION['selectItemOffice'])){
 </div>
 <?php include_once '../assets/php/footer.php'; ?>
 <script type="text/javascript">
-
     function change(el) {
 
         if (el.value === "+") {
@@ -2898,6 +2905,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-21").style.display = 'none';
         }
     }
+
     function change_22(el) {
 
         if (el.value === "+") {
@@ -2913,6 +2921,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-22").style.display = 'none';
         }
     }
+
     function change_23(el) {
 
         if (el.value === "+") {
@@ -2928,6 +2937,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-23").style.display = 'none';
         }
     }
+
     function change_24(el) {
 
         if (el.value === "+") {
@@ -2943,6 +2953,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-24").style.display = 'none';
         }
     }
+
     function change_25(el) {
 
         if (el.value === "+") {
@@ -2958,6 +2969,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-25").style.display = 'none';
         }
     }
+
     function change_26(el) {
 
         if (el.value === "+") {
@@ -2973,6 +2985,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-26").style.display = 'none';
         }
     }
+
     function change_27(el) {
 
         if (el.value === "+") {
@@ -2988,6 +3001,7 @@ if(isset($_SESSION['selectItemOffice'])){
             document.getElementById("myDiv-27").style.display = 'none';
         }
     }
+
     function change_28(el) {
 
         if (el.value === "+") {
@@ -3006,18 +3020,16 @@ if(isset($_SESSION['selectItemOffice'])){
 </script>
 
 <script>
-    $("input").on("click", function (e) {
+    $("input").on("click", function(e) {
         var val = [];
         var wasChecked = $(this).attr("wasChecked") == "true";
-        if (wasChecked)
-        {
+        if (wasChecked) {
             $(this).prop("checked", false);
-        } else
-        {
+        } else {
             $(this).prop("checked", true);
         }
         $(this).attr("wasChecked", $(this).prop("checked"));
-        $("input:checked").each(function () {
+        $("input:checked").each(function() {
             val.push($(this).val());
         });
         $(".output").html(val.join(", "));
@@ -3029,50 +3041,51 @@ if(isset($_SESSION['selectItemOffice'])){
         let price = 0;
         let days = '';
         if (1000 <= totalEmail && totalEmail <= 5000) {
-            price = (totalEmail * 0.125);
+            price = (totalEmail * 0.0625);
             days = 'Within 2 Days';
         } else if (6000 <= totalEmail && totalEmail <= 10000) {
-            price = (totalEmail * 0.12);
+            price = (totalEmail * 0.06);
             days = 'Within 3 Days';
         } else if (11000 <= totalEmail && totalEmail <= 25000) {
-            price = (totalEmail * 0.115);
+            price = (totalEmail * 0.0575);
             days = 'Within 7 Days';
         } else if (26000 <= totalEmail && totalEmail <= 50000) {
-            price = (totalEmail * 0.11);
+            price = (totalEmail * 0.055);
             days = 'Within 10 Days';
         } else if (51000 <= totalEmail && totalEmail <= 75000) {
-            price = (totalEmail * 0.105);
+            price = (totalEmail * 0.0525);
             days = 'Within 15 Days';
         } else if (76000 <= totalEmail && totalEmail <= 100000) {
-            price = (totalEmail * 0.10);
+            price = (totalEmail * 0.05);
             days = 'Within 25 Days';
         }
         document.getElementById("totalpriceoffice").value = Math.ceil(price);
         document.getElementById("deliveryDays").value = days;
     }
+
     function totalPriceOffice() {
         let totalPrice = document.getElementById("totalpriceoffice").value;
         let email = 0;
         let days = '';
-        if(250 <= totalPrice && totalPrice <= 1250){
-            email = totalPrice / 0.25;
+        if (125 <= totalPrice && totalPrice <= 625) {
+            email = totalPrice / 0.125;
             days = 'Within 2 Days';
-        } else if(1440 <= totalPrice && totalPrice <= 2400){
-            email = totalPrice / 0.24;
+        } else if (720 <= totalPrice && totalPrice <= 1200) {
+            email = totalPrice / 0.12;
             days = 'Within 3 Days';
-        } else if(2530 <= totalPrice && totalPrice <= 5750){
-            email = totalPrice / 0.23;
+        } else if (1265 <= totalPrice && totalPrice <= 2875) {
+            email = totalPrice / 0.115;
             days = 'Within 7 Days';
-        } else if(5720 <= totalPrice && totalPrice <= 11000){
-            email = totalPrice / 0.22;
+        } else if (2860 <= totalPrice && totalPrice <= 5500) {
+            email = totalPrice / 0.11;
             days = 'Within 10 Days';
-        } else if(10710 <= totalPrice && totalPrice <= 15750){
-            email = totalPrice / 0.21;
+        } else if (5355 <= totalPrice && totalPrice <= 7875) {
+            email = totalPrice / 0.105;
             days = 'Within 15 Days';
-        } else if(15200 <= totalPrice && totalPrice <= 20000){
-            email = totalPrice / 0.20;
+        } else if (7600 <= totalPrice && totalPrice <= 10000) {
+            email = totalPrice / 0.10;
             days = 'Within 25 Days';
-        }else{
+        } else {
             alert("Please, We can't received your custom order due to limit cross!<br>Please, Try Agiain, According Our Pricing Plane...");
         }
         document.getElementById("totalemailoffice").value = Math.ceil(email);

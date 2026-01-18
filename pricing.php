@@ -23,8 +23,8 @@
     <div class="container regular-page-content regular-page-content--pull-top">
 
         <a class="button button--primary full-width"
-           style="width:250px;margin-top:25px;"
-           onclick="toggleCalculator()">
+            style="width:250px;margin-top:25px;"
+            onclick="toggleCalculator()">
             Calculate Your Target
         </a>
 
@@ -40,16 +40,16 @@
 
             <div class="col-sm-4">
                 <input type="number" class="form__control"
-                       id="totalemail"
-                       placeholder="Enter Total Leads"
-                       onkeyup="calculatePrice()">
+                    id="totalemail"
+                    placeholder="Enter Total Leads"
+                    onkeyup="calculatePrice()">
             </div>
 
             <div class="col-sm-4">
                 <input type="number" class="form__control"
-                       id="totalprice"
-                       placeholder="Total Price"
-                       readonly>
+                    id="totalprice"
+                    placeholder="Total Price"
+                    readonly>
             </div>
         </div>
 
@@ -57,22 +57,62 @@
         <div class="table-responsive pad-top-small">
             <table class="table table--tertiary table--fixed table--highlight">
                 <thead>
-                <tr>
-                    <th># Of Records</th>
-                    <th>Ready-Made (Pre E-MAIL)</th>
-                    <th>Custom-Order (Pre E-MAIL)</th>
-                    <th>Office-365 (Pre E-MAIL)</th>
-                </tr>
+                    <tr>
+                        <th># Of Records</th>
+                        <th>Ready-Made (Pre E-MAIL)</th>
+                        <th>Custom-Order (Pre E-MAIL)</th>
+                        <th>Office-365 (Pre E-MAIL)</th>
+                    </tr>
                 </thead>
                 <tbody>
-                <tr><td>1K – 5K</td><td>$0.05</td><td>$0.075</td><td>$0.125</td></tr>
-                <tr><td>6K – 10K</td><td>$0.045</td><td>$0.07</td><td>$0.12</td></tr>
-                <tr><td>11K – 25K</td><td>$0.044</td><td>$0.065</td><td>$0.115</td></tr>
-                <tr><td>26K – 50K</td><td>$0.04</td><td>$0.06</td><td>$0.11</td></tr>
-                <tr><td>51K – 75K</td><td>$0.0365</td><td>$0.055</td><td>$0.105</td></tr>
-                <tr><td>76K – 100K</td><td>$0.035</td><td>$0.05</td><td>$0.10</td></tr>
-                <tr><td>110K – 500K</td><td>$0.03</td><td>—</td><td>—</td></tr>
-                <tr><td>510K – 1M+</td><td>$0.025</td><td>—</td><td>—</td></tr>
+                    <tr>
+                        <td>1K – 5K</td>
+                        <td>$0.025</td>
+                        <td>$0.0375</td>
+                        <td>$0.0625</td>
+                    </tr>
+                    <tr>
+                        <td>6K – 10K</td>
+                        <td>$0.0225</td>
+                        <td>$0.035</td>
+                        <td>$0.06</td>
+                    </tr>
+                    <tr>
+                        <td>11K – 25K</td>
+                        <td>$0.022</td>
+                        <td>$0.0325</td>
+                        <td>$0.0575</td>
+                    </tr>
+                    <tr>
+                        <td>26K – 50K</td>
+                        <td>$0.02</td>
+                        <td>$0.03</td>
+                        <td>$0.055</td>
+                    </tr>
+                    <tr>
+                        <td>51K – 75K</td>
+                        <td>$0.01825</td>
+                        <td>$0.0275</td>
+                        <td>$0.0525</td>
+                    </tr>
+                    <tr>
+                        <td>76K – 100K</td>
+                        <td>$0.0175</td>
+                        <td>$0.025</td>
+                        <td>$0.05</td>
+                    </tr>
+                    <tr>
+                        <td>110K – 500K</td>
+                        <td>$0.015</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
+                    <tr>
+                        <td>510K – 1M+</td>
+                        <td>$0.0125</td>
+                        <td>—</td>
+                        <td>—</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -97,40 +137,40 @@
 <?php include_once 'assets/php/footer.php'; ?>
 
 <script>
-const DISCOUNT = 0.5;
+    const DISCOUNT = 0.5;
 
-function toggleCalculator() {
-    const box = document.getElementById("displayNow");
-    box.style.display = box.style.display === "none" ? "block" : "none";
-}
-
-function calculatePrice() {
-    let type = document.getElementById("emailType").value;
-    let total = parseInt(document.getElementById("totalemail").value);
-    let price = 0;
-
-    if (!type || isNaN(total)) return;
-
-    if (type === 'readyMade') {
-        if (total <= 5000) price = total * 0.05;
-        else if (total <= 10000) price = total * 0.045;
-        else if (total <= 25000) price = total * 0.044;
-        else if (total <= 50000) price = total * 0.04;
-        else if (total <= 75000) price = total * 0.0365;
-        else if (total <= 100000) price = total * 0.035;
-        else if (total <= 500000) price = total * 0.03;
-        else if (total <= 1000000) price = total * 0.025;
-        else return alert("Limit exceeded");
+    function toggleCalculator() {
+        const box = document.getElementById("displayNow");
+        box.style.display = box.style.display === "none" ? "block" : "none";
     }
 
-    if (type === 'customOrder') {
-        price = total * 0.075;
-    }
+    function calculatePrice() {
+        let type = document.getElementById("emailType").value;
+        let total = parseInt(document.getElementById("totalemail").value);
+        let price = 0;
 
-    if (type === 'office365') {
-        price = total * 0.125;
-    }
+        if (!type || isNaN(total)) return;
 
-    document.getElementById("totalprice").value = Math.ceil(price);
-}
+        if (type === 'readyMade') {
+            if (total <= 5000) price = total * 0.025;
+            else if (total <= 10000) price = total * 0.0225;
+            else if (total <= 25000) price = total * 0.022;
+            else if (total <= 50000) price = total * 0.02;
+            else if (total <= 75000) price = total * 0.01825;
+            else if (total <= 100000) price = total * 0.0175;
+            else if (total <= 500000) price = total * 0.015;
+            else if (total <= 1000000) price = total * 0.0125;
+            else return alert("Limit exceeded");
+        }
+
+        if (type === 'customOrder') {
+            price = total * 0.0375;
+        }
+
+        if (type === 'office365') {
+            price = total * 0.0625;
+        }
+
+        document.getElementById("totalprice").value = Math.ceil(price);
+    }
 </script>

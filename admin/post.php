@@ -316,21 +316,21 @@ require_once 'assets/php/footer.php';
         let totalEmail = document.getElementById("total-email").value;
         let price = 0;
         if (totalEmail <= 5000) {
-            price = (totalEmail * 0.05);
-        } else if (totalEmail <= 10000) {
-            price = (totalEmail * 0.045);
-        } else if (totalEmail <= 25000) {
-            price = (totalEmail * 0.044);
-        } else if (totalEmail <= 50000) {
-            price = (totalEmail * 0.04);
-        } else if (totalEmail <= 75000) {
-            price = (totalEmail * 0.0365);
-        } else if (totalEmail <= 100000) {
-            price = (totalEmail * 0.035);
-        } else if (totalEmail <= 500000) {
-            price = (totalEmail * 0.03);
-        } else {
             price = (totalEmail * 0.025);
+        } else if (totalEmail <= 10000) {
+            price = (totalEmail * 0.0225);
+        } else if (totalEmail <= 25000) {
+            price = (totalEmail * 0.022);
+        } else if (totalEmail <= 50000) {
+            price = (totalEmail * 0.02);
+        } else if (totalEmail <= 75000) {
+            price = (totalEmail * 0.01825);
+        } else if (totalEmail <= 100000) {
+            price = (totalEmail * 0.0175);
+        } else if (totalEmail <= 500000) {
+            price = (totalEmail * 0.015);
+        } else {
+            price = (totalEmail * 0.0125);
         }
         document.getElementById("total-price").value = Math.round(price).toFixed(2);
     }
@@ -339,21 +339,21 @@ require_once 'assets/php/footer.php';
         let totalEmail = document.getElementById("update-total-email").value;
         let price = 0;
         if (totalEmail <= 5000) {
-            price = (totalEmail * 0.05);
-        } else if (totalEmail <= 10000) {
-            price = (totalEmail * 0.045);
-        } else if (totalEmail <= 25000) {
-            price = (totalEmail * 0.044);
-        } else if (totalEmail <= 50000) {
-            price = (totalEmail * 0.04);
-        } else if (totalEmail <= 75000) {
-            price = (totalEmail * 0.0365);
-        } else if (totalEmail <= 100000) {
-            price = (totalEmail * 0.035);
-        } else if (totalEmail <= 500000) {
-            price = (totalEmail * 0.03);
-        } else {
             price = (totalEmail * 0.025);
+        } else if (totalEmail <= 10000) {
+            price = (totalEmail * 0.0225);
+        } else if (totalEmail <= 25000) {
+            price = (totalEmail * 0.022);
+        } else if (totalEmail <= 50000) {
+            price = (totalEmail * 0.02);
+        } else if (totalEmail <= 75000) {
+            price = (totalEmail * 0.01825);
+        } else if (totalEmail <= 100000) {
+            price = (totalEmail * 0.0175);
+        } else if (totalEmail <= 500000) {
+            price = (totalEmail * 0.015);
+        } else {
+            price = (totalEmail * 0.0125);
         }
         document.getElementById("update-total-price").value = Math.round(price).toFixed(2);
     }

@@ -199,40 +199,40 @@ $_SESSION['myPrice'] = 85000;
         let price = 0;
         if(totalEmail <= 5000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.05 ;
+            price = totalEmail * 0.025 ;
             totalPrice = (Math.ceil(price)).format();
             
         }else if(totalEmail <= 10000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.045 ;
+            price = totalEmail * 0.0225 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 25000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.044 ;
+            price = totalEmail * 0.022 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 50000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.04 ;
+            price = totalEmail * 0.02 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 75000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.0365 ;
+            price = totalEmail * 0.01825 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 100000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.035 ;
+            price = totalEmail * 0.0175 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 500000){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.03 ;
+            price = totalEmail * 0.015 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail < 1000001){
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.05 ;
+            price = totalEmail * 0.0125 ;
             totalPrice = (Math.ceil(price)).format();
         }else{
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.025 ;
+            price = totalEmail * 0.0125 ;
             output1.innerHTML = Math.ceil(price);
             totalPrice = (Math.ceil(price)).format();
         }
@@ -243,3 +243,4 @@ $_SESSION['myPrice'] = 85000;
         
     }
 </script>
+
