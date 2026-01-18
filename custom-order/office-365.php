@@ -3029,25 +3029,23 @@ if(isset($_SESSION['selectItemOffice'])){
         let price = 0;
         let days = '';
         if (1000 <= totalEmail && totalEmail <= 5000) {
-            price = (totalEmail * 0.25);
+            price = (totalEmail * 0.125);
             days = 'Within 2 Days';
         } else if (6000 <= totalEmail && totalEmail <= 10000) {
-            price = (totalEmail * 0.24);
+            price = (totalEmail * 0.12);
             days = 'Within 3 Days';
         } else if (11000 <= totalEmail && totalEmail <= 25000) {
-            price = (totalEmail * 0.23);
+            price = (totalEmail * 0.115);
             days = 'Within 7 Days';
         } else if (26000 <= totalEmail && totalEmail <= 50000) {
-            price = (totalEmail * 0.22);
+            price = (totalEmail * 0.11);
             days = 'Within 10 Days';
         } else if (51000 <= totalEmail && totalEmail <= 75000) {
-            price = (totalEmail * 0.21);
+            price = (totalEmail * 0.105);
             days = 'Within 15 Days';
         } else if (76000 <= totalEmail && totalEmail <= 100000) {
-            price = (totalEmail * 0.20);
+            price = (totalEmail * 0.10);
             days = 'Within 25 Days';
-        } else {
-            alert("Please, We can't received your custom order due to limit cross!<br>Please, Try Agiain, According Our Pricing Plane...");
         }
         document.getElementById("totalpriceoffice").value = Math.ceil(price);
         document.getElementById("deliveryDays").value = days;

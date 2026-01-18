@@ -3342,25 +3342,23 @@ if (isset($_SESSION['selectItem'])) {
         let price = 0;
         let days = '';
         if (1000 <= totalEmail && totalEmail <= 5000) {
-            price = (totalEmail * 0.15);
+            price = (totalEmail * 0.075);
             days = 'Within 2 Days';
         } else if (6000 <= totalEmail && totalEmail <= 10000) {
-            price = (totalEmail * 0.14);
+            price = (totalEmail * 0.07);
             days = 'Within 3 Days';
         } else if (11000 <= totalEmail && totalEmail <= 25000) {
-            price = (totalEmail * 0.13);
+            price = (totalEmail * 0.065);
             days = 'Within 7 Days';
         } else if (26000 <= totalEmail && totalEmail <= 50000) {
-            price = (totalEmail * 0.12);
+            price = (totalEmail * 0.06);
             days = 'Within 10 Days';
         } else if (51000 <= totalEmail && totalEmail <= 75000) {
-            price = (totalEmail * 0.11);
+            price = (totalEmail * 0.055);
             days = 'Within 15 Days';
         } else if (76000 <= totalEmail && totalEmail <= 100000) {
-            price = (totalEmail * 0.10);
+            price = (totalEmail * 0.05);
             days = 'Within 25 Days';
-        } else {
-            alert("Please, We can't received your custom order due to limit cross!<br>Please, Try Agiain, According Our Pricing Plane...");
         }
         document.getElementById("totalprice").value = Math.ceil(price);
         document.getElementById("deliveryDays").value = days;

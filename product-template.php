@@ -138,22 +138,22 @@ $_SESSION['myPrice'] = $product['price'];
             var totalEmail = parseInt(this.value);
             var price = 0;
 
-            if (totalEmail < 6000) {
-                price = totalEmail * 0.10;
-            } else if (totalEmail < 11000) {
-                price = totalEmail * 0.09;
-            } else if (totalEmail < 26000) {
-                price = totalEmail * 0.088;
-            } else if (totalEmail < 51000) {
-                price = totalEmail * 0.08;
-            } else if (totalEmail < 76000) {
-                price = totalEmail * 0.073;
-            } else if (totalEmail < 110000) {
-                price = totalEmail * 0.07;
-            } else if (totalEmail < 510000) {
-                price = totalEmail * 0.06;
-            } else {
+            if (totalEmail <= 5000) {
                 price = totalEmail * 0.05;
+            } else if (totalEmail <= 10000) {
+                price = totalEmail * 0.045;
+            } else if (totalEmail <= 25000) {
+                price = totalEmail * 0.044;
+            } else if (totalEmail <= 50000) {
+                price = totalEmail * 0.04;
+            } else if (totalEmail <= 75000) {
+                price = totalEmail * 0.0365;
+            } else if (totalEmail <= 100000) {
+                price = totalEmail * 0.035;
+            } else if (totalEmail <= 500000) {
+                price = totalEmail * 0.03;
+            } else {
+                price = totalEmail * 0.025;
             }
 
             price = Math.ceil(price);
