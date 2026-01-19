@@ -185,38 +185,6 @@ include_once '../assets/php/header.php';
                 </div>
             </li>
         </ul>
-
-        <h2 class="jumbotron__title gap-top-large gap-bottom-medium" style="color: #333;">Custom Order Lists</h2>
-        <ul class="list list--grid-md list--grid-md-6">
-            <li class="list__item gap-bottom-medium">
-                <div class="box box--medium-pad shadow-primary">
-                    <h3 class="clear-gap-top primary-title"><a class="link-tertiary" href="<?= $siteUrl; ?>custom-order/business-contacts">Business Contacts</a></h3>
-                    <p>Build your own targeted email list from our business database. Filter by industry, job title, and location to find your perfect leads.</p>
-                    <a class="button button--tertiary" href="<?= $siteUrl; ?>custom-order/business-contacts">Build List <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
-                </div>
-            </li>
-            <li class="list__item gap-bottom-medium">
-                <div class="box box--medium-pad shadow-primary">
-                    <h3 class="clear-gap-top primary-title"><a class="link-tertiary" href="<?= $siteUrl; ?>custom-order/healthcare-professionals">Healthcare Professionals</a></h3>
-                    <p>Customize your medical contact list. Reach doctors, nurses, and other healthcare professionals by specialty and region.</p>
-                    <a class="button button--tertiary" href="<?= $siteUrl; ?>custom-order/healthcare-professionals">Build List <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
-                </div>
-            </li>
-            <li class="list__item gap-bottom-medium">
-                <div class="box box--medium-pad shadow-primary">
-                    <h3 class="clear-gap-top primary-title"><a class="link-tertiary" href="<?= $siteUrl; ?>custom-order/office-365">Office 365 Users</a></h3>
-                    <p>Target companies that use Office 365. Create a custom list of businesses using specific technologies.</p>
-                    <a class="button button--tertiary" href="<?= $siteUrl; ?>custom-order/office-365">Build List <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
-                </div>
-            </li>
-            <li class="list__item gap-bottom-medium">
-                <div class="box box--medium-pad shadow-primary">
-                    <h3 class="clear-gap-top primary-title"><a class="link-tertiary" href="<?= $siteUrl; ?>custom-order/real-estate-agents">Real Estate Agents</a></h3>
-                    <p>Build a custom list of Real Estate Agents and Brokers. Filter by state, city, and zip code to target your local market.</p>
-                    <a class="button button--tertiary" href="<?= $siteUrl; ?>custom-order/real-estate-agents">Build List <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
-                </div>
-            </li>
-        </ul>
     </div>
 </main>
 <div class="lead hidden-dd">
