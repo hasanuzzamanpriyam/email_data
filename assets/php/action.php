@@ -12,28 +12,50 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
     $company = $user->test_input($_POST['company']);
     $pass = $user->test_input($_POST['rpassword']);
     $hpass = password_hash($pass, PASSWORD_DEFAULT);
+
+    // Generate secure token
+    $token = bin2hex(random_bytes(50));
+
     if ($user->user_exit($email)) {
         echo $user->showMessage('danger', 'This E-mail is already registered!');
     } else {
-        if ($user->register($fname, $lname, $email, $company, $hpass)) {
+        if ($user->register($fname, $lname, $email, $company, $hpass, $token)) {
             $_SESSION['user'] = $email;
+
+            require_once '../../user/php/PHPMailer/PHPMailerAutoload.php';
+            $mail = new PHPMailer;
+
             try {
+                // Server settings
+                $mail->isSMTP();
+                $mail->Host       = 'smtp.gmail.com';
+                $mail->SMTPAuth   = true;
+                $mail->Username   = Database::USERNAME;
+                $mail->Password   = Database::PASSWORD;
+                $mail->SMTPSecure = 'tls';
+                $mail->Port       = 587;
+
+                // Recipients
+                $mail->setFrom(Database::USERNAME, 'Mailerstation');
+                $mail->addAddress($email);
+                //$mail->addReplyTo('support@mailerstation.com', 'Information');
+
+                // Content
                 $emailSubject = "Account Verification";
                 $userName = $fname . ' ' . $lname;
-
-                $to = $email . ',support@emailbigdata.com';
                 $subject = $emailSubject;
+
+                // Verification Link
+                $verificationLink = "http://localhost/emailbigdata.com/verify-email?email=" . $email . "&token=" . $token;
 
                 $message = '<!DOCTYPE html>
                 <html lang="en">
-                
                 <head>
                     <meta charset="UTF-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <title>Account Verification</title>
                 </head>
-                
                 <body>
                     <!-- header-start -->
                     <div class="o_bg-light o_px-xs o_pb-lg o_xs-pb-xs" align="center" style="background-color: #e8f2e8;padding-left: 8px;padding-right: 8px;padding-bottom: 1px;padding-top: 15px;">
@@ -59,13 +81,10 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                                         <tr>
                                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
                                                                 <a class="o_text-light" href="http://localhost/emailbigdata.com/login" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
-                
                                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                                           Hello ' . $userName . ' 
                                           </span>
-                
                                                                     <img src="https://www.fiviral.com/images/email/person.png" width="24" height="24" style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
-                
                                                                 </a>
                                                             </td>
                                                         </tr>
@@ -106,7 +125,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                                         <tbody>
                                                             <tr>
                                                                 <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;">
-                                                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/verify-email?email=' . $email . '" target="_blank" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
+                                                                    <a class="o_text-primary" href="' . $verificationLink . '" target="_blank" style="text-decoration: none; outline: none; color: #0EC06E; display: block; padding: 12px 24px; mso-text-raise: 3px;">Verify Now</a></td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -120,9 +139,7 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                         </tbody>
                     </table>
                     <!-- content -->
-                
                     <!-- label-xs -->
-                
                     <div class="o_bg-light o_px-xs" align="center" style="background-color: #e8f2e8;padding-left: 8px;padding-right: 8px;">
                         <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
                             <tbody>
@@ -133,11 +150,9 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                                             <tbody>
                                                 <tr>
                                                     <td width="284" class="o_bg-ultra_light o_br o_text-xs o_sans o_px-xs o_py" align="center" style="font-family: Helvetica, Arial, sans-serif; margin-top: 0px; margin-bottom: 0px; font-size: 14px; line-height: 21px; background-color: #e8f2e8; border-radius: 4px; padding-left: 8px; padding-right: 8px; padding-top: 16px; padding-bottom: 16px;">
-                
                                                         <p class="o_text-dark" style="color: #242b3d;margin-top: 0px;margin-bottom: 0px;">
-                                                            http://localhost/emailbigdata.com/verify-email?email=' . $email . '
+                                                            ' . $verificationLink . '
                                                         </p>
-                
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -147,10 +162,8 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                             </tbody>
                         </table>
                     </div>
-                
-                    <!-- label -->
-                
-                    <!-- alert-dark -->
+                <!-- label -->
+                <!-- alert-dark -->
                     <div class="o_bg-light o_px-xs" align="center" style="background-color: #e8f2e8;padding-left: 8px;padding-right: 8px;">
                         <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
                             <tbody>
@@ -174,23 +187,19 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                         </table>
                     </div>
                     <!-- alert-primary -->
-                
                     <!-- footer-start -->
                     <div class="o_bg-light o_px-xs o_pb-lg o_xs-pb-xs" align="center" style="background-color: #e8f2e8;padding-left: 8px;padding-right: 8px;padding-bottom: 32px;">
                         <table class="o_block" width="100%" cellspacing="0" cellpadding="0" border="0" role="presentation" style="max-width: 632px;margin: 0 auto;">
-                
                             <tbody>
                                 <tr>
                                     <td class="o_re o_bg-white o_px o_pb-lg o_bt-light o_br-b" align="center" style="font-size: 0;vertical-align: top;background-color: #ffffff;border-top: 1px solid #d3dce0;border-radius: 0px 0px 4px 4px;padding-left: 16px;padding-right: 16px;padding-bottom: 30px;">
                                         <div class="o_col o_col-4" style="display: inline-block;vertical-align: top;width: 100%;max-width: 400px;">
                                             <div style="font-size: 32px; line-height: 32px; height: 32px;"> </div>
                                             <div class="o_px-xs o_sans o_text-xs o_text-light o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;color: #82899a;text-align: left;padding-left: 8px;padding-right: 8px;">
-                
                                                 <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">©2021. All rights reserved.</p>
                                                 <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 0px;">
                                                     Mailerstation
                                                 </p>
-                
                                             </div>
                                         </div>
                                         <div class="o_col o_col-2" style="display: inline-block;vertical-align: top;width: 100%;max-width: 200px;">
@@ -212,21 +221,19 @@ if (isset($_POST['action']) && ($_POST['action'] == 'register')) {
                     </div>
                     <!-- footer-end -->
                 </body>
-                
                 </html>';
 
-                // Always set content-type when sending HTML email
-                $headers = "MIME-Version: 1.0" . "\r\n";
-                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+                $mail->isHTML(true);
+                $mail->Subject = $subject;
+                $mail->Body    = $message;
 
-                // More headers
-                $headers .= 'From: <admin@mailerstation.com>' . "\r\n";
-                //$headers .= 'Cc: support@mailerstation.com' . "\r\n";
-
-                mail($to, $subject, $message, $headers);
-                echo $user->showMessage('info', 'We send an e-mail to your email address for verify your account. Please, check this e-mail and verify now!');
+                $mail->send();
+                echo $user->showMessage('info', 'We sent an e-mail to your email address for verifying your account. Please, check this e-mail and verify now!');
             } catch (Exception $e) {
-                echo $user->showMessage('danger', 'Something went to wrong... try later');
+                // Determine if error is due to authentication to give a better message, 
+                // but for now generic is safer to not leak details, or maybe just log it.
+                // $mail->ErrorInfo contains error.
+                echo $user->showMessage('info', 'Registered successfully! Verification email could not be sent (SMTP Error). Please contact support.');
             }
         } else {
             echo $user->showMessage('danger', 'Something went wrong! Please, try again later..');

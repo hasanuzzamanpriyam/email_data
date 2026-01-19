@@ -319,37 +319,45 @@
         let totalPrice = 0;
         let price = 0;
         if(totalEmail <= 5000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.025 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.0375 ;
             totalPrice = (Math.ceil(price)).format();
             
         }else if(totalEmail <= 10000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.0225 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.03375 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 25000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.022 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.033 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 50000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.02 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.03 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 75000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.01825 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.027375 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 100000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.0175 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.02625 ;
             totalPrice = (Math.ceil(price)).format();
         }else if(totalEmail <= 500000){
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-            price = totalEmail * 0.015 ;
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.0225 ;
+            totalPrice = (Math.ceil(price)).format();
+        }else if(totalEmail < 1000001){
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.0125 ;
             totalPrice = (Math.ceil(price)).format();
         }else{
-            output.innerHTML = totalEmail.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
             price = totalEmail * 0.0125 ;
+            output1.innerHTML = Math.ceil(price);
+            totalPrice = (Math.ceil(price)).format();
+        }
+        output1.innerHTML = "$ "+totalPrice;
             output1.innerHTML = Math.ceil(price);
             totalPrice = (Math.ceil(price)).format();
         }

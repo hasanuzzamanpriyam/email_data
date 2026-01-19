@@ -5,11 +5,11 @@ require_once 'config.php';
 class Auth extends Database
 {
 
-    public function register($fname, $lname, $email, $company, $hpass)
+    public function register($fname, $lname, $email, $company, $hpass, $token)
     {
-        $sql = "INSERT INTO clients_info (first_name, last_name,  email, company, password) VALUES(:fname, :lname,  :email, :company, :pass)";
+        $sql = "INSERT INTO clients_info (first_name, last_name,  email, company, password, token) VALUES(:fname, :lname,  :email, :company, :pass, :token)";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['fname' => $fname, 'lname' => $lname, 'email' => $email, 'company' => $company, 'pass' => $hpass]);
+        $stmt->execute(['fname' => $fname, 'lname' => $lname, 'email' => $email, 'company' => $company, 'pass' => $hpass, 'token' => $token]);
         return true;
     }
 
@@ -220,13 +220,14 @@ class Auth extends Database
 
         return $row;
     }
-    public function verify_email_client($email)
+    public function verify_email_client($email, $token)
     {
-        $sql = "UPDATE clients_info SET verified = 1 WHERE email = :email AND deleted !=0";
+        $sql = "UPDATE clients_info SET verified = 1, token = '' WHERE email = :email AND token = :token AND deleted !=0";
         $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['email' => $email]);
+        $stmt->execute(['email' => $email, 'token' => $token]);
 
-        return true;
+        // Return row count to confirm if update happened
+        return $stmt->rowCount() > 0;
     }
     public function get_blogs()
     {

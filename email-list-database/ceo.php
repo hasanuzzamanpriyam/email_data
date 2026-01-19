@@ -80,21 +80,21 @@ $_SESSION['myPrice'] = 3896;
         var price = 0;
 
         if(totalEmail <= 5000){
-            price = totalEmail * 0.025;
+            price = totalEmail * 0.0375;
         } else if(totalEmail <= 10000){
-            price = totalEmail * 0.0225;
+            price = totalEmail * 0.03375;
         } else if(totalEmail <= 25000){
-            price = totalEmail * 0.022;
+            price = totalEmail * 0.033;
         } else if(totalEmail <= 50000){
-            price = totalEmail * 0.02;
+            price = totalEmail * 0.03;
         } else if(totalEmail <= 75000){
-            price = totalEmail * 0.01825;
+            price = totalEmail * 0.027375;
         } else if(totalEmail <= 100000){
-            price = totalEmail * 0.0175;
+            price = totalEmail * 0.02625;
         } else if(totalEmail <= 500000){
-            price = totalEmail * 0.015;
+            price = totalEmail * 0.0225;
         } else {
-            price = totalEmail * 0.0125;
+            price = totalEmail * 0.01875;
         }
 
         price = Math.ceil(price);

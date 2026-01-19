@@ -137,26 +137,39 @@ $_SESSION['myPrice'] = $product['price'];
     var hiddenTotalEmail = document.getElementById("hiddenTotalEmail");
     var dataType = document.getElementById("dataType");
 
+    // Pass the category from PHP to JS
+    var productCategory = "<?= $product['category']; ?>";
+
     slider.oninput = function() {
         var totalEmail = parseInt(this.value);
         var price = 0;
 
-        if (totalEmail <= 5000) {
-            price = totalEmail * 0.025;
-        } else if (totalEmail <= 10000) {
-            price = totalEmail * 0.0225;
-        } else if (totalEmail <= 25000) {
-            price = totalEmail * 0.022;
-        } else if (totalEmail <= 50000) {
-            price = totalEmail * 0.02;
-        } else if (totalEmail <= 75000) {
-            price = totalEmail * 0.01825;
-        } else if (totalEmail <= 100000) {
-            price = totalEmail * 0.0175;
-        } else if (totalEmail <= 500000) {
-            price = totalEmail * 0.015;
+        if (productCategory === 'Office 365') {
+            if (totalEmail <= 5000) price = totalEmail * 0.09375;
+            else if (totalEmail <= 10000) price = totalEmail * 0.09;
+            else if (totalEmail <= 25000) price = totalEmail * 0.08625;
+            else if (totalEmail <= 50000) price = totalEmail * 0.0825;
+            else if (totalEmail <= 75000) price = totalEmail * 0.07875;
+            else if (totalEmail <= 100000) price = totalEmail * 0.075;
+            else price = totalEmail * 0.075;
+        } else if (productCategory === 'Custom Order') {
+            if (totalEmail <= 5000) price = totalEmail * 0.05625;
+            else if (totalEmail <= 10000) price = totalEmail * 0.0525;
+            else if (totalEmail <= 25000) price = totalEmail * 0.04875;
+            else if (totalEmail <= 50000) price = totalEmail * 0.045;
+            else if (totalEmail <= 75000) price = totalEmail * 0.04125;
+            else if (totalEmail <= 100000) price = totalEmail * 0.0375;
+            else price = totalEmail * 0.0375;
         } else {
-            price = totalEmail * 0.0125;
+            // Ready Made (Default)
+            if (totalEmail <= 5000) price = totalEmail * 0.0375;
+            else if (totalEmail <= 10000) price = totalEmail * 0.03375;
+            else if (totalEmail <= 25000) price = totalEmail * 0.033;
+            else if (totalEmail <= 50000) price = totalEmail * 0.03;
+            else if (totalEmail <= 75000) price = totalEmail * 0.027375;
+            else if (totalEmail <= 100000) price = totalEmail * 0.02625;
+            else if (totalEmail <= 500000) price = totalEmail * 0.0225;
+            else price = totalEmail * 0.01875;
         }
 
         price = Math.ceil(price);

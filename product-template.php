@@ -1,19 +1,12 @@
 <?php
 // Includes
 include_once __DIR__ . '/assets/php/header.php';
-// auth.php and session.php are already included in header.php usually, but let's keep it safe or rely on header
-// header.php includes session.php and auth.php (Line 2-3 of header.php viewed in Step 603)
-// So we just need header.php
 
 // Get the product ID from URL or slug
 $id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
 $slug = isset($_GET['slug']) ? $_GET['slug'] : '';
 
 // Fetch the product details
-// $user is instantiated in header.php? 
-// header.php: $seo = new Auth();
-// But single-product/index.php did: $user = new Auth();
-// We should check if $user is available or instantiate it.
 if (!isset($user)) {
     $user = new Auth();
 }
@@ -34,8 +27,8 @@ if (!$product) {
 
 // Set session price for use in form
 $_SESSION['myPrice'] = $product['price'];
-
 ?>
+
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
     <div class="container jumbotron--list-detail__container table-layout-fixed">
         <div class="jumbotron--list-detail__col-half jumbotron--list-detail__col-left">
@@ -51,7 +44,6 @@ $_SESSION['myPrice'] = $product['price'];
             </div>
         </div>
         <div class="jumbotron--list-detail__col-half jumbotron--list-detail__col-right">
-
             <div class="gap-bottom-small">
                 <h1 class="jumbotron__title" style="margin-top: 15px;">
                     <?= htmlspecialchars($product['category']); ?> EMAIL LIST
@@ -133,40 +125,50 @@ $_SESSION['myPrice'] = $product['price'];
     var hiddenTotalEmail = document.getElementById("hiddenTotalEmail");
     var dataType = document.getElementById("dataType");
 
+    // Pass the category from PHP to JS
+    var productCategory = "<?= $product['category']; ?>";
+
     if (slider) {
         slider.oninput = function() {
             var totalEmail = parseInt(this.value);
             var price = 0;
 
-            if (totalEmail <= 5000) {
-                price = totalEmail * 0.025;
-            } else if (totalEmail <= 10000) {
-                price = totalEmail * 0.0225;
-            } else if (totalEmail <= 25000) {
-                price = totalEmail * 0.022;
-            } else if (totalEmail <= 50000) {
-                price = totalEmail * 0.02;
-            } else if (totalEmail <= 75000) {
-                price = totalEmail * 0.01825;
-            } else if (totalEmail <= 100000) {
-                price = totalEmail * 0.0175;
-            } else if (totalEmail <= 500000) {
-                price = totalEmail * 0.015;
+            if (productCategory === 'Office 365') {
+                if (totalEmail <= 5000) price = totalEmail * 0.09375;
+                else if (totalEmail <= 10000) price = totalEmail * 0.09;
+                else if (totalEmail <= 25000) price = totalEmail * 0.08625;
+                else if (totalEmail <= 50000) price = totalEmail * 0.0825;
+                else if (totalEmail <= 75000) price = totalEmail * 0.07875;
+                else if (totalEmail <= 100000) price = totalEmail * 0.075;
+                else price = totalEmail * 0.075; // Default for >100k
+            } else if (productCategory === 'Custom Order') {
+                if (totalEmail <= 5000) price = totalEmail * 0.05625;
+                else if (totalEmail <= 10000) price = totalEmail * 0.0525;
+                else if (totalEmail <= 25000) price = totalEmail * 0.04875;
+                else if (totalEmail <= 50000) price = totalEmail * 0.045;
+                else if (totalEmail <= 75000) price = totalEmail * 0.04125;
+                else if (totalEmail <= 100000) price = totalEmail * 0.0375;
+                else price = totalEmail * 0.0375; // Default
             } else {
-                price = totalEmail * 0.0125;
+                // Ready Made (Default)
+                if (totalEmail <= 5000) price = totalEmail * 0.0375;
+                else if (totalEmail <= 10000) price = totalEmail * 0.03375;
+                else if (totalEmail <= 25000) price = totalEmail * 0.033;
+                else if (totalEmail <= 50000) price = totalEmail * 0.03;
+                else if (totalEmail <= 75000) price = totalEmail * 0.027375;
+                else if (totalEmail <= 100000) price = totalEmail * 0.02625;
+                else if (totalEmail <= 500000) price = totalEmail * 0.0225;
+                else price = totalEmail * 0.01875;
             }
 
-            price = Math.ceil(price);
+            // Update form hidden fields
+            hiddenPrice.value = Math.ceil(price);
+            hiddenTotalEmail.value = totalEmail;
+            dataType.value = 'ChangePrice';
 
             // Update visible text
             outputEmail.innerHTML = totalEmail.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-            outputPrice.innerHTML = "$ " + price.format();
-
-            // Update form hidden fields
-            hiddenPrice.value = price;
-            hiddenTotalEmail.value = totalEmail;
-            dataType.value = 'ChangePrice';
+            outputPrice.innerHTML = "$ " + Math.ceil(price).format();
         };
     }
 </script>
-
