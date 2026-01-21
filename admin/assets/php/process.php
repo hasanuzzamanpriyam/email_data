@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 require_once 'auth.php';
 $adminPanel = new Auth();
@@ -919,16 +920,24 @@ if (isset($_POST['userTopup'])) {
 
     $id = $_POST['userTopup'];
 
-    $row = $adminPanel->get_top_user($id);
+    $row = $adminPanel->get_user_info($id);
 
     echo json_encode($row);
+}
+if (isset($_POST['userLogin'])) {
+    $id = $_POST['userLogin'];
+    $row = $adminPanel->get_user_info($id);
+    if ($row) {
+        $_SESSION['user'] = $row['email'];
+        echo 'success';
+    }
 }
 if (isset($_POST['action']) && ($_POST['action'] == 'topup')) {
 
     $id = $_POST['topId'];
     $topupType = $_POST['topupType'];
     $amount = $_POST['amount'];
-    $row = $adminPanel->get_top_user($id);
+    $row = $adminPanel->get_user_info($id);
     if ($topupType === 'Add') {
         $total = $amount + $row['topup'];
     } else if ($topupType === 'Minus') {

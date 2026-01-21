@@ -123,13 +123,13 @@ require_once 'assets/php/footer.php';
             let userLogin = $(this).attr("id");
 
             $.ajax({
-                url: 'https://mailerstation.com/assets/php/action',
+                url: 'assets/php/process',
                 type: 'post',
                 data: {
                     userLogin: userLogin
                 },
                 success: function(response) {
-                    window.location.href = "http://localhost/emailbigdata.com/user/order";
+                    window.location.href = "../user/order";
                 }
             });
         });

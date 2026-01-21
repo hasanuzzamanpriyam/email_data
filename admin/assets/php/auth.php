@@ -192,6 +192,14 @@ class Auth extends Database
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public function get_user_info($id)
+    {
+        $sql = "SELECT * FROM clients_info WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['id' => $id]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function get_all_band_user()
     {
         $sql = "SELECT DISTINCT * FROM clients_info WHERE band = 'Band' ORDER BY created_at DESC";
