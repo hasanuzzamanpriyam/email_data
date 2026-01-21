@@ -1,5 +1,4 @@
 <?php include_once 'assets/php/header.php'; ?>
-?>
 <div class="jumbotron jumbotron--signup jumbotron--regular-bg">
     <div class="container jumbotron__container">
         <div class="jumbotron__inner">
@@ -21,7 +20,7 @@
                 </div>
                 <div class="col-lg-8 col-md-7 pad-top-tlnu">
                     <form id="signup-form" class="form form--soft no-loading" method="POST" action="#">
-                        <div class="text-alert gap-bottom-small hide" id="signup-form-errors"></div>
+                        <div class="text-alert gap-bottom-small" id="signup-form-errors" style="display: none;"></div>
                         <div class="row">
                             <div class="col-sm-6 gap-bottom">
                                 <input type="text" class="form__control" placeholder="First Name" name="fname" required>
@@ -80,25 +79,28 @@ include_once 'assets/php/footer.php';
 
 
 <script>
-    $(document).ready(function () {
-//Register Ajax Request
-        $("#register-btn").click(function (e) {
+    $(document).ready(function() {
+        //Register Ajax Request
+        $("#register-btn").click(function(e) {
             if ($("#signup-form")[0].checkValidity()) {
                 e.preventDefault();
-                $("#register-btn").val('Please Wait...');
+                $("#register-btn").text('Please Wait...');
                 if ($("#rpassword").val() != $("#cpassword").val()) {
-                    $("#signup-form-errors").text('* Password did not match!');
-                    $("#register-btn").val('Submit Now');
+                    $("#signup-form-errors").text('* Password did not match!').show();
+                    $("#register-btn").text('Create My Account');
                 } else {
-                    $("#signup-form-errors").text('');
+                    $("#signup-form-errors").hide();
                     $.ajax({
-                        url: 'assets/php/action',
+                        url: 'assets/php/action.php',
                         type: 'post',
                         data: $("#signup-form").serialize() + '&action=register',
-                        success: function (response) {
-                             $("#register-btn").val('Submit Now');
-                             window.location = '<?= $siteUrl; ?>';
-                             $("#signup-form-errors").html(response);
+                        success: function(response) {
+                            $("#register-btn").text('Create My Account');
+                            if (response.indexOf('alert-danger') !== -1) {
+                                $("#signup-form-errors").html(response).show();
+                            } else {
+                                window.location = '<?= $siteUrl; ?>';
+                            }
                         }
                     });
                 }
@@ -106,4 +108,5 @@ include_once 'assets/php/footer.php';
         });
     });
 </script>
+
 </html>

@@ -7,10 +7,13 @@ class Auth extends Database
 
     public function register($fname, $lname, $email, $company, $hpass, $token)
     {
-        $sql = "INSERT INTO clients_info (first_name, last_name,  email, company, password, token) VALUES(:fname, :lname,  :email, :company, :pass, :token)";
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute(['fname' => $fname, 'lname' => $lname, 'email' => $email, 'company' => $company, 'pass' => $hpass, 'token' => $token]);
-        return true;
+        try {
+            $sql = "INSERT INTO clients_info (first_name, last_name,  email, company, password, token) VALUES(:fname, :lname,  :email, :company, :pass, :token)";
+            $stmt = $this->conn->prepare($sql);
+            return $stmt->execute(['fname' => $fname, 'lname' => $lname, 'email' => $email, 'company' => $company, 'pass' => $hpass, 'token' => $token]);
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
     public function user_exit($email)
