@@ -10,7 +10,9 @@ if (isset($_POST['insertEmail'])) {
     $category = $_POST['category'];
     $totalemail = $_POST['total_email'];
     $shortdec = $_POST['short_description'];
-    $desc = $_POST['editor1'];
+    // Sanitize description: Remove <script> and <style> tags and their content
+    $desc = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $_POST['editor1']);
+    $desc = preg_replace('/<style\b[^>]*>(.*?)<\/style>/is', "", $desc);
     $price = $_POST['price'];
 
     $seoTitle = $_POST['seoTitle'];
@@ -44,7 +46,9 @@ if (isset($_POST['updateEmail'])) {
     $category = $_POST['updateCategory'];
     $totalemail = $_POST['update-total_email'];
     $shortdec = $_POST['update_short_description'];
-    $desc = $_POST['updateEditor1'];
+    // Sanitize description: Remove <script> and <style> tags and their content
+    $desc = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $_POST['updateEditor1']);
+    $desc = preg_replace('/<style\b[^>]*>(.*?)<\/style>/is', "", $desc);
     $price = $_POST['updatePprice'];
 
     $seoTitle = $_POST['seoUpdateTitle'];

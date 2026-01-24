@@ -27,9 +27,16 @@ if (!$product) {
 
 // Set session price for use in form
 $_SESSION['myPrice'] = $product['price'];
+
+// Fetch related products
+$relatedProducts = [];
+if ($product) {
+    $relatedProducts = $user->get_related_products($product['category'], 3, $id);
+}
 ?>
 
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
+    <h1 style="background:red; color:white; padding:20px; text-align:center; z-index:9999; position:relative;">DEBUG MARKER: PRODUCT TEMPLATE LOADED</h1>
     <div class="container jumbotron--list-detail__container table-layout-fixed">
         <div class="jumbotron--list-detail__col-half jumbotron--list-detail__col-left">
             <img class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/thumbs/contact-list2.jpg" alt="Email List">
@@ -67,15 +74,15 @@ $_SESSION['myPrice'] = $product['price'];
                 </div>
             </div>
 
-            <p class="text-loblolly">
-                <?php
-                if (!empty($product['description'])) {
-                    $words = explode(' ', strip_tags($product['description']));
-                    $preview = implode(' ', array_slice($words, 0, 60));
-                    echo $preview . (count($words) > 60 ? '...' : '');
-                }
-                ?>
-            </p>
+            <div class="product-description-wrapper gap-bottom">
+                <div class="product-description-content" id="descContent" style="max-height: 100px; overflow: hidden; position: relative;">
+                    <p class="text-loblolly">
+                        <?php echo !empty($product['description']) ? $product['description'] : ''; ?>
+                    </p>
+                    <div id="descOverlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background: linear-gradient(transparent, #fff);"></div>
+                </div>
+                <button id="toggleDescBtn" class="button button--secondary button--small gap-top-small" style="display: none;">Show More</button>
+            </div>
 
             <div class="gap-bottom-medium hidden-tlnd">
                 <?php if (!empty($product['file_type'])): ?>
@@ -108,6 +115,39 @@ $_SESSION['myPrice'] = $product['price'];
             </ul>
         </div>
     </div>
+</div>
+<div class="container gap-bottom-medium">
+    <?php if (!empty($relatedProducts)): ?>
+        <hr class="hr-line">
+        <h3 class="jumbotron__title gap-bottom">Related Products</h3>
+        <div class="row">
+            <?php foreach ($relatedProducts as $relProduct): ?>
+                <div class="col-md-4 gap-bottom">
+                    <div class="premade-lists__item" style="border: 1px solid #e1e1e1; padding: 20px; border-radius: 4px;">
+                        <h4 class="premade-lists__item__title h4">
+                            <a href="<?= $siteUrl; ?>ready-made/<?= strtolower(str_replace(' ', '-', $relProduct['category'])); ?>/<?= $relProduct['seo_url'] ? $relProduct['seo_url'] : $relProduct['id']; ?>" style="text-decoration:none; color:inherit;">
+                                <?= htmlspecialchars($relProduct['category']); ?>
+                            </a>
+                        </h4>
+                        <div class="gap-bottom-small">
+                            <span class="premade-lists__item__contact-title h6">
+                                <?= number_format($relProduct['total_email']); ?>
+                            </span>
+                            <small>Contacts</small>
+                        </div>
+                        <p class="text-muted" style="font-size: 14px; height: 40px; overflow: hidden;">
+                            <?= !empty($relProduct['short_description']) ? htmlspecialchars($relProduct['short_description']) : ''; ?>
+                        </p>
+                        <hr>
+                        <div class="text-right">
+                            <span class="h5" style="color: orange;">$<?= number_format($relProduct['price']); ?></span>
+                            <a href="<?= $siteUrl; ?>ready-made/<?= strtolower(str_replace(' ', '-', $relProduct['category'])); ?>/<?= $relProduct['seo_url'] ? $relProduct['seo_url'] : $relProduct['id']; ?>" class="button button--primary button--small gap-left-small">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>
 <hr class="hr-line">
 
@@ -171,4 +211,33 @@ $_SESSION['myPrice'] = $product['price'];
             outputPrice.innerHTML = "$ " + Math.ceil(price).format();
         };
     }
+</script>
+<script>
+    // Description Toggle Logic
+    document.addEventListener("DOMContentLoaded", function() {
+        var content = document.getElementById("descContent");
+        var btn = document.getElementById("toggleDescBtn");
+        var overlay = document.getElementById("descOverlay");
+
+        if (content.scrollHeight > 100) {
+            btn.style.display = "inline-block";
+            overlay.style.display = "block";
+        } else {
+            content.style.maxHeight = "none";
+            overlay.style.display = "none";
+        }
+
+        btn.addEventListener("click", function(e) {
+            e.preventDefault();
+            if (content.style.maxHeight !== "none") {
+                content.style.maxHeight = "none";
+                overlay.style.display = "none";
+                btn.textContent = "Show Less";
+            } else {
+                content.style.maxHeight = "100px";
+                overlay.style.display = "block";
+                btn.textContent = "Show More";
+            }
+        });
+    });
 </script>

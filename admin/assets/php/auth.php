@@ -619,4 +619,19 @@ class Auth extends Database
                 return date('d M Y', $timestamp);
         }
     }
+
+    public function get_related_products($category, $limit = 3, $excludeId = 0)
+    {
+        // Prioritize items in the same category, then fill with random items
+        $sql = "SELECT * FROM email_short_info 
+                WHERE id != :excludeId 
+                ORDER BY (category = :category) DESC, RAND() 
+                LIMIT :limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':category', $category);
+        $stmt->bindValue(':excludeId', $excludeId);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
