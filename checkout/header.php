@@ -247,7 +247,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
         }
 
         .card-text {
-            /*  margin-right: 15px; */
+            margin-right: 15px;
         }
 
         input[type="text"],
