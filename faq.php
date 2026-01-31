@@ -1,4 +1,4 @@
-<?php include_once 'assets/php/header.php'; $siteUrl = 'https://bookyourdata.io/';?>
+<?php include_once 'assets/php/header.php'; ?>
 <div class="jumbotron jumbotron--regular jumbotron--regular-bg">
     <div class="container jumbotron__container">
         <div class="jumbotron__inner">
@@ -117,7 +117,8 @@
                         <div class="accordion__item__title">Are you GDPR compliant?</div>
                         <div class="accordion__item__content">
                             <div class="accordion__item__content__inner ">
-                                <p>Our entire data pool is GDPR Ready.</p><p>Please see <a href="https://www.emailbigdata.com/">https://www.emailbigdata.com/</a> for the reference.</p>
+                                <p>Our entire data pool is GDPR Ready.</p>
+                                <p>Please see <a href="https://www.emailbigdata.com/">https://www.emailbigdata.com/</a> for the reference.</p>
                             </div>
                         </div>
                     </div>

@@ -15,6 +15,6 @@ if (isset($_GET['email']) && isset($_GET['token'])) {
         $_SESSION['verification_status'] = 'failed';
     }
 
-    $siteUrl = 'http://localhost/emailbigdata.com/';
+    $siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
     header('location: ' . $siteUrl);
 }

@@ -1,10 +1,11 @@
 <?php
 require_once '../assets/php/auth.php';
-$siteUrl = 'http://localhost/emailbigdata.com/';
+$siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
 $user = new Auth();
 
 // Safe slug function with null fix and fallback
-function slugify($text, string $divider = '-') {
+function slugify($text, string $divider = '-')
+{
     $text = (string) $text; // Fix: Prevent null warning
     $text = preg_replace('~[^\pL\d]+~u', $divider, $text);
     $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
@@ -83,4 +84,3 @@ if (!empty($result)) {
     echo '<h3 class="text-center text-secondary">No record Found!</h3>';
     exit;
 }
-?>

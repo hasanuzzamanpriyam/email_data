@@ -2,7 +2,6 @@
 include_once 'assets/php/header.php';
 $token =  $_GET['token'];
 $email =  $_GET['email'];
-$siteUrl = 'https://bookyourdata.io/';
 ?>
 <div class="jumbotron jumbotron--signup jumbotron--regular-bg">
     <div class="container jumbotron__container">
@@ -19,30 +18,30 @@ $siteUrl = 'https://bookyourdata.io/';
                     <form id="change-form" class="form form--soft no-loading" method="POST" action="#">
                         <input type="hidden" name="email" value="<?= $email; ?>">
                         <input type="hidden" name="token" value="<?= $token; ?>">
-                           
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8 gap-bottom">
-                                <input type="password" class="form__control" placeholder="Password" name="rchangepassword" id="rchangepassword" required>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-8 gap-bottom">
-                                <input type="password" class="form__control" placeholder="Password Control" name="cchangepassword" id="cchangepassword" required>
-                            </div>
-                        </div>
-                        <div class="alert alert-danger" id="passwordtAlert" style="color: orange; margin-bottom: 10px; font-size: 24px; font-weight:600;"></div>
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <button type="submit" class="button button--primary full-width" id="change-btn">Change Password</button>
-                            </div>
-                        </div>
-                    </form>
+
                 </div>
-                <div class="col-lg-4 col-md-5"></div>
+                <div class="row">
+                    <div class="col-sm-8 gap-bottom">
+                        <input type="password" class="form__control" placeholder="Password" name="rchangepassword" id="rchangepassword" required>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-8 gap-bottom">
+                        <input type="password" class="form__control" placeholder="Password Control" name="cchangepassword" id="cchangepassword" required>
+                    </div>
+                </div>
+                <div class="alert alert-danger" id="passwordtAlert" style="color: orange; margin-bottom: 10px; font-size: 24px; font-weight:600;"></div>
+                <div class="row">
+                    <div class="col-sm-8">
+                        <button type="submit" class="button button--primary full-width" id="change-btn">Change Password</button>
+                    </div>
+                </div>
+                </form>
             </div>
+            <div class="col-lg-4 col-md-5"></div>
         </div>
     </div>
+</div>
 </div>
 
 <?php
@@ -52,8 +51,8 @@ include_once 'assets/php/footer.php';
 </body>
 
 <script>
-    $(document).ready(function () {
-        $("#change-btn").click(function (e) {
+    $(document).ready(function() {
+        $("#change-btn").click(function(e) {
             if ($("#change-form")[0].checkValidity()) {
                 e.preventDefault();
                 $("#change-btn").val('Please Wait...');
@@ -66,15 +65,15 @@ include_once 'assets/php/footer.php';
                         url: 'assets/php/action',
                         type: 'post',
                         data: $("#change-form").serialize() + '&action=change-password',
-                        success: function (response) {
-                             $("#register-btn").val('Change Password');
-                             if(response === 'change-password'){
-                                 
-                             window.location = '<?= $siteUrl; ?>login';
-                             }else{
-                                 $("#passwordtAlert").html(response);
-                             }
-                             
+                        success: function(response) {
+                            $("#register-btn").val('Change Password');
+                            if (response === 'change-password') {
+
+                                window.location = '<?= $siteUrl; ?>login';
+                            } else {
+                                $("#passwordtAlert").html(response);
+                            }
+
                         }
                     });
                 }
@@ -82,4 +81,5 @@ include_once 'assets/php/footer.php';
         });
     });
 </script>
+
 </html>

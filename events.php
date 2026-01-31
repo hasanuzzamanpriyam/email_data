@@ -1,4 +1,4 @@
-<?php include_once 'assets/php/header.php';$siteUrl = 'https://bookyourdata.io/'; ?>
+<?php include_once 'assets/php/header.php'; ?>
 <div class="jumbotron jumbotron--regular jumbotron--regular-bg">
     <div class="container jumbotron__container">
         <div class="jumbotron__inner">

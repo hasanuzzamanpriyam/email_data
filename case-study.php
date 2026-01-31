@@ -1,4 +1,4 @@
-<?php include_once 'assets/php/header.php'; $siteUrl = 'https://bookyourdata.io/';?>
+<?php include_once 'assets/php/header.php'; ?>
 
 
 <div class="body-container-wrapper">
@@ -6,13 +6,16 @@
 
         <div class="row-fluid-wrapper row-depth-1 row-number-1 ">
             <div class="row-fluid ">
-                <div class="span12 widget-span widget-type-cell " style="" data-widget-type="cell" data-x="0" data-w="12">
+                <div class="span12 widget-span widget-type-cell " data-widget-type="cell" data-x="0" data-w="12">
 
                     <div class="row-fluid-wrapper row-depth-1 row-number-2 ">
                         <div class="row-fluid ">
                             <div class="span12 widget-span widget-type-header " style="text-align: center; padding: 32px;" data-widget-type="header" data-x="0" data-w="12">
                                 <div class="cell-wrapper layout-widget-wrapper">
-                                    <span id="hs_cos_wrapper_module_1490890697045562" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" style="" data-hs-cos-general-type="widget" data-hs-cos-type="header"><h1>Closing New Business with Quality Lead Lists</h1></span></div><!--end layout-widget-wrapper -->
+                                    <span id="hs_cos_wrapper_module_1490890697045562" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_header" data-hs-cos-general-type="widget" data-hs-cos-type="header">
+                                        <h1>Closing New Business with Quality Lead Lists</h1>
+                                    </span>
+                                </div><!--end layout-widget-wrapper -->
                             </div><!--end widget-span -->
                         </div><!--end row-->
                     </div><!--end row-wrapper -->
@@ -23,16 +26,18 @@
 
         <div class="row-fluid-wrapper row-depth-1 row-number-3 ">
             <div class="row-fluid ">
-                <div class="span12 widget-span widget-type-cell page-center content-wrapper" style="" data-widget-type="cell" data-x="0" data-w="12">
+                <div class="span12 widget-span widget-type-cell page-center content-wrapper" data-widget-type="cell" data-x="0" data-w="12">
 
                     <div class="row-fluid-wrapper row-depth-1 row-number-4 ">
                         <div class="row-fluid ">
-                            <div class="span8 widget-span widget-type-cell main-content" style="" data-widget-type="cell" data-x="0" data-w="8">
+                            <div class="span8 widget-span widget-type-cell main-content" data-widget-type="cell" data-x="0" data-w="8">
 
                                 <div class="row-fluid-wrapper row-depth-1 row-number-5 ">
                                     <div class="row-fluid ">
-                                        <div class="span12 widget-span widget-type-widget_container " style="" data-widget-type="widget_container" data-x="0" data-w="12">
-                                            <span id="hs_cos_wrapper_module_140190329510711990" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" style="" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container"><div id="hs_cos_wrapper_widget_4980043171" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" style="" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text"><h2>Background</h2>
+                                        <div class="span12 widget-span widget-type-widget_container " data-widget-type="widget_container" data-x="0" data-w="12">
+                                            <span id="hs_cos_wrapper_module_140190329510711990" class="hs_cos_wrapper hs_cos_wrapper_widget_container hs_cos_wrapper_type_widget_container" data-hs-cos-general-type="widget_container" data-hs-cos-type="widget_container">
+                                                <div id="hs_cos_wrapper_widget_4980043171" class="hs_cos_wrapper hs_cos_wrapper_widget hs_cos_wrapper_type_rich_text" data-hs-cos-general-type="widget" data-hs-cos-type="rich_text">
+                                                    <h2>Background</h2>
                                                     <p><span style="font-weight: 400;">The Virtual Sales and Marketing Assistance company, otherwise known as VSMA, is an outsourcing solution for small-to-midsized businesses. VSMA provides sales and marketing strategy and execution for companies looking to improve qualified lead generation and customer acquisition, while reducing opportunity costs and customer churn in the process. VSMA’s team of seasoned marketing and sales professionals present a cost effective solution to businesses looking to streamline their sales processes, providing a full-scope of services including prospect mining, digital and phone prospecting, data entry, CRM reporting and email marketing solutions.</span></p>
                                                     <h2>Problem</h2>
                                                     <p><span style="font-weight: 400;">VSMA was struggling to improve email campaign performance for its client, focused on marketing to a real estate audience. The client had provided its own lead lists for VSMA to target, but the lists they provided were ineffective. With longstanding success in optimizing email campaigns, and with little traction on this particular client’s campaigns, the VSMA team knew that the low open rates were likely the result of low quality lists. The lists were outdated, the leads were not qualified, and VSMA was wasting valuable time optimizing emails for the </span><i><span style="font-weight: 400;">wrong audience</span></i><span style="font-weight: 400;"> by using their lists.</span></p>
@@ -50,7 +55,9 @@
                                                         <li style="font-weight: 400;"><strong>Conversion Rate: 1.5%</strong></li>
                                                         <li style="font-weight: 400;"><strong>Accounts Closed over 6 Weeks: 15</strong></li>
                                                     </ul>
-                                                    <p><span style="font-weight: 400;">By using mailerstaton, VSMA was able to leverage highly-targeted real estate lists for its client, closing fifteen new accounts in under six weeks. This outreach is still ongoing, as the average campaigns take a minimum of 7-10 touches over a period of 2-3 months to optimize campaign performance.</span></p></div></span>
+                                                    <p><span style="font-weight: 400;">By using mailerstaton, VSMA was able to leverage highly-targeted real estate lists for its client, closing fifteen new accounts in under six weeks. This outreach is still ongoing, as the average campaigns take a minimum of 7-10 touches over a period of 2-3 months to optimize campaign performance.</span></p>
+                                                </div>
+                                            </span>
                                         </div><!--end widget-span -->
                                     </div><!--end row-->
                                 </div><!--end row-wrapper -->

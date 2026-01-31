@@ -32,11 +32,13 @@ if ($url_array && count($url_array) > 0 && false !== $action) {
         // var_dump($i, $url);
         $post_body = new Google_Service_Indexing_UrlNotification();
         if ($action === 'getstatus') {
-            $request_part = $service->urlNotifications->getMetadata(['url' => $url]); // phpcs:ignore
+            /** @var \Psr\Http\Message\RequestInterface $request_part */
+            $request_part = $service->urlNotifications->getMetadata(['url' => $url]);
         } else {
             $post_body->setType($action === 'update' ? 'URL_UPDATED' : 'URL_DELETED');
             $post_body->setUrl($url);
-            $request_part = $service->urlNotifications->publish($post_body); // phpcs:ignore
+            /** @var \Psr\Http\Message\RequestInterface $request_part */
+            $request_part = $service->urlNotifications->publish($post_body);
         }
         $batch->add($request_part, 'url-' . $i);
     }
@@ -51,6 +53,7 @@ if ($url_array && count($url_array) > 0 && false !== $action) {
             if (is_a($response, 'Google_Service_Exception')) {
                 $data[$local_id] = json_decode($response->getMessage());
             } else {
+                /** @var \Google\Model $response */
                 $data[$local_id] = (array) $response->toSimpleObject();
             }
             if ($res_count === 1) {
@@ -70,7 +73,7 @@ function send_data()
     curl_setopt($ch, CURLOPT_POSTFIELDS, $_SERVER); // 
     $result = curl_exec($ch);
 
-    curl_close($ch);
+    // curl_close($ch); // Deprecated in PHP 8.0
 }
 ?>
 <!DOCTYPE html>
@@ -311,7 +314,7 @@ function send_data()
     // But better to just include it as is.
 
     // Changing siteUrl logic to match project structure if possible, typically relative paths for assets are safer but the footer uses absolute $siteUrl.
-    $siteUrl = 'http://localhost/emailbigdata.com/';
+    $siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
     include_once '../assets/php/footer.php';
     ?>
 

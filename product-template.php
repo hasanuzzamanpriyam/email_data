@@ -31,7 +31,8 @@ $_SESSION['myPrice'] = $product['price'];
 // Fetch related products
 $relatedProducts = [];
 if ($product) {
-    $relatedProducts = $user->get_related_products($product['category'], 3, $id);
+    // Use 'title' (group) to find related products, not 'category' (specific item name)
+    $relatedProducts = $user->get_related_products($product['title'], 3, $id);
 }
 ?>
 

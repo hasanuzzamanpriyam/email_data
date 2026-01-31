@@ -1,13 +1,12 @@
-<?php 
-include_once 'assets/php/header.php'; 
+<?php
+include_once 'assets/php/header.php';
 require_once 'assets/php/auth.php';
-$siteUrl = 'https://bookyourdata.io/';
 $user = new Auth();
 
-if(isset($_GET['title'])){
+if (isset($_GET['title'])) {
     $title = $_GET['title'];
     $blogs = $user->show_blog($title);
-    
+
     $category = $blogs['category'];
     $title = $blogs['title'];
     $description = $blogs['description'];

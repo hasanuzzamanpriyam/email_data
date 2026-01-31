@@ -29,6 +29,13 @@ if (!$product) {
 // Set session price for use in form
 $_SESSION['myPrice'] = $product['price'];
 
+// Fetch related products
+$relatedProducts = [];
+if ($product) {
+    $excludeId = isset($product['id']) ? $product['id'] : $id;
+    // Use 'title' (group) to find related products, not 'category' (specific item name)
+    $relatedProducts = $user->get_related_products($product['title'], 3, $excludeId);
+}
 ?>
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
     <div class="container jumbotron--list-detail__container table-layout-fixed">
@@ -120,6 +127,39 @@ $_SESSION['myPrice'] = $product['price'];
             </ul>
         </div>
     </div>
+</div>
+<hr class="hr-line">
+<div class="container gap-bottom-medium">
+    <?php if (!empty($relatedProducts)): ?>
+        <h3 class="jumbotron__title gap-bottom">Related Products</h3>
+        <div class="row">
+            <?php foreach ($relatedProducts as $relProduct): ?>
+                <div class="col-md-4 gap-bottom">
+                    <div class="premade-lists__item" style="border: 1px solid #e1e1e1; padding: 20px; border-radius: 4px;">
+                        <h4 class="premade-lists__item__title h4">
+                            <a href="<?= $siteUrl; ?>ready-made/single-product?id=<?= $relProduct['id']; ?>" style="text-decoration:none; color:inherit;">
+                                <?= htmlspecialchars($relProduct['category']); ?>
+                            </a>
+                        </h4>
+                        <div class="gap-bottom-small">
+                            <span class="premade-lists__item__contact-title h6">
+                                <?= number_format($relProduct['total_email']); ?>
+                            </span>
+                            <small>Contacts</small>
+                        </div>
+                        <p class="text-muted" style="font-size: 14px; height: 40px; overflow: hidden;">
+                            <?= !empty($relProduct['short_description']) ? htmlspecialchars($relProduct['short_description']) : ''; ?>
+                        </p>
+                        <hr>
+                        <div class="text-right">
+                            <span class="h5" style="color: orange;">$<?= number_format($relProduct['price']); ?></span>
+                            <a href="<?= $siteUrl; ?>ready-made/single-product?id=<?= $relProduct['id']; ?>" class="button button--primary button--small gap-left-small">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    <?php endif; ?>
 </div>
 <hr class="hr-line">
 

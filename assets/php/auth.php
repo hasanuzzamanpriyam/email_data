@@ -448,4 +448,15 @@ class Auth extends Database
         $stmt->execute();
         return $stmt->fetchColumn();
     }
+
+    public function get_related_products($title, $limit = 3, $excludeId = 0)
+    {
+        $sql = "SELECT * FROM email_short_info WHERE title = :title AND id != :id ORDER BY RAND() LIMIT :limit";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':title', $title, PDO::PARAM_STR);
+        $stmt->bindValue(':id', (int)$excludeId, PDO::PARAM_INT);
+        $stmt->bindValue(':limit', (int)$limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
