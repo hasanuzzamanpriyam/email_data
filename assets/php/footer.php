@@ -153,11 +153,11 @@ if ($name === 'index') {
                 <li class="list__item">Copyright &copy; 2021
                     EmailBigData - All Rights Reserved</li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="terms-of-use.php">Terms of Use</a></li>
+                        href="terms-of-use">Terms of Use</a></li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="privacy-policy.php">Privacy Policy</a></li>
+                        href="privacy-policy">Privacy Policy</a></li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="legal-notice.php">Legal Notice</a></li>
+                        href="legal-notice">Legal Notice</a></li>
             </ul>
             <div class="footer__social-menu">
                 <a href="" target="_blank" rel="noopener noreferrer nofollow">
