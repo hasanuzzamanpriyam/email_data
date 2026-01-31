@@ -7,13 +7,12 @@ if($name ==='index'){
         </div>
         <div class="chat-btn" id="chat-btn" onclick="myFunction()"><img class="closeBtn" src="'.$seoUrl.'bundles/bydhome/img/chat/close.png" alt="messagebtn" ></div>
         <div id="chat-option">
-            <a href="skype:live:.cid.77e4a8ee4a4b02af?chat" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/skype.png" alt="skype"></a>
-            <a href="https://t.me/bookyourdata" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
-            <a href="https://icq.im/bookyourdata" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/icq.png" alt="icq"></a>
-            <a href="https://api.whatsapp.com/send/?phone=44%207441442048&text&app_absent=0"_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
-            <a href="https://www.messenger.com/t/bookyourdata" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/messenger.png" alt="messenger"></a>
-            <a href="mailto:support@bookyourdata.io" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/email.png" alt="email"></a>
-            <a href="tel: +44 7441442048" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/call.png" alt="call"></a>
+            <a href="https://t.me/bookyourdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
+            <a href="https://www.instagram.com/emailbigdata/" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/instagram.png" alt="instagram"></a>
+            <a href="https://api.whatsapp.com/send/?phone=447577321476&text&app_absent=0" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
+            <a href="https://www.messenger.com/t/emailbigdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/messenger.png" alt="messenger"></a>
+            <a href="mailto:support@emailbigdata.com" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/email.png" alt="email"></a>
+            <a href="tel: +44 7577321476" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/call.png" alt="call"></a>
         </div>
     </div>';
 }else{
@@ -23,13 +22,12 @@ if($name ==='index'){
         </div>
         <div class="chat-btn" id="chat-btn" onclick="myFunction()"><img src="'.$seoUrl.'bundles/bydhome/img/chat/messagebtn.png" alt="messagebtn" ></div>
         <div id="chat-option">
-            <a href="skype:live:.cid.77e4a8ee4a4b02af?chat" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/skype.png" alt="skype"></a>
-            <a href="https://t.me/mailerstation" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
-            <a href="https://icq.im/mailerstation" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/icq.png" alt="icq"></a>
-            <a href="https://api.whatsapp.com/send/?phone=19729050129&text&app_absent=0" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
-            <a href="https://www.messenger.com/t/mailerstation" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/messenger.png" alt="messenger"></a>
-            <a href="mailto:support@mailerstation.com" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/email.png" alt="email"></a>
-            <a href="tel: +44 7441442048" target="_blank"><img src="'.$seoUrl.'bundles/bydhome/img/chat/call.png" alt="call"></a>
+            <a href="https://t.me/bookyourdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
+            <a href="https://www.instagram.com/emailbigdata/" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/instagram.png" alt="instagram"></a>
+            <a href="https://api.whatsapp.com/send/?phone=447577321476&text&app_absent=0" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
+            <a href="https://www.messenger.com/t/emailbigdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/messenger.png" alt="messenger"></a>
+            <a href="mailto:support@emailbigdata.com" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/email.png" alt="email"></a>
+            <a href="tel: +44 7577321476" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/call.png" alt="call"></a>
         </div>
     </div>';
 }
