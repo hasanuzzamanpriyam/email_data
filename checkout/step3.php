@@ -68,13 +68,13 @@ if (isset($_POST['loggedOrderBtn'])) {
                     <span class="checkout-steps-link__text">Know Your Data</span>
                 </a>
             </div>
-            <div class="col-sm-4"style="padding: 5px;">
+            <div class="col-sm-4" style="padding: 5px;">
                 <a href="#" class="checkout-steps-link  is-disabled">
                     <span class="checkout-steps-link__count">2</span>
                     <span class="checkout-steps-link__text">Login &amp; Sign up</span>
                 </a>
             </div>
-            <div class="col-sm-4"style="padding: 5px;">
+            <div class="col-sm-4" style="padding: 5px;">
                 <a href="#" class="checkout-steps-link is-active ">
                     <span class="checkout-steps-link__count">3</span>
                     <span class="checkout-steps-link__text">Payment Method</span>
@@ -152,24 +152,24 @@ if (isset($_POST['loggedOrderBtn'])) {
                 </div>-->
                 <div class="payment-demo">
                     <div class="form-check mybtn">
-                        <input class="form-check-input" type="radio" name="payment" id="topup" value="Topup" onclick="mySeleted(this.value)" >
+                        <input class="form-check-input" type="radio" name="payment" id="topup" value="Topup" onclick="mySeleted(this.value)">
                         <label class="form-check-label" for="topup">
-                            <span>Top up ($<?= $topup;?>)</span>
+                            <span>Top up ($<?= $topup; ?>)</span>
                             <span class="card-text"><img src="images/topup.png" alt="card-picture"></span>
                         </label>
                     </div>
                 </div>
-                
-     <div class="payment-demo">
-    <div class="form-check mybtn">
-        <input class="form-check-input" type="radio" name="payment" id="fastspring" value="FastSpring" onclick="mySeleted(this.value)">
-        <label class="form-check-label d-flex justify-content-between" for="fastspring">
-            <span>FastSpring</span>
-            <span class="card-text"><img src="images/fastspring.png" alt="FastSpring" style="height:24px;"></span>
-        </label>
-    </div>
-</div>
-                 <div class="payment-demo">
+
+                <div class="payment-demo">
+                    <div class="form-check mybtn">
+                        <input class="form-check-input" type="radio" name="payment" id="fastspring" value="FastSpring" onclick="mySeleted(this.value)">
+                        <label class="form-check-label d-flex justify-content-between" for="fastspring">
+                            <span>FastSpring</span>
+                            <span class="card-text"><img src="images/fastspring.png" alt="FastSpring" style="height:24px;"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="payment-demo">
                     <div class="form-check mybtn">
                         <input class="form-check-input" type="radio" name="payment" id="perfectusd" value="Perfectmoney(USD)" onclick="mySeleted(this.value)" disabled>
                         <label class="form-check-label d-flex justify-content-between" for="perfectusd">
@@ -187,8 +187,8 @@ if (isset($_POST['loggedOrderBtn'])) {
                         </label>
                     </div>
                 </div>
-                
-                 <div class="payment-demo">
+
+                <div class="payment-demo">
                     <div class="form-check mybtn">
                         <input class="form-check-input" type="radio" name="payment" id="bitcoin" value="USDT/Tether" onclick="mySeleted(this.value)" disabled>
                         <label class="form-check-label d-flex justify-content-between" for="bitcoin">
@@ -197,10 +197,10 @@ if (isset($_POST['loggedOrderBtn'])) {
                         </label>
                     </div>
                 </div>
-                
+
                 <div class="payment-demo">
                     <div class="form-check mybtn">
-                        <input class="form-check-input" type="radio" name="payment" id="debitcard" value="Debit-Credit" onclick="mySeleted(this.value)" >
+                        <input class="form-check-input" type="radio" name="payment" id="debitcard" value="Debit-Credit" onclick="mySeleted(this.value)">
                         <label class="form-check-label" for="debitcard">
                             <span>Debit Or Credit Card</span>
                             <span class="card-text"><img src="images/picture.png" alt="card-picture"></span>
@@ -211,8 +211,8 @@ if (isset($_POST['loggedOrderBtn'])) {
                     <div class="form-check mybtn">
                         <input class="form-check-input" type="radio" name="payment" id="paypal" value="PayPal" onclick="mySeleted(this.value)" disabled>
                         <label class="form-check-label" for="paypal">
-                            <span  >PayPal</span>
-                            <span  class="card-text"><img src="images/paypal_reference.svg" alt="paypal_reference"></span>
+                            <span>PayPal</span>
+                            <span class="card-text"><img src="images/paypal_reference.svg" alt="paypal_reference"></span>
                         </label>
                     </div>
                 </div>
@@ -227,6 +227,15 @@ if (isset($_POST['loggedOrderBtn'])) {
                  </div>-->
                 <div class="payment-demo">
                     <div class="form-check mybtn">
+                        <input class="form-check-input" type="radio" name="payment" id="heleket" value="Heleket" onclick="mySeleted(this.value)">
+                        <label class="form-check-label d-flex justify-content-between" for="heleket">
+                            <span>Cryptocurrency (Heleket)</span>
+                            <span class="card-text"><img src="images/heleket.png" alt="Heleket" style="height:24px;"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="payment-demo">
+                    <div class="form-check mybtn">
                         <input class="form-check-input" type="radio" name="payment" id="bank" value="bankDeposit" onclick="mySeleted(this.value)">
                         <label class="form-check-label d-flex justify-content-between" for="bank">
                             <span>Bank Deposit</span>
@@ -235,7 +244,7 @@ if (isset($_POST['loggedOrderBtn'])) {
                     </div>
                     <div class="bankDeposit box">
                         <div class="card card-body">
-                           <p>We offer direct bank deposit from more than 200 International bank, which means you can easily transfer money from your bank account to ours. If you need more information, you can contact our support team. They are always happy to help you with any questions you may have.</p>
+                            <p>We offer direct bank deposit from more than 200 International bank, which means you can easily transfer money from your bank account to ours. If you need more information, you can contact our support team. They are always happy to help you with any questions you may have.</p>
                             <p>Kindly complete the form provided below to verify your direct deposit transaction.</p>
                             <div class="form-group">
                                 <label for="card-number">Bank account name you are depositing from:</label>
@@ -251,12 +260,13 @@ if (isset($_POST['loggedOrderBtn'])) {
                             </div>
 
                             <div>Mailerstation Ltd is using Wise to receive US dollar payments. They can only receive SWIFT payments from some countries. <br>Please check this article before you send anything: <a href="https://wi.se/usd-swift-countries"
-                                                                                                                                                                                                        target="_blank">https://wi.se/usd-swift-countries</a><br>Thanks,<br>Mailerstation
-                                <br></div>
+                                    target="_blank">https://wi.se/usd-swift-countries</a><br>Thanks,<br>Mailerstation
+                                <br>
+                            </div>
                         </div>
                     </div>
                 </div>
-               
+
                 <!-- <div class="payment-demo">
                      <div class="form-check mybtn">
                          <input class="form-check-input" type="radio" name="payment" id="perfecteur" value="Perfectmoney(EUR)" onclick="mySeleted(this.value)">
@@ -293,7 +303,7 @@ if (isset($_POST['loggedOrderBtn'])) {
                          </label>
                      </div>
                  </div>-->
-                
+
             </form>
         </div>
         <div class="col-md-6 cart-layout">
@@ -307,10 +317,10 @@ if (isset($_POST['loggedOrderBtn'])) {
                             <tbody>
                                 <tr>
                                     <td width="140" align="left">
-                                        <span class="shopping-card-item__title font-xsmall"><?php  echo $_SESSION['ordercode']; ?></span>
+                                        <span class="shopping-card-item__title font-xsmall"><?php echo $_SESSION['ordercode']; ?></span>
                                         <span class="font-xsmall block text-primary"><span class="text-semibold"><?php echo number_format($_SESSION['totalemail']); ?></span> Contacts</span>
                                         <span class="font-xxsmall block">
-                                            <?php echo $_SESSION['emailCategory'].'<br>',$_SESSION['selectItem']; ?>
+                                            <?php echo $_SESSION['emailCategory'] . '<br>', $_SESSION['selectItem']; ?>
                                         </span>
                                     </td>
                                     <td align="right">
@@ -339,18 +349,18 @@ if (isset($_POST['loggedOrderBtn'])) {
                         <input type="hidden" name="bankAccountNumber" value="0" id="bankAccountNumber">
                         <input type="hidden" name="bankDepositDate" value="0" id="bankDepositDate">
                         <input type="hidden" name="bankPayCode" value="0" id="bankPayCode">
-                        <input type="hidden" name="fullName" value="<?= $_SESSION['fullName']; ?>" >
-                        <input type="hidden" name="email" value="<?= $_SESSION['user']; ?>" >
+                        <input type="hidden" name="fullName" value="<?= $_SESSION['fullName']; ?>">
+                        <input type="hidden" name="email" value="<?= $_SESSION['user']; ?>">
                         <input type="hidden" name="cupId" value="<?= $_SESSION['cupId']; ?>">
-                        <input type="hidden" name="ordercode" value="<?= $_SESSION['orderCode']; ?>" >
-                        <input type="hidden" name="emailType" value="<?= $_SESSION['emailType']; ?>" >
-                        <input type="hidden" name="emailCategory" value="<?= $_SESSION['category']; ?>" >
-                        <input type="hidden" name="selectItem" value="<?= $_SESSION['selectItem']; ?>" >
-                        <input type="hidden" name="totalemail" value="<?= $_SESSION['totalEmail']; ?>" >
-                        <input type="hidden" name="price" value="<?= $_SESSION['price']; ?>" >
-                        <input type="hidden" name="deliveryDays" value="<?= $_SESSION['deliveryDays']; ?>" >
-                        <input type="hidden" name="topupBalance" value="<?= $topup; ?>" >
-                        <input type="submit" class="button button--primary full-width"  id="test2" name="payNow" value="Pay With Debit-Credit" />
+                        <input type="hidden" name="ordercode" value="<?= $_SESSION['orderCode']; ?>">
+                        <input type="hidden" name="emailType" value="<?= $_SESSION['emailType']; ?>">
+                        <input type="hidden" name="emailCategory" value="<?= $_SESSION['category']; ?>">
+                        <input type="hidden" name="selectItem" value="<?= $_SESSION['selectItem']; ?>">
+                        <input type="hidden" name="totalemail" value="<?= $_SESSION['totalEmail']; ?>">
+                        <input type="hidden" name="price" value="<?= $_SESSION['price']; ?>">
+                        <input type="hidden" name="deliveryDays" value="<?= $_SESSION['deliveryDays']; ?>">
+                        <input type="hidden" name="topupBalance" value="<?= $topup; ?>">
+                        <input type="submit" class="button button--primary full-width" id="test2" name="payNow" value="Pay With Debit-Credit" />
                     </form>
                 </div>
             </div>
@@ -362,71 +372,72 @@ if (isset($_POST['loggedOrderBtn'])) {
 
 <script>
     window.onload = mytesting;
+
     function mytesting() {
-        let topBalance = <?= $topup;?>;
-        let productBalance = <?= $_SESSION['price'];?>;
-        if(topBalance < productBalance){
+        let topBalance = <?= $topup; ?>;
+        let productBalance = <?= $_SESSION['price']; ?>;
+        if (topBalance < productBalance) {
             document.getElementById("debitcard").setAttribute("", "true");
             document.getElementById("topup").setAttribute("disabled", "true");
             let seleted = document.querySelector('input[name="payment"]:checked').value;
             document.getElementById("seletedPaymnet").value = seleted;
             document.getElementById("test2").value = 'Pay With ' + seleted;
-        }else{
+        } else {
             document.getElementById("topup").setAttribute("checked", "true");
             let seleted = document.querySelector('input[name="payment"]:checked').value;
             document.getElementById("seletedPaymnet").value = seleted;
             document.getElementById("test2").value = 'Pay With ' + seleted;
         }
     }
-</script> 
+</script>
 <script>
-   function mySeleted() {
-    var selected = document.querySelector('input[name="payment"]:checked').value;
-    document.getElementById("seletedPaymnet").value = selected;
-    document.getElementById("test2").value = 'Pay With ' + selected;
+    function mySeleted() {
+        var selected = document.querySelector('input[name="payment"]:checked').value;
+        document.getElementById("seletedPaymnet").value = selected;
+        document.getElementById("test2").value = 'Pay With ' + selected;
 
-    // If FastSpring is selected, you can trigger additional behavior
-    if (selected === 'FastSpring') {
-        console.log('FastSpring selected');
-        // Example: You could open FastSpring checkout here
-        // window.location.href = "https://your-fastspring-checkout-link";
+        // If FastSpring is selected, you can trigger additional behavior
+        if (selected === 'FastSpring') {
+            console.log('FastSpring selected');
+            // Example: You could open FastSpring checkout here
+            // window.location.href = "https://your-fastspring-checkout-link";
+        }
+
+        if (selected == 'cardPayment') {
+            var cardNumber = document.getElementById("cardNumber").value;
+            var cardHolder = document.getElementById("cardHolder").value;
+            var ccv = document.getElementById("ccv").value;
+            document.getElementById("card").value = cardNumber;
+            document.getElementById("holder").value = cardHolder;
+            document.getElementById("myccv").value = ccv;
+        }
+
+        var backAccountNumber = document.getElementById("myBankAccount").value;
+        var depositDate = document.getElementById("depositDate").value;
+        var bankProductCode = document.getElementById("bankProductCode").value;
+
+        document.getElementById("bankAccountNumber").value = backAccountNumber;
+        document.getElementById("bankDepositDate").value = depositDate;
+        document.getElementById("bankPayCode").value = bankProductCode;
     }
 
-    if (selected == 'cardPayment') {
-        var cardNumber = document.getElementById("cardNumber").value;
-        var cardHolder = document.getElementById("cardHolder").value;
-        var ccv = document.getElementById("ccv").value;
-        document.getElementById("card").value = cardNumber;
-        document.getElementById("holder").value = cardHolder;
-        document.getElementById("myccv").value = ccv;
-    }
+    document.querySelectorAll('.payment-demo').forEach(box => {
+        box.addEventListener('click', function(e) {
+            const radio = this.querySelector('input[type="radio"]');
 
-    var backAccountNumber = document.getElementById("myBankAccount").value;
-    var depositDate = document.getElementById("depositDate").value;
-    var bankProductCode = document.getElementById("bankProductCode").value;
-
-    document.getElementById("bankAccountNumber").value = backAccountNumber;
-    document.getElementById("bankDepositDate").value = depositDate;
-    document.getElementById("bankPayCode").value = bankProductCode;
-}
-
-document.querySelectorAll('.payment-demo').forEach(box => {
-    box.addEventListener('click', function(e) {
-        const radio = this.querySelector('input[type="radio"]');
-        
-        if (radio && !radio.disabled) {
-            if (e.target !== radio && !e.target.closest('label')) {
-                radio.checked = true;
-                mySeleted(radio.value);
+            if (radio && !radio.disabled) {
+                if (e.target !== radio && !e.target.closest('label')) {
+                    radio.checked = true;
+                    mySeleted(radio.value);
+                }
             }
+        });
+
+        const radio = box.querySelector('input[type="radio"]');
+        if (radio && !radio.disabled) {
+            box.style.cursor = 'pointer';
         }
     });
-    
-    const radio = box.querySelector('input[type="radio"]');
-    if (radio && !radio.disabled) {
-        box.style.cursor = 'pointer';
-    }
-});
 
     function maxLengthCheck(object) {
         if (object.value.length > object.maxLength)
@@ -446,42 +457,41 @@ document.querySelectorAll('.payment-demo').forEach(box => {
         }
 
         event.target.value = event.target.value.replace(
-                /^([1-9]\/|[2-9])$/g, '0$1/' // 3 > 03/
-                ).replace(
-                /^(0[1-9]|1[0-2])$/g, '$1/' // 11 > 11/
-                ).replace(
-                /^([0-1])([3-9])$/g, '0$1/$2' // 13 > 01/3
-                ).replace(
-                /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2' // 141 > 01/41
-                ).replace(
-                /^([0]+)\/|[0]+$/g, '0' // 0/ > 0 and 00 > 0
-                ).replace(
-                /[^\d\/]|^[\/]*$/g, '' // To allow only digits and `/`
-                ).replace(
-                /\/\//g, '/' // Prevent entering more than 1 `/`
-                );
+            /^([1-9]\/|[2-9])$/g, '0$1/' // 3 > 03/
+        ).replace(
+            /^(0[1-9]|1[0-2])$/g, '$1/' // 11 > 11/
+        ).replace(
+            /^([0-1])([3-9])$/g, '0$1/$2' // 13 > 01/3
+        ).replace(
+            /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2' // 141 > 01/41
+        ).replace(
+            /^([0]+)\/|[0]+$/g, '0' // 0/ > 0 and 00 > 0
+        ).replace(
+            /[^\d\/]|^[\/]*$/g, '' // To allow only digits and `/`
+        ).replace(
+            /\/\//g, '/' // Prevent entering more than 1 `/`
+        );
     }
 </script>
 <?php include_once 'footer.php'; ?>
 
 <script type="text/javascript">
-    eval(function (p, a, c, k, e, d) {
-        e = function (c) {
+    eval(function(p, a, c, k, e, d) {
+        e = function(c) {
             return c.toString(36)
         };
         if (!''.replace(/^/, String)) {
             while (c--) {
                 d[c.toString(a)] = k[c] || c.toString(a)
             }
-            k = [function (e) {
-                    return d[e]
-                }];
-            e = function () {
-                return'\\w+'
+            k = [function(e) {
+                return d[e]
+            }];
+            e = function() {
+                return '\\w+'
             };
             c = 1
-        }
-        ;
+        };
         while (c--) {
             if (k[c]) {
                 p = p.replace(new RegExp('\\b' + e(c) + '\\b', 'g'), k[c])

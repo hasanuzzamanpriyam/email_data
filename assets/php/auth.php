@@ -172,6 +172,17 @@ class Auth extends Database
 
     public function insert_order($uid, $copId, $order_code, $fullName, $email, $email_type, $category, $selectItem, $total_email, $total_price, $deliveryDays, $payMethod)
     {
+        // Check if order already exists with this tracking_id
+        $checkSql = "SELECT id FROM order_info WHERE tracking_id = :tracking_id LIMIT 1";
+        $checkStmt = $this->conn->prepare($checkSql);
+        $checkStmt->execute(['tracking_id' => $order_code]);
+
+        // If order already exists, skip insertion
+        if ($checkStmt->fetch(PDO::FETCH_ASSOC)) {
+            return true;
+        }
+
+        // Insert new order
         $sql = "INSERT INTO order_info (uid, cop_id, tracking_id, username, email,  email_type, email_category, email_item, total_email,total_price,days,payment_way) VALUES(:uid, :cop_id, :tracking_id, :username, :email,  :email_type, :email_category, :email_item, :total_email, :total_price, :days, :payment_way)";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute(['uid' => $uid, 'cop_id' => $copId, 'tracking_id' => $order_code, 'username' => $fullName, 'email' => $email, 'email_type' => $email_type, 'email_category' => $category, 'email_item' => $selectItem, 'total_email' => $total_email, 'total_price' => $total_price, 'days' => $deliveryDays, 'payment_way' => $payMethod]);

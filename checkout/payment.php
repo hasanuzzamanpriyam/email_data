@@ -223,7 +223,67 @@ if (isset($_POST['selectedPayment'])) {
 
         </html>
 
+        <?php
+        exit();
+    } else if ($payMethod === 'Heleket') {
+        require_once 'heleket/heleket_config.php';
+        require_once 'heleket/HeleketClient.php';
+
+        $heleket = new HeleketClient(HELEKET_MERCHANT_ID, HELEKET_PAYMENT_API_KEY, HELEKET_API_URL);
+
+        $invoiceData = [
+            'amount' => number_format((float)$total_price, 2, '.', ''),
+            'currency' => 'USD',
+            'order_id' => $order_code,
+            'url_return' => $HELEKET_SUCCESS_URL,
+            'url_success' => $HELEKET_SUCCESS_URL,
+            'url_callback' => $HELEKET_CALLBACK_URL,
+            'lifetime' => 3600,
+            'subtract' => 100,
+            'accuracy_payment_percent' => 2,
+            'payer_email' => $email
+        ];
+
+        $result = $heleket->createInvoice($invoiceData);
+
+        if ($result['success'] && isset($result['data']['url'])) {
+            $sql = "UPDATE order_info SET 
+                heleket_uuid = ?, 
+                heleket_status = 'Pending'
+                WHERE tracking_id = ?";
+
+            $stmt = $user->conn->prepare($sql);
+            $stmt->execute([
+                $result['data']['uuid'],
+                $order_code
+            ]);
+        ?>
+            <script>
+                window.location.href = "<?php echo $result['data']['url']; ?>";
+            </script>
     <?php
+        } else {
+            // Detailed error information
+            $errorMsg = $result['error'] ?? 'Failed to create Heleket invoice';
+            $errorCode = isset($result['code']) ? ' (Code: ' . $result['code'] . ')' : '';
+            $fullResponse = isset($result['response']) ? json_encode($result['response'], JSON_PRETTY_PRINT) : 'No details';
+            $debugInfo = isset($result['debug']) ? json_encode($result['debug'], JSON_PRETTY_PRINT) : 'No debug info';
+
+            echo '<div style="padding: 20px; font-family: monospace;">';
+            echo '<h3>Heleket API Error</h3>';
+            echo '<p><strong>Error:</strong> ' . htmlspecialchars($errorMsg) . $errorCode . '</p>';
+            echo '<p><strong>Full Response:</strong></p>';
+            echo '<pre>' . htmlspecialchars($fullResponse) . '</pre>';
+
+            if (isset($result['debug'])) {
+                echo '<hr>';
+                echo '<h4>Debug Information:</h4>';
+                echo '<pre>' . htmlspecialchars($debugInfo) . '</pre>';
+            }
+
+            echo '<button onclick="history.back()">Go Back</button>';
+            echo '</div>';
+        }
         exit();
     } else {
         $productPrice = $_SESSION['price'];
