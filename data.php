@@ -57,7 +57,7 @@ if (isset($_GET['title'])) {
                     </li>
                     <li class="list__item list--tertiary__item--no-pad">
                         <div class="sidebar-nav">
-                            <a class="sidebar-nav__item" href="#">New feature launches on EmailBigData - web technologies</a>
+                            <a class="sidebar-nav__item" href="#">New feature launches on <?= $siteName; ?> - web technologies</a>
                             <a class="sidebar-nav__item" href="#">Cold Emailing - The most effective marketing channel</a>
                             <a class="sidebar-nav__item" href="#">3 Essentials to targeting and prospecting b2b leads effectively</a>
                             <a class="sidebar-nav__item" href="<?= $siteUrl; ?>blog">Need leads? 5 factors to consider when you buy leads online</a>

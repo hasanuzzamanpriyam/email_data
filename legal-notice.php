@@ -20,7 +20,7 @@
             <div class="col-md-8">
                 <div class="row gap-bottom-medium">
                     <div class="col-sm-6">
-                        <h4 class="secondary-title font-medium clear-gap-bottom">EmailBigData</h4>
+                        <h4 class="secondary-title font-medium clear-gap-bottom"><?= $siteName; ?></h4>
                         <h6 class="tertiary-title clear-gap-top font-xxsmall">United Kingdom</h6>
                         <address>
                             27 Old Gloucester Street.<br>
@@ -36,7 +36,7 @@
                 <h5 class="secondary-title font-medium">Copyright</h5>
             </div>
             <div class="col-md-8">
-                <p>This website and its content is copyright of EmailBigData.com - © 2022. All rights reserved.</p>
+                <p>This website and its content is copyright of <?= $siteName; ?> - © 2022. All rights reserved.</p>
                 <p>Any redistribution or reproduction of part or all of the contents in any form is prohibited
                     including the following:</p>
                 <ul>
@@ -58,7 +58,7 @@
                     services of others. A trademark assures consumers of consistent quality with respect to
                     those goods or services and aids in their promotion.</p>
                 <p>Unless outlined below as permitted use, you may not use any trademark asset owned by
-                    EmailBigData.com without a license or other permission granted under contract. If you have
+                    <?= $siteName; ?> without a license or other permission granted under contract. If you have
                     questions about the trademark guidelines herein, please contact us.</p>
             </div>
         </div>
@@ -68,11 +68,11 @@
             </div>
             <div class="col-md-8">
                 <p>The information contained in this website is for information purposes only. The information
-                    is provided by EmailBigData.com.</p>
+                    is provided by <?= $siteName; ?>.</p>
                 <p>In no event will we be liable for any loss or damage including without limitation, indirect or
                     consequential loss or damage, or any loss or damage whatsoever arising from loss of data
                     or profits arising out of, or in connection with, the use of this website.</p>
-                <p>Every effort is made to keep the website up and running smoothly. However, EmailBigData.com
+                <p>Every effort is made to keep the website up and running smoothly. However, <?= $siteName; ?>
                     takes no responsibility for, and will not be liable for, the website being temporarily
                     unavailable due to technical issues beyond our control.</p>
             </div>

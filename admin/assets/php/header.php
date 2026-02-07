@@ -9,6 +9,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
 
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
+$siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
 $logoPath = !empty($websiteSettings['logo_path']) ? $websiteSettings['logo_path'] : 'bundles/bydhome/img/bookyourdata-logo.png';
 $faviconPath = !empty($websiteSettings['favicon_path']) ? $websiteSettings['favicon_path'] : 'web-logo.ico';
 
@@ -30,7 +31,7 @@ $faviconPath = !empty($websiteSettings['favicon_path']) ? $websiteSettings['favi
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link rel="stylesheet" href="assets/css/style.css?v=2">
 
-    <title><?= ucfirst(basename($_SERVER['PHP_SELF'], '.php')); ?> | Email Big Data</title>
+    <title><?= ucfirst(basename($_SERVER['PHP_SELF'], '.php')); ?> | <?= $siteName; ?></title>
     <link rel="icon" type="image/x-icon" href="<?= $site_url . $faviconPath; ?>" />
 </head>
 

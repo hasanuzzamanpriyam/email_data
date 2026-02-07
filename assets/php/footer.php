@@ -103,7 +103,7 @@ if ($name === 'index') {
                     </div>
                 </div>
                 <div class="col-md-3 gap-bottom-tld">
-                    <div class="text-uppercase">EmailBigData</div>
+                    <div class="text-uppercase"><?= $siteName; ?></div>
                     <a href="<?php echo $seoUrl; ?>contact">Send Message</a>
                     <address>
                         <p><strong>Washington:</strong> 1348 Florida Ave. NW, Washington, DC, 20009, US</p>
@@ -152,13 +152,13 @@ if ($name === 'index') {
         <div class="container font-small">
             <ul class="list list--primary footer__bottom-links">
                 <li class="list__item">Copyright &copy; 2021
-                    EmailBigData - All Rights Reserved</li>
+                    <?= $siteName; ?> - All Rights Reserved</li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="terms-of-use">Terms of Use</a></li>
+                        href="<?= $seoUrl; ?>terms-of-use">Terms of Use</a></li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="privacy-policy">Privacy Policy</a></li>
+                        href="<?= $seoUrl; ?>privacy-policy">Privacy Policy</a></li>
                 <li class="list__item"><a class="link-quaternary"
-                        href="legal-notice">Legal Notice</a></li>
+                        href="<?= $seoUrl; ?>legal-notice">Legal Notice</a></li>
             </ul>
             <div class="footer__social-menu">
                 <a href="" target="_blank" rel="noopener noreferrer nofollow">

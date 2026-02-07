@@ -11,7 +11,7 @@ $settings = new Settings();
 $currentSettings = $settings->getSettings();
 $currentSiteUrl = $currentSettings['siteurl'] ?? '';
 $currentAdminEmail = $currentSettings['adminemail'] ?? '';
-$currentSiteName = $currentSettings['site_name'] ?? 'Email Big Data';
+$currentSiteName = $currentSettings['site_name'] ?? $websiteSettings['site_name'] ?? 'Email Big Data';
 $currentLogoPath = $currentSettings['logo_path'] ?? 'bundles/bydhome/img/bookyourdata-logo.svg';
 $currentFaviconPath = $currentSettings['favicon_path'] ?? 'web-logo.ico';
 
@@ -133,7 +133,7 @@ if (isset($_POST['websitesettings'])) {
                 <div class="col-md-6 mb-4">
                     <label for="site_name">Site Name</label>
                     <input type="text" class="form-control" id="site_name" name="site_name"
-                        placeholder="Ex: Email Big Data"
+                        placeholder="Ex: <?= htmlspecialchars($websiteSettings['site_name'] ?? 'Email Big Data'); ?>"
                         value="<?php echo htmlspecialchars($currentSiteName); ?>" required>
                 </div>
                 <div class="col-md-6 mb-4">

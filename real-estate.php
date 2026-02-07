@@ -27,7 +27,7 @@
                         real estate emails, your product will be sold in
                         no time! Choose your location to start
                         networking with real estate leads for sale from
-                        EmailBigData.com.</p>
+                        <?= $siteName; ?>.</p>
                 </div>
             </div>
         </div>

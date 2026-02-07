@@ -27,7 +27,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -44,7 +44,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -59,7 +59,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -74,14 +74,14 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
                             <a class="link-tertiary" href="#">How to Buy Email Lists for Marketing Campaigns</a>
                         </h4>
                         <small class="iconic-content__subtitle">Articles</small>
-                        <p class="gap-bottom-small">Find out the secret of how to get email lists for marketing campaigns: It's surprisingly easy! Use EmailBigData.com to pull the most important contacts you need, including full, direct email addresses...</p>
+                        <p class="gap-bottom-small">Find out the secret of how to get email lists for marketing campaigns: It's surprisingly easy! Use <?= $siteName; ?> to pull the most important contacts you need, including full, direct email addresses...</p>
                         <a class="button button--senary" href="#">Read More <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -104,7 +104,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -119,7 +119,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -134,7 +134,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -149,7 +149,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">
@@ -165,7 +165,7 @@
             <li class="list__item">
                 <div class="iconic-content">
                     <div class="iconic-content__icon-area">
-                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="EmailBigData Resouce picture">
+                        <img width="80" class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/covers/main-cover.jpg" alt="<?= $siteName; ?> Resouce picture">
                     </div>
                     <div class="iconic-content__content iconic-content__content--padded-left">
                         <h4 class="iconic-content__title iconic-content__title--primary">

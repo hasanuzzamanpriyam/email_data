@@ -4,6 +4,7 @@ include_once '../assets/php/Settings.php'; // Ensure Settings is loaded
 
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
+$siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
 $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/bookyourdata-logo.svg';
 $faviconPath = $websiteSettings['favicon_path'] ?? 'web-logo.ico';
@@ -293,7 +294,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="95"
                          src="' . $siteUrl . $logoPath . '"
-                         alt="Email Big Data Logo" />
+                         alt="<?= $siteName; ?> Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">
@@ -505,7 +506,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="95"
                          src="' . $siteUrl . $logoPath . '"
-                         alt="Email Big Data Logo" />
+                         alt="<?= $siteName; ?> Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
                     <ul class="main-nav__list nav nav--primary">

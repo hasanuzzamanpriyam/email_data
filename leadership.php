@@ -17,7 +17,7 @@
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face7.png" alt="EmailBigData Leadershippicture">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face7.png" alt="<?= $siteName; ?> Leadershippicture">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -42,13 +42,13 @@
                     <h6 class="person__title secondary-title">
                         <a href="#" class="link-tertiary">Thomas Henry</a>
                     </h6>
-                    <span class="font-xsmall">CEO Of EmailBigData</span>
+                    <span class="font-xsmall">CEO Of <?= $siteName; ?></span>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face6.png" alt="EmailBigData Leadership picture">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face6.png" alt="<?= $siteName; ?> Leadership picture">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -79,7 +79,7 @@
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face4.png" alt="EmailBigData Leadership picture">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face4.png" alt="<?= $siteName; ?> Leadership picture">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -110,7 +110,7 @@
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face5.png" alt="EmailBigData Leadership picture">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face5.png" alt="<?= $siteName; ?> Leadership picture">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">

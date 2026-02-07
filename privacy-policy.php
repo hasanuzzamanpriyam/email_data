@@ -17,7 +17,7 @@
             <div class="col-md-12">
                 <h4>Privacy Policy and Data Processing Principles</h4>
                 <p>
-                    As EmailBigData <b>(“The Company”)</b>, the protection and security of your personal data are at paramount
+                    As <?= $siteName; ?> <b>(“The Company”)</b>, the protection and security of your personal data are at paramount
                     important to us.
                 </p>
                 <p>

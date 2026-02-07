@@ -7,6 +7,7 @@ require_once 'stripe/stripe_config.php';
 
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
+$siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
 $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $user = new Auth();
 
@@ -83,7 +84,7 @@ if (isset($_POST['selectedPayment'])) {
     <?php } else if ($payMethod === 'Perfectmoney(USD)') { ?>
         <form action="https://perfectmoney.com/api/step1.asp" method="post">
             <input type="hidden" name="PAYEE_ACCOUNT" value="U28711500">
-            <input type="hidden" name="PAYEE_NAME" value="Email Big Data">
+            <input type="hidden" name="PAYEE_NAME" value="<?= $siteName; ?>">
             <input type="hidden" name="PAYMENT_ID" value="<?php echo $_SESSION['ordercode']; ?>">
             <input type="hidden" name="PAYMENT_AMOUNT" value="<?= $_SESSION['price']; ?>">
             <input type="hidden" name="PAYMENT_UNITS" value="USD">
@@ -94,7 +95,7 @@ if (isset($_POST['selectedPayment'])) {
 
     <?php } else if ($payMethod === 'Bitcoin') {
         $currency = "USD";
-        $item_name = 'Email Big Data | Order Id: ' . $_SESSION['ordercode'];
+        $item_name = $siteName . ' | Order Id: ' . $_SESSION['ordercode'];
         $item_description = 'Payment for ' . $_SESSION['selectItem'] . ' ' . number_format($_SESSION['totalemail']) . ' Contacts';
     ?>
         <form action="coinbase/coin-payment" method="post">

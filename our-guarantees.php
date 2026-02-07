@@ -23,7 +23,7 @@
                     sources, but because contact info can change so much and so quickly, it is impossible to reach
                     100% deliverability in this industry. Our aim is to provide you the most up-to-date data. Right now,
                     there isn’t a single company in the world that will deliver such qualified data with lower
-                    prices than EmailBigData.com — we are perfectly sure about that!</p>
+                    prices than <?= $siteName; ?> — we are perfectly sure about that!</p>
             </div>
             <div class="col-md-4 pad-top-small-tld text-center-tpd">
                 <i class="icon icon-arrows text-primary icon-large"></i>

@@ -208,7 +208,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
             "name": "<?= $siteName; ?>",
             "author": {
                 "@type": "Person",
-                "name": "Email Big Data"
+                "name": "<?= $siteName; ?>"
             },
             "datePublished": "2021-03-10",
             "description": "Buy email lists from mailer station at a cheaper rate",

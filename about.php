@@ -12,7 +12,7 @@ include_once 'assets/php/header.php';
                         <span class="breadbrumb__item">About Us</span>
                     </div>
                     <p>
-                        EmailBigData.com’s accurate mailing lists and online contact list-builder tool bring
+                        <?= $siteName; ?>'s accurate mailing lists and online contact list-builder tool bring
                         innovation to the direct marketing industry. With a few easy clicks, you can find and
                         download premium contact information from a large range of industries and levels.
                         Getting leads has never been this easy and affordable!
@@ -28,7 +28,7 @@ include_once 'assets/php/header.php';
         <div class="row gap-bottom">
             <div class="col-md-6">
                 <p>
-                    EmailBigData.com is a game-changer in the direct marketing industry. With our very own contact
+                    <?= $siteName; ?> is a game-changer in direct marketing industry. With our very own contact
                     list-builder tool, an industry first, you can search, order, and download an email database with
                     just a few easy clicks and reach your targeted leads. We offer our services at extremely affordable
                     pricing and have the best price-to-quality ratio in the industry. Our clients usually use
@@ -48,7 +48,7 @@ include_once 'assets/php/header.php';
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face7.png" alt="EmailBigData">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face7.png" alt="<?= $siteName; ?>">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -73,13 +73,13 @@ include_once 'assets/php/header.php';
                     <h6 class="person__title secondary-title">
                         <a href="#" class="link-tertiary">Thomas Henry</a>
                     </h6>
-                    <span class="font-xsmall">CEO Of EmailBigData</span>
+                    <span class="font-xsmall">CEO Of <?= $siteName; ?></span>
                 </div>
             </div>
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face6.png" alt="EmailBigData">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face6.png" alt="<?= $siteName; ?>">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -110,7 +110,7 @@ include_once 'assets/php/header.php';
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face4.png" alt="EmailBigData">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face4.png" alt="<?= $siteName; ?>">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -141,7 +141,7 @@ include_once 'assets/php/header.php';
             <div class="col-md-3 col-sm-4 gap-bottom-large text-center">
                 <div class="person">
                     <figure class="person__figure">
-                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face5.png" alt="EmailBigData">
+                        <img class="person__img" src="<?= $siteUrl; ?>bundles/bydhome/img/face/face5.png" alt="<?= $siteName; ?>">
                         <figcaption class="person__overlayer">
                             <div class="person__link-group">
                                 <a href="#" target="_blank" class="person__link gap-bottom-xsmall">
@@ -209,12 +209,12 @@ include_once 'assets/php/header.php';
         <div class="row">
             <div class="col-md-3">
                 <h3 class="primary-title"><a class="link-tertiary" href="#">Our Guarantees</a></h3>
-                <p>At EmailBigData.com, we don't just say that we produce great, reliable data – we guarantee it! Learn more about our 95% deliverability guarantee, our bounce-back guarantee, and our 100% satisfaction guarantee here.</p>
+                <p>At <?= $siteName; ?>, we don't just say that we produce great, reliable data – we guarantee it! Learn more about our 95% deliverability guarantee, our bounce-back guarantee, and our 100% satisfaction guarantee here.</p>
                 <a class="button button--tertiary" href="<?= $siteUrl; ?>our-guarantees">See Our Guarantees <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
             </div>
             <div class="col-md-3 pad-top-small-tld">
                 <h3 class="primary-title"><a class="link-tertiary" href="#">Press Room</a></h3>
-                <p>Find the latest news about what's happening at EmailBigData.com! We continue to innovate and push the envelop in new and exciting ways every single day, but here you can find some of our favorite achievements.</p>
+                <p>Find the latest news about what's happening at <?= $siteName; ?>! We continue to innovate and push the envelop in new and exciting ways every single day, but here you can find some of our favorite achievements.</p>
                 <a class="button button--tertiary" href="#">Visit Press Room <i class="icon icon-arrow-forward button--tertiary__icon"></i></a>
             </div>
             <div class="col-md-3 pad-top-small-tld">
@@ -269,7 +269,7 @@ include_once 'assets/php/header.php';
                     Customer Success Team
                 </p>
                 <p class="gap-bottom-xsmall">
-                    <img src="<?= $siteUrl; ?>bundles/bydhome/img/face/face1.png" style="width: 128px;" alt="EmailBigData"> <br />
+                    <img src="<?= $siteUrl; ?>bundles/bydhome/img/face/face1.png" style="width: 128px;" alt="<?= $siteName; ?>"> <br />
                 </p>
                 <p class="gap-bottom">
                     Robert Deldir

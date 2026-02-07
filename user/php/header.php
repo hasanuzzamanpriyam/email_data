@@ -4,6 +4,7 @@
 
     $settingsObj = new Settings();
     $websiteSettings = $settingsObj->getSettings();
+    $siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
     $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
     $logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/bookyourdata-logo.svg';
     $faviconPath = $websiteSettings['favicon_path'] ?? 'web-logo.ico';
@@ -21,7 +22,7 @@
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
     <link rel="icon" type="image/x-icon" href="<?= $siteUrl . $faviconPath; ?>" />
-    <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | User's of Email Big Data</title>
+    <title><?= ucfirst(basename($_SERVER['PHP_SELF'],'.php'));?> | User's of <?= $siteName; ?></title>
 
     <style type="text/css">
         @import url('https://fonts.googleapis.com/css2?family=Maven+Pro:wght@400;500;600;700;800;900&display=swap');
@@ -136,7 +137,7 @@
         <a href="../" class="logo-link">
             <img class="logo" width="170" height="95"
                  src="<?= $siteUrl . $logoPath; ?>"
-                 alt="Email Big Data Logo" />
+                 alt="<?= $siteName; ?> Logo" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
           <span class="navbar-toggler-icon"></span>

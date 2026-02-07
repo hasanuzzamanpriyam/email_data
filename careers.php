@@ -10,7 +10,7 @@
                         <a href="<?= $siteUrl; ?>" class="breadbrumb__item">Home</a>
                         <span class="breadbrumb__item">Career</span>
                     </div>
-                    <p>Working at EmailBigData.com means changing the industry of direct marketing. We want
+                    <p>Working at <?= $siteName; ?> means changing the industry of direct marketing. We want
                         creative, problem-solving, dedicated minds that want to contribute to big projects and
                         make a real impact. If you have such a mind, you might be a good fit for our team.</p>
                 </div>
@@ -23,7 +23,7 @@
         <div class="row">
             <div class="col-md-4">
                 <h3 class="primary-title">Open Positions</h3>
-                <p>At EmailBigData.com, there is a job for every skilled person. We value the very best
+                <p>At <?= $siteName; ?>, there is a job for every skilled person. We value the very best
                     ideas – come and join us!</p>
             </div>
             <div class="col-md-8">

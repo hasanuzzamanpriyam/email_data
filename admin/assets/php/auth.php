@@ -1,9 +1,19 @@
 <?php
 require_once dirname(dirname(dirname(__DIR__))) . '/assets/php/config.php';
+require_once dirname(dirname(dirname(__DIR__))) . '/assets/php/Settings.php';
 require_once __DIR__ . '/PHPMailer/PHPMailerAutoload.php';
 
 class Auth extends Database
 {
+    private $siteName;
+    
+    public function __construct()
+    {
+        parent::__construct();
+        $settingsObj = new Settings();
+        $websiteSettings = $settingsObj->getSettings();
+        $this->siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
+    }
 
     public function inert_email($title, $category, $total_email, $short_description, $description, $price)
     {
@@ -319,10 +329,10 @@ class Auth extends Database
                 )
             );
 
-            $mail->setFrom('support@emailbigdata.com', 'EmailBigData Support');
+            $mail->setFrom('support@emailbigdata.com', $this->siteName . ' Support');
             $mail->addAddress($to);
             $mail->isHTML(true);
-            $mail->Subject = 'Reply to your feedback - EmailBigData';
+            $mail->Subject = 'Reply to your feedback - ' . $this->siteName;
             $mail->Body = "
                 <h3>Reply to your feedback</h3>
                 <p>Dear User,</p>
@@ -330,7 +340,7 @@ class Auth extends Database
                 <p>" . nl2br(htmlspecialchars($message)) . "</p>
                 <br>
                 <p>Regards,</p>
-                <p>EmailBigData Team</p>
+                <p>" . $this->siteName . " Team</p>
             ";
 
             if ($mail->send()) {
@@ -535,9 +545,9 @@ class Auth extends Database
                 )
             );
 
-            $mail->setFrom('support@emailbigdata.com', 'EmailBigData Support');
+            $mail->setFrom('support@emailbigdata.com', $this->siteName . ' Support');
             $mail->addAddress($to);
-            $mail->addAttachment($file); // Add the uploaded file as attachment
+            $mail->addAttachment($file); // Add // uploaded file as attachment
 
             $mail->isHTML(true);
             $mail->Subject = 'Your Order Delivery - ' . $title;
@@ -550,7 +560,7 @@ class Auth extends Database
                 <p>If you have any issues, feel free to contact us.</p>
                 <br>
                 <p>Regards,</p>
-                <p>EmailBigData Team</p>
+                <p>" . $this->siteName . " Team</p>
             ";
             $mail->Body = $bodyContent;
 

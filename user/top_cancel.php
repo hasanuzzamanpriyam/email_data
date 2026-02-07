@@ -4,6 +4,7 @@ require_once 'php/auth.php';
 require_once '../assets/php/Settings.php';
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
+$siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
 $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/mailerstation-logo.png';
 $user = new Auth();
@@ -53,7 +54,7 @@ $user = new Auth();
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
                                     <a class="o_text-primary" href="<?=$siteUrl?>" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="<?=$siteUrl . $logoPath?>" width="136" height="36" alt="Email Big Data" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                        <img src="<?=$siteUrl . $logoPath?>" width="136" height="36" alt="<?=$siteName?>" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
@@ -168,7 +169,7 @@ $user = new Auth();
 
                                 <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 8px;">©2021. All rights reserved.</p>
                                 <p class="o_mb-xs" style="margin-top: 0px;margin-bottom: 0px;">
-                                    Email Big Data
+                                    <?=$siteName?>
                                 </p>
 
                             </div>

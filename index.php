@@ -20,7 +20,7 @@ IN SECONDS</h1>
                 </div>
               <div class="col-md-4 col-lg-6">
                  <p class="text-white">
-                        EmailBigData provides an email database, business email 
+                        <?= $siteName; ?> provides an email database, business email 
                         list, forex email list, investor email list, real state 
                         email list, office 365 email list, a customer email database, 
                         direct marketing list, email listing, & sales leads. , 
@@ -29,7 +29,7 @@ IN SECONDS</h1>
                    website, revenue, etc.,. <br/>
                        Our B2B and B2C leads are Opt-in and 
                         consent basis. We don't sell rubbish leads because it wastes 
-                        your money and time. EmailBigData.com Database guarantees 
+                        your money and time. <?= $siteName; ?> Database guarantees 
                         100% client satisfaction. <br/>That's the reason why we are the 
                         most effective Lead supplier company in the entire world. 
                         You can purchase a mailing list out of here without any issue.
@@ -118,7 +118,7 @@ IN SECONDS</h1>
         <div class="section-flex__container u-color-black">
             <div class="section-flex__col-half
                  section-flex__col-half--pad-right-medium align-top">
-                <p class="clear-gap-bottom">At EmailBigData.com, we're
+                 <p class="clear-gap-bottom">At <?= $siteName; ?>, we're
                     all about bringing the right people together, so
                     whether
                     you need to pull a business, executive, or physician
@@ -160,7 +160,7 @@ IN SECONDS</h1>
                     an email database, and a simple directory of highly
                     qualified business professionals in any industry.
                     Buying direct marketing information from
-                    EmailBigData.io is simple. You'll get an
+                    <?= $siteName; ?> is simple. You'll get an
                     all-in-one, premium
                     database full of targeted sales leads that can be
                     marketed to right away by phone or computer.
@@ -189,7 +189,7 @@ IN SECONDS</h1>
                 <h3 class="clear-gap-top primary-title">Coronavirus and
                     Buying Email List</h3>
                 <p>
-                    Throughout COVID-19, EmailBigData has been helping
+                    Throughout COVID-19, <?= $siteName; ?> has been helping
                     our customers stay on track for their growth goals
                     by providing custom-built data lists backed by a 95%
                     deliverability guarantee. Your best email leads are
@@ -319,7 +319,7 @@ IN SECONDS</h1>
                             <h3 class="iconic-content__title text-center">Direct
                                 Contacts Only</h3>
                             <p>Don't bother contacting generics (such as
-                               <a href="mailto:support@EmailBigData.com" target="_blank"><b></b>email:</b></a>
+                               <a href="mailto:support@emailbigdata.com" target="_blank"><b></b>email:</b></a>
                                 With our lists, you can email real
                                 people.</p>
                         </div>
@@ -363,7 +363,7 @@ IN SECONDS</h1>
                     <h4 class="secondary-title text-white">Closing New
                         Deals Is Tough, Right?</h4>
                     <p>
-                        EmailBigData.com gives you the information you
+                        <?= $siteName; ?> gives you the information you
                         need to reach decision-makers in your target
                         market,
                         so you can connect directly with the right
