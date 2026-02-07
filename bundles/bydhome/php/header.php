@@ -1,3 +1,11 @@
+<?php
+require_once '../../assets/php/Settings.php';
+
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
+$faviconPath = $websiteSettings['favicon_path'] ?? 'web-logo.ico';
+?>
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
@@ -26,7 +34,7 @@
               95% email deliverability! We have human-verified mailing lists for
               sale for any industry or position. Buy now and contact better leads
               today!" />
-        <link rel="icon" type="image/x-icon" href="./../web-logo.ico" />
+        <link rel="icon" type="image/x-icon" href="<?= $siteUrl . $faviconPath; ?>" />
         <link rel=stylesheet href="./../bundles/bydhome/css/main.min3860.css">
          <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y70XNYB5YT"></script>

@@ -5,6 +5,8 @@ include_once '../assets/php/Settings.php'; // Ensure Settings is loaded
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
 $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
+$logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/bookyourdata-logo.svg';
+$faviconPath = $websiteSettings['favicon_path'] ?? 'web-logo.ico';
 
 $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
@@ -37,7 +39,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
               95% email deliverability! We have human-verified mailing lists for
               sale for any industry or position. Buy now and contact better leads
               today!" />
-    <link rel="icon" type="image/x-icon" href="<?= $siteUrl; ?>web-logo.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= $siteUrl . $faviconPath; ?>" />
     <link rel=stylesheet href="<?= $siteUrl; ?>bundles/bydhome/css/main.min3860.css">
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y70XNYB5YT"></script>
@@ -283,14 +285,14 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
 </head>
 
 <body><?php
-        if (isset($_SESSION['user'])) {
+         if (isset($_SESSION['user'])) {
             echo '<header class="header header--fixed">
             <div class="header__inner">
                 <button id="mobileMenuOpenBtn" class="mobile-menu-toggle-btn"
                         type="button"></button>
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="95"
-                         src="' . $siteUrl . 'bundles/bydhome/img/bookyourdata-logo.svg"
+                         src="' . $siteUrl . $logoPath . '"
                          alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
@@ -502,7 +504,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "htt
                         type="button"></button>
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="95"
-                         src="' . $siteUrl . 'bundles/bydhome/img/bookyourdata-logo.svg"
+                         src="' . $siteUrl . $logoPath . '"
                          alt="Email Big Data Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">

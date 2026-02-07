@@ -495,7 +495,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
                         type="button"></button>
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="100"
-                         src="' . $siteUrl . 'bundles/bydhome/img/bookyourdata-logo.svg"
+                         src="' . $siteUrl . $logoPath . '"
                          alt="' . $siteName . ' Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">
@@ -708,7 +708,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
                         type="button"></button>
                 <a href="' . $siteUrl . '" class="logo-link">
                     <img class="logo" width="170" height="100"
-                         src="' . $siteUrl . 'bundles/bydhome/img/bookyourdata-logo.svg"
+                         src="' . $siteUrl . $logoPath . '"
                          alt="' . $siteName . ' Logo" />
                 </a>
                 <nav id="main-nav" class="main-nav">

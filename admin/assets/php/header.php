@@ -1,9 +1,16 @@
 <?php
-require_once 'data/session.php';
+require_once __DIR__ . '/data/session.php';
+require_once __DIR__ . '/../../../assets/php/Settings.php';
+
 $sitesettings = $cuser->get_website_settings();
-$site_url = $sitesettings['siteurl'];
+$site_url = rtrim($sitesettings['siteurl'], '/') . '/';
 $admin_email = $sitesettings['adminemail'];
 $page = basename($_SERVER['PHP_SELF'], '.php');
+
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$logoPath = !empty($websiteSettings['logo_path']) ? $websiteSettings['logo_path'] : 'bundles/bydhome/img/bookyourdata-logo.png';
+$faviconPath = !empty($websiteSettings['favicon_path']) ? $websiteSettings['favicon_path'] : 'web-logo.ico';
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +31,7 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="stylesheet" href="assets/css/style.css?v=2">
 
     <title><?= ucfirst(basename($_SERVER['PHP_SELF'], '.php')); ?> | Email Big Data</title>
-    <link rel="icon" type="image/x-icon" href="../web-logo.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= $site_url . $faviconPath; ?>" />
 </head>
 
 <body>
@@ -32,7 +39,8 @@ $page = basename($_SERVER['PHP_SELF'], '.php');
     <div class="sidebar">
         <div class="sidebar-header">
             <h3 class="band" style="margin: 0;">
-                <img src="../bundles/bydhome/img/bookyourdata-logo.png" alt="Logo" style="max-height: 45px; max-width: 100%; object-fit: contain;">
+                <img src="<?= $site_url . $logoPath; ?>" alt="Logo"
+                    style="max-height: 45px; max-width: 100%; object-fit: contain;">
             </h3>
             <label for="sidebar-toggle" class="ti-menu-alt"></label>
         </div>

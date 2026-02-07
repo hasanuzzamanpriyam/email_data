@@ -1,6 +1,11 @@
 <?php
 include_once 'assets/php/header.php';
 require_once 'assets/php/auth.php';
+require_once 'assets/php/Settings.php';
+
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/mailerstation-logo.png';
 $user = new Auth();
 ?>
 <div class="page-title">
@@ -76,8 +81,8 @@ $user = new Auth();
                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                    <a class="o_text-primary" href="https://mailerstation.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="https://mailerstation.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                    <a class="o_text-primary" href="<?= $siteUrl; ?>" style="text-decoration: none;outline: none;color: #126de5;">
+                                        <img src="<?= $siteUrl . $logoPath; ?>" width="136" height="36" alt="Mailerstation" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
