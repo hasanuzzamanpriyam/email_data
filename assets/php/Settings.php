@@ -19,7 +19,7 @@ class Settings extends Database
                     'site_name' => 'Email Big Data',
                     'logo_path' => 'bundles/bydhome/img/bookyourdata-logo.svg',
                     'favicon_path' => 'web-logo.ico',
-                    'siteurl' => 'http://localhost/emailbigdata.com/',
+                    'siteurl' => self::getDynamicSiteUrl(),
                     'adminemail' => 'admin@emailbigdata.com'
                 ];
             }
@@ -55,5 +55,17 @@ class Settings extends Database
         } catch (PDOException $e) {
             return false;
         }
+    }
+
+    /**
+     * Get dynamic site URL from server environment
+     */
+    public static function getDynamicSiteUrl()
+    {
+        $protocol = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? "https" : "http";
+        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+        $baseUrl = $protocol . "://" . $host . "/";
+        
+        return rtrim($baseUrl, '/') . '/';
     }
 }

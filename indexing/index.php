@@ -308,13 +308,8 @@ function send_data()
     </main>
     <?php
     $siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/';
-    // If working in subdirectory on localhost, user might need 'emailbigdata.com/' appended, but let's try root relative
-    // Actually header.php uses fixed 'http://localhost/emailbigdata.com/'
-    // I will use a relative path logic or hardcode for now based on header.php to be safe
-    // But better to just include it as is.
-
-    // Changing siteUrl logic to match project structure if possible, typically relative paths for assets are safer but the footer uses absolute $siteUrl.
-    $siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
+    // If working in subdirectory on localhost, user might need appended path, but let's try root relative
+    $siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/';
     include_once '../assets/php/footer.php';
     ?>
 

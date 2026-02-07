@@ -4,6 +4,11 @@ require_once __DIR__ . "/vendor/autoload.php";
 use CoinbaseCommerce\ApiClient;
 use CoinbaseCommerce\Resources\Charge;
 
+require_once '../../assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
+
 ApiClient::init("14e0ef49-23f9-4a2e-b48c-84f6bc060b68");
 
 if (isset($_POST['item_amount'])) {
@@ -21,8 +26,8 @@ if (isset($_POST['item_amount'])) {
             'currency' => $currency
         ],
         'pricing_type' => 'fixed_price',
-        'redirect_url' => 'http://localhost/emailbigdata.com/success',
-        'cancel_url'  => 'http://localhost/emailbigdata.com/cancel'
+        'redirect_url' => $siteUrl . 'success',
+        'cancel_url'  => $siteUrl . 'cancel'
     ];
 
     try {

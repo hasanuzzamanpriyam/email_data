@@ -2,6 +2,12 @@
 require_once 'auth.php';
 require_once 'session.php';
 require_once 'stripe/stripe_config.php';
+require_once '../../assets/php/Settings.php';
+
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
+
 $user = new Auth();
 
 require_once 'stripe/stripe_config.php';
@@ -10,11 +16,11 @@ define('PAYPAL_ID', 'webpay@fiviral.com');
 
 define('PAYPAL_SANDBOX', FALSE); //TRUE or FALSE 
 
-define('PAYPAL_RETURN_URL', 'http://localhost/emailbigdata.com/user/top_success');
+define('PAYPAL_RETURN_URL', $siteUrl . 'user/top_success');
 
-define('PAYPAL_CANCEL_URL', 'http://localhost/emailbigdata.com/user/top_cancel');
+define('PAYPAL_CANCEL_URL', $siteUrl . 'user/top_cancel');
 
-define('PAYPAL_NOTIFY_URL', 'http://localhost/emailbigdata.com/user/ipn');
+define('PAYPAL_NOTIFY_URL', $siteUrl . 'user/ipn');
 
 define('PAYPAL_CURRENCY', 'USD');
 
@@ -121,9 +127,9 @@ if (isset($_POST['selectedPayment'])) {
             <input type="hidden" name="PAYMENT_AMOUNT" value="<?= $_SESSION['myPrice']; ?>">
             <input type="hidden" name="PAYMENT_UNITS" value="USD">
             <input type="hidden" name="STATUS_URL" value="admin@mailerstation.com">
-            <input type="hidden" name="PAYMENT_URL" value="http://localhost/emailbigdata.com/user/top_success">
+            <input type="hidden" name="PAYMENT_URL" value="<?= $siteUrl ?>user/top_success">
             <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
-            <input type="hidden" name="NOPAYMENT_URL" value="http://localhost/emailbigdata.com/user/top_cancel">
+            <input type="hidden" name="NOPAYMENT_URL" value="<?= $siteUrl ?>user/top_cancel">
             <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
             <input type="hidden" name="SUGGESTED_MEMO" value="Pay Now">
             <input type="hidden" name="Transaction_Id" value="<?php echo $topupCode; ?>">
@@ -140,9 +146,9 @@ if (isset($_POST['selectedPayment'])) {
             <input type="hidden" name="PAYMENT_AMOUNT" value="<?= $_SESSION['myPrice']; ?>">
             <input type="hidden" name="PAYMENT_UNITS" value="EUR">
             <input type="hidden" name="STATUS_URL" value="admin@mailerstation.com">
-            <input type="hidden" name="PAYMENT_URL" value="http://localhost/emailbigdata.com/user/top_success">
+            <input type="hidden" name="PAYMENT_URL" value="<?= $siteUrl ?>user/top_success">
             <input type="hidden" name="PAYMENT_URL_METHOD" value="POST">
-            <input type="hidden" name="NOPAYMENT_URL" value="http://localhost/emailbigdata.com/user/top_cancel">
+            <input type="hidden" name="NOPAYMENT_URL" value="<?= $siteUrl ?>user/top_cancel">
             <input type="hidden" name="NOPAYMENT_URL_METHOD" value="POST">
             <input type="hidden" name="SUGGESTED_MEMO" value="Pay Now">
             <input type="hidden" name="Transaction_Id" value="<?php echo $topupCode; ?>">
@@ -154,8 +160,8 @@ if (isset($_POST['selectedPayment'])) {
         <form action="https://pay.skrill.com" method="post">
             <input type="hidden" name="pay_to_email" value="gsmforid@gmail.com">
             <input type="hidden" name="transaction_id" value="<?php echo $topupCode; ?>">
-            <input type="hidden" name="return_url" value="http://localhost/emailbigdata.com/user/top_success">
-            <input type="hidden" name="cancel_url" value="http://localhost/emailbigdata.com/user/top_cancel">
+            <input type="hidden" name="return_url" value="<?= $siteUrl ?>user/top_success">
+            <input type="hidden" name="cancel_url" value="<?= $siteUrl ?>user/top_cancel">
             <input type="hidden" name="language" value="EN">
             <input type="hidden" name="amount" value="<?= $_SESSION['myPrice']; ?>">
             <input type="hidden" name="currency" value="GBP">

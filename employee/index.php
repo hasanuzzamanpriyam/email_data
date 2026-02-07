@@ -140,7 +140,7 @@ include_once 'assets/php/data/config.php';
 
                             $("#login-btn").val('Sign In');
                             if (response === 'employee') {
-                                window.location = 'http://localhost/emailbigdata.com/employee/dashboard';
+                                window.location = 'dashboard.php';
                             } else {
                                 $("#loginAlert").html(response);
                             }

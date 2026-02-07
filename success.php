@@ -1,7 +1,14 @@
-<?php 
+<?php
 session_start();
-include_once 'assets/php/header.php'; 
+include_once 'assets/php/header.php';
 require_once 'assets/php/auth.php';
+require_once 'assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
+define('PAYPAL_RETURN_URL', $siteUrl . 'user/top_success');
+define('PAYPAL_CANCEL_URL', $siteUrl . 'user/top_cancel');
+define('PAYPAL_NOTIFY_URL', $siteUrl . 'user/ipn');
 $user = new Auth();
 
 $email = isset($_SESSION['user']) ? $_SESSION['user'] : null;
@@ -51,28 +58,28 @@ $order = $user->getLastOrderForUser($userId);
                 Your Payment Process is successfully completed!
             </h3>
             <?php
-              $email =  $order['id'];
-                  $totalEmail = $order['total_email'];
-                $totalPrice = $order['total_price'];
-              $tracking_ID = $order['tracking_id'];
-              $emailCategory = $order['email_category'];
-              $emailType = $order['email_type'];
-              
-              $emailItem = $order['email_item'];
-              $fullName = $order['username'];
-                
-                $status = "Processing";
-                
-                $user->update_order_status($tracking_ID,$status);
-                
-                $orderSummary = $emailCategory.','.$emailItem.' of '.$emailType;
-                try {
-                    $emailSubject = "Order Processing";
-                    
-                    $to = $email.',shahabahammed37@gmail.com,support@emailbigdata.com';
-                    $subject = $emailSubject;
-                    
-                    $message = '<!DOCTYPE html>
+            $email =  $order['id'];
+            $totalEmail = $order['total_email'];
+            $totalPrice = $order['total_price'];
+            $tracking_ID = $order['tracking_id'];
+            $emailCategory = $order['email_category'];
+            $emailType = $order['email_type'];
+
+            $emailItem = $order['email_item'];
+            $fullName = $order['username'];
+
+            $status = "Processing";
+
+            $user->update_order_status($tracking_ID, $status);
+
+            $orderSummary = $emailCategory . ',' . $emailItem . ' of ' . $emailType;
+            try {
+                $emailSubject = "Order Processing";
+
+                $to = $email . ',shahabahammed37@gmail.com,support@emailbigdata.com';
+                $subject = $emailSubject;
+
+                $message = '<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -93,8 +100,8 @@ $order = $user->getLastOrderForUser($userId);
                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                    <a class="o_text-primary" href="'.$siteUrl.'" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="'.$siteUrl.'bundles/bydhome/img/emailbigdata-logo.png" width="136" height="36" alt="emailbigdata" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                    <a class="o_text-primary" href="' . $siteUrl . '" style="text-decoration: none;outline: none;color: #126de5;">
+                                        <img src="' . $siteUrl . 'bundles/bydhome/img/emailbigdata-logo.png" width="136" height="36" alt="emailbigdata" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
@@ -106,10 +113,10 @@ $order = $user->getLastOrderForUser($userId);
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="'.$siteUrl.'user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="' . $siteUrl . 'user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
-                          Hello '.$fullName.'
+                          Hello ' . $fullName . '
                           </span>
 
                                                     <img src="https://www.fiviral.com/images/email/person.png" width="24" height="24" style="max-width: 24px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
@@ -156,7 +163,7 @@ $order = $user->getLastOrderForUser($userId);
                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                         <tbody>
                                             <tr>
-                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="'.$siteUrl.'user/order" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Order Details</a></td>
+                                                <td width="300" class="o_btn o_bg-success o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #0ec06e;border-radius: 4px;"><a class="o_text-white" href="' . $siteUrl . 'user/order" style="text-decoration: none;outline: none;color: #ffffff;display: block;padding: 12px 24px;mso-text-raise: 3px;">View Order Details</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -179,9 +186,9 @@ $order = $user->getLastOrderForUser($userId);
                             <tr>
                                 <td class="o_bg-white o_px-md o_py o_sans o_text o_text-secondary" align="center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;background-color: #ffffff;color: #424651;padding-left: 24px;padding-right: 24px;padding-top: 16px;padding-bottom: 16px;">
                                     <h2 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 15px;color: #242b3d;font-size: 30px;line-height: 23px;border-top: 1px solid #d3dce0;padding-top:15px;">Order Summery</h2>
-                                    <h4 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">'.$orderSummary.' Email List
+                                    <h4 class="o_heading o_text-dark o_mb-xs" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 8px;color: #242b3d;font-size: 18px;line-height: 23px;">' . $orderSummary . ' Email List
                                     </h4>
-                                    <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Total Email:  '.$totalEmail.'<br>Total Price: $'.$totalPrice.'
+                                    <p class="o_mb-md" style="margin-top: 0px;margin-bottom: 24px;">Total Email:  ' . $totalEmail . '<br>Total Price: $' . $totalPrice . '
                                     </p>
                                 </td>
                             </tr>
@@ -232,26 +239,26 @@ $order = $user->getLastOrderForUser($userId);
 </body>
 
 </html>';
-                    
-                    // Always set content-type when sending HTML email
-                    $headers = "MIME-Version: 1.0" . "\r\n";
-                    $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                    
-                    // More headers
-                    $headers .= 'From: <admin@emailbigdata.com>' . "\r\n";
-                    //$headers .= 'Cc: support@emailbigdata.com' . "\r\n";
-                    
-                    mail($to,$subject,$message,$headers);
-                    echo $user->showMessage('info','We send an Congratulation e-mail to your email address. Please, check this e-mail and see your order details!');
-                }catch(Exception $e){
-                    echo $user->showMessage('danger','Something went to wrong... try later');
-                }
-                ?>
+
+                // Always set content-type when sending HTML email
+                $headers = "MIME-Version: 1.0" . "\r\n";
+                $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+                // More headers
+                $headers .= 'From: <admin@emailbigdata.com>' . "\r\n";
+                //$headers .= 'Cc: support@emailbigdata.com' . "\r\n";
+
+                mail($to, $subject, $message, $headers);
+                echo $user->showMessage('info', 'We send an Congratulation e-mail to your email address. Please, check this e-mail and see your order details!');
+            } catch (Exception $e) {
+                echo $user->showMessage('danger', 'Something went to wrong... try later');
+            }
+            ?>
             <div class="row">
                 <div class="col-sm-12">
                     <h3>Thanks to purchase.</h3>
                 </div>
-                
+
             </div>
         </div>
     </div>

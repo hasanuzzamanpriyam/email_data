@@ -2,7 +2,10 @@
 require_once 'session.php';
 
 require_once 'auth.php';
-$siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
+require_once '../../assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $cuserOrder = new Auth();
 
 if (isset($_POST['action']) && ($_POST['action'] == 'display-order')) {

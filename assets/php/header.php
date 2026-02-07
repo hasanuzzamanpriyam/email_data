@@ -6,7 +6,7 @@ include_once __DIR__ . '/Settings.php';
 // Load website settings
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
-$siteUrl = rtrim($websiteSettings['siteurl'] ?? 'http://localhost/emailbigdata.com/', '/') . '/';
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $siteName = $websiteSettings['site_name'] ?? 'Email Big Data';
 $logoPath = $websiteSettings['logo_path'] ?? 'bundles/bydhome/img/bookyourdata-logo.svg';
 $faviconPath = $websiteSettings['favicon_path'] ?? 'web-logo.ico';

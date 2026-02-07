@@ -89,7 +89,7 @@ $user = new Auth();
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="http://localhost/emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="<?=$siteUrl?>user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                           Hello ' . $fullName . '

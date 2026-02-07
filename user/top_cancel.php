@@ -1,6 +1,10 @@
 <?php
 require_once 'php/header.php';
 require_once 'php/auth.php';
+require_once '../assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $user = new Auth();
 ?>
 <div class="section">
@@ -47,8 +51,8 @@ $user = new Auth();
                             <div style="font-size: 24px; line-height: 24px; height: 24px;"> </div>
                             <div class="o_px-xs o_sans o_text o_left o_xs-center" style="font-family: Helvetica, Arial, sans-serif;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;text-align: left;padding-left: 8px;padding-right: 8px;">
                                 <p style="margin-top: 0px;margin-bottom: 0px;">
-                                    <a class="o_text-primary" href="http://localhost/emailbigdata.com/" style="text-decoration: none;outline: none;color: #126de5;">
-                                        <img src="http://localhost/emailbigdata.com/bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Email Big Data" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
+                                    <a class="o_text-primary" href="<?=$siteUrl?>" style="text-decoration: none;outline: none;color: #126de5;">
+                                        <img src="<?=$siteUrl?>bundles/bydhome/img/mailerstation-logo.png" width="136" height="36" alt="Email Big Data" style="max-width: 136px;-ms-interpolation-mode: bicubic;vertical-align: middle;border: 0;line-height: 100%;height: auto;outline: none;text-decoration: none;">
                                     </a>
                                 </p>
                             </div>
@@ -60,7 +64,7 @@ $user = new Auth();
                                     <tbody>
                                         <tr>
                                             <td class="o_btn-b o_heading o_text-xs" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 14px;line-height: 21px;mso-padding-alt: 7px 8px;">
-                                                <a class="o_text-light" href="http://localhost/emailbigdata.com/user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
+                                                <a class="o_text-light" href="<?=$siteUrl?>user/order" style="text-decoration: none;outline: none;color: #82899a;display: block;padding: 7px 8px;font-weight: bold;">
 
                                                     <span style="mso-text-raise: 6px;display: inline;color: #82899a;">
                           Hello ' . $topUserName . '
@@ -103,7 +107,7 @@ $user = new Auth();
                                     <table align="center" cellspacing="0" cellpadding="0" border="0" role="presentation">
                                         <tbody>
                                             <tr>
-                                                <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;"><a class="o_text-primary" href="http://localhost/emailbigdata.com/user/php/payment?retopup=' . $topTrackingCode . '" style="text-decoration: none;outline: none;color: #0ec06e;display: block;padding: 12px 24px;mso-text-raise: 3px;">Again try to Topup</a></td>
+                                                <td width="300" class="o_btn o_bg-white o_br o_heading o_text" align="center" style="font-family: Helvetica, Arial, sans-serif;font-weight: bold;margin-top: 0px;margin-bottom: 0px;font-size: 16px;line-height: 24px;mso-padding-alt: 12px 24px;background-color: #ffffff;border-radius: 4px;"><a class="o_text-primary" href="<?=$siteUrl?>user/php/payment?retopup=' . $topTrackingCode . '" style="text-decoration: none;outline: none;color: #0ec06e;display: block;padding: 12px 24px;mso-text-raise: 3px;">Again try to Topup</a></td>
                                             </tr>
                                         </tbody>
                                     </table>

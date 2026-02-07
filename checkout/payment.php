@@ -2,8 +2,12 @@
 session_start();
 require_once '../assets/php/auth.php';
 require_once '../assets/php/session.php';
+require_once '../assets/php/Settings.php';
 require_once 'stripe/stripe_config.php';
-$siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
+
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 $user = new Auth();
 
 // PayPal settings

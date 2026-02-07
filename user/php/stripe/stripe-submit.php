@@ -3,6 +3,10 @@
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 
 require_once 'stripe_config.php';
+require_once '../../../assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 header('Content-Type: application/json');
 
 if (isset($_POST['payment_amount'])) {
@@ -28,8 +32,8 @@ if (isset($_POST['payment_amount'])) {
     'customer_email' => $user_email,
     'mode' => 'payment',
     'allow_promotion_codes' => true,
-    'success_url' => 'http://localhost/emailbigdata.com/user/top_success',
-    'cancel_url' => 'http://localhost/emailbigdata.com/user/top_cancel',
+    'success_url' => $siteUrl . 'user/top_success',
+    'cancel_url' => $siteUrl . 'user/top_cancel',
   ]);
 
   // echo '<pre>';

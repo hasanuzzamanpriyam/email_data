@@ -1,11 +1,12 @@
 <?php
 include_once '../assets/php/session.php';
+include_once '../assets/php/Settings.php'; // Ensure Settings is loaded
 
-$siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 
-$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
-    "https" : "http") . "://" . $_SERVER['HTTP_HOST'] .
-    $_SERVER['REQUEST_URI'];
+$link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
 <!DOCTYPE HTML>
 <html lang="en">

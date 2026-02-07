@@ -1,5 +1,5 @@
 
-Sitemap: http://localhost/emailbigdata.com/sitemap.xml
+Sitemap: /sitemap.xml
 
 User-agent: Mediapartners-Google 
 Disallow:

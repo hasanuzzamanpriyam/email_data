@@ -1,7 +1,11 @@
 <?php
 
 require_once 'stripe_config.php';
-$siteUrl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://" . $_SERVER['HTTP_HOST'] . '/emailbigdata.com/';
+require_once '../../assets/php/config.php';
+require_once '../../assets/php/Settings.php';
+$settingsObj = new Settings();
+$websiteSettings = $settingsObj->getSettings();
+$siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';
 header('Content-Type: application/json');
 
 if (isset($_POST['payment_amount'])) {
