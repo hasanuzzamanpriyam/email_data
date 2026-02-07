@@ -3,7 +3,8 @@
 error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT);
 
 require_once 'stripe_config.php';
-require_once '../../../assets/php/Settings.php';
+require_once __DIR__ . '/../../../assets/php/config.php';
+require_once __DIR__ . '/../../../assets/php/Settings.php';
 $settingsObj = new Settings();
 $websiteSettings = $settingsObj->getSettings();
 $siteUrl = rtrim($websiteSettings['siteurl'] ?? Settings::getDynamicSiteUrl(), '/') . '/';

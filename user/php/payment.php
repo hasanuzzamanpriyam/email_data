@@ -200,7 +200,141 @@ if (isset($_POST['selectedPayment'])) {
         <input type="hidden" name="stripe_submit" value="stripe_submit">
 
     </form>
-<?php } ?>
+<?php } else if ($payMethod === 'FastSpring') {
+    $amount = $_SESSION['myPrice'];
+?>
+    <?php
+    $privateKey = openssl_pkey_get_private("file://" . __DIR__ . "/fastspring/keys/privatekey-1754167028.pem");
+    $unencryptedPayload = json_encode([
+        "contact" => [
+            "firstName" => $topupFullName,
+            "lastName"  => "",
+            "email"     => $topupEmail
+        ],
+        "items" => [
+            [
+                "product" => "b2bemail",
+                "quantity" => 1,
+                "pricing" => [
+                    "price" => [
+                        "USD" => $amount
+                    ]
+                ]
+            ]
+        ],
+    ], JSON_UNESCAPED_SLASHES);
+    $aesKey = openssl_random_pseudo_bytes(16);
+    $cipherText = openssl_encrypt($unencryptedPayload, "AES-128-ECB", $aesKey, OPENSSL_RAW_DATA);
+    $securePayload = base64_encode($cipherText);
+    openssl_private_encrypt($aesKey, $aesKeyEncrypted, $privateKey);
+    $secureKey = base64_encode($aesKeyEncrypted);
+    ?>
+    <!DOCTYPE html>
+    <html>
+
+    <head>
+        <title>FastSpring Secure Checkout</title>
+        <style>
+            #compliance.flx,
+            #compliance .flx {
+                display: none !important;
+            }
+        </style>
+        <script>
+            var fscSession = {
+                secure: {
+                    payload: "<?php echo $securePayload; ?>",
+                    key: "<?php echo $secureKey; ?>"
+                }
+            };
+        </script>
+        <script
+            id="fsc-api"
+            src="https://sbl.onfastspring.com/sbl/1.0.5/fastspring-builder.min.js"
+            type="text/javascript"
+            data-popup-closed="onFSPopupClosed"
+            data-storefront="prospct.onfastspring.com/popup-emailbigdata"
+            data-access-key="U46CRMFZROOYBDPE-XUBUW">
+        </script>
+        <script>
+            function onFSPopupClosed(orderReference) {
+                if (orderReference) {
+                    console.log(orderReference.id);
+                    fastspring.builder.reset();
+                    window.location.replace("<?= $siteUrl; ?>user/top_success/?orderId=" + orderReference.id);
+                } else {
+                    console.log("no order ID");
+                }
+            }
+        </script>
+    </head>
+
+    <body>
+        <script>
+            window.onload = function() {
+                fastspring.builder.checkout();
+            };
+        </script>
+        <div style="max-width:380px; margin:0px auto;padding: 40% 20%;">
+            <p>FastSpring Secure Checkout</p>
+            <button onclick="fastspring.builder.checkout();">Checkout Now</button>
+        </div>
+    </body>
+
+    </html>
+    <?php
+    exit();
+} else if ($payMethod === 'Heleket') {
+    require_once 'heleket/heleket_config.php';
+    require_once 'heleket/HeleketClient.php';
+
+    $heleket = new HeleketClient(HELEKET_MERCHANT_ID, HELEKET_PAYMENT_API_KEY, HELEKET_API_URL);
+    $amount = $_SESSION['myPrice'];
+
+    $invoiceData = [
+        'amount' => number_format((float)$amount, 2, '.', ''),
+        'currency' => 'USD',
+        'order_id' => $topupCode,
+        'url_return' => $siteUrl . 'user/top_success',
+        'url_success' => $siteUrl . 'user/top_success',
+        'url_callback' => $HELEKET_CALLBACK_URL,
+        'lifetime' => 3600,
+        'subtract' => 100,
+        'accuracy_payment_percent' => 2,
+        'payer_email' => $topupEmail
+    ];
+
+    $result = $heleket->createInvoice($invoiceData);
+
+    if ($result['success'] && isset($result['data']['url'])) {
+        try {
+            $sql = "UPDATE topup SET 
+                heleket_uuid = ?, 
+                heleket_status = 'Pending'
+                WHERE top_code = ?";
+            $stmt = $user->conn->prepare($sql);
+            $stmt->execute([$result['data']['uuid'], $topupCode]);
+        } catch (Exception $e) {
+        }
+    ?>
+        <script>
+            window.location.href = "<?php echo $result['data']['url']; ?>";
+        </script>
+<?php
+    } else {
+        $errorMsg = $result['error'] ?? 'Failed to create Heleket invoice';
+        $errorCode = isset($result['code']) ? ' (Code: ' . $result['code'] . ')' : '';
+        $fullResponse = isset($result['response']) ? json_encode($result['response'], JSON_PRETTY_PRINT) : 'No details';
+        echo '<div style="padding: 20px; font-family: monospace;">';
+        echo '<h3>Heleket API Error</h3>';
+        echo '<p><strong>Error:</strong> ' . htmlspecialchars($errorMsg) . $errorCode . '</p>';
+        echo '<p><strong>Full Response:</strong></p>';
+        echo '<pre>' . htmlspecialchars($fullResponse) . '</pre>';
+        echo '<button onclick="history.back()">Go Back</button>';
+        echo '</div>';
+    }
+    exit();
+} ?>
 
 <script type="text/javascript">
     document.getElementsByTagName('form')[0].submit();
