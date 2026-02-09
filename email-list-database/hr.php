@@ -1,5 +1,5 @@
 <?php include_once '../assets/php/header.php';
-$_SESSION['myPrice'] = 8521; ?>
+$_SESSION['myPrice'] = 1598; ?>
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
     <div class="container jumbotron--list-detail__container
          table-layout-fixed">
@@ -37,9 +37,9 @@ $_SESSION['myPrice'] = 8521; ?>
                                                         $totalemail = 142015;
                                                         echo $totalemail;
                                                         ?>" value="<?php
-                                    $totalemail = 142015;
-                                    echo $totalemail;
-                                    ?>" class="slider" id="myRange" step="100">
+                                                                    $totalemail = 142015;
+                                                                    echo $totalemail;
+                                                                    ?>" class="slider" id="myRange" step="100">
 
                 </div>
             </div>
@@ -55,8 +55,8 @@ $_SESSION['myPrice'] = 8521; ?>
                     <input type="hidden" name="emailType" value="Popular">
                     <input type="hidden" name="emailCategory" value="Job Function">
                     <input type="hidden" name="selectItem" value="HR">
-                    <input type="hidden" name="totalemail" value="142015">
-                    <input type="hidden" name="price" value="<?= $_SESSION['myPrice']; ?>">
+                    <input type="hidden" name="totalemail" id="inputTotalEmail" value="142015">
+                    <input type="hidden" name="price" id="inputPrice" value="<?= $_SESSION['myPrice']; ?>">
                     <input type="hidden" name="deliveryDays" value="Within 1 Day">
 
                     <input type="hidden" name="dataType" id="dataType">
@@ -316,58 +316,62 @@ $_SESSION['myPrice'] = 8521; ?>
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
     var output1 = document.getElementById("demo1");
-    var output3 = document.getElementById("customPrice");
 
-    slider.oninput = function() {
-
-        var totalEmail = this.value;
+    function calculatePrice(val) {
+        var totalEmail = val;
         let totalPrice = 0;
         let price = 0;
         if (totalEmail <= 5000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.01875;
             totalPrice = (Math.ceil(price)).format();
 
         } else if (totalEmail <= 10000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.016875;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail <= 25000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.0165;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail <= 50000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.015;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail <= 75000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.0136875;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail <= 100000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.013125;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail <= 500000) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.01125;
             totalPrice = (Math.ceil(price)).format();
         } else if (totalEmail < 1000001) {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.00625;
             totalPrice = (Math.ceil(price)).format();
         } else {
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            output.innerHTML = totalEmail.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
             price = totalEmail * 0.00625;
             output1.innerHTML = Math.ceil(price);
             totalPrice = (Math.ceil(price)).format();
         }
         output1.innerHTML = "$ " + totalPrice;
-        output1.innerHTML = Math.ceil(price);
-        totalPrice = (Math.ceil(price)).format();
+
+        // Update Form Inputs
+        document.getElementById('inputPrice').value = Math.ceil(price);
+        document.getElementById('inputTotalEmail').value = totalEmail;
+        document.getElementById('dataType').value = 'ChangePrice';
     }
-    output1.innerHTML = "$ " + totalPrice;
-    output3.innerHTML = '<input type="hidden" name="price" value="' + price + '">\n\
-                                 <input type="hidden" name="totalemail" value="' + totalEmail + '">';
-    document.getElementById('dataType').value = 'ChangePrice';
+
+    slider.oninput = function() {
+        calculatePrice(this.value);
+    }
+
+    // Initialize on load
+    calculatePrice(slider.value);
 </script>

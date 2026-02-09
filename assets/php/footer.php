@@ -7,6 +7,7 @@ if ($name === 'index') {
         </div>
         <div class="chat-btn" id="chat-btn" onclick="myFunction()"><img class="closeBtn" src="' . $seoUrl . 'bundles/bydhome/img/chat/close.png" alt="messagebtn" ></div>
         <div id="chat-option">
+            <a href="https://www.facebook.com/emailbigdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/facebook.png" alt="facebook"></a>
             <a href="https://t.me/bookyourdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
             <a href="https://www.instagram.com/emailbigdata/" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/instagram.png" alt="instagram"></a>
             <a href="https://api.whatsapp.com/send/?phone=447577321476&text&app_absent=0" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
@@ -22,6 +23,7 @@ if ($name === 'index') {
         </div>
         <div class="chat-btn" id="chat-btn" onclick="myFunction()"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/messagebtn.png" alt="messagebtn" ></div>
         <div id="chat-option">
+            <a href="https://www.facebook.com/emailbigdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/facebook.png" alt="facebook"></a>
             <a href="https://t.me/bookyourdata" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/telegram.png" alt="telegram"></a>
             <a href="https://www.instagram.com/emailbigdata/" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/instagram.png" alt="instagram"></a>
             <a href="https://api.whatsapp.com/send/?phone=447577321476&text&app_absent=0" target="_blank"><img src="' . $seoUrl . 'bundles/bydhome/img/chat/whatsapp.png" alt="whatsapp"></a>
