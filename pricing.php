@@ -67,49 +67,49 @@
                 <tbody>
                     <tr>
                         <td>1K – 5K</td>
-                        <td>$0.0375</td>
-                        <td>$0.05625</td>
-                        <td>$0.09375</td>
+                        <td>$0.01875</td>
+                        <td>$0.028125</td>
+                        <td>$0.046875</td>
                     </tr>
                     <tr>
                         <td>6K – 10K</td>
-                        <td>$0.03375</td>
-                        <td>$0.0525</td>
-                        <td>$0.09</td>
+                        <td>$0.016875</td>
+                        <td>$0.02625</td>
+                        <td>$0.045</td>
                     </tr>
                     <tr>
                         <td>11K – 25K</td>
-                        <td>$0.033</td>
-                        <td>$0.04875</td>
-                        <td>$0.08625</td>
+                        <td>$0.0165</td>
+                        <td>$0.024375</td>
+                        <td>$0.043125</td>
                     </tr>
                     <tr>
                         <td>26K – 50K</td>
-                        <td>$0.03</td>
-                        <td>$0.045</td>
-                        <td>$0.0825</td>
+                        <td>$0.015</td>
+                        <td>$0.0225</td>
+                        <td>$0.04125</td>
                     </tr>
                     <tr>
                         <td>51K – 75K</td>
-                        <td>$0.027375</td>
-                        <td>$0.04125</td>
-                        <td>$0.07875</td>
+                        <td>$0.0136875</td>
+                        <td>$0.020625</td>
+                        <td>$0.039375</td>
                     </tr>
                     <tr>
                         <td>76K – 100K</td>
-                        <td>$0.02625</td>
+                        <td>$0.013125</td>
+                        <td>$0.01875</td>
                         <td>$0.0375</td>
-                        <td>$0.075</td>
                     </tr>
                     <tr>
                         <td>110K – 500K</td>
-                        <td>$0.0225</td>
+                        <td>$0.01125</td>
                         <td>—</td>
                         <td>—</td>
                     </tr>
                     <tr>
                         <td>510K – 1M+</td>
-                        <td>$0.01875</td>
+                        <td>$0.009375</td>
                         <td>—</td>
                         <td>—</td>
                     </tr>
@@ -152,34 +152,34 @@
         if (!type || isNaN(total)) return;
 
         if (type === 'readyMade') {
-            if (total <= 5000) price = total * 0.0375;
-            else if (total <= 10000) price = total * 0.03375;
-            else if (total <= 25000) price = total * 0.033;
-            else if (total <= 50000) price = total * 0.03;
-            else if (total <= 75000) price = total * 0.027375;
-            else if (total <= 100000) price = total * 0.02625;
-            else if (total <= 500000) price = total * 0.0225;
-            else if (total <= 1000000) price = total * 0.01875;
+            if (total <= 5000) price = total * 0.01875;
+            else if (total <= 10000) price = total * 0.016875;
+            else if (total <= 25000) price = total * 0.0165;
+            else if (total <= 50000) price = total * 0.015;
+            else if (total <= 75000) price = total * 0.0136875;
+            else if (total <= 100000) price = total * 0.013125;
+            else if (total <= 500000) price = total * 0.01125;
+            else if (total <= 1000000) price = total * 0.009375;
             else return alert("Limit exceeded");
         }
 
         if (type === 'customOrder') {
-            if (total <= 5000) price = total * 0.05625;
-            else if (total <= 10000) price = total * 0.0525;
-            else if (total <= 25000) price = total * 0.04875;
-            else if (total <= 50000) price = total * 0.045;
-            else if (total <= 75000) price = total * 0.04125;
-            else if (total <= 100000) price = total * 0.0375;
+            if (total <= 5000) price = total * 0.028125;
+            else if (total <= 10000) price = total * 0.02625;
+            else if (total <= 25000) price = total * 0.024375;
+            else if (total <= 50000) price = total * 0.0225;
+            else if (total <= 75000) price = total * 0.020625;
+            else if (total <= 100000) price = total * 0.01875;
             else return alert("Custom order limit exceeded");
         }
 
         if (type === 'office365') {
-            if (total <= 5000) price = total * 0.09375;
-            else if (total <= 10000) price = total * 0.09;
-            else if (total <= 25000) price = total * 0.08625;
-            else if (total <= 50000) price = total * 0.0825;
-            else if (total <= 75000) price = total * 0.07875;
-            else if (total <= 100000) price = total * 0.075;
+            if (total <= 5000) price = total * 0.046875;
+            else if (total <= 10000) price = total * 0.045;
+            else if (total <= 25000) price = total * 0.043125;
+            else if (total <= 50000) price = total * 0.04125;
+            else if (total <= 75000) price = total * 0.039375;
+            else if (total <= 100000) price = total * 0.0375;
             else return alert("Office 365 limit exceeded");
         }
 

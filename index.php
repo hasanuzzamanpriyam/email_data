@@ -201,10 +201,7 @@ IN SECONDS</h1>
                     are ready to talk to you: <a href="contact"><strong>send
                             us your questions here.</strong></a>
                 </p>
-                <a class="button button--tertiary"
-                   href="#">Read
-                    More <i class="icon icon-arrow-forward
-                            button--tertiary__icon"></i></a>
+
             </div>
         </div>
     </div>

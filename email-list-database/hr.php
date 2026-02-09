@@ -1,12 +1,13 @@
-<?php include_once '../assets/php/header.php'; $_SESSION['myPrice'] = 8521;?>
+<?php include_once '../assets/php/header.php';
+$_SESSION['myPrice'] = 8521; ?>
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
     <div class="container jumbotron--list-detail__container
          table-layout-fixed">
         <div class="jumbotron--list-detail__col-half
              jumbotron--list-detail__col-left">
             <img class="img-responsive"
-                 src="<?= $siteUrl; ?>bundles/bydhome/img/thumbs/contact-list2.jpg"
-                 alt="mailerstation">
+                src="<?= $siteUrl; ?>bundles/bydhome/img/thumbs/contact-list2.jpg"
+                alt="mailerstation">
             <div class="box-contact-count">
                 <div class="vertical-center">
                     <span>Direct</span>
@@ -19,26 +20,27 @@
         </div>
         <div class="jumbotron--list-detail__col-half
              jumbotron--list-detail__col-right">
-            
+
             <div class="gap-bottom-small">
                 <h1 class="jumbotron__title" style="margin-top: 15px;">HR EMAIL LIST</h1>
                 <strong class="jumbotron--list-detail__subtitle"></strong>
             </div>
             <div class="gap-bottom">
-                <span class="jumbotron--list-detail__price"  style="color: orange">
-                 <?= $_SESSION['myPrice'];?>
+                <span class="jumbotron--list-detail__price" style="color: orange">
+                    <?= $_SESSION['myPrice']; ?>
                 </span>
-                <h4 class="jumbotron__title">Custom Order E-mail: <span id="demo" class="jumbotron--list-detail__price" style="color: orange"><?php $totalemail = 142015; echo number_format($totalemail); ?></span></h4>
-                <h4 class="jumbotron__title">Total Price: <span id="demo1" class="jumbotron--list-detail__price" style="color: orange"><?= $_SESSION['myPrice'];?></span></h4>
+                <h4 class="jumbotron__title">Custom Order E-mail: <span id="demo" class="jumbotron--list-detail__price" style="color: orange"><?php $totalemail = 142015;
+                                                                                                                                                echo number_format($totalemail); ?></span></h4>
+                <h4 class="jumbotron__title">Total Price: <span id="demo1" class="jumbotron--list-detail__price" style="color: orange"><?= $_SESSION['myPrice']; ?></span></h4>
                 <div class="slidecontainer">
                     <input type="range" min="1000" max="<?php
-                        $totalemail = 142015;
-                        echo $totalemail;
-                        ?>" value="<?php
-                        $totalemail = 142015;
-                        echo $totalemail;
-                        ?>" class="slider" id="myRange" step="100">
-                    
+                                                        $totalemail = 142015;
+                                                        echo $totalemail;
+                                                        ?>" value="<?php
+                                    $totalemail = 142015;
+                                    echo $totalemail;
+                                    ?>" class="slider" id="myRange" step="100">
+
                 </div>
             </div>
             <p class="text-loblolly">Network with professionals using
@@ -49,17 +51,17 @@
                 institutions now using our directory.</p>
             <div class="gap-bottom-medium hidden-tlnd">
                 <form action="<?= $siteUrl; ?>checkout/step1" method="POST">
-                    <input type="hidden" name="ordercode" value="<?php echo ('PO' . rand(10, 99) . 'P' . rand(10, 99) . 'L' . rand(0, 9) . 'R'); ?>" >
-                    <input type="hidden" name="emailType" value="Popular" >
+                    <input type="hidden" name="ordercode" value="<?php echo ('PO' . rand(10, 99) . 'P' . rand(10, 99) . 'L' . rand(0, 9) . 'R'); ?>">
+                    <input type="hidden" name="emailType" value="Popular">
                     <input type="hidden" name="emailCategory" value="Job Function">
-                    <input type="hidden" name="selectItem" value="HR" >
-                    <input type="hidden" name="totalemail" value="142015" >
-                    <input type="hidden" name="price" value="<?= $_SESSION['myPrice']; ?>" >
-                    <input type="hidden" name="deliveryDays" value="Within 1 Day" >
-                    
-                    <input type="hidden" name="dataType" id="dataType" >
+                    <input type="hidden" name="selectItem" value="HR">
+                    <input type="hidden" name="totalemail" value="142015">
+                    <input type="hidden" name="price" value="<?= $_SESSION['myPrice']; ?>">
+                    <input type="hidden" name="deliveryDays" value="Within 1 Day">
+
+                    <input type="hidden" name="dataType" id="dataType">
                     <span id="customPrice" style="color: black;"></span>
-                    <input type="submit" name="buyNow"class="button button--primary gap-right-plnu full-width-pld gap-bottom-small-pld" value="Buy Now">
+                    <input type="submit" name="buyNow" class="button button--primary gap-right-plnu full-width-pld gap-bottom-small-pld" value="Buy Now">
                 </form>
             </div>
             <ul class="list row">
@@ -131,7 +133,8 @@
                     of many other important business functions, highly
                     qualified HR managers and professionals must use
                     many types of organizational software, services, or
-                    tools.</p><p><br><br>If you have a solution that can
+                    tools.</p>
+                <p><br><br>If you have a solution that can
                     help companies with human resource management (HRM),
                     let them know about it with this ready-to-download
                     HR email list. This targeted HR contacts database is
@@ -147,13 +150,15 @@
                     able to email leads with direct contact information.
                     This verified human resources email list also
                     includes address information, so you can use it as
-                    your HR mailing list as well.</p><p><br><br>Start
+                    your HR mailing list as well.</p>
+                <p><br><br>Start
                     marketing to HR managers, staff, or even senior
                     executives now. To narrow your sales leads even
                     further, feel free to customize and build your own
                     targeted human resources list with our list-builder
                     tool. Buy this premium ready-to-download database if
-                    you want to communicate with HR decision-makers!</p><p><br><br>
+                    you want to communicate with HR decision-makers!</p>
+                <p><br><br>
                     <!--<strong>
                         Resources:
                         <a
@@ -169,7 +174,7 @@
                             href="../index">Computer Safety</a>, <a
                             href="the-evolution-of-email">Email's
                             Evolution</a></strong><strong></strong>-->
-                    </p>
+                </p>
             </div>
         </div>
         <a href="<?= $siteUrl; ?>our-guarantees" class="lead lead--secondary
@@ -233,52 +238,52 @@
     </div>
 </div>
 <div class="section">
-   <div class="container">
-      <h2 class="primary-title">FAQ Regarding to HR Email List</h2>
-      <div class="row">
-         <div class="col-md-6">
-            <h3>How do I get HR's email address lists?</h3>
-            <p></p>
-            <p>You can go to Bookyourdata, where you'll find a tool to build a targeted email list in seconds. This application lets you network with professionals using our ready-made human resources list, a massive directory of potential sales leads, including phone numbers, emails, job titles, etc.</p>
-            <p></p>
-         </div>
-         <div class="col-md-6">
-            <h3>How can I get a huge HR mailing list for sale?</h3>
-            <p></p>
-            <p>First, go to bookyourdata.com and type “HR” into the search bar. Then select the location you want your list to be from, like the US or Canada. You can also set other parameters like job title, industry, company size, or even specific companies you want to include in your database. Now click "Get this List." Bookyourdata will generate a list of HR professionals that meets your criteria and is ready to download within minutes!</p>
-            <p></p>
-         </div>
-      </div>
-      <div class="row">
-         <div class="col-md-6">
-            <h3>How updated is your HR professionals list?</h3>
-            <p></p>
-            <p>We update our human resources email list monthly to make sure you have the most up-to-date information at your fingertips. We also verify the data in our HR directory weekly to ensure that everything is correct and accurate. We put a lot of effort into making sure our products are the best they can be, and we don't want anything to get in the way of your ability to connect with your potential customers.</p>
-            <p></p>
-         </div>
-         <div class="col-md-6">
-            <h3>Do you have recruiters, talent acquisition, and benefits managers included within your HR email database?</h3>
-            <p></p>
-            <p>Our directory includes recruiters, talent acquisition managers, benefits managers, HR directors, and H.R. assistants—the list goes on! If you're looking to connect with someone who works in H.R. departments, explore the Bookyourdata HR database. We have the information you need to make it happen at a company or institution of any size.</p>
-            <p></p>
-         </div>
-      </div>
-   </div>
+    <div class="container">
+        <h2 class="primary-title">FAQ Regarding to HR Email List</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>How do I get HR's email address lists?</h3>
+                <p></p>
+                <p>You can go to Bookyourdata, where you'll find a tool to build a targeted email list in seconds. This application lets you network with professionals using our ready-made human resources list, a massive directory of potential sales leads, including phone numbers, emails, job titles, etc.</p>
+                <p></p>
+            </div>
+            <div class="col-md-6">
+                <h3>How can I get a huge HR mailing list for sale?</h3>
+                <p></p>
+                <p>First, go to bookyourdata.com and type “HR” into the search bar. Then select the location you want your list to be from, like the US or Canada. You can also set other parameters like job title, industry, company size, or even specific companies you want to include in your database. Now click "Get this List." Bookyourdata will generate a list of HR professionals that meets your criteria and is ready to download within minutes!</p>
+                <p></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h3>How updated is your HR professionals list?</h3>
+                <p></p>
+                <p>We update our human resources email list monthly to make sure you have the most up-to-date information at your fingertips. We also verify the data in our HR directory weekly to ensure that everything is correct and accurate. We put a lot of effort into making sure our products are the best they can be, and we don't want anything to get in the way of your ability to connect with your potential customers.</p>
+                <p></p>
+            </div>
+            <div class="col-md-6">
+                <h3>Do you have recruiters, talent acquisition, and benefits managers included within your HR email database?</h3>
+                <p></p>
+                <p>Our directory includes recruiters, talent acquisition managers, benefits managers, HR directors, and H.R. assistants—the list goes on! If you're looking to connect with someone who works in H.R. departments, explore the Bookyourdata HR database. We have the information you need to make it happen at a company or institution of any size.</p>
+                <p></p>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="section small pad-top-0">
-   <div class="container">
-      <h3 class="primary-title">Testimonials</h3>
-      <div class="row">
-         <div class="col-md-6">
-            <div class="testimonial text-left">
-               <h6 class="secondary-title">
-                  Leonardo Cormier - Halvorson LLC
-               </h6>
-               <p><em>"Anywhere I go, I look for the human touch. That's why I love Bookyourdata.com! I know that when I'm working with their awesome HR email list, the people I'm reaching out to are real, with real jobs and real needs. Their phone numbers and emails aren't hidden behind a paywall. And they don't get mad when you use their information—they're actually excited to hear from you! I'm so glad that Bookyourdata.com exists because it makes my job a lot easier. With their help, we've been able to connect some of the best talents in our industry—folks who understand what we're looking for and can work seamlessly with our team. And that's all thanks to Bookyourdata.com!"</em></p>
+    <div class="container">
+        <h3 class="primary-title">Testimonials</h3>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="testimonial text-left">
+                    <h6 class="secondary-title">
+                        Leonardo Cormier - Halvorson LLC
+                    </h6>
+                    <p><em>"Anywhere I go, I look for the human touch. That's why I love Bookyourdata.com! I know that when I'm working with their awesome HR email list, the people I'm reaching out to are real, with real jobs and real needs. Their phone numbers and emails aren't hidden behind a paywall. And they don't get mad when you use their information—they're actually excited to hear from you! I'm so glad that Bookyourdata.com exists because it makes my job a lot easier. With their help, we've been able to connect some of the best talents in our industry—folks who understand what we're looking for and can work seamlessly with our team. And that's all thanks to Bookyourdata.com!"</em></p>
+                </div>
             </div>
-         </div>
-      </div>
-   </div>
+        </div>
+    </div>
 </div>
 <div class="lead hidden-dd">
     <div class="container lead__container">
@@ -288,7 +293,7 @@
         </div>
         <div class="lead__col lead__col--right">
             <a class="button button--quaternary full-width"
-               href="<?= $siteUrl; ?>custom-order/business-contacts">
+                href="<?= $siteUrl; ?>custom-order/business-contacts">
                 Custom Order <i class="icon icon-arrow-forward
                                 button--quaternary__icon"></i>
             </a>
@@ -298,73 +303,71 @@
 <?php include_once '../assets/php/footer.php'; ?>
 <script>
     // Create our number formatter.
-        var formatter = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-        });
-        
-        Number.prototype.format = function(n, x) {
-            var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
-            return this.toFixed(Math.max(0, ~~n)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-        };
-        
+    var formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+
+    Number.prototype.format = function(n, x) {
+        var re = '\\d(?=(\\d{' + (x || 3) + '})+' + (n > 0 ? '\\.' : '$') + ')';
+        return this.toFixed(Math.max(0, ~~n)).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+    };
+
     var slider = document.getElementById("myRange");
     var output = document.getElementById("demo");
     var output1 = document.getElementById("demo1");
     var output3 = document.getElementById("customPrice");
-    
-    slider.oninput = function () {
-        
+
+    slider.oninput = function() {
+
         var totalEmail = this.value;
         let totalPrice = 0;
         let price = 0;
-        if(totalEmail <= 5000){
+        if (totalEmail <= 5000) {
             output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.0375 ;
+            price = totalEmail * 0.01875;
             totalPrice = (Math.ceil(price)).format();
-            
-        }else if(totalEmail <= 10000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.03375 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail <= 25000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.033 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail <= 50000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.03 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail <= 75000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.027375 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail <= 100000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.02625 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail <= 500000){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.0225 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else if(totalEmail < 1000001){
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.0125 ;
-            totalPrice = (Math.ceil(price)).format();
-        }else{
-            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
-            price = totalEmail * 0.0125 ;
-            output1.innerHTML = Math.ceil(price);
-            totalPrice = (Math.ceil(price)).format();
-        }
-        output1.innerHTML = "$ "+totalPrice;
-            output1.innerHTML = Math.ceil(price);
-            totalPrice = (Math.ceil(price)).format();
-        }
-        output1.innerHTML = "$ "+totalPrice;
-        output3.innerHTML = '<input type="hidden" name="price" value="'+price+'">\n\
-                                 <input type="hidden" name="totalemail" value="'+totalEmail+'">';
-        document.getElementById('dataType').value = 'ChangePrice';
-    }
-</script>
 
+        } else if (totalEmail <= 10000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.016875;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail <= 25000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.0165;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail <= 50000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.015;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail <= 75000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.0136875;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail <= 100000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.013125;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail <= 500000) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.01125;
+            totalPrice = (Math.ceil(price)).format();
+        } else if (totalEmail < 1000001) {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.00625;
+            totalPrice = (Math.ceil(price)).format();
+        } else {
+            output.innerHTML = totalEmail.replace(/(\\d)(?=(\\d{3})+(?!\\d))/g, '$1,');
+            price = totalEmail * 0.00625;
+            output1.innerHTML = Math.ceil(price);
+            totalPrice = (Math.ceil(price)).format();
+        }
+        output1.innerHTML = "$ " + totalPrice;
+        output1.innerHTML = Math.ceil(price);
+        totalPrice = (Math.ceil(price)).format();
+    }
+    output1.innerHTML = "$ " + totalPrice;
+    output3.innerHTML = '<input type="hidden" name="price" value="' + price + '">\n\
+                                 <input type="hidden" name="totalemail" value="' + totalEmail + '">';
+    document.getElementById('dataType').value = 'ChangePrice';
+</script>

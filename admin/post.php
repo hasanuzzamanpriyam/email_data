@@ -321,31 +321,31 @@ require_once 'assets/php/footer.php';
     function calculateRate(totalEmail, type) {
         let price = 0;
         if (type === 'Office 365') {
-            if (totalEmail <= 5000) price = totalEmail * 0.09375;
-            else if (totalEmail <= 10000) price = totalEmail * 0.09;
-            else if (totalEmail <= 25000) price = totalEmail * 0.08625;
-            else if (totalEmail <= 50000) price = totalEmail * 0.0825;
-            else if (totalEmail <= 75000) price = totalEmail * 0.07875;
-            else if (totalEmail <= 100000) price = totalEmail * 0.075;
-            else price = totalEmail * 0.075;
-        } else if (type === 'Custom Order') {
-            if (totalEmail <= 5000) price = totalEmail * 0.05625;
-            else if (totalEmail <= 10000) price = totalEmail * 0.0525;
-            else if (totalEmail <= 25000) price = totalEmail * 0.04875;
-            else if (totalEmail <= 50000) price = totalEmail * 0.045;
-            else if (totalEmail <= 75000) price = totalEmail * 0.04125;
+            if (totalEmail <= 5000) price = totalEmail * 0.046875;
+            else if (totalEmail <= 10000) price = totalEmail * 0.045;
+            else if (totalEmail <= 25000) price = totalEmail * 0.043125;
+            else if (totalEmail <= 50000) price = totalEmail * 0.04125;
+            else if (totalEmail <= 75000) price = totalEmail * 0.039375;
             else if (totalEmail <= 100000) price = totalEmail * 0.0375;
             else price = totalEmail * 0.0375;
+        } else if (type === 'Custom Order') {
+            if (totalEmail <= 5000) price = totalEmail * 0.028125;
+            else if (totalEmail <= 10000) price = totalEmail * 0.02625;
+            else if (totalEmail <= 25000) price = totalEmail * 0.024375;
+            else if (totalEmail <= 50000) price = totalEmail * 0.0225;
+            else if (totalEmail <= 75000) price = totalEmail * 0.020625;
+            else if (totalEmail <= 100000) price = totalEmail * 0.01875;
+            else price = totalEmail * 0.01875;
         } else {
             // Default (Ready Made)
-            if (totalEmail <= 5000) price = totalEmail * 0.0375;
-            else if (totalEmail <= 10000) price = totalEmail * 0.03375;
-            else if (totalEmail <= 25000) price = totalEmail * 0.033;
-            else if (totalEmail <= 50000) price = totalEmail * 0.03;
-            else if (totalEmail <= 75000) price = totalEmail * 0.027375;
-            else if (totalEmail <= 100000) price = totalEmail * 0.02625;
-            else if (totalEmail <= 500000) price = totalEmail * 0.0225;
-            else price = totalEmail * 0.01875;
+            if (totalEmail <= 5000) price = totalEmail * 0.01875;
+            else if (totalEmail <= 10000) price = totalEmail * 0.016875;
+            else if (totalEmail <= 25000) price = totalEmail * 0.0165;
+            else if (totalEmail <= 50000) price = totalEmail * 0.015;
+            else if (totalEmail <= 75000) price = totalEmail * 0.0136875;
+            else if (totalEmail <= 100000) price = totalEmail * 0.013125;
+            else if (totalEmail <= 500000) price = totalEmail * 0.01125;
+            else price = totalEmail * 0.009375;
         }
         return price;
     }

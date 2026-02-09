@@ -126,7 +126,9 @@ if (isset($_GET['cat']) && isset($_GET['id'])) {
     }
 
     $test = $seo->seo_details($seoPage);
-    $_SESSION['seo_title'] = isset($test['title']) ? $test['title'] : '';
+    $rawTitle = isset($test['title']) ? $test['title'] : '';
+    $cleanSiteName = str_ireplace('.test', '', $siteName);
+    $_SESSION['seo_title'] = str_ireplace('Mailer station', $cleanSiteName, $rawTitle);
 
     $_SESSION['seo_keyword'] = isset($test['key_word']) ? $test['key_word'] : '';
     $_SESSION['seo_desc'] = isset($test['description']) ? $test['description'] : '';
@@ -161,7 +163,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name=viewport content="width=device-width, initial-scale=1">
     <link rel="canonical" href="<?= $link; ?>" />
-    <title><?= $_SESSION['seo_title']; ?></title>
+    <!-- <title><?= $_SESSION['seo_title']; ?></title> -->
     <meta name="description" content="<?= $_SESSION['seo_desc']; ?>">
     <meta name="keywords" content="<?= $_SESSION['seo_keyword']; ?>">
     <!--FACEBOOK-->
@@ -668,7 +670,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
                         <li class="nav__item">
                             <a class="nav__item__link" href="' . $siteUrl . 'pricing">Pricing</a>
                         </li>
-                        <li class="nav__item nav__item--about">
+                        <li class="nav__item">
                             <a class="nav__item__link" href="' . $siteUrl . 'about">About</a>
                         </li>
                         
@@ -881,7 +883,7 @@ $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ?
                         <li class="nav__item">
                             <a class="nav__item__link" href="' . $siteUrl . 'pricing">Pricing</a>
                         </li>
-                        <li class="nav__item nav__item--about">
+                        <li class="nav__item">
                             <a class="nav__item__link" href="' . $siteUrl . 'about">About</a>
                         </li>
                        
