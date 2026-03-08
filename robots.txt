@@ -1,7 +1,28 @@
+Sitemap: https://emailbigdata.com/sitemap.xml
 
-Sitemap: /sitemap.xml
-
-User-agent: Mediapartners-Google 
+User-agent: Mediapartners-Google
 Disallow:
+
 User-agent: *
+
+# Administrative areas
 Disallow: /admin/
+Disallow: /employee/
+Disallow: /checkout/
+Disallow: /user/
+
+# Technical directories
+Disallow: /indexing/
+Disallow: /keys/
+Disallow: /DB/
+Disallow: /migrations/
+Disallow: /bundles/
+Disallow: /cgi-bin/
+
+# Sensitive files
+Disallow: /*.php
+Disallow: /*.ini
+Disallow: /*.env
+Disallow: /*.pem
+Disallow: /privatekey.pem
+Disallow: /error_log
