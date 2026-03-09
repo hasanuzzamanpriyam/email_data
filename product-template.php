@@ -37,7 +37,6 @@ if ($product) {
 ?>
 
 <div class="jumbotron jumbotron--list-detail jumbotron--regular-bg">
-    <h1 style="background:red; color:white; padding:20px; text-align:center; z-index:9999; position:relative;">DEBUG MARKER: PRODUCT TEMPLATE LOADED</h1>
     <div class="container jumbotron--list-detail__container table-layout-fixed">
         <div class="jumbotron--list-detail__col-half jumbotron--list-detail__col-left">
             <img class="img-responsive" src="<?= $siteUrl; ?>bundles/bydhome/img/thumbs/contact-list2.jpg" alt="Email List">
@@ -75,16 +74,6 @@ if ($product) {
                 </div>
             </div>
 
-            <div class="product-description-wrapper gap-bottom">
-                <div class="product-description-content" id="descContent" style="max-height: 100px; overflow: hidden; position: relative;">
-                    <p class="text-loblolly">
-                        <?php echo !empty($product['description']) ? $product['description'] : ''; ?>
-                    </p>
-                    <div id="descOverlay" style="position: absolute; bottom: 0; left: 0; width: 100%; height: 40px; background: linear-gradient(transparent, #fff);"></div>
-                </div>
-                <button id="toggleDescBtn" class="button button--secondary button--small gap-top-small" style="display: none;">Show More</button>
-            </div>
-
             <div class="gap-bottom-medium hidden-tlnd">
                 <?php if (!empty($product['file_type'])): ?>
                     <a href="<?= $siteUrl; ?>admin/assets/uploads/samples/<?= $product['file_type']; ?>" class="button button--secondary gap-right-plnu full-width-pld gap-bottom-small" download style="display:block; text-align:center; margin-bottom: 10px;">
@@ -104,6 +93,29 @@ if ($product) {
                     <input type="submit" name="buyNow" class="button button--primary gap-right-plnu full-width-pld gap-bottom-small-pld" value="Buy Now">
                 </form>
             </div>
+            
+            <!-- Full Description Section (Below Buy Now) -->
+            <?php if (!empty($product['description']) || !empty($product['short_description'])): ?>
+            <div style="margin-top: 30px; padding: 20px; background: #f9f9f9; border-radius: 4px;">
+                <h3 style="margin-top: 0; color: #333;"><?= htmlspecialchars(strtoupper($product['category'])); ?></h3>
+                <div style="text-align: justify; line-height: 1.6; color: #555;">
+                    <?php 
+                    // Display the full description 
+                    if (!empty($product['description'])) {
+                        // If description is HTML (from CKEditor), display as is
+                        if (strlen($product['description']) > 100 || strpos($product['description'], '<') !== false) {
+                            echo $product['description'];
+                        } else {
+                            echo '<p>' . nl2br(htmlspecialchars($product['description'])) . '</p>';
+                        }
+                    } else if (!empty($product['short_description'])) {
+                        echo '<p>' . nl2br(htmlspecialchars($product['short_description'])) . '</p>';
+                    }
+                    ?>
+                </div>
+            </div>
+            <?php endif; ?>
+            
             <ul class="list row">
                 <li class="col-lg-4 col-md-5 col-sm-6 gap-bottom-small-tpd">
                     <span class="icon icon-checkbox font-xlarge align-middle"></span>
@@ -151,6 +163,32 @@ if ($product) {
     <?php endif; ?>
 </div>
 <hr class="hr-line">
+
+<!-- Features/Guarantees Section (Like HR Page) -->
+<div class="row pad-vertical" style="background-color: #f5f5f5; margin: 40px 0;">
+    <div class="container">
+        <div class="col-md-3 col-sm-6 gap-bottom-tld">
+            <i class="icon icon-checkbox text-primary icon-medium"></i>
+            <h4>95% Deliverability Guarantee</h4>
+            <p class="clear-gap-bottom">Our data is verified by automated processes and human eyes. We're so confident about our contact lists that we provide a 95% accuracy guarantee. If more than 5% of your emails bounce, you'll get credits to make up the difference.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 gap-bottom-tld">
+            <i class="icon icon-download text-primary icon-medium"></i>
+            <h4>Instant Download</h4>
+            <p class="clear-gap-bottom">Get an email list in minutes and download it instantly as a .csv file! Both file types can be integrated into your CRM application quickly and easily. So you can get started with making new connections right away.</p>
+        </div>
+        <div class="col-md-3 col-sm-6 gap-bottom-tld">
+            <i class="icon icon-identification text-primary icon-medium"></i>
+            <h4>Email, Phone, Company Information, & More</h4>
+            <p class="clear-gap-bottom">We provide direct, detailed, specific information to help you make more valuable connections with your future business contacts: emails, names, phone numbers, postal addresses, business titles, company/industry information, and more.</p>
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <i class="icon icon-copyright text-primary icon-medium"></i>
+            <h4>Unlimited Usage Rights</h4>
+            <p class="clear-gap-bottom">Once you order the list, you own it! Our pricing is transparent; we don't charge extra fees for using the contacts we give you. There are no hidden fees or contracts.</p>
+        </div>
+    </div>
+</div>
 
 <?php include_once __DIR__ . '/assets/php/footer.php'; ?>
 
@@ -212,33 +250,4 @@ if ($product) {
             outputPrice.innerHTML = "$ " + Math.ceil(price).format();
         };
     }
-</script>
-<script>
-    // Description Toggle Logic
-    document.addEventListener("DOMContentLoaded", function() {
-        var content = document.getElementById("descContent");
-        var btn = document.getElementById("toggleDescBtn");
-        var overlay = document.getElementById("descOverlay");
-
-        if (content.scrollHeight > 100) {
-            btn.style.display = "inline-block";
-            overlay.style.display = "block";
-        } else {
-            content.style.maxHeight = "none";
-            overlay.style.display = "none";
-        }
-
-        btn.addEventListener("click", function(e) {
-            e.preventDefault();
-            if (content.style.maxHeight !== "none") {
-                content.style.maxHeight = "none";
-                overlay.style.display = "none";
-                btn.textContent = "Show Less";
-            } else {
-                content.style.maxHeight = "100px";
-                overlay.style.display = "block";
-                btn.textContent = "Show More";
-            }
-        });
-    });
 </script>

@@ -129,6 +129,36 @@ if ($product) {
     </div>
 </div>
 <hr class="hr-line">
+
+<!-- Full Description Section -->
+<?php if (!empty($product['description']) || !empty($product['short_description'])): ?>
+<div class="pad-top-small pad-bottom-small">
+    <div class="container">
+        <div class="row gap-bottom-large">
+            <div class="col-md-10 col-md-offset-1">
+                <h2 class="primary-title h3"><?= htmlspecialchars(strtoupper($product['category'])); ?></h2>
+                <div style="text-align: justify; line-height: 1.6; color: #555;">
+                    <?php 
+                    // Display the full description 
+                    if (!empty($product['description'])) {
+                        // If description is HTML (from CKEditor), display as is
+                        if (strlen($product['description']) > 100 || strpos($product['description'], '<') !== false) {
+                            echo $product['description'];
+                        } else {
+                            echo '<p>' . nl2br(htmlspecialchars($product['description'])) . '</p>';
+                        }
+                    } else if (!empty($product['short_description'])) {
+                        echo '<p>' . nl2br(htmlspecialchars($product['short_description'])) . '</p>';
+                    }
+                    ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="hr-line">
+<?php endif; ?>
+
 <div class="container gap-bottom-medium">
     <?php if (!empty($relatedProducts)): ?>
         <h3 class="jumbotron__title gap-bottom">Related Products</h3>
